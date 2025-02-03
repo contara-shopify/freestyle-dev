@@ -372,37 +372,6 @@
     ]
   },
   {
-    "name": "Typography",
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "Use typography to present your design and content as clearly and efficiently as possible."
-      },
-      {
-        "type": "header",
-        "content": "Headings"
-      },
-      {
-        "type": "font_picker",
-        "id": "font_heading",
-        "default": "inter_n7",
-        "label": "Font",
-        "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
-      },
-      {
-        "type": "header",
-        "content": "Body"
-      },
-      {
-        "type": "font_picker",
-        "id": "font_body",
-        "default": "inter_n5",
-        "label": "Font",
-        "info": "Selecting a different font can affect the speed of your store. [Learn more about system fonts.](https://help.shopify.com/en/manual/online-store/os/store-speed/improving-speed#fonts)"
-      }
-    ]
-  },
-  {
     "name": "Cart",
     "settings": [
       {
@@ -431,22 +400,6 @@
         "type": "product_list",
         "id": "cart_products",
         "label": "Cart Products Carousel",
-      }
-    ]
-  },
-  {
-    "name": "Currency",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Currency codes"
-      },
-      {
-        "type": "checkbox",
-        "id": "currency_code_enabled",
-        "label": "Show currency codes",
-        "info": "Cart and checkout prices always show currency codes. Example: $1.00 USD.",
-        "default": true
       }
     ]
   }
