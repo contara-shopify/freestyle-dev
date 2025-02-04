@@ -51,14 +51,13 @@
     </div>
 
     <div class="mt-12 text-base lg:text-xl flex flex-col lg:flex-row gap-4 lg:gap-24 items-center lg:justify-start lg:pt-8">
-      <p class="font-plusJakarta font-normal text-center lg:text-left">{{ section.settings.copyright_text }} TEST</p>
+      <p class="font-plusJakarta font-normal text-center lg:text-left">{{ section.settings.copyright_text }}</p>
       {% for link in section.settings.footer_menu_3.links %}
         <a href="{{ link.url }}" class="hover:text-gray-200 font-plusJakarta font-normal">{{ link.title }}</a>
       {% endfor %}
     </div>
-      </div>
+  </div>
 </div>
-
 
 {% schema %}
 {
