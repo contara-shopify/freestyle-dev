@@ -96,21 +96,21 @@
           {
             "type": "color",
             "id": "color_primary",
-            "label": "Primary Color",
-            "default": "#FFFFFF"
+            "label": "Primary Color (Core)",
+            "default": "#919CC2"
           },
           {
             "type": "color",
             "id": "color_secondary",
-            "label": "Secondary Color",
-            "default": "#FFFFFF"
+            "label": "Secondary Color (Core Light)",
+            "default": "#E6E6FA"
           },
           {
             "type": "color",
             "id": "color_tertiary",
             "label": "Tertiary Color",
-            "default": "#FFFFFF"
-          },
+            "default": "#4cfd9f"
+          }
         ],
         "role": {
           "text": "text",
@@ -400,6 +400,30 @@
         "type": "product_list",
         "id": "cart_products",
         "label": "Cart Products Carousel",
+      }
+    ]
+  },
+  {
+    "name": "Mobile Menu Bottom",
+    "settings": [
+      {
+        "type": "text",
+        "id": "mobile_menu_button_text",
+        "label": "Button Text",
+        "default": "SHOP DIAPERS"
+      },
+      {
+        "type": "url",
+        "id": "mobile_menu_button_link",
+        "label": "URL",
+        "default": "/shop"
+      },
+      {
+        "type": "text",
+        "id": "mobile_menu_shipping_text",
+        "label": "Shipping Text",
+        "default": "FREE SHIPPING ON ALL DIAPERS"
+
       }
     ]
   }

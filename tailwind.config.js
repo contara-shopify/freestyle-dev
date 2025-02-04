@@ -43,6 +43,22 @@ export default {
       borderRadius: {
         'regular': '8px',
       },
+      animation: {
+        'gradient-wave': 'gradient-wave 3s ease infinite',
+      },
+      keyframes: {
+        'gradient-wave': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+      },
+      backgroundImage: {
+        'hover-gradient': 'linear-gradient(90deg, #c2b0ff, #fd9025 33%, #4cfd9f 67%, #c2b0ff)',
+      },
+      backgroundSize: {
+        'gradient-size': '300% 100%',
+      },
     },
     colors: {
       color_1: {
@@ -78,11 +94,15 @@ export default {
       core: {
         DEFAULT: '#919CC2',
       },
+      core_light: {
+        DEFAULT: '#E6E6FA',
+      },
       'light-blue': {
         DEFAULT: '#ECF8FF',
         bg: '#ECF8FF',
         bd: '#ECF8FF',
       },
+
       white: {
         DEFAULT: '#ffffff',
         bg: '#ffffff',

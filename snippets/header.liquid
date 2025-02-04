@@ -1,9 +1,10 @@
 {% assign settingsHeaderBg = settings.header_bg %}
 
 {% if settings.show_promo %}
-  <div class="b-header__promo relative w-full py-6 px-12 text-center font-Aksen tracking-wid bg-core text-white-content text-sm uppercase tracking-[0.1rem]">
+  <div class="b-header__promo  text-[10px] lg:text-base relative w-full py-6 px-12 text-center font-Aksen tracking-wid bg-core text-white-content text-sm uppercase tracking-[0.1rem]">
     {% if settings.show_promo_link != blank %}<a href="{{ settings.show_promo_link }}" target="_blank">{% endif %}
     {{ settings.promo_text }}
+
     {% if settings.show_promo_link != blank %}</a>{% endif %}
     <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white-content hover:opacity-75" onclick="this.parentElement.style.display='none'">
       <span class=" pr-2 text-4xl font-light">×</span>
@@ -13,7 +14,7 @@
 <div class="relative b-header__wrapper py-1 bg-[#E6E6FA] md:px-8">
   <div class="b-header__inner mx-auto px-8 py-4 flex justify-between items-center">
     <button class="lg:hidden text-core hover:text-gray-600" onclick="toggleMobileMenu()">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
@@ -68,12 +69,11 @@
     </div>
   </div>
 
-  <div id="mobileMenu" class="lg:hidden hidden fixed inset-0 bg-[#E6E6FA] z-50">
+  <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-[#E6E6FA] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
     <div class="p-8">
-      <!-- Header del menú mobile -->
       <div class="flex justify-between items-center mb-8">
         <button class="text-core hover:text-gray-600" onclick="toggleMobileMenu()">
-          <span class="text-4xl font-light">×</span>
+          <span class="text-3xl font-thin">x</span>
         </button>
         <div class="flex items-center gap-4">
           <a href="/account" class="text-core uppercase text-sm hover:text-gray-600">ACCOUNT</a>
@@ -84,44 +84,45 @@
       </div>
 
       <nav class="mt-8">
-        <div class="space-y-6 text-xl">
-          <a href="/buy-diapers" class="block text-core hover:text-gray-600">Buy Diapers</a>
-          <a href="/store-locator" class="block text-core hover:text-gray-600">Store Locator</a>
-        </div>
-
-        <div class="mt-12 space-y-4">
+        <div class="mt-12 space-y-4 text-2xl font-extralight">
           {% for link in linklists.main-menu.links %}
-            <a href="{{ link.url }}" class="block text-core hover:text-gray-600 {% if link.active %}text-gray-600{% endif %}">
+            <a href="{{ link.url }}" class="block py-6 text-core hover:text-gray-600 {% if link.active %}text-gray-600{% endif %}">
               {{ link.title }}
             </a>
           {% endfor %}
         </div>
 
-        <div class="absolute bottom-20 left-8 right-8">
-          <div class="flex justify-center gap-8">
-            <a href="#" class="text-core hover:text-gray-600"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-core hover:text-gray-600"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="text-core hover:text-gray-600"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-core hover:text-gray-600"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-core hover:text-gray-600"><i class="fab fa-youtube"></i></a>
-          </div>
+        <div class="mt-8 space-y-4 text-base font-semibold">
+          {% for link in linklists.footer.links %}
+            <a href="{{ link.url }}" class="block py-2 text-core hover:text-gray-600 {% if link.active %}text-gray-600{% endif %}">
+              {{ link.title }}
+            </a>
+          {% endfor %}
         </div>
 
-        <!-- Shop button -->
+      
+
         <div class="absolute bottom-8 left-8 right-8">
-          <a href="/shop" class="block w-full py-4 text-center bg-gray-600 text-white rounded-md">
-            SHOP DIAPERS
+          <a href="{{ settings.mobile_menu_button_link | default: '/shop' }}" class="block w-full py-6 text-center bg-core text-core_light rounded-full transition-all duration-300 hover:text-white hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+            {{ settings.mobile_menu_button_text | default: 'SHOP DIAPERS' }}
           </a>
+          <p class="text-core text-sm font-semibold text-center mt-2">{{ settings.mobile_menu_shipping_text | default: 'FREE SHIPPING ON ALL DIAPERS' }}</p>
         </div>
       </nav>
     </div>
   </div>
+
 </div>
 
 <script>
   function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.toggle('hidden');
+    if (mobileMenu.classList.contains('-translate-x-full')) {
+      mobileMenu.classList.remove('-translate-x-full');
+    } else {
+      mobileMenu.classList.add('-translate-x-full');
+    }
     document.body.classList.toggle('overflow-hidden');
   }
 </script>
+
