@@ -75,6 +75,9 @@ export default {
         secondary: '#A8D9E6',
         tertiary: '#FFFFFF',
       },
+      core: {
+        DEFAULT: '#919CC2',
+      },
       'light-blue': {
         DEFAULT: '#ECF8FF',
         bg: '#ECF8FF',
