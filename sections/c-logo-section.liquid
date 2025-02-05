@@ -1,16 +1,22 @@
-<div class="container mx-auto px-4 py-8 md:py-40">
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+<div class="mx-auto px-4 py-8 md:py-40">
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
     {% for block in section.blocks %}
       <div class="flex justify-center {% if forloop.last %}col-span-2 md:col-span-1{% endif %}" {{ block.shopify_attributes }}>
         {% if block.settings.logo != blank %}
           <img 
-            src="{{ block.settings.logo | image_url: width: 200 }}"
+            src="{{ block.settings.logo | image_url: width: 1000 }}"
             alt="{{ block.settings.logo.alt | escape }}"
             loading="lazy"
-            class="w-auto h-12 md:h-16 object-contain"
+            class="w-auto h-40 md:h-56 object-contain"
           >
         {% else %}
-          {{ 'logo' | placeholder_svg_tag: 'w-auto h-12 md:h-16' }}
+          {% assign default_logos = "https://cdn.sanity.io/images/cn55vbgx/production/003b0d4f1eda5a2461c39e03a1c4809912bca280-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/7d782f9c41b90b51446cfbe1c19f33d6adf74af7-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/2b8f11ebbe61bc89ba04e244adede4beb473c420-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/5d41ac81c9b67331bb600ac77c773b16f40f4350-2083x2083.png?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/b98f7bb1931acf41eaf6c447a970d84cebc38135-2083x2083.png?w=1000&h=1000&q=80&fit=max&auto=format" | split: "," %}
+          <img 
+            src="{{ default_logos[forloop.index0] }}"
+            alt="Logo {{ forloop.index }}"
+            loading="lazy"
+            class="w-auto h-40 md:h-56 object-contain"
+          >
         {% endif %}
       </div>
     {% endfor %}
