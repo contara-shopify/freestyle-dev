@@ -1,0 +1,131 @@
+{% schema %}
+{
+  "name": "Productos Destacados",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Title Product 1",
+      "default": "Non Toxic, Ultra Soft Diaper"
+
+    },
+    {
+      "type": "text",
+      "id": "description_1",
+      "label": "Description Product 1",
+      "default": "12+ hours of absorbency thanks to BambooTek®, our squeaky clean and sustainable core."
+
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "URL Button 1"
+    },
+
+    {
+      "type": "text",
+      "id": "button_text_1",
+      "label": "Text Button 1",
+      "default": "SHOP DIAPERS"
+
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Img Product 1"
+    },
+
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title Product 2",
+      "default": "Soft & Thick Jumbo Wipes"
+
+    },
+    {
+      "type": "text",
+      "id": "description_2",
+      "label": "Description Product 2",
+      "default": "Large and thick, extra soft, and EWG Verified, these super clean wipes make quick work of any mess."
+
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "URL Button 2"
+    },
+    {
+      "type": "text",
+      "id": "button_text_2",
+      "label": "Text Button 2",
+      "default": "SHOP WIPES"
+
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Img Product 2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+
+  ]
+}
+{% endschema %}
+
+<div class="w-full bg-[#B7BED1] py-16">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Producto 1 -->
+      <div class="flex flex-col items-start space-y-6">
+        <div class="flex items-start justify-between w-full">
+          <h2 class="text-4xl text-white font-bold max-w-[60%]">
+            {{ section.settings.title_1 }}
+          </h2>
+          <a href="{{ section.settings.button_link_1 }}" class="bg-[#F7F76E] px-6 py-2 rounded-full font-medium hover:bg-[#e8e860] transition-colors">
+            {{ section.settings.button_text_1 }}
+          </a>
+        </div>
+        <p class="text-white text-lg">
+          {{ section.settings.description_1 }}
+        </p>
+        {% if section.settings.image_1 != blank %}
+          <img 
+            src="{{ section.settings.image_1 | img_url: 'master' }}"
+            alt="{{ section.settings.title_1 }}"
+            class="w-2/3 mx-auto mt-8"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="flex flex-col items-start space-y-6">
+        <div class="flex items-start justify-between w-full">
+          <h2 class="text-4xl text-white font-bold max-w-[60%]">
+            {{ section.settings.title_2 }}
+          </h2>
+          <a href="{{ section.settings.button_link_2 }}" class="bg-[#F7F76E] px-6 py-2 rounded-full font-medium hover:bg-[#e8e860] transition-colors">
+            {{ section.settings.button_text_2 }}
+          </a>
+        </div>
+        <p class="text-white text-lg">
+          {{ section.settings.description_2 }}
+        </p>
+        {% if section.settings.image_2 != blank %}
+          <img 
+            src="{{ section.settings.image_2 | img_url: 'master' }}"
+            alt="{{ section.settings.title_2 }}"
+            class="w-2/3 mx-auto mt-8"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div>

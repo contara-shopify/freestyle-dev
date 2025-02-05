@@ -94,12 +94,23 @@
         "button_link": "",
         "spacing": 16
       }
+    },
+    "featured-products": {
+      "type": "c-product-show",
+      "settings": {
+        "title_1": "Non Toxic, Ultra Soft Diaper",
+        "description_1": "12+ hours of absorbency thanks to BambooTek®, our squeaky clean and sustainable core.",
+        "button_text_1": "SHOP DIAPERS",
+        "title_2": "Soft & Thick Jumbo Wipes",
+        "description_2": "Large and thick, extra soft, and EWG Verified, these super clean wipes make quick work of any mess.",
+        "button_text_2": "SHOP WIPES"
+      }
     }
   },
   "order": [
     "custom_hero_video",
     "logo-section",
     "c_rotating_icon_strip_RDBxaK",
-    
+    "featured-products"
   ]
 }
