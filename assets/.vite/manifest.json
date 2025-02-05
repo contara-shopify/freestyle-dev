@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-D2GoBspE.css",
+    "file": "main-Co3hfLmk.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -19,6 +19,12 @@
     "file": "theme.product-l0sNRNKZ.js",
     "name": "theme.product",
     "src": "frontend/entrypoints/theme.product.js",
+    "isEntry": true
+  },
+  "frontend/scripts/sections/c-hero-video.js": {
+    "file": "c-hero-video-ItaGN4_Z.js",
+    "name": "c-hero-video",
+    "src": "frontend/scripts/sections/c-hero-video.js",
     "isEntry": true
   },
   "frontend/scripts/sections/header.js": {
@@ -47,6 +53,11 @@
     "file": "blog-post-list-l0sNRNKZ.js",
     "name": "blog-post-list",
     "src": "frontend/styles/sections/blog-post-list.scss",
+    "isEntry": true
+  },
+  "frontend/styles/sections/c-hero-video.scss": {
+    "file": "c-hero-video-Q0WoNfwH.css",
+    "src": "frontend/styles/sections/c-hero-video.scss",
     "isEntry": true
   },
   "frontend/styles/sections/feature-section-custom.scss": {

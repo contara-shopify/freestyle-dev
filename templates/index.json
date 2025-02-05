@@ -9,6 +9,17 @@
  */
 {
   "sections": {
+    "custom_hero_video": {
+      "type": "c-hero-video",
+      "settings": {
+        "video": "",
+        "heading": "Non-toxic, ultra soft diapers just caught a vibe",
+        "heading_color": "#FFF9BE",
+        "button_label": "SHOP NOW",
+        "button_link": "/collections/all",
+        "button_color": "#FFF9BE"
+      }
+    },
     "c_rotating_icon_strip_RDBxaK": {
       "type": "c-rotating-icon-strip",
       "blocks": {
@@ -75,7 +86,8 @@
     }
   },
   "order": [
+    "custom_hero_video",
     "c_rotating_icon_strip_RDBxaK",
-    "about_us_rzGqV7"
+    
   ]
 }

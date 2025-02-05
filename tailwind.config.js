@@ -59,6 +59,11 @@ export default {
       backgroundSize: {
         'gradient-size': '300% 100%',
       },
+      colors: {
+        yellow: {
+          DEFAULT: '#FFFD7B',
+        }
+      }
     },
     colors: {
       color_1: {

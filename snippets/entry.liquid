@@ -4,13 +4,15 @@
 {% endcomment %}
 {% assign path = entry | replace: '~/', '../../' | replace: '@/', '../' %}
 {% if path == "/frontend/entrypoints/main.scss" or path == "main.scss" %}
-  {{ 'main-D2GoBspE.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
+  {{ 'main-Co3hfLmk.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/entrypoints/main.theme.js" or path == "main.theme.js" %}
   <script src="{{ 'main.theme-yAH8z4Ac.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
 {% elsif path == "/frontend/entrypoints/page-pdp.scss" or path == "page-pdp.scss" %}
   {{ 'page-pdp-Dwdxf5Hg.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/entrypoints/theme.product.js" or path == "theme.product.js" %}
   <script src="{{ 'theme.product-l0sNRNKZ.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
+{% elsif path == "/frontend/scripts/sections/c-hero-video.js" or path == "../scripts/sections/c-hero-video.js" %}
+  <script src="{{ 'c-hero-video-ItaGN4_Z.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
 {% elsif path == "/frontend/scripts/sections/header.js" or path == "../scripts/sections/header.js" %}
   <script src="{{ 'header-3kt7Fq5v.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
 {% elsif path == "/frontend/scripts/sections/main-product.js" or path == "../scripts/sections/main-product.js" %}
@@ -21,6 +23,8 @@
   {{ 'blog-featured-CC38AZfP.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/styles/sections/blog-post-list.scss" or path == "../styles/sections/blog-post-list.scss" %}
   {{ 'blog-post-list-l0sNRNKZ.js' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
+{% elsif path == "/frontend/styles/sections/c-hero-video.scss" or path == "../styles/sections/c-hero-video.scss" %}
+  {{ 'c-hero-video-Q0WoNfwH.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/styles/sections/feature-section-custom.scss" or path == "../styles/sections/feature-section-custom.scss" %}
   {{ 'feature-section-custom-CJbhMsoX.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/styles/sections/footer-image-carousel.scss" or path == "../styles/sections/footer-image-carousel.scss" %}
