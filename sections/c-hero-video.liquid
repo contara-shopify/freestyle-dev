@@ -18,7 +18,7 @@
       {% endif %}
     </video>
     
-    <div class="custom-hero-video__content absolute pt-[530px] md:pt-[380px] inset-0 flex flex-col justify-center items-start px-4 md:px-16 bg-gradient-to-r from-black/40 to-transparent z-10">
+    <div class="custom-hero-video__content absolute pt-[480px] md:pt-[380px] inset-0 flex flex-col justify-center items-start px-4 md:px-16 bg-gradient-to-r from-black/40 to-transparent z-10">
       {% if section.settings.heading != blank %}
         <h2 class="custom-hero-video__heading text-3xl text-left md:text-5xl font-extralight md:mb-8 drop-shadow-lg text-yellow"
             {% if section.settings.heading_color != '#FFF9BE' %}
@@ -30,7 +30,7 @@
       
       {% if section.settings.button_label != blank %}
         <a href="{{ section.settings.button_link | default: '#' }}" 
-           class="custom-hero-video__button px-10 py-5 md:px-30 md:py-9 mt-16 rounded-full md:text-xl font-semibold bg-yellow text-core transition-opacity hover:opacity-80"
+           class="custom-hero-video__button px-10 py-5 md:px-30 md:py-10 mt-16 rounded-full md:text-xl font-semibold bg-yellow text-core transition-opacity hover:opacity-80"
            {% if section.settings.button_color != '#FFF9BE' %}
              style="background-color: {{ section.settings.button_color }};"
            {% endif %}>
@@ -84,7 +84,6 @@
   "presets": [
     {
       "name": "Custom Hero Video",
-      "category": "Video"
     }
   ]
 }
