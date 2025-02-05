@@ -1,0 +1,60 @@
+<div class="container mx-auto px-4 py-8 md:py-40">
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
+    {% for block in section.blocks %}
+      <div class="flex justify-center {% if forloop.last %}col-span-2 md:col-span-1{% endif %}" {{ block.shopify_attributes }}>
+        {% if block.settings.logo != blank %}
+          <img 
+            src="{{ block.settings.logo | image_url: width: 200 }}"
+            alt="{{ block.settings.logo.alt | escape }}"
+            loading="lazy"
+            class="w-auto h-12 md:h-16 object-contain"
+          >
+        {% else %}
+          {{ 'logo' | placeholder_svg_tag: 'w-auto h-12 md:h-16' }}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Logo Section",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Section",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

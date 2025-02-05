@@ -1,11 +1,11 @@
 [
   {
-    "name": "theme_info",
-    "theme_name": "Theme Name",
+    "name": "contara theme",
+    "theme_name": "Theme Contara",
     "theme_version": "0.1.0",
-    "theme_author": "Odestry",
-    "theme_documentation_url": "https://odestry.blanklob.com",
-    "theme_support_url": "https://odestry.blanklob.com"
+    "theme_author": "Contara",
+    "theme_documentation_url": "https://www.contara.com/",
+    "theme_support_url": "https://www.contara.com/"
   },
   {
     "name": "Header",

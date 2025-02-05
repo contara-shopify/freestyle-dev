@@ -20,6 +20,17 @@
         "button_color": "#FFF9BE"
       }
     },
+    "logo-section": {
+      "type": "c-logo-section",
+      "blocks": {
+        "block-1": { "type": "logo" },
+        "block-2": { "type": "logo" },
+        "block-3": { "type": "logo" },
+        "block-4": { "type": "logo" },
+        "block-5": { "type": "logo" }
+      },
+      "block_order": ["block-1", "block-2", "block-3", "block-4", "block-5"]
+    },
     "c_rotating_icon_strip_RDBxaK": {
       "type": "c-rotating-icon-strip",
       "blocks": {
@@ -87,6 +98,7 @@
   },
   "order": [
     "custom_hero_video",
+    "logo-section",
     "c_rotating_icon_strip_RDBxaK",
     
   ]
