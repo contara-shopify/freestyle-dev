@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-CgHti0-D.css",
+    "file": "main-D2GoBspE.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -19,6 +19,12 @@
     "file": "theme.product-l0sNRNKZ.js",
     "name": "theme.product",
     "src": "frontend/entrypoints/theme.product.js",
+    "isEntry": true
+  },
+  "frontend/scripts/sections/header.js": {
+    "file": "header-3kt7Fq5v.js",
+    "name": "header",
+    "src": "frontend/scripts/sections/header.js",
     "isEntry": true
   },
   "frontend/scripts/sections/main-product.js": {
@@ -51,6 +57,11 @@
   "frontend/styles/sections/footer-image-carousel.scss": {
     "file": "footer-image-carousel-CZXdh6Uz.css",
     "src": "frontend/styles/sections/footer-image-carousel.scss",
+    "isEntry": true
+  },
+  "frontend/styles/sections/header.scss": {
+    "file": "header-DrlYEtYG.css",
+    "src": "frontend/styles/sections/header.scss",
     "isEntry": true
   },
   "frontend/styles/sections/homepage-community.scss": {

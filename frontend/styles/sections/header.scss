@@ -1,0 +1,14 @@
+
+
+.b-header {
+  &__mobile-menu {
+    @apply lg:hidden fixed inset-0 z-50 bg-[#E6E6FA];
+    transform: translateX(-100%);
+    transition: transform 300ms ease-in-out;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+}
+

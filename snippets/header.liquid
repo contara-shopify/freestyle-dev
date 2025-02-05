@@ -1,4 +1,6 @@
 {% assign settingsHeaderBg = settings.header_bg %}
+{% render 'entry' with '@/scripts/sections/header.js' %}
+{% render 'entry' with '@/styles/sections/header.scss' %}
 
 {% if settings.show_promo %}
   <div class="b-header__promo  text-[10px] lg:text-base relative w-full py-6 px-12 text-center font-Aksen tracking-wid bg-core text-white-content text-sm uppercase tracking-[0.1rem]">
@@ -13,7 +15,7 @@
 {% endif %}
 <div class="relative b-header__wrapper py-1 bg-[#E6E6FA] md:px-8">
   <div class="b-header__inner mx-auto px-8 py-4 flex justify-between items-center">
-    <button class="lg:hidden text-core hover:text-gray-600" onclick="toggleMobileMenu()">
+    <button class="lg:hidden text-core hover:text-gray-600" data-mobile-menu-toggle>
       <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -46,7 +48,7 @@
             loading="lazy"
           >
         {%- else -%}
-          <span class="text-xl mt-8 md:mt-0 md:text-2xl font-bold">{{ shop.name }}</span>
+          <span class="text-xl mt-2 md:mt-0 md:text-2xl font-bold">{{ shop.name }}</span>
         {%- endif -%}
       </a>
     </div>
@@ -72,7 +74,7 @@
   <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-[#E6E6FA] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
     <div class="p-8">
       <div class="flex justify-between items-center mb-8">
-        <button class="text-core hover:text-gray-600" onclick="toggleMobileMenu()">
+        <button class="text-core hover:text-gray-600" data-mobile-menu-toggle>
           <span class="text-3xl font-thin">x</span>
         </button>
         <div class="flex items-center gap-4">
@@ -114,15 +116,4 @@
 
 </div>
 
-<script>
-  function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenu.classList.contains('-translate-x-full')) {
-      mobileMenu.classList.remove('-translate-x-full');
-    } else {
-      mobileMenu.classList.add('-translate-x-full');
-    }
-    document.body.classList.toggle('overflow-hidden');
-  }
-</script>
 
