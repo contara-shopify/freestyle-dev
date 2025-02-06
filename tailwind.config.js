@@ -62,9 +62,13 @@ export default {
       colors: {
         yellow: {
           DEFAULT: '#FFFD7B',
-        }
-      }
+        },
+        green: {
+          DEFAULT: '#4CFD9F',
+        },
+      },
     },
+
     colors: {
       color_1: {
         DEFAULT: '#1b4c62',
