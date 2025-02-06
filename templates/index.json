@@ -105,11 +105,30 @@
         "description_2": "Large and thick, extra soft, and EWG Verified, these super clean wipes make quick work of any mess.",
         "button_text_2": "SHOP WIPES"
       }
+    },
+    "review_scroller": {
+      "type": "review-scroller-custom",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe",
+            "author_handle": "@johndoe",
+            "review_text": "Esta es una reseña de demostración. El producto es excelente y el servicio fue increíble. ¡Totalmente recomendado!"
+          }
+        }
+      },
+      "block_order": ["review-1"],
+      "settings": {
+        "title": "Thousands shipped,",
+        "subtitle": "nothing but love."
+      }
     }
   },
   "order": [
     "custom_hero_video",
     "logo-section",
     "featured-products",
+    "review_scroller"
   ]
 }
