@@ -149,6 +149,51 @@
         "button_1_text": "PERFORMANCE",
         "button_2_text": "ECO STANDARDS"
       }
+    },
+    "product_comparison": {
+      "type": "c-product-comparison",
+      "blocks": {
+        "comparison_row_1": {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "CLEAN INGREDIENTS"
+          }
+        },
+        "comparison_row_2": {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "12 HOUR PROTECTION"
+          }
+        },
+        "comparison_row_3": {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "NET ZERO PLASTIC WASTE"
+          }
+        },
+        "comparison_row_4": {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "SAVES TREES"
+          }
+        },
+        "comparison_row_5": {
+          "type": "comparison_row",
+          "settings": {
+            "feature": "LOOKS GOOD IN PICTURES"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_1",
+        "comparison_row_2",
+        "comparison_row_3",
+        "comparison_row_4",
+        "comparison_row_5"
+      ],
+      "settings": {
+        "title": "You made a baby,\nwe made a diaper."
+      }
     }
   },
   "order": [
@@ -156,7 +201,8 @@
     "logo-section",
     "featured-products",
     "review_scroller",
-    "product_features"
+    "product_features",
+    "product_comparison"
 
   ]
 }
