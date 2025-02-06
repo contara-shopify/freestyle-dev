@@ -67,6 +67,15 @@ export default {
           DEFAULT: '#4CFD9F',
         },
       },
+      utilities: {
+        '.scrollbar-hide': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none'
+          }
+        }
+      }
     },
 
     colors: {

@@ -1,0 +1,83 @@
+<div class="mx-auto px-4 py-8 md:py-40 bg-core_light">
+  {% if section.settings.heading != blank %}
+    <div class="text-center md:mb-40">
+      <p class="text-core text-lg font-semibold  md:text-2xl max-w-7xl mx-auto">"{{ section.settings.heading }}"</p>
+    </div>
+  {% endif %}
+  
+
+
+  <div class="flex flex-nowrap overflow-x-scroll scrollbar-hide whitespace-nowrap gap-4 items-center mt-8 md:grid md:grid-cols-5 md:overflow-x-hidden">
+    {% for block in section.blocks %}
+      <div class="w-[40%] flex-none md:w-auto flex justify-center items-center {% if forloop.last %}md:col-span-1{% endif %}" {{ block.shopify_attributes }}>
+        {% if block.settings.logo != blank %}
+          <img 
+            src="{{ block.settings.logo | image_url: width: 1000 }}"
+            alt="{{ block.settings.logo.alt | escape }}"
+            loading="lazy"
+            class="w-auto h-40 md:h-56 object-contain"
+          >
+        {% else %}
+          {% assign default_logos = "https://cdn.sanity.io/images/cn55vbgx/production/003b0d4f1eda5a2461c39e03a1c4809912bca280-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/7d782f9c41b90b51446cfbe1c19f33d6adf74af7-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/2b8f11ebbe61bc89ba04e244adede4beb473c420-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/5d41ac81c9b67331bb600ac77c773b16f40f4350-2083x2083.png?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/b98f7bb1931acf41eaf6c447a970d84cebc38135-2083x2083.png?w=1000&h=1000&q=80&fit=max&auto=format" | split: "," %}
+          <img 
+            src="{{ default_logos[forloop.index0] }}"
+            alt="Logo {{ forloop.index }}"
+            loading="lazy"
+            class="w-auto h-40 md:h-56 object-contain"
+          >
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+  
+{% schema %}
+{
+  "name": "Logo Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Text",
+      "default": "Of all the new diapers to hit the scene, these are our fave. Super stylish, they're also more sustainable than many other disposable diaper brands thanks to the bamboo core. They're also really soft, really absorbent and free of things like chlorine and fragrances."
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Reviews",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+  

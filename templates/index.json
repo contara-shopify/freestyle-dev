@@ -194,6 +194,20 @@
       "settings": {
         "title": "You made a baby,\nwe made a diaper."
       }
+    },
+    "logo_reviews": {
+      "type": "c-logo-reviews",
+      "blocks": {
+        "block-1": { "type": "logo" },
+        "block-2": { "type": "logo" },
+        "block-3": { "type": "logo" },
+        "block-4": { "type": "logo" },
+        "block-5": { "type": "logo" }
+      },
+      "block_order": ["block-1", "block-2", "block-3", "block-4", "block-5"],
+      "settings": {
+        "heading": "Of all the new diapers to hit the scene, these are our fave. Super stylish, they're also more sustainable than many other disposable diaper brands thanks to the bamboo core. They're also really soft, really absorbent and free of things like chlorine and fragrances."
+      }
     }
   },
   "order": [
@@ -202,7 +216,7 @@
     "featured-products",
     "review_scroller",
     "product_features",
-    "product_comparison"
-
+    "product_comparison",
+    "logo_reviews"
   ]
 }
