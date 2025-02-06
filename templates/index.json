@@ -208,6 +208,14 @@
       "settings": {
         "heading": "Of all the new diapers to hit the scene, these are our fave. Super stylish, they're also more sustainable than many other disposable diaper brands thanks to the bamboo core. They're also really soft, really absorbent and free of things like chlorine and fragrances."
       }
+    },
+    "newsletter": {
+      "type": "c-newsletter",
+      "settings": {
+        "title": "Emails as wavy as our diapers",
+        "description": "Sign up to stay in the know on new artist collabs, new products, and special releases.",
+        "button_label": "GET MY STICKER PACK"
+      }
     }
   },
   "order": [
@@ -217,6 +225,7 @@
     "review_scroller",
     "product_features",
     "product_comparison",
-    "logo_reviews"
+    "logo_reviews",
+    "newsletter"
   ]
 }
