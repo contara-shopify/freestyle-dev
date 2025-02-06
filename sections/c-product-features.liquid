@@ -1,0 +1,118 @@
+<div class="bg-core_light py-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {% for block in section.blocks %}
+
+        <div class="flex flex-col items-center text-left" {{ block.shopify_attributes }}>
+          {% assign default_image = 'https://cdn.sanity.io/images/cn55vbgx/production/3ae438f53b23a68c57828b485a069e061b432011-3840x4800.jpg?w=600&h=750&q=80&fit=max&auto=format' %}
+
+          
+          <img 
+            src="{% if block.settings.image %}{{ block.settings.image | img_url: '400x' }}{% else %}{{ default_image }}{% endif %}" 
+            alt="{{ block.settings.title }}"
+            class="w-full h-auto mb-6 rounded-2xl"
+          >
+          
+          {% if block.settings.title != blank %}
+            <h3 class="text-2xl text-core text-left font-medium mb-8">{{ block.settings.title }}</h3>
+          {% endif %}
+          
+          {% if block.settings.text != blank %}
+            <p class="mb-4 text-left text-core font-extrabold">{{ block.settings.text }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="flex justify-evenly gap-4 mt-12">
+      {% if section.settings.button_1_text != blank %}
+        <a href="{{ section.settings.button_1_link }}" class="bg-yellow px-4 md:px-8 py-3 md:py-5 rounded-full text-sm 
+                md:text-baseLarge text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+          {{ section.settings.button_1_text }}
+        </a>
+      {% endif %}
+      
+      {% if section.settings.button_2_text != blank %}
+        <a href="{{ section.settings.button_2_link }}" class="bg-yellow px-4 md:px-8 py-3 md:py-5 rounded-full text-sm 
+                md:text-baseLarge text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+          {{ section.settings.button_2_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Four Column Feature",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "PERFORMANCE"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "ECO STANDARDS"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Hyper Absorbent"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "BambooTek® is our proprietary diaper core that saves trees and absorbs 55% more than the #1 diaper. Try them overnight too! We promise a better night of sleep for you and your little one."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Four Column Feature",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

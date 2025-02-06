@@ -123,12 +123,40 @@
         "title": "Thousands shipped,",
         "subtitle": "nothing but love."
       }
+    },
+    "product_features": {
+      "type": "c-product-features",
+      "blocks": {
+        "feature-1": {
+          "type": "column",
+          "settings": {}
+        },
+        "feature-2": {
+          "type": "column",
+          "settings": {}
+        },
+        "feature-3": {
+          "type": "column",
+          "settings": {}
+        },
+        "feature-4": {
+          "type": "column",
+          "settings": {}
+        }
+      },
+      "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"],
+      "settings": {
+        "button_1_text": "PERFORMANCE",
+        "button_2_text": "ECO STANDARDS"
+      }
     }
   },
   "order": [
     "custom_hero_video",
     "logo-section",
     "featured-products",
-    "review_scroller"
+    "review_scroller",
+    "product_features"
+
   ]
 }
