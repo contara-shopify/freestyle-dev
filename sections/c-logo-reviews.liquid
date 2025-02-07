@@ -1,15 +1,41 @@
+{% render 'entry' with '@/scripts/sections/logo-reviews.js' %}
+
+
 <div class="mx-auto px-4 py-8 md:py-40 bg-core_light">
-  {% if section.settings.heading != blank %}
-    <div class="text-center md:mb-40">
-      <p class="text-core text-lg font-semibold  md:text-2xl max-w-7xl mx-auto">"{{ section.settings.heading }}"</p>
-    </div>
-  {% endif %}
+  <div style="display: none">
+    {% for block in section.blocks %}
+      <div>Review {{forloop.index}}: {{ block.settings.review }}</div>
+    {% endfor %}
+  </div>
+
+  <div class="text-center md:mb-40">
+    <p id="reviewText" class="text-core text-lg font-semibold md:text-2xl max-w-7xl mx-auto">
+      "Of all the new diapers that have come to market, these are our favorites. Super stylish, they are also more sustainable than many other disposable diaper brands thanks to the bamboo core."
+    </p>
+  </div>
   
-
-
   <div class="flex flex-nowrap overflow-x-scroll scrollbar-hide whitespace-nowrap gap-4 items-center mt-8 md:grid md:grid-cols-5 md:overflow-x-hidden">
     {% for block in section.blocks %}
-      <div class="w-[40%] flex-none md:w-auto flex justify-center items-center {% if forloop.last %}md:col-span-1{% endif %}" {{ block.shopify_attributes }}>
+      {% assign review_index = forloop.index %}
+      {% assign review_text = "" %}
+      
+      {% case review_index %}
+        {% when 1 %}
+          {% assign review_text = "Of all the new diapers that have come to market, these are our favorites. Super stylish, they are also more sustainable than many other disposable diaper brands thanks to the bamboo core." %}
+        {% when 2 %}
+          {% assign review_text = "The softness and absorption are unmatched. Our babies sleep through the night without discomfort. An excellent choice for environmentally conscious parents." %}
+        {% when 3 %}
+          {% assign review_text = "Premium quality is noticeable in every detail. The materials are safe for sensitive skin and the design is modern and functional." %}
+        {% when 4 %}
+          {% assign review_text = "A brand that delivers on all its promises. The diapers are incredibly absorbent and environmentally friendly." %}
+        {% when 5 %}
+          {% assign review_text = "The best investment for your baby's care. Eco-friendly, soft, and with exceptional performance that justifies every penny." %}
+      {% endcase %}
+
+      <div class="w-[40%] flex-none md:w-auto flex justify-center items-center {% if forloop.last %}md:col-span-1{% endif %} cursor-pointer logo-item" 
+           {{ block.shopify_attributes }}
+           data-review="{{ review_text }}"
+      >
         {% if block.settings.logo != blank %}
           <img 
             src="{{ block.settings.logo | image_url: width: 1000 }}"
@@ -30,19 +56,13 @@
     {% endfor %}
   </div>
 </div>
-  
+
+
+
 {% schema %}
 {
   "name": "Logo Reviews",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading Text",
-      "default": "Of all the new diapers to hit the scene, these are our fave. Super stylish, they're also more sustainable than many other disposable diaper brands thanks to the bamboo core. They're also really soft, really absorbent and free of things like chlorine and fragrances."
-    }
-  ],
-  "max_blocks": 5,
+  "settings": [],
   "blocks": [
     {
       "type": "logo",
@@ -52,6 +72,11 @@
           "type": "image_picker",
           "id": "logo",
           "label": "Logo Image"
+        },
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review Text"
         }
       ]
     }

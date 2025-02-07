@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-CRQdwWdX.css",
+    "file": "main-Db1wWYL3.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -31,6 +31,12 @@
     "file": "header-3kt7Fq5v.js",
     "name": "header",
     "src": "frontend/scripts/sections/header.js",
+    "isEntry": true
+  },
+  "frontend/scripts/sections/logo-reviews.js": {
+    "file": "logo-reviews-gz6Pa83z.js",
+    "name": "logo-reviews",
+    "src": "frontend/scripts/sections/logo-reviews.js",
     "isEntry": true
   },
   "frontend/scripts/sections/main-product.js": {

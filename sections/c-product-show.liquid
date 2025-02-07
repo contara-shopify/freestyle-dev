@@ -76,36 +76,45 @@
 }
 {% endschema %}
 
-<div class="w-full py-16">
-  <div class="container mx-auto px-4">
+<div class="w-full py-16 ">
+  <div class="container mx-auto px-10 md:px-4 ">
     <div class="grid md:grid-cols-2 grid-cols-1 gap-10">
       
-      <!-- Product 1 -->
-      <div class="bg-core  md:p-10 p-6 rounded-2xl aspect-square h-full">
-        <div class="h-full flex flex-col justify-between relative">
-          <div>
 
+      <!-- Product 1 -->
+      <div class="bg-core p-12 md:p-10  rounded-2xl aspect-square md:h-full">
+        <div class=" flex flex-col justify-between relative  h-[500px] md:h-full">
+          <div>
             <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-              <h2 class="text-baseBig lg:text-4xl text-white font-semibold md:font-light md:max-w-[60%] mb-2 md:mb-0">
+              <h2 class="text-2xl lg:text-4xl text-white font-medium md:font-light md:max-w-[60%] mb-4 md:mb-0">
                 {{ section.settings.title_1 }}
               </h2>
 
-              <a href="{{ section.settings.button_link_1 }}" class="bg-yellow px-4 md:px-8 py-3 md:py-5 rounded-full text-sm 
+              <a href="{{ section.settings.button_link_1 }}" class="hidden md:block bg-yellow px-10 py-5 md:px-8 md:py-5 rounded-full text-sm 
                 md:text-baseLarge text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
                 {{ section.settings.button_text_1 }}
               </a>
-
             </div>
+            
             <p class="text-white text-lg md:text-xl md:max-w-[70%]">
               {{ section.settings.description_1 }}
             </p>
+
+            <a href="{{ section.settings.button_link_1 }}" class="md:hidden bg-yellow px-10 py-5 rounded-full text-sm 
+              text-core font-bold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave mt-4 block">
+              {{ section.settings.button_text_1 }}
+            </a>
           </div>
           {% if section.settings.image_1 != blank %}
-            <div class="mt-8 md:mt-20 text-center h-[60%] md:h-[75%] relative overflow-hidden">
+            <div class="mt-8 md:mt-10 lg:mt-20 text-center h-[60%] md:h-[40%] lg:h-[75%] relative overflow-hidden">
               <img 
                 src="{{ section.settings.image_1 | img_url: 'master' }}"
                 alt="{{ section.settings.title_1 }}"
-                class="w-auto h-full mx-auto object-contain absolute left-1/2 -translate-x-1/2 bottom-0"
+                class="w-auto h-full mx-auto object-contain absolute left-1/2 -translate-x-1/2 bottom-0 
+                md:w-[300px] md:h-[300px] md:relative md:left-0 md:translate-x-0 md:mx-auto
+                lg:w-auto lg:h-full lg:absolute lg:left-1/2 lg:-translate-x-1/2" 
+                width="100%"
+                height="100%"
                 loading="lazy"
               >
             </div>
@@ -114,31 +123,39 @@
       </div>
 
       <!-- Product 2 -->
-      <div class="bg-core  md:p-10 p-6 rounded-2xl aspect-square h-full">
-        <div class="h-full flex flex-col justify-between relative">
+      <div class="bg-core  md:p-10 p-6 rounded-2xl aspect-square  md:h-full">
+        <div class=" flex flex-col justify-between relative  h-[500px] md:h-full">
           <div>
             <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
               <h2 class="text-baseBig lg:text-4xl text-white font-semibold md:font-light md:max-w-[60%] mb-2 md:mb-0">
                 {{ section.settings.title_2 }}
               </h2>
 
-              <a href="{{ section.settings.button_link_2 }}" class="bg-yellow px-4 md:px-8 py-3 md:py-5 rounded-full text-sm 
+              <a href="{{ section.settings.button_link_2 }}" class="hidden md:block bg-yellow px-4 md:px-8 py-3 md:py-5 rounded-full text-sm 
                 md:text-baseLarge text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
                 {{ section.settings.button_text_2 }}
-
               </a>
             </div>
 
             <p class="text-white text-lg md:text-xl md:max-w-[70%]">
               {{ section.settings.description_2 }}
             </p>
+
+            <a href="{{ section.settings.button_link_2 }}" class="md:hidden bg-yellow px-4 py-3 rounded-full text-sm 
+              text-core font-bold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave mt-4 block">
+              {{ section.settings.button_text_2 }}
+            </a>
           </div>
           {% if section.settings.image_2 != blank %}
-            <div class="mt-8 md:mt-20 text-center h-[60%] md:h-[75%] relative overflow-hidden">
+            <div class="mt-8 md:mt-10 lg:mt-20 text-center h-[60%] md:h-[40%] lg:h-[75%] relative overflow-hidden">
               <img 
                 src="{{ section.settings.image_2 | img_url: 'master' }}"
                 alt="{{ section.settings.title_2 }}"
-                class="w-auto h-full mx-auto object-contain absolute left-1/2 -translate-x-1/2 bottom-0"
+                class="w-auto h-full mx-auto object-contain absolute left-1/2 -translate-x-1/2 bottom-0 
+                md:w-[300px] md:h-[300px] md:relative md:left-0 md:translate-x-0 md:mx-auto
+                lg:w-auto lg:h-full lg:absolute lg:left-1/2 lg:-translate-x-1/2"
+                width="100%"
+                height="100%"
                 loading="lazy"
               >
             </div>

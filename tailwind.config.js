@@ -113,7 +113,7 @@ export default {
         DEFAULT: '#919CC2',
       },
       core_light: {
-        DEFAULT: '#E6E6FA',
+        DEFAULT: '#E0D8FE',
       },
       'light-blue': {
         DEFAULT: '#ECF8FF',

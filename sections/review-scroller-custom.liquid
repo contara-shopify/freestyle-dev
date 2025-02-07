@@ -1,15 +1,18 @@
 <div class="py-8 md:py-16 bg-yellow overflow-hidden relative">
-  <h2 class="text-xl font-semibold md:font-normal md:text-5xl mb-4 md:mb-8 mx-4 md:ml-30 md:absolute md:top-16 md:left-8 z-10 md:max-w-[50%] text-[#AD887D]">
+  <h2 class="text-2xl font-normal md:font-normal md:text-5xl mb-4  mx-8  md:absolute md:top-16 
+    md:left-8 z-10 md:max-w-[50%] text-[#AD887D] md:mb-20">
     {{ section.settings.title -}}
     <br>
-    <span class="text-baseLarge font-normal md:text-4xl text-gray-600 block mt-2">{{ section.settings.subtitle }}</span>
+    <span class="text-2xl font-medium md:text-4xl text-gray-600 block mt-2">{{ section.settings.subtitle }}</span>
   </h2>
 
 
-  <div class="mt-8 md:mt-48 overflow-hidden w-full">
-    <div class="flex gap-72 md:gap-8 animate-scroll hover:animation-play-state-paused md:pt-30">
+
+  <div class="mt-8 md:mt-48 overflow-hidden w-full ">
+    <div class="flex gap-60 md:gap-6 overflow-x-auto mx-4 md:mx-0 md:overflow-x-hidden snap-x snap-mandatory mt-0 md:mt-10 touch-pan-x md:[&:not(:hover)]:animate-[scroll_30s_linear_infinite]">
       {%- for block in section.blocks -%}
-        <div class="min-w-[200px] md:min-w-[800px] flex flex-col md:flex-row gap-4 md:gap-8 p-4" {{ block.shopify_attributes }}>
+
+        <div class="min-w-[200px] md:min-w-[800px] flex flex-col md:flex-row gap-4 md:gap-8 p-4 snap-start" {{ block.shopify_attributes }}>
           <div class="w-[300px]  md:w-[300px] h-[400px] md:h-[400px] flex-shrink-0">
             <img
               src="{{ block.settings.review_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/f25a631dd844f1eda10ae233bc275c4cd96c2a3b-1151x2034.jpg?w=1000&h=1767&q=80&fit=max&auto=format' }}"
@@ -19,7 +22,17 @@
           </div>
           <div class="flex-1 flex flex-col w-[300px]">
             <div class="font-bold text-[#AD887D] text-sm md:text-base">
-              {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
+              {%- if block.settings.author_url -%}
+                <a href="{{ block.settings.author_url }}" target="_blank" rel="noopener noreferrer" class="hover:underline">
+              {%- endif -%}
+                {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
+              {%- if block.settings.author_url -%}
+                </a>
+              {%- endif -%}
+                <svg class="inline-block w-6 h-6 ml-1 " viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="12" fill="#1DA1F2"/>
+                  <path d="M17.5 8.5l-6.5 6.5L7.5 11.5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               {%- if block.settings.author_handle -%}
                 <span class="text-gray-400 ml-2">{{ block.settings.author_handle }}</span>
               {%- endif -%}
@@ -46,14 +59,6 @@
       transform: translateX(calc(-100% - 2rem));
     }
   }
-
-  .animate-scroll {
-    animation: scroll 30s linear infinite;
-  }
-
-  .animation-play-state-paused {
-    animation-play-state: paused;
-  }
 </style>
 
 {% schema %}
@@ -70,7 +75,7 @@
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "real families"
+      "default": "real families."
     }
   ],
   "blocks": [
@@ -83,6 +88,17 @@
           "id": "author_name",
           "label": "Author Name",
           "default": "John Doe | @JohnDoe"
+        },
+        {
+          "type": "url",
+          "id": "author_url",
+          "label": "Author Profile URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_verified",
+          "label": "Show Verified Badge",
+          "default": false
         },
         {
           "type": "text",
