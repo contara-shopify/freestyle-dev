@@ -1,0 +1,227 @@
+<div class="py-8 px-12 md:px-4 bg-[#EEEEEA]">
+  <div class="lg:px-20 mx-auto">
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-20 py-12">
+      <div class="flex flex-col gap-8 lg:w-1/3">
+        {% if section.settings.footer_logo != blank %}
+          <img 
+            src="{{ section.settings.footer_logo | image_url }}" 
+            alt="{{ shop.name }}" 
+            class="w-[200] h-72"
+            loading="lazy"
+            width=""
+            height=""
+          >
+        {% endif %}
+   
+
+        <div class="flex gap-4 lg:gap-8 md:mt-8 items-center md:justify-center">
+          {% if section.settings.social_instagram_icon != blank %}
+            <a href="{{ section.settings.social_instagram }}" target="_blank" class="hover:opacity-75">
+              <img 
+
+                src="{{ section.settings.social_instagram_icon | image_url }}" 
+                alt="Instagram"
+                class="w-20 h-20 md:w-30 md:h-30"
+                loading="lazy"
+                width=""
+                height=""
+              >
+            </a>
+          {% endif %}
+
+
+          {% if section.settings.social_tiktok_icon != blank %}
+            <a href="{{ section.settings.social_tiktok }}" target="_blank" class="hover:opacity-75">
+              <img 
+                src="{{ section.settings.social_tiktok_icon | image_url }}" 
+                alt="TikTok"
+                class="w-20 h-20 md:w-30 md:h-30"
+                loading="lazy"
+                width=""
+                height=""
+              >
+            </a>
+          {% endif %}
+
+          
+          {% if section.settings.social_facebook_icon != blank %}
+            <a href="{{ section.settings.social_facebook }}" target="_blank" class="hover:opacity-75">
+              <img 
+                src="{{ section.settings.social_facebook_icon | image_url }}" 
+                alt="Facebook"
+                class="w-20 h-20 md:w-30 md:h-30"
+                loading="lazy"
+                width=""
+                    height=""
+              >
+            </a>
+
+
+          {% endif %}
+          
+          {% if section.settings.social_twitter_icon != blank %}
+            <a href="{{ section.settings.social_twitter }}" target="_blank" class="hover:opacity-75">
+              <img 
+                src="{{ section.settings.social_twitter_icon | image_url }}" 
+                alt="Twitter"
+                class="w-20 h-20 md:w-30 md:h-30"
+                loading="lazy"
+                width=""
+                height=""
+              >
+            </a>
+
+
+          {% endif %}
+          
+          {% if section.settings.social_youtube_icon != blank %}
+            <a href="{{ section.settings.social_youtube }}" target="_blank" class="hover:opacity-75">
+              <img 
+                src="{{ section.settings.social_youtube_icon | image_url }}" 
+                alt="YouTube"
+                class="w-20 h-20 md:w-30 md:h-30"
+                loading="lazy"
+                width=""
+                height=""
+              >
+            </a>
+
+
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:w-1/3 lg:pl-0 gap-8 md:gap-34">
+        <div class="flex justify-center md:flex-col lg:flex-row gap-8 lg:justify-center md:mt-12">
+          <div class="space-y-1 md:space-y-4">
+            {% for link in section.settings.footer_menu_1.links %}
+              <div>
+
+                <a href="{{ link.url }}" class=" text-sm font-semibold md:text-baseLarge text-core">{{ link.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="space-y-1 md:space-y-4">
+            {% for link in section.settings.footer_menu_2.links %}
+              <div>
+                <a href="{{ link.url }}" class="text-sm font-semibold md:text-baseLarge text-core">{{ link.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="space-y-1 md:space-y-4">
+            {% for link in section.settings.footer_menu_3.links %}
+              <div>
+                <a href="{{ link.url }}" class="text-sm font-semibold md:text-baseLarge text-core">{{ link.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-6  lg:flex-row gap-8 lg:justify-center md:mr-52 md:mt-12">
+          <p class=" text-xs md:text-sm  text-core font-semibold">{{ section.settings.copyright_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Logo"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_instagram_icon",
+      "label": "Instagram Icon"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_tiktok_icon",
+      "label": "TikTok Icon"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_facebook_icon",
+      "label": "Facebook Icon"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_twitter_icon",
+      "label": "Twitter Icon"
+    },
+    {
+      "type": "url",
+      "id": "social_twitter",
+      "label": "Twitter URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_youtube_icon",
+      "label": "YouTube Icon"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "header",
+      "content": "Navigation Menus"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_1",
+      "label": "Menu 1"
+    },
+
+    {
+      "type": "link_list",
+      "id": "footer_menu_2",
+      "label": "Menu 2"
+
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu_3",
+      "label": "Menu 3"
+
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright Text",
+      "default": "All rights reserved © Freestyle World Inc. 2024"
+
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

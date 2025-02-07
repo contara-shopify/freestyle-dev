@@ -1,7 +1,7 @@
 {% render 'entry' with '@/scripts/sections/logo-reviews.js' %}
 
 
-<div class="mx-auto px-4 py-8 md:py-40 bg-core_light">
+<div class="mx-auto px-4 py-8 md:py-40 bg-lila/20">
   <div style="display: none">
     {% for block in section.blocks %}
       <div>Review {{forloop.index}}: {{ block.settings.review }}</div>
@@ -42,16 +42,22 @@
             alt="{{ block.settings.logo.alt | escape }}"
             loading="lazy"
             class="w-auto h-40 md:h-56 object-contain"
+            width=""
+            height=""
           >
         {% else %}
+
           {% assign default_logos = "https://cdn.sanity.io/images/cn55vbgx/production/003b0d4f1eda5a2461c39e03a1c4809912bca280-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/7d782f9c41b90b51446cfbe1c19f33d6adf74af7-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/2b8f11ebbe61bc89ba04e244adede4beb473c420-500x500.svg?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/5d41ac81c9b67331bb600ac77c773b16f40f4350-2083x2083.png?w=1000&h=1000&q=80&fit=max&auto=format,https://cdn.sanity.io/images/cn55vbgx/production/b98f7bb1931acf41eaf6c447a970d84cebc38135-2083x2083.png?w=1000&h=1000&q=80&fit=max&auto=format" | split: "," %}
           <img 
             src="{{ default_logos[forloop.index0] }}"
             alt="Logo {{ forloop.index }}"
             loading="lazy"
             class="w-auto h-40 md:h-56 object-contain"
+            width=""
+            height=""
           >
         {% endif %}
+
       </div>
     {% endfor %}
   </div>

@@ -1,4 +1,4 @@
-<div class="bg-core_light py-16">
+<div class="bg-lila/30 py-16">
   <div class="container mx-auto px-4">
     <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-8 pb-4 snap-x snap-mandatory">
       {% for block in section.blocks %}
@@ -10,6 +10,8 @@
               src="{% if block.settings.image %}{{ block.settings.image | img_url: '400x' }}{% else %}{{ default_image }}{% endif %}" 
               alt="{{ block.settings.title }}"
               class="w-full h-auto mb-6 rounded-2xl"
+              width=""
+              height=""
             >
             
             {% if block.settings.title != blank %}

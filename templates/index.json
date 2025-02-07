@@ -229,6 +229,23 @@
         "text_3": "TEXT US, MAYBE (844) 609-3251",
         "text_4": "TEXT US, MAYBE (844) 609-3251"
       }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "footer_logo": "",
+        "social_instagram": "",
+        "social_instagram_icon": "",
+        "social_tiktok": "",
+        "social_tiktok_icon": "",
+        "social_facebook": "",
+        "social_facebook_icon": "",
+        "social_twitter": "",
+        "social_twitter_icon": "",
+        "social_youtube": "",
+        "social_youtube_icon": "",
+        "copyright_text": "All rights reserved © Freestyle World Inc. 2024"
+      }
     }
   },
   "order": [
@@ -241,6 +258,7 @@
     "logo_reviews",
     "newsletter",
     "spotify_playlist",
-    "contact_scroller"
+    "contact_scroller",
+    "footer"
   ]
 }

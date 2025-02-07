@@ -100,8 +100,7 @@
         {{ content_for_layout }}
       </main>
       <footer>
-        {% comment %} {{ powered_by_link }} {% endcomment %}
-        {% include 'footer' %}
+        {% sections 'footer' %}
       </footer>
       <div class="l-overlay"></div>
       {% render 'mini-cart' %}
