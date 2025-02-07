@@ -216,6 +216,10 @@
         "description": "Sign up to stay in the know on new artist collabs, new products, and special releases.",
         "button_label": "GET MY STICKER PACK"
       }
+    },
+    "spotify_playlist": {
+      "type": "c-spotify-playlist",
+      "settings": {}
     }
   },
   "order": [
@@ -226,6 +230,7 @@
     "product_features",
     "product_comparison",
     "logo_reviews",
-    "newsletter"
+    "newsletter",
+    "spotify_playlist"
   ]
 }
