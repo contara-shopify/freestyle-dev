@@ -220,6 +220,15 @@
     "spotify_playlist": {
       "type": "c-spotify-playlist",
       "settings": {}
+    },
+    "contact_scroller": {
+      "type": "contact-scroller",
+      "settings": {
+        "text_1": "TEXT US, MAYBE (844) 609-3251",
+        "text_2": "TEXT US, MAYBE (844) 609-3251",
+        "text_3": "TEXT US, MAYBE (844) 609-3251",
+        "text_4": "TEXT US, MAYBE (844) 609-3251"
+      }
     }
   },
   "order": [
@@ -231,6 +240,7 @@
     "product_comparison",
     "logo_reviews",
     "newsletter",
-    "spotify_playlist"
+    "spotify_playlist",
+    "contact_scroller"
   ]
 }

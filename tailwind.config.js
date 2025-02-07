@@ -52,6 +52,10 @@ export default {
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
         },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }
+        }
       },
       backgroundImage: {
         'hover-gradient': 'linear-gradient(90deg, #c2b0ff, #fd9025 33%, #4cfd9f 67%, #c2b0ff)',
@@ -115,6 +119,15 @@ export default {
       core_light: {
         DEFAULT: '#E0D8FE',
       },
+      orange: {
+        DEFAULT: '#FD9025',
+      },
+      lila: {
+        DEFAULT: '#C2B0FF',
+      },
+
+
+
       'light-blue': {
         DEFAULT: '#ECF8FF',
         bg: '#ECF8FF',
