@@ -12,7 +12,13 @@ export default class LogoReviews {
   
     bindEvents() {
       this.logos.forEach(logo => {
-        logo.addEventListener('click', () => this.showReview(logo));
+        logo.addEventListener('click', () => {
+          // Remover la clase activa de todos los logos
+          this.logos.forEach(l => l.classList.remove('active'));
+          // Agregar la clase activa al logo seleccionado
+          logo.classList.add('active');
+          this.showReview(logo);
+        });
       });
     }
   
@@ -26,6 +32,7 @@ export default class LogoReviews {
     showInitialReview() {
       const firstLogo = this.logos[0];
       if (firstLogo) {
+        firstLogo.classList.add('active');
         this.showReview(firstLogo);
       }
     }

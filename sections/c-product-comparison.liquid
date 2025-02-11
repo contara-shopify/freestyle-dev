@@ -90,18 +90,18 @@
           <table class="w-full text-lg h-[500px] relative bg-lila/10">
             <thead>
               <tr>
-                <th class="p-6 text-left md:w-2/5 bg-lila/30 rounded-tl-3xl"></th>
-                <th class="p-6 text-center w-1/5 font-bold text-xl h-[100px] relative -mx-8 z-10" style="background-color: {{ section.settings.highlight_bg_color }}">
+                <th class="p-6 text-left w-1/5 md:w-1/5 bg-lila/30 rounded-tl-3xl"></th>
+                <th class="p-6 text-center w-2/5 md:w-1/5 font-bold text-xl h-[100px] relative -mx-8 z-10" style="background-color: {{ section.settings.highlight_bg_color }}">
                   <img 
                     src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/logo2.png?v=1649838246"
                     alt="Freestyle"
-                    class="h-8 md:h-12 mx-0 md:mx-auto"
+                    class="h-8 md:h-[50px]  mx-auto md:mx-auto "
                     width=""
                     height=""
                   >
                 </th>
 
-                <th class="p-6 px-12 text-center w-2/5 text-gray-600 text-sm bg-lila/30 rounded-tr-3xl font-semibold text-core">
+                <th class="p-6 px-12 text-center w-1/5 md:w-1/5 text-gray-600 text-sm bg-lila/30 rounded-tr-3xl font-semibold text-core">
                   REGULAR <br> DIAPERS
                 </th>
               </tr>
@@ -111,16 +111,16 @@
             <tbody>
               {% for block in section.blocks %}
                 <tr style="background-color: {{ section.settings.table_bg_color }}">
-                  <td class="p-6 md:px-14 border-t font-bold bg-lila/10 text-core{% if forloop.last %} rounded-bl-3xl{% endif %} text-end">
+                  <td class="p-6 md:px-14 border-t font-bold bg-lila/10 text-core{% if forloop.last %} rounded-bl-3xl{% endif %} text-center md:text-end">
                     {{ block.settings.feature }}
                   </td>
                   <td class="p-6 md:px-8 border-t text-center relative -mx-8 z-10" style="background-color: {{ section.settings.highlight_bg_color }}">
-                    <div class="bg-core_light w-12 h-12 rounded-full flex items-center justify-center mx-auto">
+                    <div class="bg-core w-16 h-16 rounded-full flex items-center justify-center mx-auto">
                       <svg class="w-14 h-14" fill="none" viewBox="0 0 24 24">
                         <path 
 
                           d="M5 13l4 4L19 7" 
-                          stroke="#22C55E" 
+                          stroke="#42ff1c" 
                           stroke-width="2.5" 
                           stroke-linecap="round" 
                           stroke-linejoin="round"

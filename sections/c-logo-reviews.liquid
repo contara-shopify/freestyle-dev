@@ -1,20 +1,20 @@
 {% render 'entry' with '@/scripts/sections/logo-reviews.js' %}
 
 
-<div class="mx-auto px-4 py-8 md:py-40 bg-lila/20">
+<div class="mx-auto px-4 py-8 md:py-20 bg-lila/20">
   <div style="display: none">
     {% for block in section.blocks %}
       <div>Review {{forloop.index}}: {{ block.settings.review }}</div>
     {% endfor %}
   </div>
 
-  <div class="text-center md:mb-40">
-    <p id="reviewText" class="text-core text-lg font-semibold md:text-2xl max-w-7xl mx-auto">
+  <div class="text-center md:mb-20">
+    <p id="reviewText" class="text-core text-lg font-semibold md:text-2xl max-w-7xl mx-auto h-[80px] md:h-[200px] overflow-y-auto transition-all duration-300">
       "Of all the new diapers that have come to market, these are our favorites. Super stylish, they are also more sustainable than many other disposable diaper brands thanks to the bamboo core."
     </p>
   </div>
   
-  <div class="flex flex-nowrap overflow-x-scroll scrollbar-hide whitespace-nowrap gap-4 items-center mt-8 md:grid md:grid-cols-5 md:overflow-x-hidden">
+  <div class="flex flex-nowrap overflow-x-scroll scrollbar-hide whitespace-nowrap gap-4 items-center mt-8 h-[90px] md:h-[200px] md:grid md:grid-cols-5 md:overflow-x-hidden">
     {% for block in section.blocks %}
       {% assign review_index = forloop.index %}
       {% assign review_text = "" %}
@@ -32,7 +32,7 @@
           {% assign review_text = "The best investment for your baby's care. Eco-friendly, soft, and with exceptional performance that justifies every penny." %}
       {% endcase %}
 
-      <div class="w-[40%] flex-none md:w-auto flex justify-center items-center {% if forloop.last %}md:col-span-1{% endif %} cursor-pointer logo-item" 
+      <div class="w-[40%] flex-none md:w-auto flex justify-center items-center {% if forloop.last %}md:col-span-1{% endif %} cursor-pointer logo-item transition-all duration-300 opacity-50" 
            {{ block.shopify_attributes }}
            data-review="{{ review_text }}"
       >
@@ -62,6 +62,21 @@
     {% endfor %}
   </div>
 </div>
+
+<style>
+  .logo-item.active {
+    opacity: 1;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
 
 
 
