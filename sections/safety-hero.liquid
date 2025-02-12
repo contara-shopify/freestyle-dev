@@ -1,0 +1,83 @@
+{% schema %}
+{
+  "name": "Safety Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagen principal"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título principal",
+      "default": "Safer, more transparent, better."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción",
+      "default": "<p>Freestyle set out to make a better diaper without making sacrifices. Our diapers are tested at an independent, third-party lab against leading brands, and we're publishing the results below for transparency so you can have supreme confidence in the products you are using.</p>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Freestyle products are:"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Característica",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texto de característica",
+          "default": "Ultra clean"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Safety Hero"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="container mx-auto px-4 py-16">
+  <div class="flex flex-col md:flex-row items-center gap-12">
+    <!-- Imagen del lado izquierdo -->
+    <div class="w-full md:w-1/2">
+      {%- assign hero_image = section.settings.hero_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/c9cf79e5c9c015fb4fff1019728a1d7880818cc0-1608x1913.png?w=1000&h=1190&q=80&fit=max&auto=format' -%}
+      {{ hero_image | image_url: width: 800 | image_tag: 
+        class: "w-full h-auto rounded-3xl",
+        loading: "lazy"
+      }}
+    </div>
+
+    <!-- Contenido del lado derecho -->
+    <div class="w-full md:w-1/2 space-y-8">
+      <h1 class="text-5xl font-light text-[#666C89]">
+        {{ section.settings.title }}
+      </h1>
+
+      <div class="text-[#666C89]">
+        {{ section.settings.description }}
+      </div>
+
+      <h2 class="text-4xl font-light text-[#666C89]">
+        {{ section.settings.subtitle }}
+      </h2>
+
+      <ul class="space-y-4 text-[#666C89]">
+        {% for block in section.blocks %}
+          <li class="text-xl">• {{ block.settings.text }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
