@@ -24,6 +24,32 @@
       "id": "subtitle",
       "label": "Subtítulo",
       "default": "Freestyle products are:"
+    },
+    {
+      "type": "header",
+      "content": "Botones"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Texto del primer botón",
+      "default": "FREESTYLE VS. COMPETITION"
+    },
+    {
+      "type": "url",
+      "id": "button1_url",
+      "label": "Enlace del primer botón"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Texto del segundo botón",
+      "default": "LAB RESULTS"
+    },
+    {
+      "type": "url",
+      "id": "button2_url",
+      "label": "Enlace del segundo botón"
     }
   ],
   "blocks": [
@@ -48,36 +74,80 @@
 }
 {% endschema %}
 
-<section class="container mx-auto px-4 py-16">
-  <div class="flex flex-col md:flex-row items-center gap-12">
-    <!-- Imagen del lado izquierdo -->
+<section class="mx-auto px-8 md:px-16 py-10 mt-16">
+  <div class="flex flex-col md:flex-row gap-16">
     <div class="w-full md:w-1/2">
-      {%- assign hero_image = section.settings.hero_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/c9cf79e5c9c015fb4fff1019728a1d7880818cc0-1608x1913.png?w=1000&h=1190&q=80&fit=max&auto=format' -%}
-      {{ hero_image | image_url: width: 800 | image_tag: 
-        class: "w-full h-auto rounded-3xl",
-        loading: "lazy"
-      }}
+      <div class="md:hidden order-1 mb-16">
+        <h1 class="text-3xl md:text-5xl font-light text-core">
+          {{ section.settings.title }}
+        </h1>
+        <div class="text-sm md:text-base text-[#666C89] py-8 md:py-16">
+          {{ section.settings.description }}
+        </div>
+      </div>
+
+      <div style="border-color: #666C89" class="p-8 rounded-3xl border-4">
+        {%- assign hero_image = section.settings.hero_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/c9cf79e5c9c015fb4fff1019728a1d7880818cc0-1608x1913.png?w=1000&h=1190&q=80&fit=max&auto=format' -%}
+        {{ hero_image | image_url: width: 800 | image_tag: 
+          class: "w-full h-auto",
+          loading: "lazy"
+        }}
+      </div>
     </div>
 
-    <!-- Contenido del lado derecho -->
-    <div class="w-full md:w-1/2 space-y-8">
-      <h1 class="text-5xl font-light text-[#666C89]">
+    <!-- Columna derecha en desktop -->
+    <div class="w-full md:w-1/2 hidden md:block">
+      <h1 class="text-5xl font-light text-core">
         {{ section.settings.title }}
       </h1>
 
-      <div class="text-[#666C89]">
+      <div class="text-[#666C89] py-16">
         {{ section.settings.description }}
       </div>
 
-      <h2 class="text-4xl font-light text-[#666C89]">
+      <h2 class=" text-5xl font-light text-core mb-8">
         {{ section.settings.subtitle }}
       </h2>
 
       <ul class="space-y-4 text-[#666C89]">
         {% for block in section.blocks %}
-          <li class="text-xl">• {{ block.settings.text }}</li>
+          <li class="text-2xl flex items-center">
+            <span class="mr-8 text-core">•</span>
+            <span class="text-2xl font-light text-core">{{ block.settings.text }}</span>
+          </li>
         {% endfor %}
       </ul>
     </div>
+  </div>
+
+  <!-- Contenido adicional solo para mobile -->
+  <div class="md:hidden mt-16">
+    <h2 class="text-2xl font-light text-core mb-8">
+      {{ section.settings.subtitle }}
+    </h2>
+
+    <ul class="space-y-4 text-[#666C89] mb-16">
+      {% for block in section.blocks %}
+        <li class="text-2xl flex items-center">
+          <span class="mr-8 text-core">•</span>
+          <span class="text-2xl font-light text-core">{{ block.settings.text }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Botones -->
+  <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-16">
+    {% if section.settings.button1_label != blank %}
+      <a href="{{ section.settings.button1_url }}" class="bg-yellow px-6 md:px-14 py-6 md:py-8 rounded-full text-base md:text-xl text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+        {{ section.settings.button1_label }}
+      </a>
+    {% endif %}
+    
+    {% if section.settings.button2_label != blank %}
+      <a href="{{ section.settings.button2_url }}" class="bg-yellow px-6 md:px-14 py-6 md:py-8 rounded-full text-base md:text-xl text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+        {{ section.settings.button2_label }}
+      </a>
+    {% endif %}
   </div>
 </section>
