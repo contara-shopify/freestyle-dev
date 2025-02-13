@@ -66,9 +66,67 @@
         "description": "<p>Freestyle set out to make a better diaper without making sacrifices. Our diapers are tested at an independent, third-party lab against leading brands, and we're publishing the results below for transparency so you can have supreme confidence in the products you are using.</p>",
         "subtitle": "Freestyle products are:"
       }
+    },
+    "comparison_table": {
+      "type": "comparison-table",
+      "blocks": [
+        {
+          "type": "comparison_row",
+          "settings": {
+            "label": "Absorption Before Leakage (higher is better)",
+            "freestyle_value": "230 gr",
+            "brand1_value": "217 gr",
+            "brand2_value": "219 gr",
+            "brand3_value": "224 gr"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "label": "Protection Against Leakage (higher is better)",
+            "freestyle_value": "78%",
+            "brand1_value": "75%",
+            "brand2_value": "76%",
+            "brand3_value": "77%"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "label": "Absorption Capacity (higher is better)",
+            "freestyle_value": "934 gr",
+            "brand1_value": "924 gr",
+            "brand2_value": "604 gr",
+            "brand3_value": "817 gr"
+          }
+        }
+      ],
+      "settings": {
+        "title": "Product Comparison",
+        "highlight_bg_color": "#E6E6FA"
+      }
+    },
+    "lab_results": {
+      "type": "lab-results",
+      "settings": {
+        "title": "BambooTek® Lab Results",
+        "description": "<p>The BambooTek® Diaper is made of 85% plant-based, biodegradable materials. The superstar: it's powered by our proprietary tree-free, totally chlorine free (TCF) BambooTek® core (100% bamboo pulp and superabsorbent polymer).</p>",
+        "row_1_name": "Dimethylformamide (DMFA)",
+        "row_1_status": "Not Detected",
+        "row_2_name": "Acetophenone",
+        "row_2_status": "Not Detected",
+        "row_3_name": "2-Phenyl-2-Propanol",
+        "row_3_status": "Not Detected",
+        "row_4_name": "Formamide",
+        "row_4_status": "Not Detected",
+        "row_5_name": "1-Methyl-2-pyrrolidone (NMP)",
+        "row_5_status": "Not Detected"
+      }
     }
   },
   "order": [
-    "safety_hero"
+    "safety_hero",
+    "comparison_table",
+    "lab_results"
   ]
 }

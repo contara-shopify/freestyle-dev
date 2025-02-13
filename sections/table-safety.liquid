@@ -1,0 +1,137 @@
+{% schema %}
+{
+  "name": "Tabla comparativa",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Better than the best"
+    },
+    {
+      "type": "color",
+      "id": "highlight_bg_color",
+      "label": "Highlight background color",
+      "default": "#C2B0FF"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto del botón",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Link del botón"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Absorption"
+        },
+        {
+          "type": "text",
+          "id": "freestyle_value",
+          "label": "Freestyle value",
+          "default": "230 gr"
+        },
+        {
+          "type": "text",
+          "id": "brand1_value",
+          "label": "Brand 1 value",
+          "default": "217 gr"
+        },
+        {
+          "type": "text",
+          "id": "brand2_value",
+          "label": "Brand 2 value",
+          "default": "219 gr"
+        },
+        {
+          "type": "text",
+          "id": "brand3_value",
+          "label": "Brand 3 value",
+          "default": "224 gr"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+    "name": "Comparative Table",
+      "blocks": [
+        {
+          "type": "comparison_row"
+        },
+        {
+          "type": "comparison_row"
+        },
+        {
+          "type": "comparison_row"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="md:px-30 mx-auto py-12">
+  <h2 class="text-baseLarge md:text-2xl text-center mb-12 text-core">
+    {{ section.settings.title }}
+  </h2>
+
+  <div class="overflow-x-auto">
+    <div class="rounded-3xl mx-auto min-w-[800px]">
+      <table class="w-full text-base md:text-lg bg-white border-separate border-spacing-0">
+        <thead>
+          <tr>
+            <th class="p-4 md:p-8 text-left w-[10%] md:w-[30%] bg-white border border-core rounded-tl-3xl text-core"></th>
+            <th class="p-4 md:p-8 text-center w-[10%] md:w-[17.5%] font-bold bg-lila/80 border border-core text-core" >
+              <img 
+                src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/logo2.png?v=1649838246"
+                alt="Freestyle"
+                class="h-8 md:h-12 mx-auto"
+              >
+            </th>
+            <th class="p-4 md:p-8 text-center w-[10%] md:w-[17.5%] bg-white border border-core text-core text-sm md:text-base">Bougie Brand</th>
+            <th class="p-4 md:p-8 text-center w-[10%] md:w-[17.5%] bg-white border border-core text-core text-sm md:text-base">Mass Brand</th>
+            <th class="p-4 md:p-8 text-center w-[10%] md:w-[17.5%] bg-white border border-core rounded-tr-3xl text-core text-sm md:text-base">Store Brand</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for block in section.blocks %}
+            <tr>
+              <td class="p-4 md:p-8 border border-core bg-white font-semibold text-core text-sm md:text-base {% if forloop.last %}rounded-bl-3xl{% endif %}">
+                {{ block.settings.label }}
+              </td>
+              <td class="p-4 md:p-8 border border-core text-center bg-lila/80 text-core text-sm md:text-base">
+                {{ block.settings.freestyle_value }}
+              </td>
+              <td class="p-4 md:p-8 border border-core text-center bg-white font-medium text-core text-sm md:text-base">{{ block.settings.brand1_value }}</td>
+              <td class="p-4 md:p-8 border border-core text-center bg-white font-medium text-core text-sm md:text-base">{{ block.settings.brand2_value }}</td>
+              <td class="p-4 md:p-8 border border-core text-center bg-white font-medium text-core text-sm md:text-base {% if forloop.last %}rounded-br-3xl{% endif %}">
+                {{ block.settings.brand3_value }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% if section.settings.button_label != blank %}
+    <div class="flex justify-center mt-8">
+      <a href="{{ section.settings.button_url }}" 
+         class="flex justify-center items-center bg-yellow uppercase px-6 md:px-14 py-6 md:py-8 rounded-full text-base md:text-xl text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+        {{ section.settings.button_label }}
+      </a>
+    </div>
+  {% endif %}
+</div>

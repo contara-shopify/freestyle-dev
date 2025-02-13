@@ -1,0 +1,130 @@
+{%- style -%}
+  .lab-results-table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .lab-results-table td {
+    @apply border-b border-gray-200 py-3 px-4;
+  }
+{%- endstyle -%}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+    <div class="relative">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: 
+          class: "w-full h-auto rounded-lg",
+          loading: "lazy",
+          alt: section.settings.image.alt | escape
+        }}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-auto rounded-lg bg-gray-200' }}
+      {%- endif -%}
+    </div>
+    
+    <div class="space-y-6">
+      {%- if section.settings.title != blank -%}
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      
+      {%- if section.settings.description != blank -%}
+        <div class="prose prose-blue">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <div class="inline-block min-w-full">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Primera tabla -->
+        <div class="overflow-hidden rounded-lg border border-gray-200">
+          <table class="min-w-full divide-y divide-gray-200 lab-results-table">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">Volatile Organic Components & Compounds Content</th>
+                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">STATUS</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              {%- for i in (1..10) -%}
+                <tr>
+                  <td class="whitespace-nowrap text-sm text-gray-900">{{ section.settings['row_' | append: i | append: '_name'] }}</td>
+                  <td class="whitespace-nowrap text-sm text-gray-500">{{ section.settings['row_' | append: i | append: '_status'] }}</td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Segunda tabla -->
+        <div class="overflow-hidden rounded-lg border border-gray-200">
+          <table class="min-w-full divide-y divide-gray-200 lab-results-table">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">Component</th>
+                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">STATUS</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              {%- for i in (11..20) -%}
+                <tr>
+                  <td class="whitespace-nowrap text-sm text-gray-900">{{ section.settings['row_' | append: i | append: '_name'] }}</td>
+                  <td class="whitespace-nowrap text-sm text-gray-500">{{ section.settings['row_' | append: i | append: '_status'] }}</td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lab Results",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "BambooTek® Lab Results"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>The BambooTek® Diaper is made of 85% plant-based, biodegradable materials. The superstar: it's powered by our proprietary tree-free, totally chlorine free (TCF) BambooTek® core (100% bamboo pulp and superabsorbent polymer).</p>"
+    },
+    {
+      "type": "header",
+      "content": "Table Rows (1-10)"
+    },
+    {
+      "type": "text",
+      "id": "row_1_name",
+      "label": "Row 1 Name",
+      "default": "Dimethylformamide (DMFA)"
+    },
+    {
+      "type": "text",
+      "id": "row_1_status",
+      "label": "Row 1 Status",
+      "default": "Not Detected"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Lab",
+    
+    }
+  ]
+}
+{% endschema %}
