@@ -2,79 +2,120 @@
   .lab-results-table {
     border-collapse: separate;
     border-spacing: 0;
+    width: 100%;
+    border: 2px solid rgb(108, 117, 155);
+    border-radius: 8px;
+  }
+  .lab-results-table th {
+    background-color: rgb(108, 117, 155);
+    color: white;
+    padding: 12px 16px;
+    font-weight: 500;
+    text-align: left;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .lab-results-table th:last-child {
+    border-right: none;
   }
   .lab-results-table td {
-    @apply border-b border-gray-200 py-3 px-4;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgb(108, 117, 155);
+    border-right: 1px solid rgb(108, 117, 155);
+  }
+  .lab-results-table td:last-child {
+    border-right: none;
+  }
+  .lab-results-table tr:last-child td {
+    border-bottom: none;
+  }
+  .lab-results-table tr:nth-child(even) {
+    background-color: white;
   }
 {%- endstyle -%}
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
-    <div class="relative">
-      {%- if section.settings.image != blank -%}
-        {{ section.settings.image | image_url: width: 1000 | image_tag: 
-          class: "w-full h-auto rounded-lg",
-          loading: "lazy",
-          alt: section.settings.image.alt | escape
-        }}
-      {%- else -%}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-auto rounded-lg bg-gray-200' }}
-      {%- endif -%}
+<div class="mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-10">
+  <div class="flex flex-col md:flex md:flex-row gap-8 items-start py-12">
+    <div class=" w-full md:w-[50%] flex-shrink-0">
+      <img 
+        src="https://cdn.sanity.io/images/cn55vbgx/production/d3a5908f09401920248f5c6451561e3c2133ee0c-1300x838.jpg?rect=1,0,1299,838&w=1000&h=645&q=80&fit=max&auto=format"
+        alt="BambooTek Lab Results"
+        class="w-full h-[300px] object-cover rounded-xl border-2 border-core"
+      >
     </div>
-    
-    <div class="space-y-6">
-      {%- if section.settings.title != blank -%}
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900">{{ section.settings.title }}</h2>
-      {%- endif -%}
-      
-      {%- if section.settings.description != blank -%}
-        <div class="prose prose-blue">{{ section.settings.description }}</div>
-      {%- endif -%}
+    <div class="flex-1 py-2">
+      <h2 class="text-2xl md:text-4xl font-medium text-core mb-6">{{ section.settings.title }}</h2>
+      <div class="prose max-w-none text-sm md:text-base text-gray-600 space-y-7 text-core">
+        <p>The BambooTek® Diaper is made of 88% plant-based, biodegradable materials. The superstar: it's powered by our proprietary tree-free, totally chlorine free (TCF) BambooTek® core (100% bamboo pulp and superabsorbent polymer).</p>
+        
+        <p>The core is wrapped in performance-driven non-woven fabrics (polypropylene and polyethylene), printed with water-soluble, toxin-free inks, and held together with elastic (spandex, polypropylene and polyethylene).</p>
+        
+        <p>Testing for chemical compounds and performance versus the competition was completed by an independent laboratory in October 2021. It's been proven to be free of, below detectable, or significantly below allowed levels (when regulation exists) for nearly 200 chemicals that may be considered toxic or harmful for use, including the list below.</p>
+      </div>
     </div>
   </div>
 
-  <div class="overflow-x-auto">
-    <div class="inline-block min-w-full">
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Primera tabla -->
-        <div class="overflow-hidden rounded-lg border border-gray-200">
-          <table class="min-w-full divide-y divide-gray-200 lab-results-table">
-            <thead class="bg-gray-50">
+  <div class="overflow-x-auto mt-36">
+    <!-- Tabla única para Mobile -->
+    <div class="block lg:hidden">
+      <div class="overflow-hidden rounded-lg">
+        <table class="min-w-full lab-results-table">
+          <thead>
+            <tr>
+              <th class="rounded-tl-lg">Volatile Organic Components & Compounds Content</th>
+              <th class="rounded-tr-lg">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for i in (1..20) -%}
+              {%- capture row_name -%}row_{{ i }}_name{%- endcapture -%}
+              {%- capture row_status -%}row_{{ i }}_status{%- endcapture -%}
               <tr>
-                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">Volatile Organic Components & Compounds Content</th>
-                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">STATUS</th>
+                <td class="text-core">{{ section.settings[row_name] }}</td>
+                <td class="text-core">{{ section.settings[row_status] }}</td>
               </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 bg-white">
-              {%- for i in (1..10) -%}
-                <tr>
-                  <td class="whitespace-nowrap text-sm text-gray-900">{{ section.settings['row_' | append: i | append: '_name'] }}</td>
-                  <td class="whitespace-nowrap text-sm text-gray-500">{{ section.settings['row_' | append: i | append: '_status'] }}</td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        </div>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-        <!-- Segunda tabla -->
-        <div class="overflow-hidden rounded-lg border border-gray-200">
-          <table class="min-w-full divide-y divide-gray-200 lab-results-table">
-            <thead class="bg-gray-50">
+    <!-- Tablas divididas para Desktop -->
+    <div class="hidden lg:grid lg:grid-cols-2 lg:gap-4">
+      <!-- Primera tabla -->
+      <div class="overflow-hidden rounded-lg">
+        <table class="min-w-full lab-results-table">
+          <thead>
+            <tr>
+              <th class="rounded-tl-lg">Volatile Organic Components & Compounds Content</th>
+              <th class="rounded-tr-lg">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for i in (1..10) -%}
+              {%- capture row_name -%}row_{{ i }}_name{%- endcapture -%}
+              {%- capture row_status -%}row_{{ i }}_status{%- endcapture -%}
               <tr>
-                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">Component</th>
-                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-900">STATUS</th>
+                <td class="text-core">{{ section.settings[row_name] }}</td>
+                <td class="text-core">{{ section.settings[row_status] }}</td>
               </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200 bg-white">
-              {%- for i in (11..20) -%}
-                <tr>
-                  <td class="whitespace-nowrap text-sm text-gray-900">{{ section.settings['row_' | append: i | append: '_name'] }}</td>
-                  <td class="whitespace-nowrap text-sm text-gray-500">{{ section.settings['row_' | append: i | append: '_status'] }}</td>
-                </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        </div>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+      <!-- Segunda tabla -->
+      <div class="overflow-hidden rounded-lg">
+        <table class="min-w-full lab-results-table">
+          <tbody>
+            {%- for i in (11..20) -%}
+              {%- capture row_name -%}row_{{ i }}_name{%- endcapture -%}
+              {%- capture row_status -%}row_{{ i }}_status{%- endcapture -%}
+              <tr>
+                <td class="text-core">{{ section.settings[row_name] }}</td>
+                <td class="text-core">{{ section.settings[row_status] }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -118,12 +159,244 @@
       "id": "row_1_status",
       "label": "Row 1 Status",
       "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_2_name",
+      "label": "Row 2 Name",
+      "default": "Acetophenone"
+    },
+    {
+      "type": "text",
+      "id": "row_2_status",
+      "label": "Row 2 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_3_name",
+      "label": "Row 3 Name",
+      "default": "2-Phenyl-2-Propanol"
+    },
+    {
+      "type": "text",
+      "id": "row_3_status",
+      "label": "Row 3 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_4_name",
+      "label": "Row 4 Name",
+      "default": "Formamide"
+    },
+    {
+      "type": "text",
+      "id": "row_4_status",
+      "label": "Row 4 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_5_name",
+      "label": "Row 5 Name",
+      "default": "1-Methyl-2-pyrrolidone (NMP)"
+    },
+    {
+      "type": "text",
+      "id": "row_5_status",
+      "label": "Row 5 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_6_name",
+      "label": "Row 6 Name",
+      "default": "Bis(2-methoxyethyl)ether"
+    },
+    {
+      "type": "text",
+      "id": "row_6_status",
+      "label": "Row 6 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_7_name",
+      "label": "Row 7 Name",
+      "default": "Cyclohexanone"
+    },
+    {
+      "type": "text",
+      "id": "row_7_status",
+      "label": "Row 7 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_8_name",
+      "label": "Row 8 Name",
+      "default": "Isophorone"
+    },
+    {
+      "type": "text",
+      "id": "row_8_status",
+      "label": "Row 8 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_9_name",
+      "label": "Row 9 Name",
+      "default": "Styrene"
+    },
+    {
+      "type": "text",
+      "id": "row_9_status",
+      "label": "Row 9 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_10_name",
+      "label": "Row 10 Name",
+      "default": "Carbon Disulfide"
+    },
+    {
+      "type": "text",
+      "id": "row_10_status",
+      "label": "Row 10 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "header",
+      "content": "Table Rows (11-20)"
+    },
+    {
+      "type": "text",
+      "id": "row_11_name",
+      "label": "Row 11 Name",
+      "default": "1,1,1-Trichloroethane"
+    },
+    {
+      "type": "text",
+      "id": "row_11_status",
+      "label": "Row 11 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_12_name",
+      "label": "Row 12 Name",
+      "default": "1,1,1,2-Trichloroethane"
+    },
+    {
+      "type": "text",
+      "id": "row_12_status",
+      "label": "Row 12 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_13_name",
+      "label": "Row 13 Name",
+      "default": "1,1,2,2-Trichloroethane"
+    },
+    {
+      "type": "text",
+      "id": "row_13_status",
+      "label": "Row 13 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_14_name",
+      "label": "Row 14 Name",
+      "default": "Pentachloro Ethane"
+    },
+    {
+      "type": "text",
+      "id": "row_14_status",
+      "label": "Row 14 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_15_name",
+      "label": "Row 15 Name",
+      "default": "M-Xylene"
+    },
+    {
+      "type": "text",
+      "id": "row_15_status",
+      "label": "Row 15 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_16_name",
+      "label": "Row 16 Name",
+      "default": "P-Xylene"
+    },
+    {
+      "type": "text",
+      "id": "row_16_status",
+      "label": "Row 16 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_17_name",
+      "label": "Row 17 Name",
+      "default": "O-Xylene"
+    },
+    {
+      "type": "text",
+      "id": "row_17_status",
+      "label": "Row 17 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_18_name",
+      "label": "Row 18 Name",
+      "default": "N-hexane"
+    },
+    {
+      "type": "text",
+      "id": "row_18_status",
+      "label": "Row 18 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_19_name",
+      "label": "Row 19 Name",
+      "default": "Benzene"
+    },
+    {
+      "type": "text",
+      "id": "row_19_status",
+      "label": "Row 19 Status",
+      "default": "Not Detected"
+    },
+    {
+      "type": "text",
+      "id": "row_20_name",
+      "label": "Row 20 Name",
+      "default": "Trichloroethylene"
+    },
+    {
+      "type": "text",
+      "id": "row_20_status",
+      "label": "Row 20 Status",
+      "default": "Not Detected"
     }
   ],
   "presets": [
     {
-      "name": "Custom Lab",
-    
+      "name": "Lab Results",
+      "category": "Custom Content"
     }
   ]
 }

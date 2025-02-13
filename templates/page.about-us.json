@@ -107,7 +107,7 @@
       }
     },
     "lab_results": {
-      "type": "lab-results",
+      "type": "Table-Labs",
       "settings": {
         "title": "BambooTek® Lab Results",
         "description": "<p>The BambooTek® Diaper is made of 85% plant-based, biodegradable materials. The superstar: it's powered by our proprietary tree-free, totally chlorine free (TCF) BambooTek® core (100% bamboo pulp and superabsorbent polymer).</p>",
@@ -127,6 +127,6 @@
   "order": [
     "safety_hero",
     "comparison_table",
-    "lab_results"
+    "Table-Labs"
   ]
 }
