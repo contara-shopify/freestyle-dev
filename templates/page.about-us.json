@@ -9,6 +9,15 @@
  */
 {
   "sections": {
+    "changing_table_hero": {
+      "type": "changing-table-hero",
+      "settings": {
+        "heading": "The Changing Table: tales of real parenthood.",
+        "description": "Crafting top-tier baby gear is just the start. Every week, we dive headfirst into the wild world of parenting with a fresh series, rallying experts to tackle burning questions about pregnancy, parent life, and the art of raising tiny humans. Think of it as unfiltered advice from the forefront of modern parenting.",
+        "button_label": "WATCH ON YOUTUBE",
+        "button_url": ""
+      }
+    },
     "safety_hero": {
       "type": "safety-hero",
       "blocks": [
@@ -122,11 +131,78 @@
         "row_5_name": "1-Methyl-2-pyrrolidone (NMP)",
         "row_5_status": "Not Detected"
       }
+    },
+    "custom_faq": {
+      "type": "custom-faq",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do you have a sizing chart?",
+            "answer": "<p>For sure! Check it out here.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What are the ingredients used in the diaper?",
+            "answer": "<p>Our diapers are made with premium materials...</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What are the ingredients in the wipes?",
+            "answer": "<p>Our wipes are made with natural ingredients...</p>"
+          }
+        }
+      ],
+      "settings": {
+        "show_title": true,
+        "main_title": "Frequently Asked Questions",
+        "subtitle_text": "You know they look good, but you still got questions. Fire away!",
+        "faq_section_title": "Diaper & Wipe Specs"
+      }
+    },
+    "grid_blogs_video": {
+      "type": "grid-blogs-video",
+      "blocks": [
+        {
+          "type": "column",
+          "settings": {
+            "title": "The Key to Motherhood",
+            "subtitle": "Military Spouse & Entrepreneur",
+            "button_label": "WATCH ON YOUTUBE",
+            "button_link": ""
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "title": "Finding Your Post-Partum Identity",
+            "subtitle": "Fitness Trainer",
+            "button_label": "WATCH ON YOUTUBE",
+            "button_link": ""
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "title": "Fatherhood Your Way",
+            "subtitle": "Professional Footballer & Creative",
+            "button_label": "WATCH ON YOUTUBE",
+            "button_link": ""
+          }
+        }
+      ]
     }
   },
   "order": [
     "safety_hero",
     "comparison_table",
-    "Table-Labs"
+    "lab_results",
+    "custom_faq",
+    "changing_table_hero",
+    "grid_blogs_video"
   ]
 }

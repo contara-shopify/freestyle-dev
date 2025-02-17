@@ -1,0 +1,130 @@
+{% schema %}
+{
+  "name": "Custom FAQ",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show title",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_text",
+      "label": "Descriptive text",
+      "default": "You know they look good, but you still got questions. Fire away!"
+    },
+    {
+      "type": "text",
+      "id": "faq_section_title",
+      "label": "FAQ section title",
+      "default": "Diaper & Wipe Specs"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "¿What is the size of the diaper?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer example</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom FAQ",
+      "blocks": [
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="w-full px-12 py-12 md:px-0">
+  <div class="max-w-7xl md:max-w-none mx-auto md:px-16">
+    {% if section.settings.show_title %}
+      <h2 class=" text-3xl md:text-5xl md:max-w-6xl font-medium text-left text-core mb-8">
+        {{ section.settings.main_title }}
+      </h2>
+    {% endif %}
+
+    <div class="grid md:grid-cols-2 gap-8 md:mt-72">
+      <div>
+        <p class="text-lg md:text-xl text-core md:max-w-4xl">
+          {{ section.settings.subtitle_text }}
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-xl  md:text-5xl font-light text-core mb-8">
+          {{ section.settings.faq_section_title }}
+        </h4>
+        
+        <ul class="space-y-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'faq' %}
+              <li class="border-b border-core" {{ block.shopify_attributes }}>
+                <button class="w-full py-4 flex justify-between items-center text-left font-medium text-core" 
+                        onclick="toggleFaq(this)"
+                        aria-expanded="false">
+                  <span>{{ block.settings.question }}</span>
+                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                  <div class="pb-4 prose prose-sm text-core font-medium text-base md:text-2xl mb-10 md:mb-20">
+                    {{ block.settings.answer }}
+                  </div>
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleFaq(button) {
+    const content = button.nextElementSibling;
+    const inner = content.firstElementChild;
+    const icon = button.querySelector('svg');
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    
+    button.setAttribute('aria-expanded', !isExpanded);
+    
+    if (!isExpanded) {
+      const innerStyles = window.getComputedStyle(inner);
+      const marginBottom = parseInt(innerStyles.marginBottom);
+      content.style.maxHeight = (inner.offsetHeight + marginBottom) + 'px';
+      content.style.opacity = '1';
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.style.maxHeight = '0';
+      content.style.opacity = '0';
+      icon.style.transform = '';
+    }
+  }
+</script>
