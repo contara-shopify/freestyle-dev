@@ -45,6 +45,7 @@ export default {
       },
       animation: {
         'gradient-wave': 'gradient-wave 3s ease infinite',
+        'spin-slow': 'spin 12s linear infinite',
       },
       keyframes: {
         'gradient-wave': {

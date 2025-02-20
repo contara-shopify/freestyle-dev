@@ -9,6 +9,16 @@
  */
 {
   "sections": {
+    "hero_image": {
+      "type": "hero-image",
+      "settings": {
+        "heading": "The Changing Table: tales of real parenthood.",
+        "heading_color": "#FFFD7B",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "button_color": "#FFF9BE"
+      }
+    },
     "changing_table_hero": {
       "type": "changing-table-hero",
       "settings": {
@@ -164,6 +174,23 @@
         "faq_section_title": "Diaper & Wipe Specs"
       }
     },
+    "testimonials": {
+      "type": "sub-text-certified",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Los pañales más suaves y absorbentes que hemos usado.",
+            "name": "María García",
+            "location": "Madrid, España"
+          }
+        }
+      ],
+      "settings": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000"
+      }
+    },
     "grid_blogs_video": {
       "type": "grid-blogs-video",
       "blocks": [
@@ -195,6 +222,104 @@
           }
         }
       ]
+    },
+    "description_subhero": {
+      "type": "description-subhero",
+      "settings": {
+        "title": "WE SEE YOU",
+        "description": "<p>We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents, we wanted to find diapers that made our kids happy but also made us happy. With our Hyper Absorbent BambooTek™ core and collaborations with our favorite artists, we're out to give diapers a new life – and give parents a diaper that cuts out the baby talk.</p>",
+        "text_color": "#00FF00",
+        "bg_color": "#6B7280"
+      }
+    },
+    "grid_hero": {
+      "type": "grid-hero",
+      "blocks": [
+        {
+          "type": "grid_item",
+          "settings": {
+            "number": "01",
+            "title": "Parenthood is the ultimate creative act.",
+            "background_type": "color",
+            "background_color": "#FF8C00"
+          }
+        },
+        {
+          "type": "grid_item",
+          "settings": {
+            "number": "02",
+            "title": "Diapers should be as original and inspiring as our babies.",
+            "background_type": "color",
+            "background_color": "#E6E6FA"
+          }
+        },
+        {
+          "type": "grid_item",
+          "settings": {
+            "number": "03",
+            "title": "Modern families run the world.",
+            "background_type": "color",
+            "background_color": "#90EE90"
+          }
+        },
+      ]
+    },
+    "hero_bottom": {
+      "type": "hero-bottom",
+      "settings": {
+        "heading": "Diapers just caught a vibe.",
+        "button_label": "SHOP NOW",
+        "button_link": "/collections/all"
+      }
+    },
+    "hero_blog": {
+      "type": "hero-blog",
+      "settings": {
+        "date": "MAY 29, 2024",
+        "date_color": "#FFFFFF",
+        "heading": "Discover The Coziest Baby Lovey Blanket For Your Little One's",
+        "heading_color": "#FFFD7B",
+        "description": "Discover why selecting the right baby lovey blanket is crucial for comfort & security. Learn about the types, benefits & safety guidelines for your little one's.",
+        "description_color": "#FFFFFF",
+        "button_label": "READ MORE",
+        "button_link": "",
+        "button_color": "#FFF9BE"
+      }
+    },
+    "grid_blogs": {
+      "type": "grid-blogs",
+      "blocks": [
+        {
+          "type": "blog_item",
+          "settings": {
+            "date_text": "MAY 28, 2024",
+            "date_color": "#FFFD7B",
+            "title_text": "Explore The Best Way to Wash Baby Clothes Safely",
+            "title_color": "#FFFD7B",
+            "url_link": ""
+          }
+        },
+        {
+          "type": "blog_item",
+          "settings": {
+            "date_text": "MAY 26, 2024",
+            "date_color": "#FFFD7B",
+            "title_text": "Best Baby Products To Make Life Easier With Your Little Ones",
+            "title_color": "#FFFD7B",
+            "url_link": ""
+          }
+        },
+        {
+          "type": "blog_item",
+          "settings": {
+            "date_text": "MAY 26, 2024",
+            "date_color": "#FFFD7B",
+            "title_text": "Discover The Comfortable And Protective Diapers For Toddlers",
+            "title_color": "#FFFD7B",
+            "url_link": ""
+          }
+        }
+      ]
     }
   },
   "order": [
@@ -203,6 +328,13 @@
     "lab_results",
     "custom_faq",
     "changing_table_hero",
-    "grid_blogs_video"
+    "grid_blogs_video",
+    "hero_image",
+    "description_subhero",
+    "grid_hero",
+    "testimonials",
+    "hero_bottom",
+    "hero_blog",
+    "grid_blogs"
   ]
 }

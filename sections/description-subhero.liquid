@@ -1,0 +1,49 @@
+{% schema %}
+{
+  "name": "Description Subhero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "WE SEE YOU"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents, we wanted to find diapers that made our kids happy but also made us happy. With our Hyper Absorbent BambooTek™ core and collaborations with our favorite artists, we're out to give diapers a new life – and give parents a diaper that cuts out the baby talk.</p>"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4CFD9F"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#919CC2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Description Subhero"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="w-full px-14 py-14 md:py-34 md:px-30" style="background-color: {{ section.settings.bg_color }}">
+  <div class="mx-auto ">
+    <div class="">
+      <h2 class="text-base md:text-xl font-bold mb-6" style="color: {{ section.settings.text_color }}">
+        {{ section.settings.title }}
+      </h2>
+      <div class="text-base md:text-2xl md:max-w-[1100px]" style="color: {{ section.settings.text_color }}">
+        {{ section.settings.description }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+{% render 'entry' with '@/scripts/sections/c-hero-image.js' %}
+{% render 'entry' with '@/styles/sections/c-hero-image.scss' %}
+
+<div class="custom-hero-image relative w-full overflow-hidden" data-hero-image>
+  <div class="custom-hero-image__container relative w-full h-screen">
+    <div class="custom-hero-image__image absolute inset-0 w-full h-full">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 2000 | image_tag: 
+          class: "w-full h-full object-cover",
+          loading: "lazy"
+        }}
+      {% else %}
+        {{ 'hero-default.jpg' | asset_img_url: '2000x' | image_tag: 
+          class: "w-full h-full object-cover",
+          loading: "lazy"
+        }}
+      {% endif %}
+    </div>
+
+    <div class="absolute pt-[480px] md:pt-[400px] inset-0 flex flex-col justify-center items-start px-4 md:px-16
+         bg-gradient-to-r from-black/40 to-transparent z-10">
+      {% if section.settings.heading != blank %}
+        <h2 class="text-3xl text-left md:text-5xl md:max-w-[400px] font-extralight md:mb-4 drop-shadow-lg text-yellow"
+          {% if section.settings.heading_color != '#FFF9BE' %}
+            style="color: {{ section.settings.heading_color }};"
+          {% endif %}>
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Hero Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Non-toxic, ultra soft diapers just caught a vibe"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#FFFD7B"
+    },
+ 
+  ],
+  "presets": [
+    {
+      "name": "Custom Hero Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,89 @@
+<div class=" bg-lila px-8 md:px-20 py-8">
+  <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.url_link }}" class="no-underline">
+        {%- if block.settings.image != blank -%}
+          <img 
+            src="{{ block.settings.image | img_url: 'master' }}"
+            alt="{{ block.settings.image.alt }}"
+            loading="lazy"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            class="w-full md:h-[650px] md:min-h-[650px] object-cover rounded-3xl mb-4"
+          >
+        {%- endif -%}
+        <span class="block py-4 text-base font-bold" style="color: {{ block.settings.date_color }}">
+          {{ block.settings.date_text }}
+        </span>
+        <h2 class="text-2xl font-semibold" style="color: {{ block.settings.title_color }}">
+          {{ block.settings.title_text }}
+        </h2>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grid Blogs",
+  "max_blocks": 9,
+  "blocks": [
+    {
+      "type": "blog_item",
+      "name": "Blog Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "date_text",
+          "label": "Date Text",
+          "default": "MAY 26, 2024"
+        },
+        {
+          "type": "color",
+          "id": "date_color",
+          "label": "Date Color",
+          "default": "#000000"
+        },
+        {
+          "type": "text",
+          "id": "title_text",
+          "label": "Title Text",
+          "default": "Blog Title"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#000000"
+        },
+        {
+          "type": "url",
+          "id": "url_link",
+          "label": "URL Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Blogs",
+      "blocks": [
+        {
+          "type": "blog_item"
+        },
+        {
+          "type": "blog_item"
+        },
+        {
+          "type": "blog_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

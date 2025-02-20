@@ -1,0 +1,115 @@
+{% schema %}
+{
+  "name": "Grid Hero",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "grid_item",
+      "name": "Grid Item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title of the block"
+        },
+        {
+          "type": "select",
+          "id": "background_type",
+          "label": "Background type",
+          "options": [
+            {
+              "value": "color",
+              "label": "Color"
+            },
+            {
+              "value": "image",
+              "label": "Image"
+            }
+          ],
+          "default": "color"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background image"
+        },
+        {
+          "type": "color",
+          "id": "number_color",
+          "label": "Number color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Hero",
+      "blocks": [
+        {
+          "type": "grid_item"
+        },
+        {
+          "type": "grid_item"
+        },
+        {
+          "type": "grid_item"
+        },
+        {
+          "type": "grid_item"
+        },
+        {
+          "type": "grid_item"
+        },
+        {
+          "type": "grid_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="grid grid-cols-2 lg:grid-cols-3">
+  {% for block in section.blocks %}
+    {% assign bg_style = '' %}
+    {% if block.settings.background_type == 'color' %}
+      {% assign bg_style = block.settings.background_color %}
+    {% endif %}
+    
+    <div class="relative flex flex-col justify-center p-8 h-[300px] md:h-[640px]"
+         style="{% if block.settings.background_type == 'color' %}background-color: {{ bg_style }}{% endif %}"
+         {{ block.shopify_attributes }}>
+      {% if block.settings.background_type == 'image' and block.settings.background_image %}
+        <img src="{{ block.settings.background_image | img_url: 'master' }}" 
+             alt=""
+             class="absolute inset-0 w-full h-full object-cover">
+      {% endif %}
+      
+      <div class="relative z-10 md:px-10 flex flex-col justify-between gap-[150px] md:gap-[400px]">
+        <h1 class="text-xl md:text-5xl font-medium mb-4" style="color: {{ block.settings.number_color }}">{{ block.settings.number }}</h1>
+        <p class="text-xl md:text-3xl font-medium" style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>

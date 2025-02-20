@@ -1,0 +1,75 @@
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Your quote here"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Author name"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Certified",
+          "default": "Certified"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Certified",
+      "blocks": [
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="w-full py-44 px-10" style="background-color: {{ section.settings.background_color }}">
+  <div class="container mx-auto px-4">
+    {% for block in section.blocks %}
+      {% if block.type == 'testimonial' %}
+        <div class="flex flex-col items-center justify-center py-8 text-center mb-16 last:mb-0" {{ block.shopify_attributes }}>
+          <blockquote class="mb-8 text-base md:text-lg font-semibold" style="color: {{ section.settings.text_color }}">
+            {{ block.settings.quote }}
+          </blockquote>
+          <p class="text-lg  font-semibold mb-6" style="color: {{ section.settings.text_color }}">
+            {{ block.settings.name }}
+          </p>
+          <p class="text-lg md:text-xl font-semibold" style="color: {{ section.settings.text_color }}">
+            {{ block.settings.location }}
+          </p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
