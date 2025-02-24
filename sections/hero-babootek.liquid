@@ -1,0 +1,105 @@
+{% schema %}
+{
+  "name": "Hero Babootek",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagen principal"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título principal",
+      "default": "Safer, more transparent, better."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción",
+      "default": "<p>Freestyle set out to make a better diaper without making sacrifices. Our diapers are tested at an independent, third-party lab against leading brands, and we're publishing the results below for transparency so you can have supreme confidence in the products you are using.</p>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Freestyle products are:"
+    },
+    {
+      "type": "header",
+      "content": "Botones"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Texto del primer botón",
+      "default": "FREESTYLE VS. COMPETITION"
+    },
+    {
+      "type": "url",
+      "id": "button1_url",
+      "label": "Enlace del primer botón"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Texto del segundo botón",
+      "default": "LAB RESULTS"
+    },
+    {
+      "type": "url",
+      "id": "button2_url",
+      "label": "Enlace del segundo botón"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Babootek"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="mx-auto px-8 md:px-16 py-10 pb-6 bg-lila">
+  <div class="flex flex-col md:flex-row gap-16">
+    <div class="w-full md:w-1/2">
+      <div class="md:hidden order-1 mb-16">
+        <h1 class="text-3xl md:text-5xl font-light text-white text-center">
+          {{ section.settings.title }}
+        </h1>
+        <div class="text-sm md:text-base text-white py-8 md:py-16 text-center">
+          {{ section.settings.description }}
+        </div>
+      </div>
+
+      <div>
+        {%- assign hero_image = section.settings.hero_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/c9cf79e5c9c015fb4fff1019728a1d7880818cc0-1608x1913.png?w=1000&h=1190&q=80&fit=max&auto=format' -%}
+        {{ hero_image | image_url: width: 800 | image_tag: 
+          class: "w-full h-auto",
+          loading: "lazy"
+        }}
+      </div>
+    </div>
+
+    <!-- Columna derecha en desktop -->
+    <div class="w-full md:w-1/2  flex flex-col items-center justify-center text-center">
+      <h1 class="text-5xl font-light text-white">
+        {{ section.settings.title }}
+      </h1>
+
+      <div class="text-white py-16">
+        {{ section.settings.description }}
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Contenido adicional solo para mobile -->
+  <div class="md:hidden mt-16 text-center">
+    <h2 class="text-2xl font-light text-core mb-8">
+      {{ section.settings.subtitle }}
+    </h2>
+  </div>
+
+
+</section>
