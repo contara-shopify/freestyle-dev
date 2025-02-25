@@ -1,0 +1,157 @@
+{% schema %}
+{
+  "name": "Clean Process",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Our Clean Process"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#6B7280"
+    },
+    {
+      "type": "text",
+      "id": "button1_text",
+      "label": "Texto del primer botón",
+      "default": "MORE ON SAFETY"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Link del primer botón"
+    },
+    {
+      "type": "text",
+      "id": "button2_text",
+      "label": "Texto del segundo botón",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Link del segundo botón"
+    },
+    {
+      "type": "text",
+      "id": "absorption_text",
+      "label": "Texto de absorción",
+      "default": "better absorption compared to the leading plant-based diaper"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list",
+      "name": "Lista de características",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item1",
+          "label": "Item 1"
+        },
+        {
+          "type": "text",
+          "id": "item2",
+          "label": "Item 2"
+        },
+        {
+          "type": "text",
+          "id": "item3",
+          "label": "Item 3"
+        }
+      ],
+      "limit": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clean Process",
+      "blocks": [
+        {
+          "type": "list"
+        },
+        {
+          "type": "list"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="px-8 md:px-16 py-8 md:py-12">
+  <div class="flex flex-col md:flex-row w-full">
+    <!-- Left Column -->
+    <div class="w-full md:w-[80%]">
+      <h1 class="text-xl md:text-5xl mb-10 md:mb-20" style="color: {{ section.settings.text_color }}">
+        {{ section.settings.title }}
+      </h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {% for block in section.blocks %}
+          <div class="space-y-8">
+            <ul class="space-y-8 md:space-y-12 text-lg md:text-xl" style="color: {{ section.settings.text_color }}">
+              {% if block.settings.item1 != blank %}
+                <li>{{ block.settings.item1 }}</li>
+              {% endif %}
+              {% if block.settings.item2 != blank %}
+                <li>{{ block.settings.item2 }}</li>
+              {% endif %}
+              {% if block.settings.item3 != blank %}
+                <li>{{ block.settings.item3 }}</li>
+              {% endif %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Buttons Desktop -->
+      <div class="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 pt-8 md:pt-16 order-last md:order-none">
+        {% if section.settings.button1_link != blank %}
+          <a href="{{ section.settings.button1_link }}" class="bg-yellow uppercase px-8 md:px-12 py-4 md:py-8 rounded-full text-base md:text-xl text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+            {{ section.settings.button1_text }}
+          </a>
+        {% endif %}
+        {% if section.settings.button2_link != blank %}
+          <a href="{{ section.settings.button2_link }}" class="bg-yellow uppercase px-8 md:px-12 py-4 md:py-8 rounded-full text-base md:text-xl text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+            {{ section.settings.button2_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="w-full md:w-[20%] px-4 md:px-8 mt-8 md:mt-0">
+      <div class="bg-lila p-6 text-center h-[300px] md:h-[500px] flex flex-col justify-center rounded-3xl">
+        <div class="mb-4">
+          <svg class="w-[150px] md:w-[200px] h-[200px] md:h-[200px] mx-auto text-core" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"/>
+            <text x="50%" y="70%" text-anchor="middle" class="text-[10px] text-core_light font-medium">2x</text>
+          </svg>
+        </div>
+        <p class="text-sm md:text-base text-core font-bold">
+          {{ section.settings.absorption_text }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Buttons Mobile -->
+    <div class="flex items-center gap-2 md:flex-row  md:space-y-0 md:space-x-4 pt-8 md:pt-16  md:hidden">
+        {% if section.settings.button1_link != blank %}
+          <a href="{{ section.settings.button1_link }}" class="bg-yellow uppercase px-8 md:px-12 py-4 md:py-8 rounded-full text-base md:text-xl text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+            {{ section.settings.button1_text }}
+          </a>
+        {% endif %}
+        {% if section.settings.button2_link != blank %}
+          <a href="{{ section.settings.button2_link }}" class="bg-yellow uppercase px-8 md:px-12 py-4 md:py-8 rounded-full text-base md:text-xl text-core font-bold md:font-semibold whitespace-nowrap w-fit transition-all duration-300 hover:text-yellow hover:bg-hover-gradient hover:bg-gradient-size hover:animate-gradient-wave">
+            {{ section.settings.button2_text }}
+          </a>
+        {% endif %}
+      </div>
+    
+  </div>
+</div>

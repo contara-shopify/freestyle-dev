@@ -82,7 +82,7 @@
     </div>
 
     <!-- Columna derecha en desktop -->
-    <div class="w-full md:w-1/2  flex flex-col items-center justify-center text-center">
+    <div class="w-full md:w-1/2  items-center justify-center text-center hidden md:flex md:flex-col">
       <h1 class="text-5xl font-light text-white">
         {{ section.settings.title }}
       </h1>
@@ -94,12 +94,7 @@
     </div>
   </div>
 
-  <!-- Contenido adicional solo para mobile -->
-  <div class="md:hidden mt-16 text-center">
-    <h2 class="text-2xl font-light text-core mb-8">
-      {{ section.settings.subtitle }}
-    </h2>
-  </div>
+
 
 
 </section>
