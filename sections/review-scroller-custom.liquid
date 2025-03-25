@@ -1,26 +1,33 @@
-<div class="py-8 md:py-16 bg-yellow overflow-hidden relative">
-  <h2 class="text-2xl font-normal md:font-normal md:text-5xl mb-4  mx-8  md:absolute md:top-16 
-    md:left-8 z-10 md:max-w-[50%] text-[#AD887D] md:mb-20">
+<div class="py-16 md:py-24 bg-lila">
+  <h2 class="text-2xl font-normal md:font-normal md:text-4xl mb-8 md:mb-28 text-center mx-auto max-w-[800px] text-white">
     {{ section.settings.title -}}
     <br>
-    <span class="text-2xl font-medium md:text-4xl text-gray-600 block mt-2">{{ section.settings.subtitle }}</span>
+    <span class="text-2xl font-medium md:text-base text-center text-gray-600 block mt-2">{{ section.settings.subtitle }}</span>
   </h2>
 
-
-
-  <div class="mt-8 md:mt-48 overflow-hidden w-full relative">
-    <div class="flex gap-8 md:gap-6 overflow-x-auto whitespace-nowrap scroll-container touch-pan-x snap-x snap-mandatory">
+  <div class="mt-16 md:mt-16 overflow-hidden w-full relative">
+    <div class="flex gap-6 overflow-x-auto whitespace-nowrap scroll-container touch-pan-x snap-x snap-mandatory" id="scrollContainer">
       {%- for block in section.blocks -%}
-        <div class="min-w-[300px] md:min-w-[300px] flex flex-col gap-4 p-4 snap-start" {{ block.shopify_attributes }}>
-          <div class="w-[300px] h-[400px] flex-shrink-0">
-            <img
-              src="{{ block.settings.review_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/f25a631dd844f1eda10ae233bc275c4cd96c2a3b-1151x2034.jpg?w=1000&h=1767&q=80&fit=max&auto=format' }}"
-              alt="{{ block.settings.author_name }}'s review"
-              loading="lazy"
-              class="w-full h-full object-cover rounded-lg">
+        <div class="min-w-[300px] flex flex-col gap-4 snap-start" {{ block.shopify_attributes }}>
+          <div class="w-[310px] h-[420px] flex-shrink-0 rounded-3xl overflow-hidden">
+            {%- if block.settings.review_video -%}
+              {{ block.settings.review_video | video_tag: 
+                class: 'w-full h-[420px] object-cover rounded-3xl',
+                autoplay: true,
+                loop: true,
+                muted: true,
+                playsinline: true,
+                controls: true
+              }}
+            {%- else -%}
+              <div class="w-full h-full bg-gray-200 rounded-3xl flex items-center justify-center">
+                <span class="text-gray-400">No video available</span>
+              </div>
+            {%- endif -%}
           </div>
+       
           <div class="flex flex-col">
-            <div class="font-bold text-[#AD887D] text-sm md:text-base whitespace-normal">
+            <div class="font-normal text-core_light text-sm md:text-base whitespace-normal">
               {%- if block.settings.author_url -%}
                 <a href="{{ block.settings.author_url }}" target="_blank" rel="noopener noreferrer" class="hover:underline">
               {%- endif -%}
@@ -36,7 +43,7 @@
                 <span class="text-gray-400 ml-2">{{ block.settings.author_handle }}</span>
               {%- endif -%}
             </div>
-            <div class="text-base md:text-xl leading-relaxed mb-4 text-[#AD887D] whitespace-normal">
+            <div class="text-base md:text-base leading-relaxed mb-4 text-white whitespace-normal w-[280px]">
               {{ block.settings.review_text | default: 'Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.' }}
             </div>
           </div>
@@ -56,7 +63,54 @@
   .overflow-x-auto::-webkit-scrollbar {
     display: none; 
   }
+
+  .scroll-container {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+  }
+
+  .scroll-container:active {
+    cursor: grabbing;
+  }
+
+  video {
+    height: 520px !important;
+    object-fit: cover !important;
+  }
 </style>
+
+<script>
+  const scrollContainer = document.getElementById('scrollContainer');
+  let isMouseDown = false;
+  let startX;
+  let scrollLeft;
+
+  scrollContainer.addEventListener('mousedown', (e) => {
+    isMouseDown = true;
+    scrollContainer.classList.add('active');
+    startX = e.pageX - scrollContainer.offsetLeft;
+    scrollLeft = scrollContainer.scrollLeft;
+  });
+
+  scrollContainer.addEventListener('mouseleave', () => {
+    isMouseDown = false;
+    scrollContainer.classList.remove('active');
+  });
+
+  scrollContainer.addEventListener('mouseup', () => {
+    isMouseDown = false;
+    scrollContainer.classList.remove('active');
+  });
+
+  scrollContainer.addEventListener('mousemove', (e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainer.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainer.scrollLeft = scrollLeft - walk;
+  });
+</script>
 
 {% schema %}
 {
@@ -109,9 +163,14 @@
           "default": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper."
         },
         {
+          "type": "video",
+          "id": "review_video",
+          "label": "Review Video"
+        },
+        {
           "type": "image_picker",
-          "id": "review_image",
-          "label": "Review Image"
+          "id": "video_poster",
+          "label": "Video Poster Image (optional)"
         }
       ]
     }

@@ -23,11 +23,6 @@
     "logo-section": {
       "type": "c-logo-section",
       "blocks": {
-        "block-1": { "type": "logo" },
-        "block-2": { "type": "logo" },
-        "block-3": { "type": "logo" },
-        "block-4": { "type": "logo" },
-        "block-5": { "type": "logo" }
       },
       "block_order": ["block-1", "block-2", "block-3", "block-4", "block-5"]
     },
@@ -63,22 +58,8 @@
     "product_features": {
       "type": "c-product-features",
       "blocks": {
-        "feature-1": {
-          "type": "column",
-          "settings": {}
-        },
-        "feature-2": {
-          "type": "column",
-          "settings": {}
-        },
-        "feature-3": {
-          "type": "column",
-          "settings": {}
-        },
-        "feature-4": {
-          "type": "column",
-          "settings": {}
-        }
+    
+      
       },
       "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"],
       "settings": {
@@ -134,7 +115,7 @@
     "logo_reviews": {
       "type": "c-logo-reviews",
       "blocks": {
-        "block-1": { "type": "logo" },
+    
         "block-2": { "type": "logo" },
         "block-3": { "type": "logo" },
         "block-4": { "type": "logo" },
