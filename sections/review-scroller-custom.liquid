@@ -9,17 +9,17 @@
 
 
   <div class="mt-8 md:mt-48 overflow-hidden w-full relative">
-    <div class="flex gap-8 md:gap-6 overflow-x-auto md:overflow-x-hidden whitespace-nowrap scroll-container touch-pan-x snap-x snap-mandatory md:snap-none">
+    <div class="flex gap-8 md:gap-6 overflow-x-auto whitespace-nowrap scroll-container touch-pan-x snap-x snap-mandatory">
       {%- for block in section.blocks -%}
-        <div class="min-w-[300px] md:min-w-[600px] flex flex-col md:flex-row gap-4 md:gap-8 p-4 snap-start" {{ block.shopify_attributes }}>
-          <div class="w-[300px] md:w-[300px] h-[400px] md:h-[400px] flex-shrink-0">
+        <div class="min-w-[300px] md:min-w-[300px] flex flex-col gap-4 p-4 snap-start" {{ block.shopify_attributes }}>
+          <div class="w-[300px] h-[400px] flex-shrink-0">
             <img
               src="{{ block.settings.review_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/f25a631dd844f1eda10ae233bc275c4cd96c2a3b-1151x2034.jpg?w=1000&h=1767&q=80&fit=max&auto=format' }}"
               alt="{{ block.settings.author_name }}'s review"
               loading="lazy"
               class="w-full h-full object-cover rounded-lg">
           </div>
-          <div class="flex-1 flex flex-col w-[300px] md:w-[250px] overflow-hidden">
+          <div class="flex flex-col">
             <div class="font-bold text-[#AD887D] text-sm md:text-base whitespace-normal">
               {%- if block.settings.author_url -%}
                 <a href="{{ block.settings.author_url }}" target="_blank" rel="noopener noreferrer" class="hover:underline">
@@ -28,10 +28,10 @@
               {%- if block.settings.author_url -%}
                 </a>
               {%- endif -%}
-                <svg class="inline-block w-6 h-6 ml-1 " viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="12" fill="#1DA1F2"/>
-                  <path d="M17.5 8.5l-6.5 6.5L7.5 11.5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <svg class="inline-block w-6 h-6 ml-1" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="12" fill="#1DA1F2"/>
+                <path d="M17.5 8.5l-6.5 6.5L7.5 11.5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
               {%- if block.settings.author_handle -%}
                 <span class="text-gray-400 ml-2">{{ block.settings.author_handle }}</span>
               {%- endif -%}
@@ -42,62 +42,11 @@
           </div>
         </div>
       {%- endfor -%}
-      {%- for block in section.blocks -%}
-        <div class="hidden md:flex min-w-[600px] flex-col md:flex-row gap-4 md:gap-8 p-4" aria-hidden="true">
-          <div class="w-[300px] md:w-[300px] h-[400px] md:h-[400px] flex-shrink-0">
-            <img
-              src="{{ block.settings.review_image | default: 'https://cdn.sanity.io/images/cn55vbgx/production/f25a631dd844f1eda10ae233bc275c4cd96c2a3b-1151x2034.jpg?w=1000&h=1767&q=80&fit=max&auto=format' }}"
-              alt="{{ block.settings.author_name }}'s review"
-              loading="lazy"
-              class="w-full h-full object-cover rounded-lg">
-          </div>
-          <div class="flex-1 flex flex-col w-[300px] md:w-[250px]">
-            <div class="font-bold text-[#AD887D] text-sm md:text-base">
-              {%- if block.settings.author_url -%}
-                <a href="{{ block.settings.author_url }}" target="_blank" rel="noopener noreferrer" class="hover:underline">
-              {%- endif -%}
-                {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
-              {%- if block.settings.author_url -%}
-                </a>
-              {%- endif -%}
-                <svg class="inline-block w-6 h-6 ml-1 " viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="12" fill="#1DA1F2"/>
-                  <path d="M17.5 8.5l-6.5 6.5L7.5 11.5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              {%- if block.settings.author_handle -%}
-                <span class="text-gray-400 ml-2">{{ block.settings.author_handle }}</span>
-              {%- endif -%}
-            </div>
-            <div class="text-base md:text-xl leading-relaxed mb-4 text-[#AD887D] max-w-full md:max-w-[300px]">
-              {{ block.settings.review_text | default: 'Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.' }}
-            </div>
-          </div>
-        </div>
-      {%- endfor -%}
     </div>
   </div>
 </div>
 
 <style>
-  @media (min-width: 768px) {
-    .scroll-container {
-      animation: scroll 30s linear infinite;
-    }
-
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-50%));
-      }
-    }
-
-    .scroll-container:hover {
-      animation-play-state: paused;
-    }
-  }
-
   .overflow-x-auto {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; 

@@ -28,145 +28,31 @@
         "button_url": ""
       }
     },
-    "safety_hero": {
-      "type": "safety-hero",
-      "blocks": [
-        {
-          "type": "feature",
-          "settings": {
-            "text": "Ultra clean"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "text": "Ultra soft"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "text": "Free from 43+ harmful chemicals"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "text": "Total Chlorine Free (TCF)"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "text": "Paraben + phthalate free"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "text": "Fragrance + lotion free"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "text": "VOC free"
-          }
-        },
-        {
-          "type": "feature",
-          "settings": {
-            "text": "Latex + rubber free"
-          }
-        }
-      ],
-      "settings": {
-        "title": "Safer, more transparent, better.",
-        "description": "<p>Freestyle set out to make a better diaper without making sacrifices. Our diapers are tested at an independent, third-party lab against leading brands, and we're publishing the results below for transparency so you can have supreme confidence in the products you are using.</p>",
-        "subtitle": "Freestyle products are:"
-      }
-    },
-    "comparison_table": {
-      "type": "comparison-table",
-      "blocks": [
-        {
-          "type": "comparison_row",
-          "settings": {
-            "label": "Absorption Before Leakage (higher is better)",
-            "freestyle_value": "230 gr",
-            "brand1_value": "217 gr",
-            "brand2_value": "219 gr",
-            "brand3_value": "224 gr"
-          }
-        },
-        {
-          "type": "comparison_row",
-          "settings": {
-            "label": "Protection Against Leakage (higher is better)",
-            "freestyle_value": "78%",
-            "brand1_value": "75%",
-            "brand2_value": "76%",
-            "brand3_value": "77%"
-          }
-        },
-        {
-          "type": "comparison_row",
-          "settings": {
-            "label": "Absorption Capacity (higher is better)",
-            "freestyle_value": "934 gr",
-            "brand1_value": "924 gr",
-            "brand2_value": "604 gr",
-            "brand3_value": "817 gr"
-          }
-        }
-      ],
-      "settings": {
-        "title": "Product Comparison",
-        "highlight_bg_color": "#E6E6FA"
-      }
-    },
-    "lab_results": {
-      "type": "Table-Labs",
-      "settings": {
-        "title": "BambooTek® Lab Results",
-        "description": "<p>The BambooTek® Diaper is made of 85% plant-based, biodegradable materials. The superstar: it's powered by our proprietary tree-free, totally chlorine free (TCF) BambooTek® core (100% bamboo pulp and superabsorbent polymer).</p>",
-        "row_1_name": "Dimethylformamide (DMFA)",
-        "row_1_status": "Not Detected",
-        "row_2_name": "Acetophenone",
-        "row_2_status": "Not Detected",
-        "row_3_name": "2-Phenyl-2-Propanol",
-        "row_3_status": "Not Detected",
-        "row_4_name": "Formamide",
-        "row_4_status": "Not Detected",
-        "row_5_name": "1-Methyl-2-pyrrolidone (NMP)",
-        "row_5_status": "Not Detected"
-      }
-    },
     "custom_faq": {
       "type": "custom-faq",
-      "blocks": [
-        {
+      "blocks": {
+        "faq_1": {
           "type": "faq",
           "settings": {
             "question": "Do you have a sizing chart?",
             "answer": "<p>For sure! Check it out here.</p>"
           }
         },
-        {
+        "faq_2": {
           "type": "faq",
           "settings": {
             "question": "What are the ingredients used in the diaper?",
             "answer": "<p>Our diapers are made with premium materials...</p>"
           }
         },
-        {
+        "faq_3": {
           "type": "faq",
           "settings": {
             "question": "What are the ingredients in the wipes?",
             "answer": "<p>Our wipes are made with natural ingredients...</p>"
           }
         }
-      ],
+      },
       "settings": {
         "show_title": true,
         "main_title": "Frequently Asked Questions",
@@ -176,8 +62,8 @@
     },
     "testimonials": {
       "type": "sub-text-certified",
-      "blocks": [
-        {
+      "blocks": {
+        "testimonial_1": {
           "type": "testimonial",
           "settings": {
             "quote": "Los pañales más suaves y absorbentes que hemos usado.",
@@ -185,7 +71,7 @@
             "location": "Madrid, España"
           }
         }
-      ],
+      },
       "settings": {
         "background_color": "#FFFFFF",
         "text_color": "#000000"
@@ -193,8 +79,8 @@
     },
     "grid_blogs_video": {
       "type": "grid-blogs-video",
-      "blocks": [
-        {
+      "blocks": {
+        "column_1": {
           "type": "column",
           "settings": {
             "title": "The Key to Motherhood",
@@ -203,7 +89,7 @@
             "button_link": ""
           }
         },
-        {
+        "column_2": {
           "type": "column",
           "settings": {
             "title": "Finding Your Post-Partum Identity",
@@ -212,7 +98,7 @@
             "button_link": ""
           }
         },
-        {
+        "column_3": {
           "type": "column",
           "settings": {
             "title": "Fatherhood Your Way",
@@ -221,7 +107,7 @@
             "button_link": ""
           }
         }
-      ]
+      }
     },
     "description_subhero": {
       "type": "description-subhero",
@@ -234,8 +120,8 @@
     },
     "grid_hero": {
       "type": "grid-hero",
-      "blocks": [
-        {
+      "blocks": {
+        "grid_1": {
           "type": "grid_item",
           "settings": {
             "number": "01",
@@ -244,7 +130,7 @@
             "background_color": "#FF8C00"
           }
         },
-        {
+        "grid_2": {
           "type": "grid_item",
           "settings": {
             "number": "02",
@@ -253,7 +139,7 @@
             "background_color": "#E6E6FA"
           }
         },
-        {
+        "grid_3": {
           "type": "grid_item",
           "settings": {
             "number": "03",
@@ -261,8 +147,8 @@
             "background_type": "color",
             "background_color": "#90EE90"
           }
-        },
-      ]
+        }
+      }
     },
     "hero_bottom": {
       "type": "hero-bottom",
@@ -288,8 +174,8 @@
     },
     "grid_blogs": {
       "type": "grid-blogs",
-      "blocks": [
-        {
+      "blocks": {
+        "blog_1": {
           "type": "blog_item",
           "settings": {
             "date_text": "MAY 28, 2024",
@@ -299,7 +185,7 @@
             "url_link": ""
           }
         },
-        {
+        "blog_2": {
           "type": "blog_item",
           "settings": {
             "date_text": "MAY 26, 2024",
@@ -309,7 +195,7 @@
             "url_link": ""
           }
         },
-        {
+        "blog_3": {
           "type": "blog_item",
           "settings": {
             "date_text": "MAY 26, 2024",
@@ -319,13 +205,10 @@
             "url_link": ""
           }
         }
-      ]
+      }
     }
   },
   "order": [
-    "safety_hero",
-    "comparison_table",
-    "lab_results",
     "custom_faq",
     "changing_table_hero",
     "grid_blogs_video",

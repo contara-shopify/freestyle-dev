@@ -16,24 +16,7 @@
         "excerpt_title": "Summary"
       }
     },
-    "product_custom_section_3jX9qz": {
-      "type": "product-custom-section",
-      "settings": {
-        "products_list": [
-          "chocolate-chip",
-          "madagascar-vanilla-honey-almond",
-          "peruvian-dark-chocolate-peanut-butter",
-          "nut-seed-variety-pack",
-          "smores"
-        ],
-        "title": "<p><em>ALL</em> good <br/><em>      IN</em>gredients</p>",
-        "color_scheme": "scheme-951c1d93-12b5-4f78-b84c-2e55165ed91d",
-        "show_bottom_panel": true,
-        "bottom_text": "Not sure where to start?",
-        "button_text": "TRY THEM ALL",
-        "button_link": ""
-      }
-    },
+    
     "footer_custom_KdfMMD": {
       "type": "footer-custom",
       "blocks": {
@@ -84,21 +67,11 @@
         "footer_menu_3": "footer"
       }
     },
-    "footer_image_carousel_wkwDLQ": {
-      "type": "footer-image-carousel",
-      "settings": {
-        "title": "coming to a store near you",
-        "footer_title": "",
-        "background_color": "#E55454",
-        "title_background_color": "#ffffff",
-        "text_color": "#68185E"
-      }
-    }
+
   },
   "order": [
     "c_blog_single_post_b7gbNe",
-    "product_custom_section_3jX9qz",
     "footer_custom_KdfMMD",
-    "footer_image_carousel_wkwDLQ"
+
   ]
 }

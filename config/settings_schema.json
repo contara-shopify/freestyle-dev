@@ -1,11 +1,45 @@
 [
   {
-    "name": "contara theme",
-    "theme_name": "Theme Contara",
-    "theme_version": "0.1.0",
-    "theme_author": "Contara",
-    "theme_documentation_url": "https://www.contara.com/",
-    "theme_support_url": "https://www.contara.com/"
+    "name": "theme_info",
+    "theme_name": "Tu Tema",
+    "theme_version": "1.0.0",
+    "theme_author": "Tu Nombre",
+    "theme_documentation_url": "https://help.shopify.com/themes",
+    "theme_support_url": "https://support.shopify.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary Color",
+        "default": "#FFFFFF"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body Font",
+        "default": "helvetica_n4"
+      }
+    ]
   },
   {
     "name": "Header",
@@ -65,68 +99,6 @@
         "type": "link_list",
         "id": "header_menu_2",
         "label": "Header Menu 2"
-      }
-    ]
-  },
-  {
-    "name": "Colors",
-    "settings": [
-      {
-        "type": "color_scheme_group",
-        "id": "color_schemes",
-        "definition": [
-          {
-            "type": "color",
-            "id": "background",
-            "label": "Background",
-            "default": "#FFFFFF"
-          },
-          {
-            "type": "color_background",
-            "id": "background_gradient",
-            "label": "Background Gradient",
-            "info": "Background Gradient"
-          },
-          {
-            "type": "color",
-            "id": "text",
-            "label": "Text",
-            "default": "#121212"
-          },
-          {
-            "type": "color",
-            "id": "color_primary",
-            "label": "Primary Color (Core)",
-            "default": "#919CC2"
-          },
-          {
-            "type": "color",
-            "id": "color_secondary",
-            "label": "Secondary Color (Core Light)",
-            "default": "#E6E6FA"
-          },
-          {
-            "type": "color",
-            "id": "color_tertiary",
-            "label": "Tertiary Color",
-            "default": "#4cfd9f"
-          }
-        ],
-        "role": {
-          "text": "text",
-          "background": {
-            "solid": "background",
-            "gradient": "background_gradient"
-          },
-          "links": "color_secondary",
-          "icons": "color_primary",
-          "primary_button": "color_primary",
-          "on_primary_button": "color_secondary",
-          "primary_button_border": "color_primary",
-          "secondary_button": "color_secondary",
-          "on_secondary_button": "color_primary",
-          "secondary_button_border": "color_secondary"
-        }
       }
     ]
   },
@@ -412,12 +384,7 @@
         "label": "Button Text",
         "default": "SHOP DIAPERS"
       },
-      {
-        "type": "url",
-        "id": "mobile_menu_button_link",
-        "label": "URL",
-        "default": "/shop"
-      },
+  
       {
         "type": "text",
         "id": "mobile_menu_shipping_text",

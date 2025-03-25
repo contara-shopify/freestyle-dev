@@ -71,6 +71,80 @@ export default {
         green: {
           DEFAULT: '#4CFD9F',
         },
+        blue: {
+          DEFAULT: '#0053E2',
+        },
+        blueelectric: {
+          DEFAULT: '#0066FF',
+        },
+        color_1: {
+          DEFAULT: '#1b4c62',
+          secondary: '#61A2C7',
+          tertiary: '#C1E0EB',
+        },
+        color_2: {
+          DEFAULT: '#5F1F5B',
+          secondary: '#A85C9D',
+          tertiary: '#E8C7E8',
+        },
+        color_3: {
+          DEFAULT: '#D45E59',
+          secondary: '#020617',
+          tertiary: '#FFFFFF',
+        },
+        color_4: {
+          DEFAULT: '#CC4E32',
+          secondary: '#F4BC96',
+          tertiary: '#FFFFFF',
+        },
+        color_5: {
+          DEFAULT: '#5D3091',
+          secondary: '#C6B9D9',
+          tertiary: '#FFFFFF',
+        },
+        color_6: {
+          DEFAULT: '#2B657C',
+          secondary: '#A8D9E6',
+          tertiary: '#FFFFFF',
+        },
+        core: {
+          DEFAULT: '#919CC2',
+        },
+        core_light: {
+          DEFAULT: '#E0D8FE',
+        },
+        orange: {
+          DEFAULT: '#FD9025',
+        },
+        lila: {
+          DEFAULT: '#C2B0FF',
+        },
+        lightblue: {
+          DEFAULT: '#ECF8FF',
+          bg: '#ECF8FF',
+          bd: '#ECF8FF',
+        },
+        white: {
+          DEFAULT: '#ffffff',
+          bg: '#ffffff',
+          content: '#ffffff',
+          bd: '#ffffff',
+        },
+        black: {
+          DEFAULT: '#020617',
+          bg: '#000000',
+          content: '#000000',
+          inactive: 'rgba(0, 0, 0, 0.5)',
+        },
+        lightBlue: {
+          DEFAULT: '#c3e6fa',
+        },
+        scheme: {
+          bg: 'var(--theme-color-bg)',
+          primary: 'var(--theme-color-primary)',
+          secondary: 'var(--theme-color-secondary)',
+          tertiary: 'var(--theme-color-tertiary)',
+        },
       },
       utilities: {
         '.scrollbar-hide': {
@@ -81,81 +155,6 @@ export default {
           }
         }
       }
-    },
-
-    colors: {
-      color_1: {
-        DEFAULT: '#1b4c62',
-        secondary: '#61A2C7',
-        tertiary: '#C1E0EB',
-      },
-      color_2: {
-        DEFAULT: '#5F1F5B',
-        secondary: '#A85C9D',
-        tertiary: '#E8C7E8',
-      },
-      color_3: {
-        DEFAULT: '#D45E59',
-        secondary: '#020617',
-        tertiary: '#FFFFFF',
-      },
-      color_4: {
-        DEFAULT: '#CC4E32',
-        secondary: '#F4BC96',
-        tertiary: '#FFFFFF',
-      },
-      color_5: {
-        DEFAULT: '#5D3091',
-        secondary: '#C6B9D9',
-        tertiary: '#FFFFFF',
-      },
-      color_6: {
-        DEFAULT: '#2B657C',
-        secondary: '#A8D9E6',
-        tertiary: '#FFFFFF',
-      },
-      core: {
-        DEFAULT: '#919CC2',
-      },
-      core_light: {
-        DEFAULT: '#E0D8FE',
-      },
-      orange: {
-        DEFAULT: '#FD9025',
-      },
-      lila: {
-        DEFAULT: '#C2B0FF',
-      },
-
-
-
-      'light-blue': {
-        DEFAULT: '#ECF8FF',
-        bg: '#ECF8FF',
-        bd: '#ECF8FF',
-      },
-
-      white: {
-        DEFAULT: '#ffffff',
-        bg: '#ffffff',
-        content: '#ffffff',
-        bd: '#ffffff',
-      },
-      black: {
-        DEFAULT: '#020617',
-        bg: '#000000',
-        content: '#000000',
-        inactive: 'rgba(0, 0, 0, 0.5)',
-      },
-      lightBlue: {
-        DEFAULT: '#c3e6fa',
-      },
-      scheme: {
-        bg: 'var(--theme-color-bg)',
-        primary: 'var(--theme-color-primary)',
-        secondary: 'var(--theme-color-secondary)',
-        tertiary: 'var(--theme-color-tertiary)',
-      },
     },
   },
   plugins: [

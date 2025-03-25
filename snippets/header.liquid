@@ -2,32 +2,38 @@
 {% render 'entry' with '@/scripts/sections/header.js' %}
 {% render 'entry' with '@/styles/sections/header.scss' %}
 
-{% if settings.show_promo %}
-  <div class="b-header__promo  text-[10px] lg:text-base relative w-full py-6 px-12 text-center font-Aksen tracking-wid bg-core text-white-content text-sm uppercase tracking-[0.1rem]">
-    {% if settings.show_promo_link != blank %}<a href="{{ settings.show_promo_link }}" target="_blank">{% endif %}
-    {{ settings.promo_text }}
-
-    {% if settings.show_promo_link != blank %}</a>{% endif %}
-    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white-content hover:opacity-75" onclick="this.parentElement.style.display='none'">
-      <span class=" pr-2 text-4xl font-light">×</span>
-    </button>
-  </div>
-{% endif %}
-<div class="relative b-header__wrapper py-1 bg-lila/50 md:px-8">
+<div class="relative b-header__wrapper py-1 bg-white md:px-8">
   <div class="b-header__inner mx-auto px-8 py-4 flex justify-between items-center">
-    <button class="lg:hidden text-core hover:text-gray-600" data-mobile-menu-toggle>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+    <div class="flex items-center">
+      <button class="text-core hover:text-gray-600 rounded-md mr-4 flex items-center" data-mobile-menu-toggle>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="#6638B7">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      
+      <div class="flex items-center">
+        <a href="{{ routes.root_url }}" class="inline-flex items-center no-underline">
+          {%- if settings.header_logo != blank -%}
+            <img 
+              src="{{ settings.header_logo | img_url: '200x' }}"
+              class="h-12 w-auto max-w-[150px] object-contain"
+              alt="{{ shop.name }}"
+              loading="lazy"
+            >
+          {%- else -%}
+            <span class="text-xl mt-2 md:mt-0 md:text-2xl font-bold text-[#6638B7]">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+      </div>
+    </div>
 
-    <nav class="b-header__nav-left hidden lg:block">
-      <ul class=" flex space-x-8 uppercase text-sm gap-16">
-        {% for link in linklists.main-menu.links %}
+    <nav class="hidden lg:block">
+      <ul class="flex space-x-8 uppercase text-sm">
+        {% for link in linklists.main-menu.links limit:3 %}
           <li class="menu-item">
             <a 
               href="{{ link.url }}" 
-              class="text-core hover:text-gray-600 {% if link.active %}text-gray-600{% endif %}"
+              class="text-black font-normal hover:text-gray-600 {% if link.active %}text-gray-600{% endif %}"
             >
               {{ link.title }}
               {%- if link.links.size > 0 -%}+{%- endif -%}
@@ -37,38 +43,23 @@
       </ul>
     </nav>
 
-    <div class="b-header__logo flex-1 lg:flex-none text-center lg:text-left lg:mx-12 ">
-      <a href="{{ routes.root_url }}" class="inline-flex items-center no-underline">
-        {%- if settings.logo != blank -%}
-          <img 
-            src="{{ settings.logo | image_url }}"
-            width="{{ settings.logo_width }}"
-            class="h-12 w-auto"
-            alt="{{ shop.name }}"
-            loading="lazy"
-            width=""
-            height=""
-          >
-        {%- else -%}
-          <span class="text-xl mt-2 md:mt-0 md:text-2xl font-bold">{{ shop.name }}</span>
-        {%- endif -%}
-      </a>
-    </div>
-
     <div class="flex items-center gap-4 lg:hidden pl-4">
-      <a href="{{ routes.cart_url }}" class="text-core uppercase text-sm hover:text-gray-600">
+      <a href="{{ routes.cart_url }}" class="text-black uppercase text-sm hover:text-gray-600">
         Cart [ {{ cart.item_count }} ]
       </a>
     </div>
 
-    <div class="hidden lg:flex items-center space-x-8 gap-16">
-      {% for link in linklists.utility-menu.links %}
-        <a href="{{ link.url }}" class="text-core uppercase text-sm hover:text-gray-600">
-          {{ link.title }}
-        </a>
-      {% endfor %}
-      <a href="{{ routes.cart_url }}" class="text-core uppercase text-sm hover:text-gray-600">
-        Cart [ {{ cart.item_count }} ]
+    <div class="hidden lg:flex items-center space-x-8">
+      <a href="/account" class="text-black hover:text-gray-600 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#6638B7">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      </a>
+      <a href="{{ routes.cart_url }}" class="text-black uppercase text-sm hover:text-gray-600 flex items-center gap-2">
+        <span class="flex items-center">Cart</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#6638B7">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
       </a>
     </div>
   </div>
@@ -80,9 +71,16 @@
           <span class="text-3xl font-thin">x</span>
         </button>
         <div class="flex items-center gap-4">
-          <a href="/account" class="text-core uppercase text-sm hover:text-gray-600">ACCOUNT</a>
-          <a href="{{ routes.cart_url }}" class="text-core uppercase text-sm hover:text-gray-600">
-            Cart [ {{ cart.item_count }} ]
+          <a href="/account" class="text-core uppercase text-sm hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+          <a href="{{ routes.cart_url }}" class="text-core uppercase text-sm hover:text-gray-600 flex items-center gap-2">
+            Cart 
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
           </a>
         </div>
       </div>
