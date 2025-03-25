@@ -20,3 +20,5 @@ logs
 *.log
 .env
 .shopify
+
+config/settings_data.json

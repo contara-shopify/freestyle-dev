@@ -9,10 +9,10 @@
     <div class="flex gap-6 overflow-x-auto whitespace-nowrap scroll-container touch-pan-x snap-x snap-mandatory" id="scrollContainer">
       {%- for block in section.blocks -%}
         <div class="min-w-[300px] flex flex-col gap-4 snap-start" {{ block.shopify_attributes }}>
-          <div class="w-[310px] h-[420px] flex-shrink-0 rounded-3xl overflow-hidden">
+          <div class="w-[310px] h-[520px] flex-shrink-0 rounded-3xl overflow-hidden">
             {%- if block.settings.review_video -%}
               {{ block.settings.review_video | video_tag: 
-                class: 'w-full h-[420px] object-cover rounded-3xl',
+                class: 'w-full h-[620px] object-cover rounded-3xl',
                 autoplay: true,
                 loop: true,
                 muted: true,
@@ -75,7 +75,7 @@
   }
 
   video {
-    height: 520px !important;
+    height: 640px !important;
     object-fit: cover !important;
   }
 </style>

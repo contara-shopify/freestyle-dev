@@ -1,7 +1,7 @@
 <div class="py-16">
-  <div class="flex justify-center items-center gap-16" >
+  <div class="flex justify-center items-center" >
     <!-- Columna izquierda (30%) -->
-    <div class="w-[30%] pr-8 space-y-8 flex flex-col items-center sticky top-0">
+    <div class="w-[50%] pr-8 space-y-8 flex flex-col items-center sticky top-0">
       {% if section.settings.logo_1 != blank %}
         <img 
           src="{{ section.settings.logo_1 | img_url: 'medium' }}"
@@ -26,9 +26,9 @@
     </div>
     
     <!-- Columna derecha (70%) -->
-    <div class="w-[70%]">
+    <div class="w-[50%]">
       {% for block in section.blocks %}
-        <div class="scroll-block flex items-center justify-center mb-[25px]">
+        <div class="scroll-block flex items-center mb-[25px]">
           {% if block.settings.logo != blank %}
             <div class="logo-container" style="margin-bottom: 20px;">
               <img 
