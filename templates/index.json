@@ -56,17 +56,43 @@
       ],
       "settings": {}
     },
-    "featured-products": {
-      "type": "c-product-show",
+    "product_features": {
+      "type": "c-product-features",
+      "blocks": {
+        "logo_block_EGnBYC": {
+          "type": "logo_block",
+          "settings": {
+            "logo": "shopify://shop_images/Group_26606.svg"
+          }
+        },
+        "logo_block_gcWxKN": {
+          "type": "logo_block",
+          "settings": {
+            "logo": "shopify://shop_images/Group_26607.svg"
+          }
+        },
+        "logo_block_XaYNnR": {
+          "type": "logo_block",
+          "settings": {
+            "logo": "shopify://shop_images/Group_26609.svg"
+          }
+        },
+        "logo_block_7B6MRn": {
+          "type": "logo_block",
+          "settings": {
+            "logo": "shopify://shop_images/Group_26607.svg"
+          }
+        }
+      },
+      "block_order": [
+        "logo_block_EGnBYC",
+        "logo_block_gcWxKN",
+        "logo_block_XaYNnR",
+        "logo_block_7B6MRn"
+      ],
       "settings": {
-        "title_1": "Non Toxic, Ultra Soft Diapers",
-        "description_1": "12+ hours of absorbency thanks to BambooTek®, our squeaky clean and sustainable core.",
-        "button_link_1": "",
-        "button_text_1": "SHOP DIAPERS",
-        "title_2": "Soft & Thick Jumbo Wipes",
-        "description_2": "Large and thick, extra soft, and EWG Verified, these super clean wipes make quick work of any mess.",
-        "button_link_2": "",
-        "button_text_2": "SHOP WIPES"
+        "logo_1": "shopify://shop_images/SkinShield_Logo_1.png",
+        "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
       }
     },
     "review_scroller": {
@@ -90,10 +116,6 @@
         "title": "Thousands shipped,",
         "subtitle": "nothing but love."
       }
-    },
-    "product_features": {
-      "type": "c-product-features",
-      "settings": {}
     },
     "product_comparison": {
       "type": "c-product-comparison",
@@ -214,9 +236,8 @@
   "order": [
     "custom_hero_video",
     "logo-section",
-    "featured-products",
-    "review_scroller",
     "product_features",
+    "review_scroller",
     "product_comparison",
     "logo_reviews",
     "newsletter",
