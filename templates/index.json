@@ -189,6 +189,13 @@
         "title": "For parents, by parents",
         "subtitle": "Don’t just trust us. Hear from our community why they love and trust Freestyle."
       }
+    },
+    "footer_custom_fPQhVk": {
+      "type": "footer-custom",
+      "settings": {
+        "newsletter_title": "Product launches, community fun, VIP drops, and more",
+        "tagline": "Parenting is the Ultimate Creative Act."
+      }
     }
   },
   "order": [
@@ -196,6 +203,7 @@
     "logo-section",
     "product_features",
     "c_hero_video_A4tR8p",
-    "review_scroller_custom_CMUd3m"
+    "review_scroller_custom_CMUd3m",
+    "footer_custom_fPQhVk"
   ]
 }
