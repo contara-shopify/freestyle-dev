@@ -95,6 +95,18 @@
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
       }
     },
+    "c_hero_video_A4tR8p": {
+      "type": "c-hero-video",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_6.jpg",
+        "heading": "Shop Skin Shield™ Exclusively at Walmart",
+        "heading_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button_label": "Shop Skin Shield™",
+        "button_link": "/collections/all"
+      }
+    },
     "review_scroller": {
       "type": "review-scroller-custom",
       "blocks": {
@@ -237,6 +249,7 @@
     "custom_hero_video",
     "logo-section",
     "product_features",
+    "c_hero_video_A4tR8p",
     "review_scroller",
     "product_comparison",
     "logo_reviews",
