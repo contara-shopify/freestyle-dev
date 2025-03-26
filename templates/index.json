@@ -12,19 +12,15 @@
     "custom_hero_video": {
       "type": "c-hero-video",
       "settings": {
-        "video": "",
         "heading": "Non-toxic, ultra soft diapers just caught a vibe",
         "heading_color": "#FFF9BE",
         "button_label": "SHOP NOW",
-        "button_link": "/collections/all",
-        "button_color": "#FFF9BE"
+        "button_link": "/collections/all"
       }
     },
     "logo-section": {
       "type": "c-logo-section",
-      "blocks": {
-      },
-      "block_order": ["block-1", "block-2", "block-3", "block-4", "block-5"]
+      "settings": {}
     },
     "featured-products": {
       "type": "c-product-show",
@@ -49,7 +45,9 @@
           }
         }
       },
-      "block_order": ["review-1"],
+      "block_order": [
+        "review-1"
+      ],
       "settings": {
         "title": "Thousands shipped,",
         "subtitle": "nothing but love."
@@ -57,15 +55,7 @@
     },
     "product_features": {
       "type": "c-product-features",
-      "blocks": {
-    
-      
-      },
-      "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"],
-      "settings": {
-        "button_1_text": "PERFORMANCE",
-        "button_2_text": "ECO STANDARDS"
-      }
+      "settings": {}
     },
     "product_comparison": {
       "type": "c-product-comparison",
@@ -115,16 +105,30 @@
     "logo_reviews": {
       "type": "c-logo-reviews",
       "blocks": {
-    
-        "block-2": { "type": "logo" },
-        "block-3": { "type": "logo" },
-        "block-4": { "type": "logo" },
-        "block-5": { "type": "logo" }
+        "block-2": {
+          "type": "logo",
+          "settings": {}
+        },
+        "block-3": {
+          "type": "logo",
+          "settings": {}
+        },
+        "block-4": {
+          "type": "logo",
+          "settings": {}
+        },
+        "block-5": {
+          "type": "logo",
+          "settings": {}
+        }
       },
-      "block_order": ["block-1", "block-2", "block-3", "block-4", "block-5"],
-      "settings": {
-        "heading": "Of all the new diapers to hit the scene, these are our fave. Super stylish, they're also more sustainable than many other disposable diaper brands thanks to the bamboo core. They're also really soft, really absorbent and free of things like chlorine and fragrances."
-      }
+      "block_order": [
+        "block-2",
+        "block-3",
+        "block-4",
+        "block-5"
+      ],
+      "settings": {}
     },
     "newsletter": {
       "type": "c-newsletter",
@@ -151,16 +155,6 @@
       "type": "footer",
       "settings": {
         "footer_logo": "",
-        "social_instagram": "",
-        "social_instagram_icon": "",
-        "social_tiktok": "",
-        "social_tiktok_icon": "",
-        "social_facebook": "",
-        "social_facebook_icon": "",
-        "social_twitter": "",
-        "social_twitter_icon": "",
-        "social_youtube": "",
-        "social_youtube_icon": "",
         "copyright_text": "All rights reserved © Freestyle World Inc. 2024"
       }
     }

@@ -19,7 +19,16 @@
         "heading-img": "shopify://shop_images/bg-testi.jpg"
       }
     },
-
+    "footer_image_carousel_TcQV6g": {
+      "type": "footer-image-carousel",
+      "settings": {
+        "title": "coming to a store near you",
+        "footer_title": "",
+        "background_color": "#e55454",
+        "title_background_color": "#ffffff",
+        "text_color": "#68185e"
+      }
+    },
     "footer_custom_KdfMMD": {
       "type": "footer-custom",
       "blocks": {
@@ -73,6 +82,7 @@
   },
   "order": [
     "c_blog_post_list_XPrixg",
+    "footer_image_carousel_TcQV6g",
     "footer_custom_KdfMMD"
   ]
 }
