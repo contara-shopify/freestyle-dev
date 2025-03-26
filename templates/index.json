@@ -12,11 +12,12 @@
     "custom_hero_video": {
       "type": "c-hero-video",
       "settings": {
-        "heading": "Non-toxic, ultra soft diapers just caught a vibe",
-        "heading_color": "#fff9be",
-        "description": "Agrega aquí tu descripción",
-        "description_color": "#FFFFFF",
-        "button_label": "SHOP NOW",
+        "image": "shopify://shop_images/new_hero_banner.jpg",
+        "heading": "Safer. Softer. Better Protection.",
+        "heading_color": "#ffffff",
+        "description": "Meet Skin     Shield™– the future of diapers",
+        "description_color": "#ffffff",
+        "button_label": "Shop Skin     Shield™",
         "button_link": "/collections/all"
       }
     },
@@ -106,8 +107,8 @@
       ],
       "settings": {
         "title": "You made a baby,\nwe made a diaper.",
-        "table_bg_color": "#E6E6FA",
-        "highlight_bg_color": "#919CC2",
+        "table_bg_color": "#e6e6fa",
+        "highlight_bg_color": "#919cc2",
         "button_link": "",
         "button_text": "SHOP FREESTYLE DIAPERS"
       }
