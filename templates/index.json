@@ -23,6 +23,37 @@
     },
     "logo-section": {
       "type": "c-logo-section",
+      "blocks": {
+        "testimonial_88pVHw": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
+            "author_name": "Sofie Flores",
+            "location": "Los Angeles"
+          }
+        },
+        "testimonial_n96xeD": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "Love it best product",
+            "author_name": "Jhon Doe",
+            "location": "New York"
+          }
+        },
+        "testimonial_WQUNKb": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
+            "author_name": "Sofie Flores",
+            "location": "Los Angeles"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_88pVHw",
+        "testimonial_n96xeD",
+        "testimonial_WQUNKb"
+      ],
       "settings": {}
     },
     "featured-products": {
