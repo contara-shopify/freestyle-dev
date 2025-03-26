@@ -107,141 +107,87 @@
         "button_link": "/collections/all"
       }
     },
-    "review_scroller": {
+    "review_scroller_custom_CMUd3m": {
       "type": "review-scroller-custom",
       "blocks": {
-        "review-1": {
+        "review_Aw7wkC": {
           "type": "review",
           "settings": {
-            "author_name": "John Doe",
+            "author_name": "John Doe | @JohnDoe",
             "author_url": "",
             "is_verified": false,
-            "author_handle": "@johndoe",
-            "review_text": "Esta es una reseña de demostración. El producto es excelente y el servicio fue increíble. ¡Totalmente recomendado!"
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_JnjR3J": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_L33DH3": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_hWVwfN": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_EbW3fH": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_tbzFjt": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
           }
         }
       },
       "block_order": [
-        "review-1"
+        "review_Aw7wkC",
+        "review_JnjR3J",
+        "review_L33DH3",
+        "review_hWVwfN",
+        "review_EbW3fH",
+        "review_tbzFjt"
       ],
       "settings": {
-        "title": "Thousands shipped,",
-        "subtitle": "nothing but love."
-      }
-    },
-    "product_comparison": {
-      "type": "c-product-comparison",
-      "blocks": {
-        "comparison_row_1": {
-          "type": "comparison_row",
-          "settings": {
-            "feature": "CLEAN INGREDIENTS"
-          }
-        },
-        "comparison_row_2": {
-          "type": "comparison_row",
-          "settings": {
-            "feature": "12 HOUR PROTECTION"
-          }
-        },
-        "comparison_row_3": {
-          "type": "comparison_row",
-          "settings": {
-            "feature": "NET ZERO PLASTIC WASTE"
-          }
-        },
-        "comparison_row_4": {
-          "type": "comparison_row",
-          "settings": {
-            "feature": "SAVES TREES"
-          }
-        },
-        "comparison_row_5": {
-          "type": "comparison_row",
-          "settings": {
-            "feature": "LOOKS GOOD IN PICTURES"
-          }
-        }
-      },
-      "block_order": [
-        "comparison_row_1",
-        "comparison_row_2",
-        "comparison_row_3",
-        "comparison_row_4",
-        "comparison_row_5"
-      ],
-      "settings": {
-        "title": "You made a baby,\nwe made a diaper.",
-        "table_bg_color": "#e6e6fa",
-        "highlight_bg_color": "#919cc2",
-        "button_link": "",
-        "button_text": "SHOP FREESTYLE DIAPERS"
-      }
-    },
-    "logo_reviews": {
-      "type": "c-logo-reviews",
-      "blocks": {
-        "block-2": {
-          "type": "logo",
-          "settings": {
-            "review": ""
-          }
-        },
-        "block-3": {
-          "type": "logo",
-          "settings": {
-            "review": ""
-          }
-        },
-        "block-4": {
-          "type": "logo",
-          "settings": {
-            "review": ""
-          }
-        },
-        "block-5": {
-          "type": "logo",
-          "settings": {
-            "review": ""
-          }
-        }
-      },
-      "block_order": [
-        "block-2",
-        "block-3",
-        "block-4",
-        "block-5"
-      ],
-      "settings": {}
-    },
-    "newsletter": {
-      "type": "c-newsletter",
-      "settings": {
-        "title": "Emails as wavy as our diapers",
-        "description": "Sign up to stay in the know on new artist collabs, new products, and special releases.",
-        "button_label": "GET MY STICKER PACK"
-      }
-    },
-    "spotify_playlist": {
-      "type": "c-spotify-playlist",
-      "settings": {}
-    },
-    "contact_scroller": {
-      "type": "contact-scroller",
-      "settings": {
-        "text_1": "TEXT US, MAYBE (844) 609-3251",
-        "text_2": "TEXT US, MAYBE (844) 609-3251",
-        "text_3": "TEXT US, MAYBE (844) 609-3251",
-        "text_4": "TEXT US, MAYBE (844) 609-3251"
-      }
-    },
-    "footer": {
-      "type": "footer",
-      "settings": {
-        "footer_menu_1": "",
-        "footer_menu_2": "",
-        "footer_menu_3": "",
-        "copyright_text": "All rights reserved © Freestyle World Inc. 2024"
+        "title": "For parents, by parents",
+        "subtitle": "Don’t just trust us. Hear from our community why they love and trust Freestyle."
       }
     }
   },
@@ -250,12 +196,6 @@
     "logo-section",
     "product_features",
     "c_hero_video_A4tR8p",
-    "review_scroller",
-    "product_comparison",
-    "logo_reviews",
-    "newsletter",
-    "spotify_playlist",
-    "contact_scroller",
-    "footer"
+    "review_scroller_custom_CMUd3m"
   ]
 }
