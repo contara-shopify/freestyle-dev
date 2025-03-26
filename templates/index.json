@@ -13,7 +13,9 @@
       "type": "c-hero-video",
       "settings": {
         "heading": "Non-toxic, ultra soft diapers just caught a vibe",
-        "heading_color": "#FFF9BE",
+        "heading_color": "#fff9be",
+        "description": "Agrega aquí tu descripción",
+        "description_color": "#FFFFFF",
         "button_label": "SHOP NOW",
         "button_link": "/collections/all"
       }
@@ -25,11 +27,13 @@
     "featured-products": {
       "type": "c-product-show",
       "settings": {
-        "title_1": "Non Toxic, Ultra Soft Diaper",
+        "title_1": "Non Toxic, Ultra Soft Diapers",
         "description_1": "12+ hours of absorbency thanks to BambooTek®, our squeaky clean and sustainable core.",
+        "button_link_1": "",
         "button_text_1": "SHOP DIAPERS",
         "title_2": "Soft & Thick Jumbo Wipes",
         "description_2": "Large and thick, extra soft, and EWG Verified, these super clean wipes make quick work of any mess.",
+        "button_link_2": "",
         "button_text_2": "SHOP WIPES"
       }
     },
@@ -40,6 +44,8 @@
           "type": "review",
           "settings": {
             "author_name": "John Doe",
+            "author_url": "",
+            "is_verified": false,
             "author_handle": "@johndoe",
             "review_text": "Esta es una reseña de demostración. El producto es excelente y el servicio fue increíble. ¡Totalmente recomendado!"
           }
@@ -99,7 +105,11 @@
         "comparison_row_5"
       ],
       "settings": {
-        "title": "You made a baby,\nwe made a diaper."
+        "title": "You made a baby,\nwe made a diaper.",
+        "table_bg_color": "#E6E6FA",
+        "highlight_bg_color": "#919CC2",
+        "button_link": "",
+        "button_text": "SHOP FREESTYLE DIAPERS"
       }
     },
     "logo_reviews": {
@@ -107,19 +117,27 @@
       "blocks": {
         "block-2": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "review": ""
+          }
         },
         "block-3": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "review": ""
+          }
         },
         "block-4": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "review": ""
+          }
         },
         "block-5": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "review": ""
+          }
         }
       },
       "block_order": [
@@ -154,7 +172,9 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "footer_logo": "",
+        "footer_menu_1": "",
+        "footer_menu_2": "",
+        "footer_menu_3": "",
         "copyright_text": "All rights reserved © Freestyle World Inc. 2024"
       }
     }

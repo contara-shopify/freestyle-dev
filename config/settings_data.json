@@ -35,7 +35,6 @@
       "peruvian-dark-chocolate-peanut-butter",
       "smores"
     ],
-    "content_for_index": [],
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -97,7 +96,8 @@
           "color_tertiary": "#ffffff"
         }
       }
-    }
+    },
+    "content_for_index": []
   },
   "presets": {
     "Default": {
