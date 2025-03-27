@@ -96,16 +96,17 @@
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
       }
     },
-    "c_hero_video_A4tR8p": {
-      "type": "c-hero-video",
+    "c_hero_img_3b7kXN": {
+      "type": "c-hero-img",
       "settings": {
         "image": "shopify://shop_images/242A6894_6.jpg",
-        "heading": "Shop Skin Shield™ Exclusively at Walmart",
-        "heading_color": "#ffffff",
+        "heading": "Shop Skin❤️Shield ™ <br>\nExclusively at Walmart",
+        "heading_color": "#FFFFFF",
         "description": "",
-        "description_color": "#ffffff",
-        "button_label": "Shop Skin Shield™",
-        "button_link": "/collections/all"
+        "description_color": "#FFFFFF",
+        "button_icon": "shopify://shop_images/Vector_3.png",
+        "button_label": "Shop Skin❤️Shield™",
+        "button_link": ""
       }
     },
     "review_scroller_custom_CMUd3m": {
@@ -203,7 +204,7 @@
     "custom_hero_video",
     "logo-section",
     "product_features",
-    "c_hero_video_A4tR8p",
+    "c_hero_img_3b7kXN",
     "review_scroller_custom_CMUd3m",
     "footer_custom_fPQhVk"
   ]
