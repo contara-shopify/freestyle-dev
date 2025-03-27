@@ -395,49 +395,49 @@
     ]
   },
   {
-    "name": "Menú Principal",
+    "name": "Main Menu",
     "settings": [
       {
         "type": "header",
-        "content": "Menú Item 1"
+        "content": "Item Menu 1"
       },
       {
         "type": "image_picker",
         "id": "menu_image_1",
-        "label": "Imagen menú 1"
+        "label": "Menu Image 1"
       },
       {
         "type": "url",
         "id": "menu_link_1",
-        "label": "Link menú 1"
+        "label": "Menu Link 1"
       },
       {
         "type": "header",
-        "content": "Menú Item 2"
+        "content": "Item Menu 2"
       },
       {
         "type": "image_picker",
         "id": "menu_image_2",
-        "label": "Imagen menú 2"
+        "label": "Menu Image 2"
       },
       {
         "type": "url",
         "id": "menu_link_2",
-        "label": "Link menú 2"
+        "label": "Menu Link 2"
       },
       {
         "type": "header",
-        "content": "Menú Item 3"
+        "content": "Item Menu 3"
       },
       {
         "type": "image_picker",
         "id": "menu_image_3",
-        "label": "Imagen menú 3"
+        "label": "Menu Image 3"
       },
       {
         "type": "url",
         "id": "menu_link_3",
-        "label": "Link menú 3"
+        "label": "Menu Link 3"
       }
     ]
   }
