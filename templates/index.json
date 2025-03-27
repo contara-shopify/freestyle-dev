@@ -92,7 +92,7 @@
         "logo_block_7B6MRn"
       ],
       "settings": {
-        "logo_1": "shopify://shop_images/SkinShield_Logo_1.png",
+        "logo_1": "shopify://shop_images/SkinShield_Logo_1_2.png",
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
       }
     },
@@ -101,9 +101,9 @@
       "settings": {
         "image": "shopify://shop_images/242A6894_6.jpg",
         "heading": "Shop Skin❤️Shield ™ <br>\nExclusively at Walmart",
-        "heading_color": "#FFFFFF",
+        "heading_color": "#ffffff",
         "description": "",
-        "description_color": "#FFFFFF",
+        "description_color": "#ffffff",
         "button_icon": "shopify://shop_images/Vector_3.png",
         "button_label": "Shop Skin❤️Shield™",
         "button_link": ""
