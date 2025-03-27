@@ -33,7 +33,7 @@
           <li class="menu-item">
             <a 
               href="{{ link.url }}" 
-              class="text-black font-normal hover:text-gray-600 {% if link.active %}text-gray-600{% endif %}"
+              class="text-black md:px-4 font-normal hover:text-gray-600 {% if link.active %}text-gray-600{% endif %}"
             >
               {{ link.title }}
               {%- if link.links.size > 0 -%}+{%- endif -%}
