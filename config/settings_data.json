@@ -36,8 +36,11 @@
       "smores"
     ],
     "menu_image_1": "shopify://shop_images/Group_26612.png",
+    "menu_link_1": "shopify://collections/all",
     "menu_image_2": "shopify://shop_images/Group_26611.png",
+    "menu_link_2": "shopify://products/diaper",
     "menu_image_3": "shopify://shop_images/Jumbo_Wipes.png",
+    "menu_link_3": "shopify://products/the-freestyle-gift-card-for-loved-ones",
     "color_schemes": {
       "scheme-1": {
         "settings": {
