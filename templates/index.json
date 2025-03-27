@@ -15,9 +15,10 @@
         "image": "shopify://shop_images/new_hero_banner.jpg",
         "heading": "Safer. Softer. Better Protection.",
         "heading_color": "#ffffff",
-        "description": "Meet Skin     Shield™– the future of diapers",
+        "description": "Meet  Skin❤️Shield ™– the future of diapers",
         "description_color": "#ffffff",
-        "button_label": "Shop Skin     Shield™",
+        "button_icon": "shopify://shop_images/Vector_3.png",
+        "button_label": "Shop Skin❤️Shield™",
         "button_link": "/collections/all"
       }
     },
