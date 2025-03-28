@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "header_logo": "shopify://shop_images/Frame_1.png",
+    "header_logo": "shopify://shop_images/Vector_2.svg",
     "header_bg": "#b9e1ed",
     "show_promo": true,
     "show_promo_link": "shopify://products/trial-kit",
@@ -35,7 +35,12 @@
       "peruvian-dark-chocolate-peanut-butter",
       "smores"
     ],
-    "content_for_index": [],
+    "menu_image_1": "shopify://shop_images/skinshieldmenu-x3.png",
+    "menu_link_1": "shopify://collections/all",
+    "menu_image_2": "shopify://shop_images/bambotekmenu-x3.png",
+    "menu_link_2": "shopify://products/diaper",
+    "menu_image_3": "shopify://shop_images/jumbowipesmenu-x3.png",
+    "menu_link_3": "shopify://products/the-freestyle-gift-card-for-loved-ones",
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -97,7 +102,8 @@
           "color_tertiary": "#ffffff"
         }
       }
-    }
+    },
+    "content_for_index": []
   },
   "presets": {
     "Default": {

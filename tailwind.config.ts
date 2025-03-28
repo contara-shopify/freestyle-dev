@@ -29,7 +29,8 @@ export default {
       fontFamily: {
         'cenzo': ['CenzoFlare', 'system-ui'],
         'handmade-loves': ['HandmadeLoves', 'system-ui'],
-        'plusJakarta': ['PlusJakartaSans', 'system-ui']
+        'plusJakarta': ['PlusJakartaSans', 'system-ui'],
+        'grotesk': ['GroteskNeue', 'system-ui']
       }
     },
     colors: {

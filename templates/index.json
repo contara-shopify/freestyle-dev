@@ -12,164 +12,200 @@
     "custom_hero_video": {
       "type": "c-hero-video",
       "settings": {
-        "heading": "Non-toxic, ultra soft diapers just caught a vibe",
-        "heading_color": "#FFF9BE",
-        "button_label": "SHOP NOW",
+        "image": "shopify://shop_images/new_hero_banner.jpg",
+        "heading": "Safer. Softer. Better Protection.",
+        "heading_color": "#ffffff",
+        "description": "Meet  Skin❤️Shield ™– the future of diapers",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/Vector_3.png",
+        "button_label": "Shop Skin❤️Shield™",
         "button_link": "/collections/all"
       }
     },
     "logo-section": {
       "type": "c-logo-section",
-      "settings": {}
-    },
-    "featured-products": {
-      "type": "c-product-show",
-      "settings": {
-        "title_1": "Non Toxic, Ultra Soft Diaper",
-        "description_1": "12+ hours of absorbency thanks to BambooTek®, our squeaky clean and sustainable core.",
-        "button_text_1": "SHOP DIAPERS",
-        "title_2": "Soft & Thick Jumbo Wipes",
-        "description_2": "Large and thick, extra soft, and EWG Verified, these super clean wipes make quick work of any mess.",
-        "button_text_2": "SHOP WIPES"
-      }
-    },
-    "review_scroller": {
-      "type": "review-scroller-custom",
       "blocks": {
-        "review-1": {
-          "type": "review",
+        "testimonial_88pVHw": {
+          "type": "testimonial",
           "settings": {
-            "author_name": "John Doe",
-            "author_handle": "@johndoe",
-            "review_text": "Esta es una reseña de demostración. El producto es excelente y el servicio fue increíble. ¡Totalmente recomendado!"
+            "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
+            "author_name": "Sofie Flores",
+            "location": "Los Angeles"
+          }
+        },
+        "testimonial_n96xeD": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "Love it best product",
+            "author_name": "Jhon Doe",
+            "location": "New York"
+          }
+        },
+        "testimonial_WQUNKb": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "Amazing product, the best",
+            "author_name": "Peter Parker",
+            "location": "Queens"
           }
         }
       },
       "block_order": [
-        "review-1"
+        "testimonial_88pVHw",
+        "testimonial_n96xeD",
+        "testimonial_WQUNKb"
       ],
-      "settings": {
-        "title": "Thousands shipped,",
-        "subtitle": "nothing but love."
-      }
+      "settings": {}
     },
     "product_features": {
       "type": "c-product-features",
-      "settings": {}
-    },
-    "product_comparison": {
-      "type": "c-product-comparison",
       "blocks": {
-        "comparison_row_1": {
-          "type": "comparison_row",
+        "logo_block_EGnBYC": {
+          "type": "logo_block",
           "settings": {
-            "feature": "CLEAN INGREDIENTS"
+            "logo": "shopify://shop_images/Group_26606.svg"
           }
         },
-        "comparison_row_2": {
-          "type": "comparison_row",
+        "logo_block_gcWxKN": {
+          "type": "logo_block",
           "settings": {
-            "feature": "12 HOUR PROTECTION"
+            "logo": "shopify://shop_images/Group_26607.svg"
           }
         },
-        "comparison_row_3": {
-          "type": "comparison_row",
+        "logo_block_XaYNnR": {
+          "type": "logo_block",
           "settings": {
-            "feature": "NET ZERO PLASTIC WASTE"
+            "logo": "shopify://shop_images/Group_26609.svg"
           }
         },
-        "comparison_row_4": {
-          "type": "comparison_row",
+        "logo_block_7B6MRn": {
+          "type": "logo_block",
           "settings": {
-            "feature": "SAVES TREES"
-          }
-        },
-        "comparison_row_5": {
-          "type": "comparison_row",
-          "settings": {
-            "feature": "LOOKS GOOD IN PICTURES"
+            "logo": "shopify://shop_images/Group_26607.svg"
           }
         }
       },
       "block_order": [
-        "comparison_row_1",
-        "comparison_row_2",
-        "comparison_row_3",
-        "comparison_row_4",
-        "comparison_row_5"
+        "logo_block_EGnBYC",
+        "logo_block_gcWxKN",
+        "logo_block_XaYNnR",
+        "logo_block_7B6MRn"
       ],
       "settings": {
-        "title": "You made a baby,\nwe made a diaper."
+        "logo_1": "shopify://shop_images/750f421d6ba30284fb9be5dccc2c8396.png",
+        "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
       }
     },
-    "logo_reviews": {
-      "type": "c-logo-reviews",
+    "c_hero_img_3b7kXN": {
+      "type": "c-hero-img",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_6.jpg",
+        "heading": "Shop Skin❤️Shield ™ <br>\nExclusively at Walmart",
+        "heading_color": "#ffffff",
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/Vector_3.png",
+        "button_label": "Shop Skin❤️Shield™",
+        "button_link": ""
+      }
+    },
+    "review_scroller_custom_CMUd3m": {
+      "type": "review-scroller-custom",
       "blocks": {
-        "block-2": {
-          "type": "logo",
-          "settings": {}
+        "review_Aw7wkC": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
         },
-        "block-3": {
-          "type": "logo",
-          "settings": {}
+        "review_JnjR3J": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
         },
-        "block-4": {
-          "type": "logo",
-          "settings": {}
+        "review_L33DH3": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
         },
-        "block-5": {
-          "type": "logo",
-          "settings": {}
+        "review_hWVwfN": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_EbW3fH": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_tbzFjt": {
+          "type": "review",
+          "settings": {
+            "author_name": "John Doe | @JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
         }
       },
       "block_order": [
-        "block-2",
-        "block-3",
-        "block-4",
-        "block-5"
+        "review_Aw7wkC",
+        "review_JnjR3J",
+        "review_L33DH3",
+        "review_hWVwfN",
+        "review_EbW3fH",
+        "review_tbzFjt"
       ],
-      "settings": {}
-    },
-    "newsletter": {
-      "type": "c-newsletter",
       "settings": {
-        "title": "Emails as wavy as our diapers",
-        "description": "Sign up to stay in the know on new artist collabs, new products, and special releases.",
-        "button_label": "GET MY STICKER PACK"
+        "title": "For parents, by parents",
+        "subtitle": "Don’t just trust us. Hear from our community why they love and trust Freestyle."
       }
     },
-    "spotify_playlist": {
-      "type": "c-spotify-playlist",
-      "settings": {}
-    },
-    "contact_scroller": {
-      "type": "contact-scroller",
+    "footer_custom_fPQhVk": {
+      "type": "footer-custom",
       "settings": {
-        "text_1": "TEXT US, MAYBE (844) 609-3251",
-        "text_2": "TEXT US, MAYBE (844) 609-3251",
-        "text_3": "TEXT US, MAYBE (844) 609-3251",
-        "text_4": "TEXT US, MAYBE (844) 609-3251"
-      }
-    },
-    "footer": {
-      "type": "footer",
-      "settings": {
-        "footer_logo": "",
-        "copyright_text": "All rights reserved © Freestyle World Inc. 2024"
+        "newsletter_title": "Product launches, community fun, VIP drops, and more",
+        "tagline": "Parenting is the Ultimate Creative Act."
       }
     }
   },
   "order": [
     "custom_hero_video",
     "logo-section",
-    "featured-products",
-    "review_scroller",
     "product_features",
-    "product_comparison",
-    "logo_reviews",
-    "newsletter",
-    "spotify_playlist",
-    "contact_scroller",
-    "footer"
+    "c_hero_img_3b7kXN",
+    "review_scroller_custom_CMUd3m",
+    "footer_custom_fPQhVk"
   ]
 }

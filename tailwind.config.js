@@ -1,6 +1,7 @@
 'use strict';
 
 export default {
+  mode: 'jit',
   content: ['./*/*.{liquid,json,js}'],
   theme: {
     fontSize: {
@@ -26,8 +27,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        Aksen: ['Aksen', 'system-ui'],
-        Gazpacho: ['Gazpacho', 'system-ui'],
+     
+        Grotesk: ['GroteskNeue', 'sans-serif']
       },
       container: {
         center: true,
@@ -118,6 +119,9 @@ export default {
         },
         lila: {
           DEFAULT: '#C2B0FF',
+        },
+        violet: {
+          DEFAULT: '#6638B7',
         },
         lightblue: {
           DEFAULT: '#ECF8FF',

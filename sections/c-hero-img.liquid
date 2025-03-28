@@ -10,16 +10,20 @@
       >
     {% endif %}
     
-    <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 md:px-16  z-10">
+    <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10">
       {% if section.settings.heading != blank %}
-        <h2 class="font-grotesk font-extralight mb-12 md:mb-28 text-center text-5xl md:text-6xl"
-            style="color: {{ section.settings.heading_color }};">
-          {{ section.settings.heading }}
+        <h2 class="font-extralight font-grotesk mb-12 md:mb-28 text-center flex flex-col items-center text-5xl md:text-6xl"
+            style="color: {{ section.settings.heading_color }};  line-height: 1.0;">
+          {% assign lines = section.settings.heading | split: '
+' %}
+          {% for line in lines %}
+            <span class="block">{{ line }}</span>
+          {% endfor %}
         </h2>
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <p class="text-center mx-auto mb-12 md:mb-12 md:mt-8 text-2xl"
+        <p class="text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
            style="color: {{ section.settings.description_color }}; font-size: 36px;">
           {{ section.settings.description }}
         </p>
@@ -42,7 +46,7 @@
 
 {% schema %}
 {
-  "name": "Custom Hero Image",
+  "name": "Custom Hero Image 2",
   "settings": [
     {
       "type": "image_picker",
@@ -50,10 +54,10 @@
       "label": "Background Image"
     },
     {
-      "type": "text",
+      "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "Your title"
+      "default": "You title"
     },
     {
       "type": "color",
@@ -70,13 +74,13 @@
     {
       "type": "color",
       "id": "description_color",
-      "label": "Description Color",
+      "label": "description color",
       "default": "#FFFFFF"
     },
     {
       "type": "image_picker",
       "id": "button_icon",
-      "label": "Icon for button",
+      "label": "Ícono del botón",
       "info": "Recommendation 24x24px"
     },
     {
@@ -93,7 +97,7 @@
   ],
   "presets": [
     {
-      "name": "Custom Hero Image"
+      "name": "Custom Hero Imag 2"
     }
   ]
 }
