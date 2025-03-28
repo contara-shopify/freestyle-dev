@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'GroteskNeue';
+    src: url('https://cdn.shopify.com/s/files/1/0616/2835/0723/files/FKGroteskNeue-Medium.woff2?v=1743191817') format('woff2');
+    font-weight: medium;
+    font-style: normal;
+    font-display: swap;
+}
+
+*{
+      font-family: 'GroteskNeue' !important;
+
+}
