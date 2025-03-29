@@ -198,6 +198,10 @@
         "newsletter_title": "Product launches, community fun, VIP drops, and more",
         "tagline": "Parenting is the Ultimate Creative Act."
       }
+    },
+    "video_scroll_Y9ANjp": {
+      "type": "video-scroll",
+      "settings": {}
     }
   },
   "order": [
@@ -206,6 +210,7 @@
     "product_features",
     "c_hero_img_3b7kXN",
     "review_scroller_custom_CMUd3m",
-    "footer_custom_fPQhVk"
+    "footer_custom_fPQhVk",
+    "video_scroll_Y9ANjp"
   ]
 }
