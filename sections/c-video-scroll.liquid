@@ -7,19 +7,20 @@
 {% endcomment %}
 
 <div 
-  class="video-scroll-section relative w-full" 
+  class="video-scroll-section relative" 
   data-section-id="{{ section.id }}"
   data-section-type="video-scroll"
   x-data="videoScroll()"
   x-init="initialize()"
   id="video-scroll-{{ section.id }}"
 >
-  {% for block in section.blocks %}
-    <div 
-      class="video-block absolute inset-0 w-full h-screen flex items-center justify-center opacity-0 transition-opacity duration-500"
-      data-block-id="{{ block.id }}"
-      :class="{'opacity-100': currentVideoIndex === {{ forloop.index0 }} && isInView}"
-    >
+  <div class="sticky-container sticky top-0 h-screen">
+    {% for block in section.blocks %}
+      <div 
+        class="video-block absolute inset-0 w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500"
+        data-block-id="{{ block.id }}"
+        :class="{'opacity-100': currentVideoIndex === {{ forloop.index0 }} && isInView && hasEnteredView}"
+      >
       {% if block.settings.desktop_video != blank %}
         <video 
           class="desktop-video absolute inset-0 w-full h-full object-cover hidden md:block"
@@ -91,8 +92,10 @@
       {% endif %}
     </div>
   {% endfor %}
+    </div>
+  </div>
   
-  <div class="scroll-container h-screen" style="height: {{ section.blocks.size | times: 100 }}vh;"></div>
+  <div class="scroll-container" style="height: {{ section.blocks.size | times: 100 }}vh;"></div>
 </div>
 
 <script>
@@ -111,26 +114,46 @@
       scrollProgress: 0,
       lastScrollTop: 0,
       isInView: false,
+      hasEnteredView: false,
       initialize() {
         const self = this;
         
-        // Set initial state to hidden
+        // Set initial states
         this.isInView = false;
+        this.hasEnteredView = false;
         
         // Initialize videos
         const desktopVideos = document.querySelectorAll('.desktop-video');
         const mobileVideos = document.querySelectorAll('.mobile-video');
-        const allVideos = [...desktopVideos, ...mobileVideos];
+        
+        // Fix responsive video handling
+        const isMobile = window.innerWidth < 768;
         
         // Group videos by index
         this.videos = [];
         for (let i = 0; i < {{ section.blocks.size }}; i++) {
+          const desktop = desktopVideos[i];
+          const mobile = mobileVideos[i];
+          
           this.videos.push({
-            desktop: desktopVideos[i],
-            mobile: mobileVideos[i],
-            duration: parseFloat(desktopVideos[i]?.dataset.videoDuration || mobileVideos[i]?.dataset.videoDuration || 10)
+            desktop: desktop,
+            mobile: mobile,
+            duration: parseFloat(
+              desktop?.dataset.videoDuration || 
+              mobile?.dataset.videoDuration || 
+              10
+            )
           });
         }
+        
+        // Add resize handler to update device videos
+        window.addEventListener('resize', () => {
+          const newIsMobile = window.innerWidth < 768;
+          if (newIsMobile !== isMobile) {
+            // Force update on device change
+            setTimeout(() => this.handleScroll(), 100);
+          }
+        });
         
         // Wait for videos to be loaded
         Promise.all(Array.from(allVideos).map(video => {
@@ -149,13 +172,19 @@
           // Set up intersection observer to detect when section enters viewport
           const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                this.isInView = true;
-              } else {
-                this.isInView = false;
+              // Only mark as in view when the section is fully in view
+              // (intersection ratio of 1 means fully visible)
+              this.isInView = entry.isIntersecting;
+              
+              // Once we've entered view once, we stay "entered" for the duration
+              if (entry.isIntersecting && entry.intersectionRatio >= 0.8) {
+                this.hasEnteredView = true;
               }
             });
-          }, { threshold: 0.1 });
+          }, { 
+            threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+            rootMargin: "-1px 0px 0px 0px" // Require the entire section to be in view
+          });
           
           observer.observe(document.getElementById(`video-scroll-${this.$el.dataset.sectionId}`));
           
@@ -165,15 +194,28 @@
       },
       
       handleScroll() {
-        const scrollContainer = document.querySelector('.scroll-container');
-        const containerTop = scrollContainer.getBoundingClientRect().top;
+        const scrollContainer = document.querySelector(`#video-scroll-${this.$el.dataset.sectionId} .scroll-container`);
+        const stickyContainer = document.querySelector(`#video-scroll-${this.$el.dataset.sectionId} .sticky-container`);
+        
+        if (!scrollContainer || !stickyContainer) return;
+        
+        const rect = scrollContainer.getBoundingClientRect();
+        const containerTop = rect.top;
         const containerHeight = scrollContainer.offsetHeight;
         const windowHeight = window.innerHeight;
         
         // Check if section is in view
-        const sectionElement = document.querySelector(`[data-section-id="${this.$el.dataset.sectionId}"]`);
-        const sectionRect = sectionElement.getBoundingClientRect();
-        this.isInView = sectionRect.top < windowHeight && sectionRect.bottom > 0;
+        this.isInView = containerTop < windowHeight && rect.bottom > 0;
+        
+        // Check if section is fully in view (top of section is at or above viewport top)
+        if (containerTop <= 0 && !this.hasEnteredView) {
+          this.hasEnteredView = true;
+        }
+        
+        // If we've scrolled past the section, keep hasEnteredView true but set isInView false
+        if (rect.bottom <= 0) {
+          this.isInView = false;
+        }
         
         // Calculate overall progress (0 to 1)
         this.scrollProgress = Math.max(0, Math.min(1, -containerTop / (containerHeight - windowHeight)));
@@ -200,7 +242,7 @@
       },
       
       updateVideoFrame(progress) {
-        if (!this.isInView) return;
+        if (!this.isInView || !this.hasEnteredView) return;
         
         const videoData = this.videos[this.currentVideoIndex];
         if (!videoData) return;
@@ -208,11 +250,13 @@
         const { desktop, mobile, duration } = videoData;
         const targetTime = Math.max(0, Math.min(duration, progress * duration));
         
-        if (desktop && !isNaN(desktop.duration)) {
+        // Update desktop video if it exists and we're on desktop
+        if (desktop && !isNaN(desktop.duration) && window.innerWidth >= 768) {
           desktop.currentTime = Math.min(desktop.duration - 0.01, targetTime);
         }
         
-        if (mobile && !isNaN(mobile.duration)) {
+        // Update mobile video if it exists and we're on mobile
+        if (mobile && !isNaN(mobile.duration) && window.innerWidth < 768) {
           mobile.currentTime = Math.min(mobile.duration - 0.01, targetTime);
         }
       }
@@ -222,7 +266,7 @@
 
 {% schema %}
 {
-  "name": "Video Scroller",
+  "name": "New Scrolling Video",
   "tag": "section",
   "class": "video-scroll-section",
   "settings": [],
@@ -408,7 +452,7 @@
   ],
   "presets": [
     {
-      "name": "Video Scroller",
+      "name": "New Scrolling Video",
       "blocks": [
         {
           "type": "video"
@@ -422,6 +466,11 @@
 {% stylesheet %}
 .video-scroll-section {
   position: relative;
+  overflow: hidden;
+}
+
+.video-scroll-section .sticky-container {
+  z-index: 2;
   overflow: hidden;
 }
 
