@@ -1,235 +1,157 @@
 {% comment %}
-  Simple Video Scroll Section - Bare Minimum Implementation
+  Basic Video Scroll Section - Based on the working implementation
 {% endcomment %}
 
 <style>
-  .video-scroll-section {
+  .video-scroll {
+    height: 600vh;
     position: relative;
-    width: 100%;
   }
-  
-  .video-container {
+
+  .video-scroll .holder {
     position: sticky;
     top: 0;
-    left: 0;
     height: 100vh;
     width: 100%;
-    overflow: hidden;
   }
-  
-  .video-scroll-section video {
-    position: absolute;
-    top: 0;
-    left: 0;
+
+  .video-scroll video {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
-  .scroll-area {
-    height: 300vh; /* Controls how long scrolling takes */
-  }
-  
-  .content-container {
+
+  .video-scroll .story {
     position: absolute;
-    z-index: 2;
-    color: white;
-    padding: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #f1f1f1;
   }
-  
-  /* Content position classes */
-  .top-left { top: 5%; left: 5%; }
-  .top-center { top: 5%; left: 50%; transform: translateX(-50%); }
-  .top-right { top: 5%; right: 5%; }
-  .middle-left { top: 50%; left: 5%; transform: translateY(-50%); }
-  .middle-center { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-  .middle-right { top: 50%; right: 5%; transform: translateY(-50%); }
-  .bottom-left { bottom: 5%; left: 5%; }
-  .bottom-center { bottom: 5%; left: 50%; transform: translateX(-50%); }
-  .bottom-right { bottom: 5%; right: 5%; }
-  
-  /* Responsive video display */
-  .desktop-video { display: none; }
-  .mobile-video { display: block; }
-  
-  @media (min-width: 768px) {
-    .desktop-video { display: block; }
-    .mobile-video { display: none; }
+
+  .video-scroll .story div {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .video-scroll h3 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    max-width: 16ch;
+  }
+
+  @media (max-width: 720px) {
+    .video-scroll h3 {
+      font-size: 1.5rem;
+    }
   }
 </style>
 
-<section class="video-scroll-section" id="video-scroll-{{ section.id }}">
-  <div class="video-container">
-    {% if section.settings.desktop_video != blank %}
-      <video 
-        class="desktop-video"
-        muted 
-        playsinline
-        preload="auto"
-        src="{{ section.settings.desktop_video | file_url }}"
-      ></video>
-    {% endif %}
-    
-    {% if section.settings.mobile_video != blank %}
-      <video 
-        class="mobile-video"
-        muted 
-        playsinline
-        preload="auto"
-        src="{{ section.settings.mobile_video | file_url }}"
-      ></video>
-    {% endif %}
-    
-    {% if section.settings.show_content %}
-      <div class="content-container {{ section.settings.content_position }}">
-        {% if section.settings.title != blank %}
-          <h2>{{ section.settings.title }}</h2>
-        {% endif %}
-        
-        {% if section.settings.description != blank %}
-          <div>{{ section.settings.description }}</div>
-        {% endif %}
-        
-        {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
-          <a href="{{ section.settings.cta_url }}" class="cta-button">
-            {{ section.settings.cta_text }}
-          </a>
-        {% endif %}
-      </div>
-    {% endif %}
+<section class="video-scroll">
+  <div class="holder">
+    <video src="{{ section.settings.video | file_url }}" muted playsinline></video>
   </div>
-  
-  <div class="scroll-area"></div>
+
+  <div class="story">
+    <div>
+      <h3>{{ section.settings.text_1 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_2 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_3 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_4 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_5 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_6 }}</h3>
+    </div>
+  </div>
 </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const section = document.getElementById('video-scroll-{{ section.id }}');
-    if (!section) return;
-    
-    const container = section.querySelector('.video-container');
-    const desktopVideo = section.querySelector('.desktop-video');
-    const mobileVideo = section.querySelector('.mobile-video');
-    const scrollArea = section.querySelector('.scroll-area');
-    
-    // Function to get the active video based on screen width
-    function getActiveVideo() {
-      if (window.innerWidth >= 768 && desktopVideo) {
-        return desktopVideo;
-      } else if (mobileVideo) {
-        return mobileVideo;
+    const section = document.querySelector('.video-scroll');
+    const vid = section.querySelector('video');
+
+    vid.pause();
+
+    const scroll = () => {
+      const distance = window.scrollY - section.offsetTop;
+      const total = section.clientHeight - window.innerHeight;
+
+      let percentage = distance / total;
+      percentage = Math.max(0, percentage);
+      percentage = Math.min(percentage, 1);
+
+      if (vid.duration > 0) {
+        vid.currentTime = vid.duration * percentage;
       }
-      return null;
-    }
-    
-    // Initial pause
-    const video = getActiveVideo();
-    if (video) video.pause();
-    
-    // Scroll handler
-    function handleScroll() {
-      const video = getActiveVideo();
-      if (!video) return;
-      
-      // Calculate scroll progress
-      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
-      const scrollDistance = window.pageYOffset - sectionTop;
-      const scrollHeight = scrollArea.offsetHeight - window.innerHeight;
-      
-      let progress = scrollDistance / scrollHeight;
-      progress = Math.max(0, Math.min(1, progress)); // Clamp between 0 and 1
-      
-      // Update video time based on scroll progress
-      if (video.duration) {
-        video.currentTime = video.duration * progress;
-      }
-    }
-    
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    
-    // Initial scroll handler call
-    setTimeout(handleScroll, 100);
-    
-    // Handle resize events
-    window.addEventListener('resize', handleScroll);
-    
-    // Ensure videos load properly
-    const videos = [desktopVideo, mobileVideo].filter(v => v);
-    videos.forEach(video => {
-      video.addEventListener('loadeddata', function() {
-        console.log('Video loaded');
-        handleScroll();
-      });
-    });
+    };
+
+    scroll();
+    window.addEventListener('scroll', scroll);
   });
 </script>
 
 {% schema %}
 {
-  "name": "New Scrolling Video",
+  "name": "Video Scroll",
   "settings": [
     {
       "type": "video",
-      "id": "desktop_video",
-      "label": "Desktop Video"
-    },
-    {
-      "type": "video",
-      "id": "mobile_video",
-      "label": "Mobile Video"
-    },
-    {
-      "type": "header",
-      "content": "Content Settings"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_content",
-      "label": "Show Content",
-      "default": true
+      "id": "video",
+      "label": "Video"
     },
     {
       "type": "text",
-      "id": "title",
-      "label": "Title"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description"
+      "id": "text_1",
+      "label": "Text 1",
+      "default": "In the heart of Wildrise…"
     },
     {
       "type": "text",
-      "id": "cta_text",
-      "label": "CTA Text"
+      "id": "text_2",
+      "label": "Text 2",
+      "default": "…where the breezes play."
     },
     {
-      "type": "url",
-      "id": "cta_url",
-      "label": "CTA URL"
+      "type": "text",
+      "id": "text_3",
+      "label": "Text 3",
+      "default": "We embrace the call of the wild each day."
     },
     {
-      "type": "select",
-      "id": "content_position",
-      "label": "Content Position",
-      "options": [
-        { "value": "top-left", "label": "Top Left" },
-        { "value": "top-center", "label": "Top Center" },
-        { "value": "top-right", "label": "Top Right" },
-        { "value": "middle-left", "label": "Middle Left" },
-        { "value": "middle-center", "label": "Middle Center" },
-        { "value": "middle-right", "label": "Middle Right" },
-        { "value": "bottom-left", "label": "Bottom Left" },
-        { "value": "bottom-center", "label": "Bottom Center" },
-        { "value": "bottom-right", "label": "Bottom Right" }
-      ],
-      "default": "middle-center"
+      "type": "text",
+      "id": "text_4",
+      "label": "Text 4",
+      "default": "Untamed places stretch,"
+    },
+    {
+      "type": "text",
+      "id": "text_5",
+      "label": "Text 5",
+      "default": "vast and wide."
+    },
+    {
+      "type": "text",
+      "id": "text_6",
+      "label": "Text 6",
+      "default": "Whispering secrets of a world outside."
     }
   ],
   "presets": [
     {
-      "name": "New Scrolling Video",
+      "name": "Video Scroll",
       "category": "Video"
     }
   ]
