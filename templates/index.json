@@ -116,6 +116,34 @@
         "button_link": ""
       }
     },
+    "simple_video_scroll_section_Ex6MT7": {
+      "type": "simple-video-scroll-section",
+      "blocks": {
+        "video_DetAkY": {
+          "type": "video",
+          "settings": {
+            "desktop_video": "shopify://files/videos/c-hero-video.mp4",
+            "mobile_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4",
+            "video_duration": 10,
+            "show_content": true,
+            "title": "Test Content",
+            "description": "<p>This is a test description of the content</p>",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://products/the-freestyle-gift-card-for-loved-ones",
+            "content_position": "middle-center",
+            "content_alignment": "center",
+            "content_max_width": "md",
+            "text_color": "#000000",
+            "cta_bg_color": "#000000",
+            "cta_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "video_DetAkY"
+      ],
+      "settings": {}
+    },
     "review_scroller_custom_CMUd3m": {
       "type": "review-scroller-custom",
       "blocks": {
@@ -219,6 +247,7 @@
     "logo-section",
     "product_features",
     "c_hero_img_3b7kXN",
+    "simple_video_scroll_section_Ex6MT7",
     "review_scroller_custom_CMUd3m",
     "footer_custom_fPQhVk",
     "video_scroll_r6ncx3"
