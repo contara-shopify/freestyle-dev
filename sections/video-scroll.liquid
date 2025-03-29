@@ -1,0 +1,64 @@
+{% schema %}
+{
+  "name": "Video Scroll",
+  "settings": [
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video MP4 URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Scroll"
+    }
+  ]
+}
+{% endschema %}
+
+<div id="videoContainer">
+  <video id="myVideo">
+    <source src="{{ section.settings.video_url }}" type="video/mp4" />
+  </video>
+</div>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  #videoContainer {
+    height: 100vh;
+    overflow: visible;
+  }
+
+  #myVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("myVideo");
+    const container = document.getElementById("videoContainer");
+
+    video.addEventListener("loadedmetadata", function () {
+      const speed = 250; // Ajusta la velocidad del desplazamiento
+      container.style.height = (video.duration * speed) + "px";
+    });
+
+    const playVideo = () => {
+      var scrollY = window.scrollY;
+      var height = document.documentElement.scrollHeight - window.innerHeight;
+      var percentage = scrollY / height;
+      video.currentTime = video.duration * percentage;
+      window.requestAnimationFrame(playVideo);
+    };
+
+    window.addEventListener("scroll", playVideo);
+  });
+</script>
