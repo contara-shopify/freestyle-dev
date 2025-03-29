@@ -1,101 +1,109 @@
 {% comment %}
-  Full-Screen Video Scroll Section
+  New Scrolling Video Section
   - Features scroll-based video scrubbing
   - Separate desktop/mobile videos
   - Configurable content blocks with positioning
   - Automatic transitions between video blocks
 {% endcomment %}
 
-<div 
-  class="video-scroll-section relative" 
-  data-section-id="{{ section.id }}"
-  data-section-type="video-scroll"
-  x-data="videoScroll()"
-  x-init="initialize()"
-  id="video-scroll-{{ section.id }}"
->
-  <div class="sticky-container sticky top-0 h-screen">
-    {% for block in section.blocks %}
-      <div 
-        class="video-block absolute inset-0 w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-500"
-        data-block-id="{{ block.id }}"
-        :class="{'opacity-100': currentVideoIndex === {{ forloop.index0 }} && isInView && hasEnteredView}"
-      >
-      {% if block.settings.desktop_video != blank %}
-        <video 
-          class="desktop-video absolute inset-0 w-full h-full object-cover hidden md:block"
-          muted
-          playsinline
-          preload="auto"
-          data-video-index="{{ forloop.index0 }}"
-          data-video-duration="{{ block.settings.video_duration }}"
-        >
-          <source src="{{ block.settings.desktop_video | file_url }}" type="video/mp4">
-        </video>
-      {% endif %}
-      
-      {% if block.settings.mobile_video != blank %}
-        <video 
-          class="mobile-video absolute inset-0 w-full h-full object-cover block md:hidden"
-          muted
-          playsinline
-          preload="auto"
-          data-video-index="{{ forloop.index0 }}"
-          data-video-duration="{{ block.settings.video_duration }}"
-        >
-          <source src="{{ block.settings.mobile_video | file_url }}" type="video/mp4">
-        </video>
-      {% endif %}
-      
-      {% if block.settings.show_content %}
-        <div 
-          class="content-container absolute z-10 p-6 max-w-md {% if block.settings.content_max_width != blank %}max-w-{{ block.settings.content_max_width }}{% endif %} text-{{ block.settings.text_color }}"
-          style="
-            {% case block.settings.content_position %}
-              {% when 'top-left' %}
-                top: 5%; left: 5%;
-              {% when 'top-center' %}
-                top: 5%; left: 50%; transform: translateX(-50%);
-              {% when 'top-right' %}
-                top: 5%; right: 5%;
-              {% when 'middle-left' %}
-                top: 50%; left: 5%; transform: translateY(-50%);
-              {% when 'middle-center' %}
-                top: 50%; left: 50%; transform: translate(-50%, -50%);
-              {% when 'middle-right' %}
-                top: 50%; right: 5%; transform: translateY(-50%);
-              {% when 'bottom-left' %}
-                bottom: 5%; left: 5%;
-              {% when 'bottom-center' %}
-                bottom: 5%; left: 50%; transform: translateX(-50%);
-              {% when 'bottom-right' %}
-                bottom: 5%; right: 5%;
-            {% endcase %}
-          "
-        >
-          <div class="text-{{ block.settings.content_alignment }}">
-            {% if block.settings.title != blank %}
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">{{ block.settings.title }}</h2>
+<div class="video-scroll-section" data-section-id="{{ section.id }}">
+  <div class="video-container relative w-full" x-data="videoScroll()" x-init="initialize()">
+    <div class="sticky-wrapper overflow-hidden">
+      <div class="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        {% for block in section.blocks %}
+          <div 
+            class="video-block absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500"
+            data-block-id="{{ block.id }}"
+            x-show="currentVideoIndex === {{ forloop.index0 }}"
+            x-transition:enter="transition ease-in-out duration-500"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in-out duration-500"
+            x-transition:leave-start="opacity-100" 
+            x-transition:leave-end="opacity-0"
+          >
+            {% if block.settings.desktop_video != blank %}
+              <video 
+                class="desktop-video w-full h-full object-cover hidden md:block"
+                muted
+                playsinline
+                preload="auto"
+                data-video-index="{{ forloop.index0 }}"
+                data-video-duration="{{ block.settings.video_duration }}"
+              >
+                <source src="{{ block.settings.desktop_video | file_url }}" type="video/mp4">
+              </video>
             {% endif %}
             
-            {% if block.settings.description != blank %}
-              <div class="mb-6">{{ block.settings.description }}</div>
+            {% if block.settings.mobile_video != blank %}
+              <video 
+                class="mobile-video w-full h-full object-cover block md:hidden"
+                muted
+                playsinline
+                preload="auto"
+                data-video-index="{{ forloop.index0 }}"
+                data-video-duration="{{ block.settings.video_duration }}"
+              >
+                <source src="{{ block.settings.mobile_video | file_url }}" type="video/mp4">
+              </video>
             {% endif %}
             
-            {% if block.settings.cta_text != blank and block.settings.cta_url != blank %}
-              <a href="{{ block.settings.cta_url }}" class="inline-block px-6 py-3 bg-{{ block.settings.cta_bg_color }} text-{{ block.settings.cta_text_color }} font-medium rounded hover:opacity-90 transition-opacity">
-                {{ block.settings.cta_text }}
-              </a>
+            {% if block.settings.show_content %}
+              <div 
+                class="content-container absolute z-10 p-6 max-w-md {% if block.settings.content_max_width != blank %}max-w-{{ block.settings.content_max_width }}{% endif %}"
+                style="
+                  color: {{ block.settings.text_color }};
+                  {% case block.settings.content_position %}
+                    {% when 'top-left' %}
+                      top: 5%; left: 5%;
+                    {% when 'top-center' %}
+                      top: 5%; left: 50%; transform: translateX(-50%);
+                    {% when 'top-right' %}
+                      top: 5%; right: 5%;
+                    {% when 'middle-left' %}
+                      top: 50%; left: 5%; transform: translateY(-50%);
+                    {% when 'middle-center' %}
+                      top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    {% when 'middle-right' %}
+                      top: 50%; right: 5%; transform: translateY(-50%);
+                    {% when 'bottom-left' %}
+                      bottom: 5%; left: 5%;
+                    {% when 'bottom-center' %}
+                      bottom: 5%; left: 50%; transform: translateX(-50%);
+                    {% when 'bottom-right' %}
+                      bottom: 5%; right: 5%;
+                  {% endcase %}
+                "
+              >
+                <div class="text-{{ block.settings.content_alignment }}">
+                  {% if block.settings.title != blank %}
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">{{ block.settings.title }}</h2>
+                  {% endif %}
+                  
+                  {% if block.settings.description != blank %}
+                    <div class="mb-6">{{ block.settings.description }}</div>
+                  {% endif %}
+                  
+                  {% if block.settings.cta_text != blank and block.settings.cta_url != blank %}
+                    <a 
+                      href="{{ block.settings.cta_url }}" 
+                      class="inline-block px-6 py-3 font-medium rounded hover:opacity-90 transition-opacity"
+                      style="background-color: {{ block.settings.cta_bg_color }}; color: {{ block.settings.cta_text_color }};"
+                    >
+                      {{ block.settings.cta_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
             {% endif %}
           </div>
-        </div>
-      {% endif %}
+        {% endfor %}
+      </div>
     </div>
-  {% endfor %}
-    </div>
+    
+    <!-- Spacer to create scroll area -->
+    <div class="scroll-spacer" style="height: {{ section.blocks.size | times: 100 }}vh;"></div>
   </div>
-  
-  <div class="scroll-container" style="height: {{ section.blocks.size | times: 100 }}vh;"></div>
 </div>
 
 <script>
@@ -112,155 +120,157 @@
       currentVideoIndex: 0,
       totalVideos: {{ section.blocks.size }},
       scrollProgress: 0,
-      lastScrollTop: 0,
-      isInView: false,
-      hasEnteredView: false,
+      sectionInView: false,
+      scrollHeight: 0,
+      observer: null,
+      
       initialize() {
-        const self = this;
+        // Cache elements
+        const sectionEl = this.$el.closest('.video-scroll-section');
+        const scrollSpacer = this.$el.querySelector('.scroll-spacer');
+        const stickyWrapper = this.$el.querySelector('.sticky-wrapper');
         
-        // Set initial states
-        this.isInView = false;
-        this.hasEnteredView = false;
+        // Setup video elements
+        this.collectVideoElements();
         
-        // Initialize videos
-        const desktopVideos = document.querySelectorAll('.desktop-video');
-        const mobileVideos = document.querySelectorAll('.mobile-video');
+        // Set the sticky wrapper height to match viewport
+        stickyWrapper.style.height = '100vh';
         
-        // Fix responsive video handling
-        const isMobile = window.innerWidth < 768;
+        // Set scroll height based on number of videos
+        this.scrollHeight = window.innerHeight * this.totalVideos;
+        scrollSpacer.style.height = this.scrollHeight + 'px';
         
-        // Group videos by index
+        // Wait for videos to load
+        this.waitForVideosToLoad().then(() => {
+          // Set up intersection observer
+          this.setupIntersectionObserver(sectionEl);
+          
+          // Set up scroll handler
+          window.addEventListener('scroll', this.handleScroll.bind(this));
+          window.addEventListener('resize', this.handleResize.bind(this));
+          
+          // Initial scroll check
+          setTimeout(() => this.handleScroll(), 100);
+        });
+      },
+      
+      collectVideoElements() {
+        const desktopVideos = Array.from(this.$el.querySelectorAll('.desktop-video'));
+        const mobileVideos = Array.from(this.$el.querySelectorAll('.mobile-video'));
+        
         this.videos = [];
         for (let i = 0; i < {{ section.blocks.size }}; i++) {
-          const desktop = desktopVideos[i];
-          const mobile = mobileVideos[i];
-          
           this.videos.push({
-            desktop: desktop,
-            mobile: mobile,
+            desktop: desktopVideos[i] || null,
+            mobile: mobileVideos[i] || null,
             duration: parseFloat(
-              desktop?.dataset.videoDuration || 
-              mobile?.dataset.videoDuration || 
-              10
+              (desktopVideos[i]?.dataset.videoDuration || 
+               mobileVideos[i]?.dataset.videoDuration || 
+               10)
             )
           });
         }
+      },
+      
+      waitForVideosToLoad() {
+        const promises = [];
         
-        // Add resize handler to update device videos
-        window.addEventListener('resize', () => {
-          const newIsMobile = window.innerWidth < 768;
-          if (newIsMobile !== isMobile) {
-            // Force update on device change
-            setTimeout(() => this.handleScroll(), 100);
+        this.videos.forEach(videoSet => {
+          if (videoSet.desktop) {
+            promises.push(new Promise((resolve) => {
+              if (videoSet.desktop.readyState >= 2) {
+                resolve();
+              } else {
+                videoSet.desktop.addEventListener('loadeddata', () => resolve());
+                videoSet.desktop.addEventListener('error', () => resolve());
+              }
+            }));
+          }
+          
+          if (videoSet.mobile) {
+            promises.push(new Promise((resolve) => {
+              if (videoSet.mobile.readyState >= 2) {
+                resolve();
+              } else {
+                videoSet.mobile.addEventListener('loadeddata', () => resolve());
+                videoSet.mobile.addEventListener('error', () => resolve());
+              }
+            }));
           }
         });
         
-        // Wait for videos to be loaded
-        Promise.all(Array.from(allVideos).map(video => {
-          if (!video) return Promise.resolve();
-          return new Promise((resolve) => {
-            if (video.readyState >= 2) {
-              resolve();
-            } else {
-              video.addEventListener('loadeddata', () => resolve());
+        return Promise.all(promises);
+      },
+      
+      setupIntersectionObserver(targetElement) {
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            this.sectionInView = entry.isIntersecting;
+            if (this.sectionInView) {
+              this.handleScroll();
             }
           });
-        })).then(() => {
-          // Set up scroll handler and intersection observer
-          window.addEventListener('scroll', this.handleScroll.bind(this));
-          
-          // Set up intersection observer to detect when section enters viewport
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              // Only mark as in view when the section is fully in view
-              // (intersection ratio of 1 means fully visible)
-              this.isInView = entry.isIntersecting;
-              
-              // Once we've entered view once, we stay "entered" for the duration
-              if (entry.isIntersecting && entry.intersectionRatio >= 0.8) {
-                this.hasEnteredView = true;
-              }
-            });
-          }, { 
-            threshold: [0, 0.2, 0.4, 0.6, 0.8, 1.0],
-            rootMargin: "-1px 0px 0px 0px" // Require the entire section to be in view
-          });
-          
-          observer.observe(document.getElementById(`video-scroll-${this.$el.dataset.sectionId}`));
-          
-          // Trigger initial position
-          this.handleScroll();
-        });
+        }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+        
+        this.observer.observe(targetElement);
       },
       
       handleScroll() {
-        const scrollContainer = document.querySelector(`#video-scroll-${this.$el.dataset.sectionId} .scroll-container`);
-        const stickyContainer = document.querySelector(`#video-scroll-${this.$el.dataset.sectionId} .sticky-container`);
+        if (!this.sectionInView) return;
         
-        if (!scrollContainer || !stickyContainer) return;
+        const sectionRect = this.$el.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
         
-        const rect = scrollContainer.getBoundingClientRect();
-        const containerTop = rect.top;
-        const containerHeight = scrollContainer.offsetHeight;
-        const windowHeight = window.innerHeight;
+        // Calculate how far we've scrolled into the section
+        const scrolledPastTop = -sectionRect.top;
+        const visibleSectionHeight = this.scrollHeight - viewportHeight;
         
-        // Check if section is in view
-        this.isInView = containerTop < windowHeight && rect.bottom > 0;
-        
-        // Check if section is fully in view (top of section is at or above viewport top)
-        if (containerTop <= 0 && !this.hasEnteredView) {
-          this.hasEnteredView = true;
-        }
-        
-        // If we've scrolled past the section, keep hasEnteredView true but set isInView false
-        if (rect.bottom <= 0) {
-          this.isInView = false;
-        }
-        
-        // Calculate overall progress (0 to 1)
-        this.scrollProgress = Math.max(0, Math.min(1, -containerTop / (containerHeight - windowHeight)));
+        // Calculate progress through the section (0 to 1)
+        this.scrollProgress = Math.max(0, Math.min(1, scrolledPastTop / visibleSectionHeight));
         
         // Determine which video should be active
-        const sectionHeight = 1 / this.totalVideos;
-        const newVideoIndex = Math.min(
-          this.totalVideos - 1,
-          Math.floor(this.scrollProgress / sectionHeight)
-        );
+        const videoProgress = this.scrollProgress * this.totalVideos;
+        const newIndex = Math.min(this.totalVideos - 1, Math.floor(videoProgress));
         
-        if (newVideoIndex !== this.currentVideoIndex) {
-          this.currentVideoIndex = newVideoIndex;
+        if (newIndex !== this.currentVideoIndex) {
+          this.currentVideoIndex = newIndex;
         }
         
-        // Calculate video progress for the current video
-        const videoStartProgress = sectionHeight * this.currentVideoIndex;
-        const videoEndProgress = sectionHeight * (this.currentVideoIndex + 1);
-        const videoProgress = (this.scrollProgress - videoStartProgress) / (videoEndProgress - videoStartProgress);
+        // Calculate progress within the current video (0 to 1)
+        const videoStartProgress = newIndex / this.totalVideos;
+        const videoEndProgress = (newIndex + 1) / this.totalVideos;
+        const normalizedProgress = 
+          (this.scrollProgress - videoStartProgress) / 
+          (videoEndProgress - videoStartProgress);
         
-        this.updateVideoFrame(videoProgress);
-        
-        this.lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        this.updateVideoTime(normalizedProgress);
       },
       
-      updateVideoFrame(progress) {
-        if (!this.isInView || !this.hasEnteredView) return;
-        
+      updateVideoTime(progress) {
         const videoData = this.videos[this.currentVideoIndex];
         if (!videoData) return;
         
         const { desktop, mobile, duration } = videoData;
         const targetTime = Math.max(0, Math.min(duration, progress * duration));
+        const isMobile = window.innerWidth < 768;
         
-        // Update desktop video if it exists and we're on desktop
-        if (desktop && !isNaN(desktop.duration) && window.innerWidth >= 768) {
+        if (!isMobile && desktop && isFinite(desktop.duration)) {
           desktop.currentTime = Math.min(desktop.duration - 0.01, targetTime);
-        }
-        
-        // Update mobile video if it exists and we're on mobile
-        if (mobile && !isNaN(mobile.duration) && window.innerWidth < 768) {
+        } else if (isMobile && mobile && isFinite(mobile.duration)) {
           mobile.currentTime = Math.min(mobile.duration - 0.01, targetTime);
         }
+      },
+      
+      handleResize() {
+        // Recalculate dimensions on resize
+        this.scrollHeight = window.innerHeight * this.totalVideos;
+        const scrollSpacer = this.$el.querySelector('.scroll-spacer');
+        scrollSpacer.style.height = this.scrollHeight + 'px';
+        
+        // Update video time after resize
+        setTimeout(() => this.handleScroll(), 100);
       }
-    }
+    };
   }
 </script>
 
@@ -268,7 +278,7 @@
 {
   "name": "New Scrolling Video",
   "tag": "section",
-  "class": "video-scroll-section",
+  "class": "section",
   "settings": [],
   "blocks": [
     {
@@ -466,21 +476,20 @@
 {% stylesheet %}
 .video-scroll-section {
   position: relative;
-  overflow: hidden;
+  width: 100%;
 }
 
-.video-scroll-section .sticky-container {
-  z-index: 2;
-  overflow: hidden;
-}
-
-.video-block video {
-  pointer-events: none;
-}
-
-.scroll-container {
+.video-scroll-section .sticky-wrapper {
   position: relative;
-  z-index: 1;
+  width: 100%;
+  z-index: 2;
+}
+
+.video-scroll-section .scroll-spacer {
+  position: relative;
+}
+
+.video-scroll-section .video-block video {
   pointer-events: none;
 }
 {% endstylesheet %}
