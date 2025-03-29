@@ -1,222 +1,170 @@
 {% comment %}
-  Highly Simplified Video Section with Multiple Display Methods
+  Video Scroll Section - Based on debugged and working implementation
 {% endcomment %}
 
-<div id="debug-info" style="background: black; color: lime; padding: 10px; position: fixed; bottom: 0; left: 0; z-index: 9999; font-family: monospace; width: 100%;">
-  Debug info will appear here
-</div>
+<style>
+  /* Video section styling */
+  .video-scroll {
+    height: 600vh;
+    position: relative;
+  }
 
-<section class="vid-section" style="height: 600vh; position: relative;">
-  <!-- Method 1: Direct video tag with inline styles -->
-  <div style="position: sticky; top: 0; height: 100vh; width: 100%; background: #000;">
-    <video 
-      id="main-video"
-      src="{{ section.settings.video_url }}" 
-      style="width: 100%; height: 100%; object-fit: cover;" 
-      muted 
-      playsinline
-    ></video>
-    
-    <!-- Method 2: Fallback if file_url filter doesn't work -->
-    <video 
-      id="fallback-video" 
-      style="width: 100%; height: 100%; object-fit: cover; display: none;" 
-      muted 
-      playsinline
-    >
-      <source src="{{ section.settings.video_url }}" type="video/mp4">
-    </video>
-    
-    <!-- Method 3: Hard-coded backup to see if it's a Shopify issue -->
-    <video 
-      id="static-video" 
-      style="width: 100%; height: 100%; object-fit: cover; display: none;" 
-      muted 
-      playsinline
-    >
-      <source src="https://cdn.shopify.com/videos/c/o/v/b1899ec9c19f4e338e14b6ba2fba7c30.mp4" type="video/mp4">
-    </video>
-    
-    <!-- Method 4: Image backup to verify positioning works -->
-    <img 
-      id="backup-image" 
-      src="https://cdn.shopify.com/s/files/1/0689/4113/2507/files/placeholder-image.jpg" 
-      style="width: 100%; height: 100%; object-fit: cover; display: none;"
-    >
-    
-    <div id="error-message" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; background: rgba(0,0,0,0.7); padding: 20px; display: none;">
-      Video failed to load. See console for details.
-    </div>
+  .video-scroll .holder {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .video-scroll video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-scroll .story {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #f1f1f1;
+    z-index: 2;
+  }
+
+  .video-scroll .story div {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .video-scroll h3 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    max-width: 16ch;
+  }
+
+  @media (max-width: 720px) {
+    .video-scroll h3 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<section class="video-scroll">
+  <div class="holder">
+    <video src="{{ section.settings.video_url }}" muted playsinline></video>
   </div>
 
-  <!-- Simple overlay text -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; color: white;">
-    <div style="height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
-      <h3 style="font-size: 2.5rem; max-width: 16ch;">Video should appear here</h3>
+  <div class="story">
+    <div>
+      <h3>{{ section.settings.text_1 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_2 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_3 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_4 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_5 }}</h3>
+    </div>
+    <div>
+      <h3>{{ section.settings.text_6 }}</h3>
     </div>
   </div>
 </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const debugInfo = document.getElementById('debug-info');
-    const logDebug = (message) => {
-      console.log(message);
-      debugInfo.innerHTML += `<div>${message}</div>`;
-      
-      // Scroll to bottom of debug info
-      debugInfo.scrollTop = debugInfo.scrollHeight;
-    };
-    
-    logDebug('Script started');
-    
-    // Get all our video elements
-    const mainVideo = document.getElementById('main-video');
-    const fallbackVideo = document.getElementById('fallback-video');
-    const staticVideo = document.getElementById('static-video');
-    const backupImage = document.getElementById('backup-image');
-    const errorMessage = document.getElementById('error-message');
-    const section = document.querySelector('.vid-section');
-    
-    if (!section) {
-      logDebug('ERROR: Section not found');
-      return;
-    }
-    
-    logDebug('Section found');
-    
-    // Check if we have a video element
-    if (!mainVideo) {
-      logDebug('ERROR: Main video element not found');
-      return;
-    }
-    
-    logDebug('Main video element found');
-    logDebug(`Main video source: ${mainVideo.src}`);
-    
-    // Function to set up a video element for scroll scrubbing
-    function setupVideoScrubbing(videoElement) {
-      if (!videoElement) return;
-      
-      logDebug(`Setting up ${videoElement.id}`);
-      
-      try {
-        // Pause the video initially
-        videoElement.pause();
-        logDebug(`${videoElement.id} paused`);
-        
-        // Add loadedmetadata listener
-        videoElement.addEventListener('loadedmetadata', function() {
-          logDebug(`${videoElement.id} metadata loaded, duration: ${videoElement.duration}s`);
-          videoElement.style.display = 'block'; // Make sure it's visible
-        });
-        
-        // Add error listener
-        videoElement.addEventListener('error', function() {
-          logDebug(`ERROR: ${videoElement.id} failed to load. Error code: ${videoElement.error ? videoElement.error.code : 'unknown'}`);
-          videoElement.style.display = 'none';
-          
-          // If main video fails, try fallback
-          if (videoElement === mainVideo) {
-            logDebug('Trying fallback video');
-            fallbackVideo.style.display = 'block';
-          }
-          
-          // If fallback fails, try static
-          if (videoElement === fallbackVideo) {
-            logDebug('Trying static video');
-            staticVideo.style.display = 'block';
-          }
-          
-          // If static fails, show image
-          if (videoElement === staticVideo) {
-            logDebug('Showing backup image');
-            backupImage.style.display = 'block';
-            errorMessage.style.display = 'block';
-          }
-        });
-        
-        logDebug(`${videoElement.id} event listeners attached`);
-      } catch (e) {
-        logDebug(`ERROR: Exception setting up ${videoElement.id}: ${e.message}`);
-      }
-    }
-    
-    // Set up all video elements
-    setupVideoScrubbing(mainVideo);
-    setupVideoScrubbing(fallbackVideo);
-    setupVideoScrubbing(staticVideo);
-    
-    // Scroll function for video scrubbing
-    const handleScroll = () => {
-      try {
-        // Figure out which video to use (first one that's visible and has loaded metadata)
-        let activeVideo = null;
-        
-        if (mainVideo.style.display !== 'none' && mainVideo.readyState >= 2) {
-          activeVideo = mainVideo;
-        } else if (fallbackVideo.style.display !== 'none' && fallbackVideo.readyState >= 2) {
-          activeVideo = fallbackVideo;
-        } else if (staticVideo.style.display !== 'none' && staticVideo.readyState >= 2) {
-          activeVideo = staticVideo;
-        }
-        
-        if (!activeVideo) {
-          return; // No video is ready yet
-        }
-        
-        const distance = window.scrollY - section.offsetTop;
-        const total = section.clientHeight - window.innerHeight;
-        
-        let percentage = distance / total;
-        percentage = Math.max(0, percentage);
-        percentage = Math.min(percentage, 1);
-        
-        if (activeVideo.duration > 0) {
-          activeVideo.currentTime = activeVideo.duration * percentage;
-        }
-      } catch (e) {
-        logDebug(`ERROR in scroll handler: ${e.message}`);
+    const section = document.querySelector('.video-scroll');
+    const vid = section.querySelector('video');
+
+    // Make sure the video is paused initially
+    vid.pause();
+
+    // Add loadedmetadata event to ensure video is ready
+    vid.addEventListener('loadedmetadata', function() {
+      console.log('Video loaded, duration:', vid.duration);
+      // Initial scroll position
+      scroll();
+    });
+
+    const scroll = () => {
+      const distance = window.scrollY - section.offsetTop;
+      const total = section.clientHeight - window.innerHeight;
+
+      let percentage = distance / total;
+      percentage = Math.max(0, percentage);
+      percentage = Math.min(percentage, 1);
+
+      if (vid.duration > 0) {
+        vid.currentTime = vid.duration * percentage;
       }
     };
-    
-    // Attach scroll listener
-    window.addEventListener('scroll', handleScroll);
-    logDebug('Scroll listener attached');
-    
-    // Check video URL
-    const videoUrl = "{{ section.settings.video_url }}";
-    logDebug(`Video URL from settings: ${videoUrl}`);
-    
-    // Final check - make absolutely sure we're displaying something
-    setTimeout(function() {
-      if (mainVideo.style.display === 'none' && 
-          fallbackVideo.style.display === 'none' && 
-          staticVideo.style.display === 'none' && 
-          backupImage.style.display === 'none') {
-        
-        logDebug('No video or image is displaying after 2 seconds, showing backup image');
-        backupImage.style.display = 'block';
-        errorMessage.style.display = 'block';
-      }
-    }, 2000);
+
+    // Add scroll event listener
+    window.addEventListener('scroll', scroll);
   });
 </script>
 
 {% schema %}
 {
-  "name": "Debug Video Scroll",
+  "name": "Video Scroll",
   "settings": [
     {
       "type": "text",
       "id": "video_url",
       "label": "Video URL",
-      "info": "Enter the full URL to your video (e.g., from Files section)"
+      "info": "Enter the full URL to your video file",
+      "default": "https://cdn.shopify.com/videos/c/o/v/a4adcd6b0e024541979e0d10447df711.mp4"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text 1",
+      "default": "In the heart of Wildrise…"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text 2",
+      "default": "…where the breezes play."
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text 3",
+      "default": "We embrace the call of the wild each day."
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text 4",
+      "default": "Untamed places stretch,"
+    },
+    {
+      "type": "text",
+      "id": "text_5",
+      "label": "Text 5",
+      "default": "vast and wide."
+    },
+    {
+      "type": "text",
+      "id": "text_6",
+      "label": "Text 6",
+      "default": "Whispering secrets of a world outside."
     }
   ],
   "presets": [
     {
-      "name": "Debug Video Scroll",
+      "name": "Video Scroll",
       "category": "Video"
     }
   ]
