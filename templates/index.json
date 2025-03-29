@@ -116,34 +116,6 @@
         "button_link": ""
       }
     },
-    "c_video_scroll_APAVrx": {
-      "type": "c-video-scroll",
-      "blocks": {
-        "video_3PGgXt": {
-          "type": "video",
-          "settings": {
-            "desktop_video": "shopify://files/videos/c-hero-video.mp4",
-            "mobile_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4",
-            "video_duration": 10,
-            "show_content": true,
-            "title": "Test Title",
-            "description": "<p>This is a test description of the video scrolling section</p>",
-            "cta_text": "Shop Now",
-            "cta_url": "shopify://products/diaper",
-            "content_position": "middle-left",
-            "content_alignment": "left",
-            "content_max_width": "md",
-            "text_color": "#ffffff",
-            "cta_bg_color": "#000000",
-            "cta_text_color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "video_3PGgXt"
-      ],
-      "settings": {}
-    },
     "review_scroller_custom_CMUd3m": {
       "type": "review-scroller-custom",
       "blocks": {
@@ -236,7 +208,6 @@
     },
     "video_scroll_r6ncx3": {
       "type": "video-scroll",
-      "disabled": true,
       "settings": {
         "video_url": "https://cdn.shopify.com/videos/c/o/v/a4adcd6b0e024541979e0d10447df711.mp4"
       }
@@ -248,7 +219,6 @@
     "logo-section",
     "product_features",
     "c_hero_img_3b7kXN",
-    "c_video_scroll_APAVrx",
     "review_scroller_custom_CMUd3m",
     "footer_custom_fPQhVk",
     "video_scroll_r6ncx3"
