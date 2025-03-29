@@ -112,14 +112,13 @@
     "simple_video_scroll_section_Ex6MT7": {
       "type": "simple-video-scroll-section",
       "settings": {
-        "desktop_video": "shopify://files/videos/c-hero-video.mp4",
-        "mobile_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4",
-        "show_content": false,
-        "title": "",
-        "description": "",
-        "cta_text": "",
-        "cta_url": "",
-        "content_position": "middle-center"
+        "video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4",
+        "text_1": "In the heart of Wildrise…",
+        "text_2": "…where the breezes play.",
+        "text_3": "We embrace the call of the wild each day.",
+        "text_4": "Untamed places stretch,",
+        "text_5": "vast and wide.",
+        "text_6": "Whispering secrets of a world outside."
       }
     },
     "review_scroller_custom_CMUd3m": {
