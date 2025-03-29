@@ -112,7 +112,13 @@
     "simple_video_scroll_section_Ex6MT7": {
       "type": "simple-video-scroll-section",
       "settings": {
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/a4adcd6b0e024541979e0d10447df711.mp4"
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/1659133a8ddf40eea4ece60f2dba65e6.mp4",
+        "text_1": "In the heart of Wildrise…",
+        "text_2": "…where the breezes play.",
+        "text_3": "We embrace the call of the wild each day.",
+        "text_4": "Untamed places stretch,",
+        "text_5": "vast and wide.",
+        "text_6": "Whispering secrets of a world outside."
       }
     },
     "review_scroller_custom_CMUd3m": {
