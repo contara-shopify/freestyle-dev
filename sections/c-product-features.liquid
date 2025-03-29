@@ -1,6 +1,6 @@
 <div class="py-16">
-  <div class="flex justify-center items-center" >
-    <!-- Columna izquierda (30%) -->
+  <div class="flex justify-center items-center">
+    <!-- Columna izquierda (50%) -->
     <div class="w-[50%] pr-8 space-y-8 flex flex-col items-center sticky top-0">
       {% if section.settings.logo_1 != blank %}
         <img 
@@ -25,12 +25,12 @@
       {% endif %}
     </div>
     
-    <!-- Columna derecha (70%) -->
+    <!-- Columna derecha (50%) -->
     <div class="w-[50%]">
       {% for block in section.blocks %}
         <div class="scroll-block flex items-center mb-[25px]">
           {% if block.settings.logo != blank %}
-            <div class="logo-container" style="margin-bottom: 20px;">
+            <div class="logo-container">
               <img 
                 src="{{ block.settings.logo | img_url: 'master' }}"
                 alt="{{ block.settings.logo.alt | escape }}"
@@ -49,28 +49,35 @@
 
 <style>
   .logo-container img {
-    filter: brightness(0) saturate(100%); 
-    transition: all 0.5s ease;
+    filter: none; 
+    transition: all 0.5s ease-in-out;
   }
-  
+
+  .logo-container.active {
+    background-color: #6638B7; /* Fondo del logo activo */
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .logo-container.active img {
-    filter: brightness(0) saturate(200%) invert(17%) sepia(100%) saturate(12994%) hue-rotate(271deg) brightness(120%) contrast(150%);
-  }  
-  .scroll-block {
-    opacity: 1 !important;
+    filter: none;
+    mix-blend-mode: multiply;
+    opacity: 1;
   }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const blocks = document.querySelectorAll('.scroll-block');
-  let currentActiveIndex = 0;
   
   function updateActiveBlock() {
     const viewportHeight = window.innerHeight;
     const triggerPoint = viewportHeight / 2;
 
-    blocks.forEach((block, index) => {
+    blocks.forEach(block => {
       const rect = block.getBoundingClientRect();
       const blockMiddle = rect.top + (rect.height / 2);
       
@@ -82,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const container = block.querySelector('.logo-container');
         container.classList.add('active');
-        currentActiveIndex = index;
       }
     });
   }
