@@ -1,0 +1,338 @@
+{% comment %}
+  New Scrolling Video Section
+  - Simple scroll-based video scrubbing
+  - Separate desktop/mobile videos
+  - Configurable content blocks
+{% endcomment %}
+
+{{ 'new-scrolling-video.css' | asset_url | stylesheet_tag }}
+
+<section class="new-scrolling-video" data-section-id="{{ section.id }}">
+  {% for block in section.blocks %}
+    <div class="video-block" data-block-id="{{ block.id }}" data-index="{{ forloop.index0 }}">
+      <div class="sticky-container">
+        <div class="video-wrapper">
+          {% if block.settings.desktop_video != blank %}
+            <video 
+              class="desktop-video"
+              muted 
+              playsinline 
+              preload="auto"
+              data-duration="{{ block.settings.video_duration }}"
+            >
+              <source src="{{ block.settings.desktop_video | file_url }}" type="video/mp4">
+            </video>
+          {% endif %}
+          
+          {% if block.settings.mobile_video != blank %}
+            <video 
+              class="mobile-video"
+              muted 
+              playsinline 
+              preload="auto"
+              data-duration="{{ block.settings.video_duration }}"
+            >
+              <source src="{{ block.settings.mobile_video | file_url }}" type="video/mp4">
+            </video>
+          {% endif %}
+          
+          {% if block.settings.show_content %}
+            <div class="content-container position-{{ block.settings.content_position }} text-{{ block.settings.content_alignment }} width-{{ block.settings.content_max_width }}">
+              {% if block.settings.title != blank %}
+                <h2 class="title" style="color: {{ block.settings.text_color }};">{{ block.settings.title }}</h2>
+              {% endif %}
+              
+              {% if block.settings.description != blank %}
+                <div class="description" style="color: {{ block.settings.text_color }};">{{ block.settings.description }}</div>
+              {% endif %}
+              
+              {% if block.settings.cta_text != blank and block.settings.cta_url != blank %}
+                <a 
+                  href="{{ block.settings.cta_url }}" 
+                  class="cta-button"
+                  style="background-color: {{ block.settings.cta_bg_color }}; color: {{ block.settings.cta_text_color }};"
+                >
+                  {{ block.settings.cta_text }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="scroll-spacer"></div>
+    </div>
+  {% endfor %}
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all video blocks
+    const section = document.querySelector('section[data-section-id="{{ section.id }}"]');
+    if (!section) return;
+    
+    const videoBlocks = section.querySelectorAll('.video-block');
+    videoBlocks.forEach(videoBlock => {
+      initVideoBlock(videoBlock);
+    });
+    
+    function initVideoBlock(videoBlock) {
+      // Initialize videos
+      const desktopVideo = videoBlock.querySelector('.desktop-video');
+      const mobileVideo = videoBlock.querySelector('.mobile-video');
+      
+      // Ensure videos are paused initially
+      if (desktopVideo) desktopVideo.pause();
+      if (mobileVideo) mobileVideo.pause();
+      
+      // Set correct heights for scroll spacer
+      const scrollSpacer = videoBlock.querySelector('.scroll-spacer');
+      const videoDuration = (desktopVideo || mobileVideo)?.dataset.duration || 10;
+      
+      // Set the scroll spacer height to control scroll duration
+      // Using window height * multiplier to ensure enough scroll distance
+      const scrollMultiplier = 2; // Adjust this value to control scroll sensitivity
+      scrollSpacer.style.height = `${window.innerHeight * scrollMultiplier}px`;
+      
+      // Create scroll handler for each video block
+      const scrollHandler = () => {
+        // Get the correct video based on screen size
+        const video = window.innerWidth >= 768 ? desktopVideo : mobileVideo;
+        if (!video) return;
+        
+        // Calculate scroll position relative to this block
+        const blockTop = videoBlock.offsetTop;
+        const blockHeight = videoBlock.offsetHeight;
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate how far we've scrolled into the block (0 to 1)
+        const scrolledDistance = scrollPosition - blockTop;
+        const totalScrollDistance = blockHeight - windowHeight;
+        
+        let scrollPercentage = scrolledDistance / totalScrollDistance;
+        scrollPercentage = Math.max(0, Math.min(1, scrollPercentage));
+        
+        // Update video time based on scroll percentage
+        if (video.duration > 0) {
+          video.currentTime = video.duration * scrollPercentage;
+        }
+      };
+      
+      // Add scroll event for this block
+      window.addEventListener('scroll', scrollHandler);
+      
+      // Initial call to set starting positions
+      scrollHandler();
+    }
+    
+    // Handle resize to adjust spacer heights
+    window.addEventListener('resize', function() {
+      const scrollSpacers = section.querySelectorAll('.scroll-spacer');
+      const scrollMultiplier = 2;
+      
+      scrollSpacers.forEach(spacer => {
+        spacer.style.height = `${window.innerHeight * scrollMultiplier}px`;
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "New Scrolling Video",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video Block",
+      "settings": [
+        {
+          "type": "video",
+          "id": "desktop_video",
+          "label": "Desktop Video"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Mobile Video"
+        },
+        {
+          "type": "range",
+          "id": "video_duration",
+          "min": 1,
+          "max": 60,
+          "step": 1,
+          "unit": "s",
+          "label": "Video Duration (seconds)",
+          "default": 10,
+          "info": "Set this to match your video's actual duration"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_content",
+          "label": "Show Content",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA URL"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content Position",
+          "options": [
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top Right"
+            },
+            {
+              "value": "middle-left",
+              "label": "Middle Left"
+            },
+            {
+              "value": "middle-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "middle-right",
+              "label": "Middle Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
+          ],
+          "default": "middle-center"
+        },
+        {
+          "type": "select",
+          "id": "content_alignment",
+          "label": "Content Text Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "content_max_width",
+          "label": "Content Max Width",
+          "options": [
+            {
+              "value": "xs",
+              "label": "Extra Small"
+            },
+            {
+              "value": "sm",
+              "label": "Small"
+            },
+            {
+              "value": "md",
+              "label": "Medium"
+            },
+            {
+              "value": "lg",
+              "label": "Large"
+            },
+            {
+              "value": "xl",
+              "label": "Extra Large"
+            },
+            {
+              "value": "2xl",
+              "label": "2XL"
+            },
+            {
+              "value": "3xl",
+              "label": "3XL"
+            }
+          ],
+          "default": "md"
+        },
+        {
+          "type": "header",
+          "content": "Color Settings"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "cta_bg_color",
+          "label": "CTA Background Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "cta_text_color",
+          "label": "CTA Text Color",
+          "default": "#ffffff"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Scrolling Video",
+      "blocks": [
+        {
+          "type": "video"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

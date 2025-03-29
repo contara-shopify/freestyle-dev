@@ -16,11 +16,11 @@
 }
 {% endschema %}
 
-{% capture video_src %}
-  {{ settings.video_url }}
-{% endcapture %}
+{% assign video_src = "https://cdn.shopify.com/videos/c/o/v/a4adcd6b0e024541979e0d10447df711.mp4" %}
 
-{% if video_src != blank and video_src != '' %}
+<p>Depuración - URL capturada: "{{ video_src }}"</p>
+
+{% if video_src and video_src != "" and video_src != " " %}
   <div id="set-height"></div>
   <p id="time"></p>
   <video id="v0" tabindex="0" autobuffer="autobuffer" preload="auto" poster="https://via.placeholder.com/1280x720">
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setHeight = document.getElementById("set-height"), 
         vid = document.getElementById("v0"); 
 
-    if (!vid || "{{ settings.video_url }}" === "") {
+    if (!vid || "{{ settings.video_url }}".trim() === "") {
         console.log("El elemento de video no se encontró o la URL es vacía.");
         return;
     }
