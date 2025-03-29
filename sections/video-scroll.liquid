@@ -1,7 +1,24 @@
 {% schema %}
 {
   "name": "Video Scroll",
-  "settings": [],
+  "settings": [
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "URL del video",
+      "info": "Ingresa la URL del video MP4"
+    },
+    {
+      "type": "range",
+      "id": "playback_speed",
+      "min": 100,
+      "max": 1000,
+      "step": 50,
+      "default": 500,
+      "label": "Velocidad de reproducción",
+      "info": "Números más bajos = reproducción más rápida"
+    }
+  ],
   "presets": [
     {
       "name": "Video Scroll"
@@ -13,7 +30,7 @@
 <div class="video-scroll-section">
   <div id="set-height"></div>
   <video id="scroll-video" tabindex="0" autobuffer="autobuffer" preload="preload">
-    <source type="video/mp4" src="{{ 'https://cdn.shopify.com/videos/c/o/v/a4adcd6b0e024541979e0d10447df711.mp4' | asset_url }}">
+    <source type="video/mp4" src="{{ section.settings.video_url }}">
   </video>
 </div>
 
