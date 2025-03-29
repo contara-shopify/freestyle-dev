@@ -1,147 +1,222 @@
 {% comment %}
-  Exact Copy of Working Implementation
+  Highly Simplified Video Section with Multiple Display Methods
 {% endcomment %}
 
-<section class="vid">
-  <div class="holder">
-    <video src="{{ section.settings.video | file_url }}" muted playsinline></video>
+<div id="debug-info" style="background: black; color: lime; padding: 10px; position: fixed; bottom: 0; left: 0; z-index: 9999; font-family: monospace; width: 100%;">
+  Debug info will appear here
+</div>
+
+<section class="vid-section" style="height: 600vh; position: relative;">
+  <!-- Method 1: Direct video tag with inline styles -->
+  <div style="position: sticky; top: 0; height: 100vh; width: 100%; background: #000;">
+    <video 
+      id="main-video"
+      src="{{ section.settings.video_url }}" 
+      style="width: 100%; height: 100%; object-fit: cover;" 
+      muted 
+      playsinline
+    ></video>
+    
+    <!-- Method 2: Fallback if file_url filter doesn't work -->
+    <video 
+      id="fallback-video" 
+      style="width: 100%; height: 100%; object-fit: cover; display: none;" 
+      muted 
+      playsinline
+    >
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+    </video>
+    
+    <!-- Method 3: Hard-coded backup to see if it's a Shopify issue -->
+    <video 
+      id="static-video" 
+      style="width: 100%; height: 100%; object-fit: cover; display: none;" 
+      muted 
+      playsinline
+    >
+      <source src="https://cdn.shopify.com/videos/c/o/v/b1899ec9c19f4e338e14b6ba2fba7c30.mp4" type="video/mp4">
+    </video>
+    
+    <!-- Method 4: Image backup to verify positioning works -->
+    <img 
+      id="backup-image" 
+      src="https://cdn.shopify.com/s/files/1/0689/4113/2507/files/placeholder-image.jpg" 
+      style="width: 100%; height: 100%; object-fit: cover; display: none;"
+    >
+    
+    <div id="error-message" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; background: rgba(0,0,0,0.7); padding: 20px; display: none;">
+      Video failed to load. See console for details.
+    </div>
   </div>
 
-  <div class="story">
-    <div>
-      <h3>In the heart of Wildrise&hellip;</h3>
-    </div>
-    <div>
-      <h3>&hellip;where the breezes play.</h3>
-    </div>
-    <div>
-      <h3>We embrace the call of the wild each day.</h3>
-    </div>
-    <div>
-      <h3>Untamed places stretch,</h3>
-    </div>
-    <div>
-      <h3>vast and wide.</h3>
-    </div>
-    <div>
-      <h3>Whispering secrets of a world outside.</h3>
+  <!-- Simple overlay text -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; color: white;">
+    <div style="height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+      <h3 style="font-size: 2.5rem; max-width: 16ch;">Video should appear here</h3>
     </div>
   </div>
 </section>
 
 <script>
-  // Wait until the section is fully rendered and available in the DOM
   document.addEventListener('DOMContentLoaded', function() {
-    // Use exactly the same selector as your working code
-    const section = document.querySelector('section.vid');
+    const debugInfo = document.getElementById('debug-info');
+    const logDebug = (message) => {
+      console.log(message);
+      debugInfo.innerHTML += `<div>${message}</div>`;
+      
+      // Scroll to bottom of debug info
+      debugInfo.scrollTop = debugInfo.scrollHeight;
+    };
+    
+    logDebug('Script started');
+    
+    // Get all our video elements
+    const mainVideo = document.getElementById('main-video');
+    const fallbackVideo = document.getElementById('fallback-video');
+    const staticVideo = document.getElementById('static-video');
+    const backupImage = document.getElementById('backup-image');
+    const errorMessage = document.getElementById('error-message');
+    const section = document.querySelector('.vid-section');
+    
     if (!section) {
-      console.error('Video section not found');
+      logDebug('ERROR: Section not found');
       return;
     }
     
-    const vid = section.querySelector('video');
-    if (!vid) {
-      console.error('Video element not found');
+    logDebug('Section found');
+    
+    // Check if we have a video element
+    if (!mainVideo) {
+      logDebug('ERROR: Main video element not found');
       return;
     }
     
-    console.log('Video element found, pausing it');
-    vid.pause();
+    logDebug('Main video element found');
+    logDebug(`Main video source: ${mainVideo.src}`);
     
-    const scroll = () => {
-      console.log('Scroll event triggered');
-      const distance = window.scrollY - section.offsetTop;
-      const total = section.clientHeight - window.innerHeight;
+    // Function to set up a video element for scroll scrubbing
+    function setupVideoScrubbing(videoElement) {
+      if (!videoElement) return;
       
-      let percentage = distance / total;
-      percentage = Math.max(0, percentage);
-      percentage = Math.min(percentage, 1);
+      logDebug(`Setting up ${videoElement.id}`);
       
-      console.log(`Scroll percentage: ${percentage}`);
-      
-      if (vid.duration > 0) {
-        console.log(`Setting video time to: ${vid.duration * percentage}`);
-        vid.currentTime = vid.duration * percentage;
-      } else {
-        console.log('Video duration not available yet');
+      try {
+        // Pause the video initially
+        videoElement.pause();
+        logDebug(`${videoElement.id} paused`);
+        
+        // Add loadedmetadata listener
+        videoElement.addEventListener('loadedmetadata', function() {
+          logDebug(`${videoElement.id} metadata loaded, duration: ${videoElement.duration}s`);
+          videoElement.style.display = 'block'; // Make sure it's visible
+        });
+        
+        // Add error listener
+        videoElement.addEventListener('error', function() {
+          logDebug(`ERROR: ${videoElement.id} failed to load. Error code: ${videoElement.error ? videoElement.error.code : 'unknown'}`);
+          videoElement.style.display = 'none';
+          
+          // If main video fails, try fallback
+          if (videoElement === mainVideo) {
+            logDebug('Trying fallback video');
+            fallbackVideo.style.display = 'block';
+          }
+          
+          // If fallback fails, try static
+          if (videoElement === fallbackVideo) {
+            logDebug('Trying static video');
+            staticVideo.style.display = 'block';
+          }
+          
+          // If static fails, show image
+          if (videoElement === staticVideo) {
+            logDebug('Showing backup image');
+            backupImage.style.display = 'block';
+            errorMessage.style.display = 'block';
+          }
+        });
+        
+        logDebug(`${videoElement.id} event listeners attached`);
+      } catch (e) {
+        logDebug(`ERROR: Exception setting up ${videoElement.id}: ${e.message}`);
+      }
+    }
+    
+    // Set up all video elements
+    setupVideoScrubbing(mainVideo);
+    setupVideoScrubbing(fallbackVideo);
+    setupVideoScrubbing(staticVideo);
+    
+    // Scroll function for video scrubbing
+    const handleScroll = () => {
+      try {
+        // Figure out which video to use (first one that's visible and has loaded metadata)
+        let activeVideo = null;
+        
+        if (mainVideo.style.display !== 'none' && mainVideo.readyState >= 2) {
+          activeVideo = mainVideo;
+        } else if (fallbackVideo.style.display !== 'none' && fallbackVideo.readyState >= 2) {
+          activeVideo = fallbackVideo;
+        } else if (staticVideo.style.display !== 'none' && staticVideo.readyState >= 2) {
+          activeVideo = staticVideo;
+        }
+        
+        if (!activeVideo) {
+          return; // No video is ready yet
+        }
+        
+        const distance = window.scrollY - section.offsetTop;
+        const total = section.clientHeight - window.innerHeight;
+        
+        let percentage = distance / total;
+        percentage = Math.max(0, percentage);
+        percentage = Math.min(percentage, 1);
+        
+        if (activeVideo.duration > 0) {
+          activeVideo.currentTime = activeVideo.duration * percentage;
+        }
+      } catch (e) {
+        logDebug(`ERROR in scroll handler: ${e.message}`);
       }
     };
     
-    console.log('Adding scroll event listener');
-    scroll(); // Initial call
-    window.addEventListener('scroll', scroll);
+    // Attach scroll listener
+    window.addEventListener('scroll', handleScroll);
+    logDebug('Scroll listener attached');
     
-    // Make sure the video is loaded
-    vid.addEventListener('loadedmetadata', function() {
-      console.log('Video metadata loaded, duration:', vid.duration);
-      scroll(); // Try again after metadata is loaded
-    });
+    // Check video URL
+    const videoUrl = "{{ section.settings.video_url }}";
+    logDebug(`Video URL from settings: ${videoUrl}`);
+    
+    // Final check - make absolutely sure we're displaying something
+    setTimeout(function() {
+      if (mainVideo.style.display === 'none' && 
+          fallbackVideo.style.display === 'none' && 
+          staticVideo.style.display === 'none' && 
+          backupImage.style.display === 'none') {
+        
+        logDebug('No video or image is displaying after 2 seconds, showing backup image');
+        backupImage.style.display = 'block';
+        errorMessage.style.display = 'block';
+      }
+    }, 2000);
   });
 </script>
 
-<style>
-  section.vid {
-    height: 600vh;
-    position: relative;
-  }
-
-  section.vid div.holder {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    width: 100%;
-  }
-
-  section.vid video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  section.vid div.story {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    color: #f1f1f1;
-  }
-
-  section.vid div.story div {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  section.vid h3 {
-    font-size: 2.5rem;
-    font-weight: 400;
-    line-height: 1.25;
-    max-width: 16ch;
-    text-wrap: balance;
-  }
-
-  @media (max-width: 720px) {
-    section.vid h3 {
-      font-size: 1.5rem;
-    }
-  }
-</style>
-
 {% schema %}
 {
-  "name": "Video Scroll",
+  "name": "Debug Video Scroll",
   "settings": [
     {
-      "type": "video",
-      "id": "video",
-      "label": "Video"
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Enter the full URL to your video (e.g., from Files section)"
     }
   ],
   "presets": [
     {
-      "name": "Video Scroll",
+      "name": "Debug Video Scroll",
       "category": "Video"
     }
   ]
