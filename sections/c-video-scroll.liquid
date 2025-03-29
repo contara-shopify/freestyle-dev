@@ -12,12 +12,13 @@
   data-section-type="video-scroll"
   x-data="videoScroll()"
   x-init="initialize()"
+  id="video-scroll-{{ section.id }}"
 >
   {% for block in section.blocks %}
     <div 
       class="video-block absolute inset-0 w-full h-screen flex items-center justify-center opacity-0 transition-opacity duration-500"
       data-block-id="{{ block.id }}"
-      :class="{'opacity-100': currentVideoIndex === {{ forloop.index0 }}}"
+      :class="{'opacity-100': currentVideoIndex === {{ forloop.index0 }} && isInView}"
     >
       {% if block.settings.desktop_video != blank %}
         <video 
@@ -109,8 +110,12 @@
       totalVideos: {{ section.blocks.size }},
       scrollProgress: 0,
       lastScrollTop: 0,
+      isInView: false,
       initialize() {
         const self = this;
+        
+        // Set initial state to hidden
+        this.isInView = false;
         
         // Initialize videos
         const desktopVideos = document.querySelectorAll('.desktop-video');
@@ -138,8 +143,21 @@
             }
           });
         })).then(() => {
-          // Set up scroll handler
+          // Set up scroll handler and intersection observer
           window.addEventListener('scroll', this.handleScroll.bind(this));
+          
+          // Set up intersection observer to detect when section enters viewport
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                this.isInView = true;
+              } else {
+                this.isInView = false;
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          observer.observe(document.getElementById(`video-scroll-${this.$el.dataset.sectionId}`));
           
           // Trigger initial position
           this.handleScroll();
@@ -151,6 +169,11 @@
         const containerTop = scrollContainer.getBoundingClientRect().top;
         const containerHeight = scrollContainer.offsetHeight;
         const windowHeight = window.innerHeight;
+        
+        // Check if section is in view
+        const sectionElement = document.querySelector(`[data-section-id="${this.$el.dataset.sectionId}"]`);
+        const sectionRect = sectionElement.getBoundingClientRect();
+        this.isInView = sectionRect.top < windowHeight && sectionRect.bottom > 0;
         
         // Calculate overall progress (0 to 1)
         this.scrollProgress = Math.max(0, Math.min(1, -containerTop / (containerHeight - windowHeight)));
@@ -177,6 +200,8 @@
       },
       
       updateVideoFrame(progress) {
+        if (!this.isInView) return;
+        
         const videoData = this.videos[this.currentVideoIndex];
         if (!videoData) return;
         
@@ -383,7 +408,7 @@
   ],
   "presets": [
     {
-      "name": "Video Scroll",
+      "name": "Video Scroller",
       "blocks": [
         {
           "type": "video"
