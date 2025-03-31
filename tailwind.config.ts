@@ -27,10 +27,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'cenzo': ['CenzoFlare', 'system-ui'],
-        'handmade-loves': ['HandmadeLoves', 'system-ui'],
-        'plusJakarta': ['PlusJakartaSans', 'system-ui'],
-        'grotesk': ['GroteskNeue', 'system-ui']
+        'grotesk': ['GroteskNeue', 'system-ui'],
+        'roman': ['Roman-light', 'system-ui'],
       }
     },
     colors: {

@@ -14,8 +14,9 @@
 
       {% if section.settings.heading != blank %}
         {% assign heading_words = section.settings.heading | split: ' ' %}
-        <h2 class="font-extralight font-grotesk mb-12 md:mb-28 text-center flex flex-col items-center text-5xl md:text-6xl"
-            style="color: {{ section.settings.heading_color }}; line-height: 1.0;">
+        <h2 class="font-extralight font-grotesk mb-12 md:mb-28 text-center flex flex-col items-center text-5xl md:text-[90px] leading-none"
+     style="color: {{ section.settings.heading_color }}; 
+            @media(min-width: 768px){ font-size: 90px; }">
           <span class="block">
             {% for word in heading_words %}
               {{ word }}

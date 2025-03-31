@@ -30,9 +30,8 @@ export default {
     },
     extend: {
       fontFamily: {
-     
         Grotesk: ['GroteskNeue', 'sans-serif'],
-        Roman: ['Roman-standard', 'sans-serif'],
+        roman: ['Roman', 'sans-serif'],
       },
       container: {
         center: true,

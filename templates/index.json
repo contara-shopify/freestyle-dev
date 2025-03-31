@@ -38,28 +38,10 @@
             "author_name": "Sofie Flores",
             "location": "Los Angeles"
           }
-        },
-        "testimonial_n96xeD": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial_text": "Love it best product",
-            "author_name": "Jhon Doe",
-            "location": "New York"
-          }
-        },
-        "testimonial_WQUNKb": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial_text": "Amazing product, the best",
-            "author_name": "Peter Parker",
-            "location": "Queens"
-          }
         }
       },
       "block_order": [
-        "testimonial_88pVHw",
-        "testimonial_n96xeD",
-        "testimonial_WQUNKb"
+        "testimonial_88pVHw"
       ],
       "settings": {}
     },
@@ -119,10 +101,10 @@
       "type": "c-hero-img",
       "settings": {
         "image": "shopify://shop_images/242A6894_6.jpg",
-        "heading": "Shop Skin Shield ™ \nExclusively at Walmart",
+        "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
         "heading_color": "#ffffff",
         "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
-        "heading_icon_size": 150,
+        "heading_icon_size": 94,
         "description": "",
         "description_color": "#ffffff",
         "button_icon": "shopify://shop_images/wallmart-icon.svg",
