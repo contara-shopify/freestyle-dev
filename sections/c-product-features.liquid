@@ -1,7 +1,7 @@
 <div class="py-16">
-  <div class="flex justify-center items-center" >
-    <!-- Columna izquierda (30%) -->
-    <div class="w-[50%] pr-8 space-y-8 flex flex-col items-center sticky top-0">
+  <div class="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-0">
+    <!-- Left Column (50%) -->
+    <div class="md:w-[50%] pr-8 space-y-8 flex flex-col items-center sticky top-0">
       {% if section.settings.logo_1 != blank %}
         <img 
           src="{{ section.settings.logo_1 | img_url: 'medium' }}"
@@ -25,20 +25,33 @@
       {% endif %}
     </div>
     
-    <!-- Columna derecha (70%) -->
-    <div class="w-[50%]">
+    <!-- Right Column (50%) -->
+    <div class="md:w-[50%]">
       {% for block in section.blocks %}
         <div class="scroll-block flex items-center mb-[25px]">
-          {% if block.settings.logo != blank %}
-            <div class="logo-container" style="margin-bottom: 20px;">
+          {% if block.settings.logo != blank and block.settings.logo_violet != blank %}
+            <div class="logo-container mr-4">
               <img 
                 src="{{ block.settings.logo | img_url: 'master' }}"
+                data-original="{{ block.settings.logo | img_url: 'master' }}"
+                data-violet="{{ block.settings.logo_violet | img_url: 'master' }}"
                 alt="{{ block.settings.logo.alt | escape }}"
-                class="w-auto h-[60px] object-contain transition-all duration-500"
+                class="w-auto h-[80px] object-contain transition-all duration-500"
                 loading="lazy"
                 width="{{ block.settings.logo.width }}"
                 height="{{ block.settings.logo.height }}"
               >
+            </div>
+          {% endif %}
+
+          {% if block.settings.logo_text != blank %}
+            <div class="text-content">
+              <p 
+                class="scroll-text ml-4 text-2xl md:text-5xl md:leading-7 " 
+                style="color: #262626; opacity: 0.3;"
+              >
+                {{ block.settings.logo_text }}
+              </p>
             </div>
           {% endif %}
         </div>
@@ -47,50 +60,64 @@
   </div>
 </div>
 
-<style>
-  .logo-container img {
-    filter: brightness(0) saturate(100%); 
-    transition: all 0.5s ease;
-  }
-  
-  .logo-container.active img {
-    filter: brightness(0) saturate(200%) invert(17%) sepia(100%) saturate(12994%) hue-rotate(271deg) brightness(120%) contrast(150%);
-  }  
-  .scroll-block {
-    opacity: 1 !important;
-  }
-</style>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const blocks = document.querySelectorAll('.scroll-block');
-  let currentActiveIndex = 0;
   
   function updateActiveBlock() {
     const viewportHeight = window.innerHeight;
     const triggerPoint = viewportHeight / 2;
 
-    blocks.forEach((block, index) => {
+    blocks.forEach((block) => {
       const rect = block.getBoundingClientRect();
       const blockMiddle = rect.top + (rect.height / 2);
-      
+      const img = block.querySelector('.logo-container img');
+      const text = block.querySelector('.scroll-text');
+
       if (blockMiddle <= triggerPoint && blockMiddle > 0) {
+        // Reset images and text styles
         blocks.forEach(b => {
-          const container = b.querySelector('.logo-container');
-          container.classList.remove('active');
+          const otherImg = b.querySelector('.logo-container img');
+          const otherText = b.querySelector('.scroll-text');
+
+          if (otherImg && otherImg.dataset.original) {
+            otherImg.src = otherImg.dataset.original;
+          }
+
+          if (otherText) {
+            otherText.style.color = '#262626';
+            otherText.style.opacity = '0.3';
+          }
         });
-        
-        const container = block.querySelector('.logo-container');
-        container.classList.add('active');
-        currentActiveIndex = index;
+
+        // Set current block image and text
+        if (img && img.dataset.violet) {
+          img.src = img.dataset.violet;
+        }
+
+        if (text) {
+          text.style.color = '#6638B7';
+          text.style.opacity = '1';
+        }
       }
     });
   }
-  
+
+  // Inicial: activa el primero
   if (blocks.length > 0) {
-    blocks[0].querySelector('.logo-container').classList.add('active');
+    const firstImg = blocks[0].querySelector('.logo-container img');
+    const firstText = blocks[0].querySelector('.scroll-text');
+
+    if (firstImg && firstImg.dataset.violet) {
+      firstImg.src = firstImg.dataset.violet;
+    }
+
+    if (firstText) {
+      firstText.style.color = '#6638B7';
+      firstText.style.opacity = '1';
+    }
   }
-  
+
   window.addEventListener('scroll', function() {
     requestAnimationFrame(updateActiveBlock);
   });
@@ -124,6 +151,16 @@ document.addEventListener('DOMContentLoaded', function() {
           "type": "image_picker",
           "id": "logo",
           "label": "Logo"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_violet",
+          "label": "Logo en violeta"
+        },
+        {
+          "type": "text",
+          "id": "logo_text",
+          "label": "Texto junto al logo"
         }
       ]
     }

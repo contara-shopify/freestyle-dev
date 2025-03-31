@@ -1,0 +1,99 @@
+{% schema %}
+{
+  "name": "Video Scroll",
+  "class": "shopify-section--video-scroll",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Video Scroll"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="page-width">
+  <div class="video-scroll-wrapper">
+    <div id="videoContainer">
+      <video id="myVideo" muted playsinline>
+        <source src="https://cdn.shopify.com/videos/c/o/v/a4adcd6b0e024541979e0d10447df711.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .video-scroll-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  #videoContainer {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  #myVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .shopify-section {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+  }
+
+  .shopify-section--video-scroll {
+    background: transparent;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById("myVideo");
+    const container = document.getElementById("videoContainer");
+    let isVideoLoaded = false;
+
+    video.addEventListener('loadedmetadata', function() {
+      isVideoLoaded = true;
+      const speed = 700;
+      container.style.height = Math.floor(video.duration * speed) + 'px';
+    });
+
+    function handleScroll() {
+      if (!isVideoLoaded) return;
+
+      const containerRect = container.getBoundingClientRect();
+      const containerTop = containerRect.top;
+      const containerHeight = containerRect.height;
+      
+      if (containerTop <= window.innerHeight && containerTop + containerHeight >= 0) {
+        const progress = -containerTop / (containerHeight - window.innerHeight);
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+        
+        if (isFinite(clampedProgress)) {
+          video.currentTime = video.duration * clampedProgress;
+        }
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      requestAnimationFrame(handleScroll);
+    }, { passive: true });
+
+    handleScroll();
+  });
+</script>

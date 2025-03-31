@@ -9,17 +9,23 @@
  */
 {
   "sections": {
-    "custom_hero_video": {
-      "type": "c-hero-video",
+    "c_hero_img_9HYJYd": {
+      "type": "c-hero-img",
       "settings": {
         "image": "shopify://shop_images/new_hero_banner.jpg",
         "heading": "Safer. Softer. Better Protection.",
         "heading_color": "#ffffff",
-        "description": "Meet  Skin❤️Shield ™– the future of diapers",
+        "heading_icon_size": 36,
+        "description": "Meet Skin Shield™– the future of diapers",
         "description_color": "#ffffff",
-        "button_icon": "shopify://shop_images/Vector_3.png",
-        "button_label": "Shop Skin❤️Shield™",
-        "button_link": "/collections/all"
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 24,
+        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon_size": 24,
+        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
+        "description_icon_size": 48,
+        "button_label": "Shop Skin  Shield™",
+        "button_link": ""
       }
     },
     "logo-section": {
@@ -63,25 +69,33 @@
         "logo_block_EGnBYC": {
           "type": "logo_block",
           "settings": {
-            "logo": "shopify://shop_images/Group_26606.svg"
+            "logo": "shopify://shop_images/14x_g.svg",
+            "logo_violet": "shopify://shop_images/14x_p.svg",
+            "logo_text": "Better absorption"
           }
         },
         "logo_block_gcWxKN": {
           "type": "logo_block",
           "settings": {
-            "logo": "shopify://shop_images/Group_26607.svg"
+            "logo": "shopify://shop_images/chlorine_g.svg",
+            "logo_violet": "shopify://shop_images/chlorine_p.svg",
+            "logo_text": "Total chlorine free"
           }
         },
         "logo_block_XaYNnR": {
           "type": "logo_block",
           "settings": {
-            "logo": "shopify://shop_images/Group_26609.svg"
+            "logo": "shopify://shop_images/cloud_g.svg",
+            "logo_violet": "shopify://shop_images/cloud_p.svg",
+            "logo_text": "Cloud-like softness"
           }
         },
         "logo_block_7B6MRn": {
           "type": "logo_block",
           "settings": {
-            "logo": "shopify://shop_images/Group_26607.svg"
+            "logo": "shopify://shop_images/overnight_g.svg",
+            "logo_violet": "shopify://shop_images/overnight_p.svg",
+            "logo_text": "Overnight protection"
           }
         }
       },
@@ -96,16 +110,28 @@
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
       }
     },
+    "video_scroll_d4i3BU": {
+      "type": "video-scroll",
+      "disabled": true,
+      "settings": {}
+    },
     "c_hero_img_3b7kXN": {
       "type": "c-hero-img",
       "settings": {
         "image": "shopify://shop_images/242A6894_6.jpg",
-        "heading": "Shop Skin❤️Shield ™ <br>\nExclusively at Walmart",
+        "heading": "Shop Skin Shield ™ \nExclusively at Walmart",
         "heading_color": "#ffffff",
+        "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
+        "heading_icon_size": 150,
         "description": "",
         "description_color": "#ffffff",
-        "button_icon": "shopify://shop_images/Vector_3.png",
-        "button_label": "Shop Skin❤️Shield™",
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 24,
+        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon_size": 24,
+        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
+        "description_icon_size": 36,
+        "button_label": "Shop Skin Shield™",
         "button_link": ""
       }
     },
@@ -115,7 +141,18 @@
         "review_Aw7wkC": {
           "type": "review",
           "settings": {
-            "author_name": "John Doe | @JohnDoe",
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+          }
+        },
+        "review_3Briaz": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
             "author_url": "",
             "is_verified": false,
             "author_handle": "",
@@ -123,10 +160,10 @@
             "review_video": "shopify://files/videos/242A4817_optimized.mp4"
           }
         },
-        "review_JnjR3J": {
+        "review_UGacVf": {
           "type": "review",
           "settings": {
-            "author_name": "John Doe | @JohnDoe",
+            "author_name": "@JohnDoe",
             "author_url": "",
             "is_verified": false,
             "author_handle": "",
@@ -134,21 +171,21 @@
             "review_video": "shopify://files/videos/242A4817_optimized.mp4"
           }
         },
-        "review_L33DH3": {
+        "review_Pw4aDj": {
           "type": "review",
           "settings": {
-            "author_name": "John Doe | @JohnDoe",
+            "author_name": "@JohnDoe",
             "author_url": "",
             "is_verified": false,
             "author_handle": "",
             "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
           }
         },
         "review_hWVwfN": {
           "type": "review",
           "settings": {
-            "author_name": "John Doe | @JohnDoe",
+            "author_name": "@JohnDoe",
             "author_url": "",
             "is_verified": false,
             "author_handle": "",
@@ -156,10 +193,10 @@
             "review_video": "shopify://files/videos/242A4817_optimized.mp4"
           }
         },
-        "review_EbW3fH": {
+        "review_GAyDCY": {
           "type": "review",
           "settings": {
-            "author_name": "John Doe | @JohnDoe",
+            "author_name": "@JohnDoe",
             "author_url": "",
             "is_verified": false,
             "author_handle": "",
@@ -170,26 +207,27 @@
         "review_tbzFjt": {
           "type": "review",
           "settings": {
-            "author_name": "John Doe | @JohnDoe",
+            "author_name": "@JohnDoe",
             "author_url": "",
             "is_verified": false,
             "author_handle": "",
             "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
           }
         }
       },
       "block_order": [
         "review_Aw7wkC",
-        "review_JnjR3J",
-        "review_L33DH3",
+        "review_3Briaz",
+        "review_UGacVf",
+        "review_Pw4aDj",
         "review_hWVwfN",
-        "review_EbW3fH",
+        "review_GAyDCY",
         "review_tbzFjt"
       ],
       "settings": {
         "title": "For parents, by parents",
-        "subtitle": "Don’t just trust us. Hear from our community why they love and trust Freestyle."
+        "subtitle": "Don’t just trust us. Hear from our community <br> why they love and trust Freestyle."
       }
     },
     "footer_custom_fPQhVk": {
@@ -201,9 +239,10 @@
     }
   },
   "order": [
-    "custom_hero_video",
+    "c_hero_img_9HYJYd",
     "logo-section",
     "product_features",
+    "video_scroll_d4i3BU",
     "c_hero_img_3b7kXN",
     "review_scroller_custom_CMUd3m",
     "footer_custom_fPQhVk"

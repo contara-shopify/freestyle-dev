@@ -11,37 +11,72 @@
     {% endif %}
     
     <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10">
+
       {% if section.settings.heading != blank %}
-<<<<<<< HEAD
+        {% assign heading_words = section.settings.heading | split: ' ' %}
         <h2 class="font-extralight font-grotesk mb-12 md:mb-28 text-center flex flex-col items-center text-5xl md:text-6xl"
-=======
-        <h2 class="font-extralight mb-12 md:mb-28 text-center flex flex-col items-center text-5xl md:text-6xl"
->>>>>>> 2ac2c571e7e4f817f65df90c6e518aa044643b87
-            style="color: {{ section.settings.heading_color }};  line-height: 1.0;">
-          {% assign lines = section.settings.heading | split: '
-' %}
-          {% for line in lines %}
-            <span class="block">{{ line }}</span>
-          {% endfor %}
+            style="color: {{ section.settings.heading_color }}; line-height: 1.0;">
+          <span class="block">
+            {% for word in heading_words %}
+              {{ word }}
+              {% if forloop.index == 2 and section.settings.heading_icon != blank %}
+                <img 
+                  src="{{ section.settings.heading_icon | image_url: width: section.settings.heading_icon_size }}"
+                  alt="Heading Icon"
+                  style="width: {{ section.settings.heading_icon_size }}px; height: auto;"
+                  class="inline-block align-middle mx-1"
+                >
+              {% endif %}
+              {% unless forloop.last %} {% echo ' ' %} {% endunless %}
+            {% endfor %}
+          </span>
         </h2>
       {% endif %}
 
-      {% if section.settings.description != blank %}
-        <p class="text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
-           style="color: {{ section.settings.description_color }}; font-size: 36px;">
-          {{ section.settings.description }}
-        </p>
+    {% if section.settings.description != blank %}
+  {% assign desc_words = section.settings.description | split: ' ' %}
+  <p class="text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
+     style="color: {{ section.settings.description_color }}; font-size: 36px;">
+    {% for word in desc_words %}
+      {{ word }}
+      {% if forloop.index == 2 and section.settings.description_icon != blank %}
+        <img 
+          src="{{ section.settings.description_icon | image_url: width: section.settings.description_icon_size }}"
+          alt="Description Icon"
+          style="width: {{ section.settings.description_icon_size }}px; height: auto;"
+          class="inline-block align-middle mx-1"
+        >
       {% endif %}
+      {% unless forloop.last %} {% echo ' ' %} {% endunless %}
+    {% endfor %}
+  </p>
+{% endif %}
       
       {% if section.settings.button_label != blank %}
+        {% assign btn_words = section.settings.button_label | split: ' ' %}
         <a href="{{ section.settings.button_link | default: '#' }}" 
-           class="mx-auto px-10 py-5 md:px-10 md:py-6 rounded-full  md:text-xl md:mt-8 font-light bg-blueelectric text-white hover:opacity-90 transition-colors flex items-center" style="background-color: #0066FF;">
+           class="mx-auto px-10 py-5 md:px-10 md:py-6 rounded-full md:text-xl md:mt-8 font-light bg-blueelectric text-white hover:opacity-90 transition-colors flex items-center justify-center"
+           style="background-color: #0066FF;">
+           
            {% if section.settings.button_icon != blank %}
-             <img src="{{ section.settings.button_icon | image_url: width: 24 }}" 
-                  alt="Button icon" 
-                  class="mr-2 w-10 h-10">
+             <img src="{{ section.settings.button_icon | image_url: width: section.settings.button_icon_size }}"
+                  alt="Button icon"
+                  style="width: {{ section.settings.button_icon_size }}px; height: auto;"
+                  class="mr-2 inline-block align-middle">
            {% endif %}
-           {{ section.settings.button_label }}
+
+           {% for word in btn_words %}
+             {{ word }}
+             {% if forloop.index == 2 and section.settings.button_text_icon != blank %}
+               <img 
+                 src="{{ section.settings.button_text_icon | image_url: width: section.settings.button_text_icon_size }}"
+                 alt="Button Text Icon"
+                 style="width: {{ section.settings.button_text_icon_size }}px; height: auto;"
+                 class="inline-block align-middle mx-2"
+               >
+             {% endif %}
+             {% unless forloop.last %} {% echo ' ' %} {% endunless %}
+           {% endfor %}
         </a>
       {% endif %}
     </div>
@@ -50,7 +85,7 @@
 
 {% schema %}
 {
-  "name": "Custom Hero Image 2",
+  "name": "Hero Image",
   "settings": [
     {
       "type": "image_picker",
@@ -61,13 +96,29 @@
       "type": "textarea",
       "id": "heading",
       "label": "Heading",
-      "default": "You title"
+      "default": "Your title"
     },
     {
       "type": "color",
       "id": "heading_color",
       "label": "Heading Color",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_icon",
+      "label": "Icon for Heading",
+      "info": "Icon inserted after second word in heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_icon_size",
+      "min": 12,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading Icon Size (px)",
+      "default": 36
     },
     {
       "type": "textarea",
@@ -78,15 +129,57 @@
     {
       "type": "color",
       "id": "description_color",
-      "label": "description color",
+      "label": "Description Color",
       "default": "#FFFFFF"
     },
     {
       "type": "image_picker",
       "id": "button_icon",
-      "label": "Ícono del botón",
-      "info": "Recommendation 24x24px"
+      "label": "Icon before Button Text",
+      "info": "Icon displayed before button text"
     },
+    {
+      "type": "range",
+      "id": "button_icon_size",
+      "min": 12,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Button Icon Size (px)",
+      "default": 24
+    },
+    {
+      "type": "image_picker",
+      "id": "button_text_icon",
+      "label": "Icon for Button Text",
+      "info": "Icon inserted after second word in button text"
+    },
+    {
+      "type": "range",
+      "id": "button_text_icon_size",
+      "min": 12,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Button Text Icon Size (px)",
+      "default": 24
+    },
+    {
+  "type": "image_picker",
+  "id": "description_icon",
+  "label": "Icon for Description",
+  "info": "Icon inserted after second word in description"
+},
+{
+  "type": "range",
+  "id": "description_icon_size",
+  "min": 12,
+  "max": 80,
+  "step": 2,
+  "unit": "px",
+  "label": "Description Icon Size (px)",
+  "default": 36
+},
     {
       "type": "text",
       "id": "button_label",
@@ -101,7 +194,7 @@
   ],
   "presets": [
     {
-      "name": "Custom Hero Imag 2"
+      "name": "Hero Image"
     }
   ]
 }

@@ -2,7 +2,10 @@
 
 export default {
   mode: 'jit',
-  content: ['./*/*.{liquid,json,js}'],
+  content: [
+    './*/*.{liquid,json,js,html,jsx,tsx}',
+    './src/**/*.{js,jsx,ts,tsx,html,liquid}'
+  ],
   theme: {
     fontSize: {
       xs: ['1.2rem', '1.6rem'],
@@ -28,7 +31,8 @@ export default {
     extend: {
       fontFamily: {
      
-        Grotesk: ['GroteskNeue', 'sans-serif']
+        Grotesk: ['GroteskNeue', 'sans-serif'],
+        Roman: ['Roman-standard', 'sans-serif'],
       },
       container: {
         center: true,
