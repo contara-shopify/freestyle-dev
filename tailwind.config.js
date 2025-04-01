@@ -2,10 +2,7 @@
 
 export default {
   mode: 'jit',
-  content: [
-    './*/*.{liquid,json,js,html,jsx,tsx}',
-    './src/**/*.{js,jsx,ts,tsx,html,liquid}'
-  ],
+  content: ['./*/*.{liquid,json,js,html,jsx,tsx}', './src/**/*.{js,jsx,ts,tsx,html,liquid}'],
   theme: {
     fontSize: {
       xs: ['1.2rem', '1.6rem'],
@@ -30,11 +27,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        'grotesk': ['GroteskNeue', 'system-ui'],
-        'roman': ['Roman-light', 'system-ui'],
-        'fkroman': ['FK Roman Standard', 'sans-serif'],
-        'groteskNueMedium':['FK Grotesk Neue Medium', 'sans-serif'],
-        'Inter':['Inter', 'system-ui']
+        grotesk: ['GroteskNeue', 'system-ui'],
+        roman: ['Roman-light', 'system-ui'],
+        fkroman: ['FK Roman Standard', 'sans-serif'],
+        Inter: ['Inter', 'system-ui'],
       },
       container: {
         center: true,
@@ -45,10 +41,10 @@ export default {
         34: '9rem',
       },
       boxShadow: {
-        'regular': '0 4px 4px rgba(0, 0, 0, 0.2)',
+        regular: '0 4px 4px rgba(0, 0, 0, 0.2)',
       },
       borderRadius: {
-        'regular': '8px',
+        regular: '8px',
       },
       animation: {
         'gradient-wave': 'gradient-wave 3s ease infinite',
@@ -62,8 +58,8 @@ export default {
         },
         scroll: {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' }
-        }
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       backgroundImage: {
         'hover-gradient': 'linear-gradient(90deg, #c2b0ff, #fd9025 33%, #4cfd9f 67%, #c2b0ff)',
@@ -161,10 +157,10 @@ export default {
           '-ms-overflow-style': 'none',
           'scrollbar-width': 'none',
           '&::-webkit-scrollbar': {
-            display: 'none'
-          }
-        }
-      }
+            display: 'none',
+          },
+        },
+      },
     },
   },
   plugins: [
@@ -185,12 +181,12 @@ export default {
           '--color_2_secondary': theme('colors.color_2.secondary'),
           '--color_2_tertiary': theme('colors.color_2.tertiary'),
 
-           // Brand colors 3 (tertiary)
+          // Brand colors 3 (tertiary)
           '--color_3': theme('colors.color_3.DEFAULT'),
           '--color_3_secondary': theme('colors.color_3.secondary'),
           '--color_3_tertiary': theme('colors.color_3.tertiary'),
 
-           // Brand colors 4 (quaternary)
+          // Brand colors 4 (quaternary)
           '--color_4': theme('colors.color_4.DEFAULT'),
           '--color_4_secondary': theme('colors.color_4.secondary'),
           '--color_4_tertiary': theme('colors.color_4.tertiary'),
