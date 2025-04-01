@@ -35,7 +35,7 @@
                 data-original="{{ block.settings.logo | img_url: 'master' }}"
                 data-violet="{{ block.settings.logo_violet | img_url: 'master' }}"
                 alt="{{ block.settings.logo.alt | escape }}"
-                class="w-auto h-[4rem] md:h-[8rem] object-contain transition-all duration-300"
+                class="w-auto h-[4rem] md:h-[8rem] object-contain transition-all duration-100"
                 loading="lazy"
                 width="{{ block.settings.logo.width }}"
                 height="{{ block.settings.logo.height }}">
@@ -45,7 +45,7 @@
           {% if block.settings.logo_text != blank %}
             <div class="text-content">
               <p
-                class="font-grotesk scroll-text ml-4 text-xl md:text-[6.6rem] leading-[0.8] transition-all duration-300"
+                class="font-grotesk scroll-text ml-4 text-xl md:text-[6.6rem] leading-[0.8] transition-all duration-100"
                 style="color: #262626; opacity: 0.3;">
                 {{ block.settings.logo_text }}
               </p>
