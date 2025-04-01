@@ -1,20 +1,22 @@
 {% render 'entry' with '@/scripts/sections/c-hero-video.js' %}
 
-<div class="custom-hero-video relative w-full overflow-hidden" data-hero-video>
-  <div class="custom-hero-video__container relative w-full h-screen">
+<div class="custom-hero-video relative w-full lg:min-h-[76rem] h-[56vh] lg:h-[76vh] overflow-hidden" data-hero-video>
+  <div class="custom-hero-video__container relative w-full h-full">
     {% if section.settings.image != blank %}
       <img
         src="{{ section.settings.image | image_url }}"
         alt="{{ section.settings.heading }}"
+        width=""
+        height=""
         class="absolute inset-0 w-full h-full object-cover">
     {% endif %}
 
-    <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10">
+    <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10 lg:pt-[20rem]">
       {% if section.settings.heading != blank %}
         {% assign heading_words = section.settings.heading | split: ' ' %}
         <h2
-          class=" font-grotesk font-medium mb-12 lg:mb-20 text-center flex flex-col items-center text-5xl lg:text-[90px] lg:tracking-[-0.0556em] lg:leading-[105px]"
-          style="color: {{ section.settings.heading_color }}; letter-spacing: -5px;">
+          class=" font-grotesk font-medium mb-12 lg:mb-24 text-center flex flex-col items-center text-5xl lg:text-[9rem] lg:tracking-[-0.02em] lg:leading-[1]"
+          style="color: {{ section.settings.heading_color }};">
           <span class="block">
             {% for word in heading_words %}
               {{ word }}
@@ -22,6 +24,8 @@
                 <img
                   src="{{ section.settings.heading_icon | image_url: width: section.settings.heading_icon_size }}"
                   alt="Heading Icon"
+                  width="{{ section.settings.heading_icon_size }}"
+                  height=""
                   style="width: {{ section.settings.heading_icon_size }}px; height: auto;"
                   class="inline-block align-middle mx-1">
               {% endif %}
@@ -34,16 +38,18 @@
       {% if section.settings.description != blank %}
         {% assign desc_words = section.settings.description | split: ' ' %}
         <p
-          class="text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
-          style="color: {{ section.settings.description_color }}; font-size: 36px;  letter-spacing: -1px;">
+          class="text-center mx-auto mb-8 md:mb-12 text-base lg:text-3xl lg:tracking-[-0.02em] lg:leading-[1.16]"
+          style="color: {{ section.settings.description_color }};">
           {% for word in desc_words %}
             {{ word }}
             {% if forloop.index == 2 and section.settings.description_icon != blank %}
               <img
                 src="{{ section.settings.description_icon | image_url: width: section.settings.description_icon_size }}"
                 alt="Description Icon"
+                width="{{ section.settings.description_icon_size }}"
+                height=""
                 style="width: {{ section.settings.description_icon_size }}px; height: auto;"
-                class="inline-block align-middle mx-1">
+                class="inline-block align-middle mx-1 -translate-y-[0.1em]">
             {% endif %}
             {% unless forloop.last %} {% echo ' ' %} {% endunless %}
           {% endfor %}
@@ -60,8 +66,10 @@
             <img
               src="{{ section.settings.button_icon | image_url: width: section.settings.button_icon_size }}"
               alt="Button icon"
+              width="{{ section.settings.button_icon_size }}"
+              height=""
               style="width: {{ section.settings.button_icon_size }}px; height: auto;"
-              class="mr-2 inline-block align-middle">
+              class="mr-4 inline-block align-middle">
           {% endif %}
 
           {% for word in btn_words %}
@@ -70,6 +78,8 @@
               <img
                 src="{{ section.settings.button_text_icon | image_url: width: section.settings.button_text_icon_size }}"
                 alt="Button Text Icon"
+                width="{{ section.settings.button_text_icon_size }}"
+                height=""
                 style="width: {{ section.settings.button_text_icon_size }}px; height: auto;"
                 class="inline-block align-middle mx-2">
             {% endif %}
