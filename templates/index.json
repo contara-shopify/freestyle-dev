@@ -15,13 +15,14 @@
         "image": "shopify://shop_images/new_hero_banner.jpg",
         "heading": "Safer. Softer. Better Protection.",
         "heading_color": "#ffffff",
+        "heading_weight": "medium",
         "heading_icon_size": 36,
         "description": "Meet Skin Shield™– the future of diapers",
         "description_color": "#ffffff",
         "button_icon": "shopify://shop_images/wallmart-icon.svg",
-        "button_icon_size": 24,
+        "button_icon_size": 16,
         "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
-        "button_text_icon_size": 24,
+        "button_text_icon_size": 16,
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin  Shield™",
@@ -34,7 +35,7 @@
         "testimonial_88pVHw": {
           "type": "testimonial",
           "settings": {
-            "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
+            "testimonial_text": "“The Skin❤️Shield diapers made parenting so much easier!”",
             "author_name": "Sofie Flores",
             "location": "Los Angeles"
           }
@@ -88,7 +89,7 @@
         "logo_block_7B6MRn"
       ],
       "settings": {
-        "logo_1": "shopify://shop_images/SkinShield-hero.png",
+        "logo_1": "shopify://shop_images/skin-shield-logo.png",
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
       }
     },
@@ -104,13 +105,14 @@
         "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
         "heading_color": "#ffffff",
         "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
+        "heading_weight": "normal",
         "heading_icon_size": 94,
         "description": "",
         "description_color": "#ffffff",
         "button_icon": "shopify://shop_images/wallmart-icon.svg",
-        "button_icon_size": 24,
+        "button_icon_size": 16,
         "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
-        "button_text_icon_size": 24,
+        "button_text_icon_size": 16,
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
