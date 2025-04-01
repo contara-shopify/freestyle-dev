@@ -14,7 +14,7 @@
 
       {% if section.settings.heading != blank %}
         {% assign heading_words = section.settings.heading | split: ' ' %}
-        <h2 class="font-grotesk font-medium mb-12 lg:mb-20 text-center flex flex-col items-center text-5xl lg:text-[90px] lg:leading-[105px]"
+        <h2 class="font-grotesk font-normal mb-12 lg:mb-20 text-center flex flex-col items-center text-5xl lg:text-[90px] lg:tracking-[-0.045em] lg:leading-[105px]"
      style="color: {{ section.settings.heading_color }};">
           <span class="block">
             {% for word in heading_words %}
@@ -35,7 +35,7 @@
 
     {% if section.settings.description != blank %}
   {% assign desc_words = section.settings.description | split: ' ' %}
-  <p class="font-grotesk font-medium text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
+  <p class="text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
      style="color: {{ section.settings.description_color }}; font-size: 36px;">
     {% for word in desc_words %}
       {{ word }}
