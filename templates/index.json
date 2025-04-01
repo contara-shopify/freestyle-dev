@@ -39,10 +39,37 @@
             "author_name": "Sofie Flores",
             "location": "Los Angeles"
           }
+        },
+        "testimonial_aKw8E8": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
+            "author_name": "Sofie Flores",
+            "location": "Los Angeles"
+          }
+        },
+        "testimonial_kEdngG": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
+            "author_name": "Sofie Flores",
+            "location": "Los Angeles"
+          }
+        },
+        "testimonial_6xcadw": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
+            "author_name": "Sofie Flores",
+            "location": "Los Angeles"
+          }
         }
       },
       "block_order": [
-        "testimonial_88pVHw"
+        "testimonial_88pVHw",
+        "testimonial_aKw8E8",
+        "testimonial_kEdngG",
+        "testimonial_6xcadw"
       ],
       "settings": {}
     },
