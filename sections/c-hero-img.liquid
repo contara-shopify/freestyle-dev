@@ -3,24 +3,24 @@
 <div class="custom-hero-video relative w-full overflow-hidden" data-hero-video>
   <div class="custom-hero-video__container relative w-full h-screen">
     {% if section.settings.image != blank %}
-      <img 
+      <img
         src="{{ section.settings.image | image_url }}"
         alt="{{ section.settings.heading }}"
         class="absolute inset-0 w-full h-full object-cover"
       >
     {% endif %}
-    
+
     <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10">
 
       {% if section.settings.heading != blank %}
         {% assign heading_words = section.settings.heading | split: ' ' %}
-        <h2 class=" font-grotesk font-medium mb-12 lg:mb-20 text-center flex flex-col items-center text-5xl lg:text-[90px] lg:tracking-[-0.0556em] lg:leading-[105px]"
-     style="color: {{ section.settings.heading_color }}; letter-spacing: -5px;">
+        <h2 class=" font-grotesk font-medium mb-12 lg:mb-20 text-center flex flex-col items-center text-4xl md:text-5xl lg:text-[90px] lg:tracking-[-0.0556em] lg:leading-[105px]"
+     style="color: {{ section.settings.heading_color }};">
           <span class="block">
             {% for word in heading_words %}
               {{ word }}
               {% if forloop.index == 2 and section.settings.heading_icon != blank %}
-                <img 
+                <img
                   src="{{ section.settings.heading_icon | image_url: width: section.settings.heading_icon_size }}"
                   alt="Heading Icon"
                   style="width: {{ section.settings.heading_icon_size }}px; height: auto;"
@@ -40,7 +40,7 @@
     {% for word in desc_words %}
       {{ word }}
       {% if forloop.index == 2 and section.settings.description_icon != blank %}
-        <img 
+        <img
           src="{{ section.settings.description_icon | image_url: width: section.settings.description_icon_size }}"
           alt="Description Icon"
           style="width: {{ section.settings.description_icon_size }}px; height: auto;"
@@ -51,13 +51,13 @@
     {% endfor %}
   </p>
 {% endif %}
-      
+
       {% if section.settings.button_label != blank %}
         {% assign btn_words = section.settings.button_label | split: ' ' %}
-        <a href="{{ section.settings.button_link | default: '#' }}" 
+        <a href="{{ section.settings.button_link | default: '#' }}"
            class="mx-auto px-10 py-5 md:px-10 md:py-6 rounded-full md:text-xl md:mt-8 font-light bg-blueelectric text-white hover:opacity-90 transition-colors flex items-center justify-center"
            style="background-color: #0066FF;">
-           
+
            {% if section.settings.button_icon != blank %}
              <img src="{{ section.settings.button_icon | image_url: width: section.settings.button_icon_size }}"
                   alt="Button icon"
@@ -68,7 +68,7 @@
            {% for word in btn_words %}
              {{ word }}
              {% if forloop.index == 2 and section.settings.button_text_icon != blank %}
-               <img 
+               <img
                  src="{{ section.settings.button_text_icon | image_url: width: section.settings.button_text_icon_size }}"
                  alt="Button Text Icon"
                  style="width: {{ section.settings.button_text_icon_size }}px; height: auto;"

@@ -1,56 +1,59 @@
-<div class="py-16 lg:py-20 bg-violet">
-  <h2 class="text-2xl font-inter md:font-normal md:text-4xl mb-8 md:mb-28 md:mt-30 text-center mx-auto max-w-[800px] text-white">
+{% render 'entry' with '@/styles/sections/review-video.scss' %}
+
+<div
+  class="py-16 lg:py-20 bg-violet"
+  id="{{ section.id }}-products_carousel"
+>
+  <h2 class="text-2xl md:text-5xl font-Inter md:font-normal mb-8 md:mb-28 md:mt-30 text-center mx-auto max-w-[800px] text-white">
     {{ section.settings.title -}}
     <br>
-    <span class="text-sm font-inter md:text-baseBig text-center text-white block mt-2 md:mt-6">
+    <span class="text-sm font-Inter md:text-baseBig text-center text-white block mt-2 md:mt-6">
       {{ section.settings.subtitle | raw }}
     </span>
   </h2>
 
-  <div style="padding: 0 30px;">
-    <div id="dragContainer"
-         class="drag-scroll"
-         style="display: flex; gap: 20px; overflow: hidden; cursor: grab; justify-content: center;">
-      {%- for block in section.blocks -%}
-        <div class="review-block"
-             style="flex: 0 0 17%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px;"
-             {{ block.shopify_attributes }}>
-          
-          <div style="width: 100%; height: 600px; border-radius: 24px; overflow: hidden;">
-            {%- if block.settings.review_video -%}
-              {{ block.settings.review_video | video_tag:
-                class: 'w-full h-full object-cover rounded-3xl',
-                autoplay: true,
-                loop: true,
-                muted: true,
-                playsinline: true
-              }}
-            {%- else -%}
-              <div style="width: 100%; height: 100%; background: #e5e7eb; border-radius: 24px; display: flex; align-items: center; justify-content: center;">
-                <span class="text-gray-400">No video available</span>
+  <div>
+    <div id="reviews_carousel-{{ section.id }}" class="drag-scroll">
+        <div id="swiper-container-{{ section.id }}" class="swiper-container">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="review-block swiper-slide"
+                  {{ block.shopify_attributes }}>
+                <div class="review-block__video-wrapper">
+                  {%- if block.settings.review_video -%}
+                    {{ block.settings.review_video | video_tag:
+                      class: 'review-block__video-movie',
+                      autoplay: true,
+                      loop: true,
+                      muted: true,
+                      playsinline: true
+                    }}
+                  {%- else -%}
+                    <div style="width: 100%; height: 100%; background: #e5e7eb; border-radius: 24px; display: flex; align-items: center; justify-content: center;">
+                      <span class="text-gray-400">No video available</span>
+                    </div>
+                  {%- endif -%}
+                </div>
+                <div class="flex flex-col text-white gap-4">
+                  <div class="font-normal text-core text-sm md:text-base whitespace-normal flex items-center gap-2">
+                  <img src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ig-con.svg?v=1743370385" alt="Instagram icon" style="width: 16px; height: 16px;">
+
+                    {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
+                  </div>
+                  <div style="font-size: 16px; line-height: 1.6; margin-bottom: 1rem;" class="whitespace-normal">
+                    {{ block.settings.review_text | default: 'Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.' }}
+                  </div>
+                </div>
               </div>
-            {%- endif -%}
-          </div>
-
-          <div class="flex flex-col text-white">
-            <div class="font-normal text-core text-sm md:text-base whitespace-normal flex items-center gap-2">
-             <img src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ig-con.svg?v=1743370385" alt="Instagram icon" style="width: 16px; height: 16px;">
-
-              {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
-            </div>
-
-            <div style="font-size: 16px; line-height: 1.6; margin-bottom: 1rem;" class="whitespace-normal">
-              {{ block.settings.review_text | default: 'Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.' }}
-            </div>
+            {%- endfor -%}
           </div>
         </div>
-      {%- endfor -%}
     </div>
   </div>
 </div>
 
 <style>
-  .drag-scroll::-webkit-scrollbar {
+  {% comment %} .drag-scroll::-webkit-scrollbar {
     display: none;
   }
 
@@ -61,63 +64,36 @@
 
   .drag-scroll.dragging {
     user-select: none;
-  }
+  } {% endcomment %}
 
-  @media (max-width: 768px) {
+  {% comment %} @media (max-width: 768px) {
     .review-block {
       flex: 0 0 100% !important;
     }
-  }
+  } {% endcomment %}
 </style>
 
 <script>
-  const container = document.getElementById('dragContainer');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  container.addEventListener('mousedown', (e) => {
-    isDown = true;
-    container.classList.add('dragging');
-    startX = e.pageX - container.offsetLeft;
-    scrollLeft = container.scrollLeft;
-  });
-
-  container.addEventListener('mouseleave', () => {
-    isDown = false;
-    container.classList.remove('dragging');
-  });
-
-  container.addEventListener('mouseup', () => {
-    isDown = false;
-    container.classList.remove('dragging');
-  });
-
-  container.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 2;
-    container.scrollLeft = scrollLeft - walk;
-  });
-
-  // Auto-center if not overflowing
-  function checkOverflow() {
-    if (container.scrollWidth <= container.clientWidth) {
-      container.style.justifyContent = 'center';
-    } else {
-      container.style.justifyContent = 'flex-start';
+  document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('#swiper-container-{{ section.id }}')) {
+      new Swiper('#swiper-container-{{ section.id }}', {
+        slidesPerView: 4,
+        spaceBetween: 16,
+        loop: true,
+        centeredSlides: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          320: { slidesPerView: 1.4, spaceBetween: 10, centeredSlides: true },
+          768: { slidesPerView: 3.5 },
+          1024: { slidesPerView: 4 },
+        },
+      });
     }
-  }
-
-  window.addEventListener('load', checkOverflow);
-  window.addEventListener('resize', checkOverflow);
+  });
 </script>
-
-
-
-
-
 
 {% schema %}
 {
