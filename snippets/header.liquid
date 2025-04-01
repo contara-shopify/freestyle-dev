@@ -4,8 +4,8 @@
 
 {% assign hide_elements = true %}
 
-<div class="relative b-header__wrapper py-1 bg-white md:px-8">
-  <div class="b-header__inner mx-auto px-8 py-4 md:py-6 flex justify-between items-center">
+<div class="relative b-header__wrapper py-8 px-10 bg-white">
+  <div class="b-header__inner mx-auto flex justify-between items-center">
     <div class="flex items-center">
 
       <div class="flex items-center">
@@ -13,7 +13,7 @@
           {%- if settings.header_logo != blank -%}
             <img
               src="{{ settings.header_logo | img_url: '200x' }}"
-              class="h-12 w-auto max-w-[150px] object-contain"
+              class="h-[2.7rem] w-auto max-w-[150px] object-contain"
               alt="{{ shop.name }}"
               loading="lazy"
             >

@@ -15,18 +15,18 @@
 
   &__promo {
     @apply text-[10px] lg:text-base relative w-full py-6 px-12 text-center;
-    
+
     &-close {
       @apply absolute right-4 top-1/2 transform -translate-y-1/2 hover:opacity-75;
     }
   }
 
   &__wrapper {
-    @apply relative py-1;
+    @apply relative;
   }
 
   &__inner {
-    @apply mx-auto px-8 py-4 flex justify-between items-center;
+    @apply mx-auto flex justify-between items-center;
   }
 
   &__nav-left {
@@ -37,7 +37,7 @@
 
   &__logo {
     @apply flex-1 lg:flex-none text-center lg:text-left lg:mx-12;
-    
+
     img {
       @apply h-12 w-auto;
     }
@@ -97,7 +97,6 @@
   }
 
   &_cart-toggle {
-
   }
 
   &__cart-count {
@@ -169,5 +168,4 @@
       }
     }
   }
-
 }
