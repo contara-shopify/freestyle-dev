@@ -2,8 +2,7 @@
 
 <div
   class="py-16 lg:py-20 bg-violet"
-  id="{{ section.id }}-products_carousel"
->
+  id="{{ section.id }}-products_carousel">
   <h2 class="text-2xl md:text-5xl font-Inter md:font-normal mb-8 md:mb-28 md:mt-30 text-center mx-auto max-w-[800px] text-white">
     {{ section.settings.title -}}
     <br>
@@ -14,40 +13,51 @@
 
   <div>
     <div id="reviews_carousel-{{ section.id }}" class="drag-scroll">
-        <div id="swiper-container-{{ section.id }}" class="swiper-container">
-          <div class="swiper-wrapper">
-            {%- for block in section.blocks -%}
-              <div class="review-block swiper-slide"
-                  {{ block.shopify_attributes }}>
-                <div class="review-block__video-wrapper">
-                  {%- if block.settings.review_video -%}
-                    {{ block.settings.review_video | video_tag:
+      <div id="swiper-container-{{ section.id }}" class="swiper-container">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            <div
+              class="review-block swiper-slide"
+              {{ block.shopify_attributes }}>
+              <div class="review-block__video-wrapper">
+                {%- if block.settings.review_video -%}
+                  {{
+                    block.settings.review_video
+                    | video_tag:
                       class: 'review-block__video-movie',
                       autoplay: true,
                       loop: true,
                       muted: true,
                       playsinline: true
-                    }}
-                  {%- else -%}
-                    <div style="width: 100%; height: 100%; background: #e5e7eb; border-radius: 24px; display: flex; align-items: center; justify-content: center;">
-                      <span class="text-gray-400">No video available</span>
-                    </div>
-                  {%- endif -%}
-                </div>
-                <div class="flex flex-col text-white gap-4">
-                  <div class="font-normal text-core text-sm md:text-base whitespace-normal flex items-center gap-2">
-                  <img src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ig-con.svg?v=1743370385" alt="Instagram icon" style="width: 16px; height: 16px;">
+                  }}
+                {%- else -%}
+                  <div style="width: 100%; height: 100%; background: #e5e7eb; border-radius: 24px; display: flex; align-items: center; justify-content: center;">
+                    <span class="text-gray-400">No video available</span>
+                  </div>
+                {%- endif -%}
+              </div>
+              <div class="flex flex-col text-white gap-4">
+                <div class="font-normal text-core text-sm md:text-base whitespace-normal flex items-center gap-2">
+                  <img
+                    src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ig-con.svg?v=1743370385"
+                    alt="Instagram icon"
+                    width=""
+                    height=""
+                    style="width: 16px; height: 16px;">
 
-                    {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
-                  </div>
-                  <div style="font-size: 16px; line-height: 1.6; margin-bottom: 1rem;" class="whitespace-normal">
-                    {{ block.settings.review_text | default: 'Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.' }}
-                  </div>
+                  {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
+                </div>
+                <div style="font-size: 16px; line-height: 1.4; margin-bottom: 1rem;" class="whitespace-normal">
+                  {{
+                    block.settings.review_text
+                    | default: 'Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.'
+                  }}
                 </div>
               </div>
-            {%- endfor -%}
-          </div>
+            </div>
+          {%- endfor -%}
         </div>
+      </div>
     </div>
   </div>
 </div>
@@ -86,7 +96,7 @@
           prevEl: '.swiper-button-prev',
         },
         breakpoints: {
-          320: { slidesPerView: 1.4, spaceBetween: 10, centeredSlides: true },
+          320: { slidesPerView: 1.4, spaceBetween: 15, centeredSlides: true },
           768: { slidesPerView: 3.5 },
           1024: { slidesPerView: 4 },
         },

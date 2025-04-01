@@ -1,6 +1,7 @@
 {% render 'entry' with '@/scripts/sections/c-hero-video.js' %}
 
-<div class="custom-hero-video relative w-full lg:min-h-[76rem] h-[56vh] lg:h-[76vh] overflow-hidden" data-hero-video>
+<div class="custom-hero-video relative w-full lg:min-h-[76rem] h-[50vh] lg:h-[76vh] overflow-hidden" data-hero-video>
+  <div class="absolute inset-0 w-full h-full bg-black opacity-20 z-10"></div>
   <div class="custom-hero-video__container relative w-full h-full">
     {% if section.settings.image != blank %}
       <img
@@ -15,7 +16,7 @@
       {% if section.settings.heading != blank %}
         {% assign heading_words = section.settings.heading | split: ' ' %}
         <h2
-          class="font-grotesk font-medium mb-12 lg:mb-24 text-center flex flex-col items-center text-5xl lg:text-[9rem] lg:tracking-[-0.02em] lg:leading-[1]"
+          class="font-grotesk font-{{ section.settings.heading_weight }} mb-12 lg:mb-24 text-center flex flex-col items-center text-[4.6rem] leading-[1.1] md:text-[9rem] md:leading-[1] md:tracking-[-0.02em]"
           style="color: {{ section.settings.heading_color }};">
           <span class="block">
             {% for word in heading_words %}
@@ -26,8 +27,7 @@
                   alt="Heading Icon"
                   width="{{ section.settings.heading_icon_size }}"
                   height=""
-                  style="width: {{ section.settings.heading_icon_size }}px; height: auto;"
-                  class="inline-block align-middle mx-1">
+                  class="inline-block align-middle mx-1 h-auto max-h-[3rem] md:max-h-[7rem] w-auto -translate-y-[0.1em]">
               {% endif %}
               {% unless forloop.last %} {% echo ' ' %} {% endunless %}
             {% endfor %}
@@ -38,7 +38,7 @@
       {% if section.settings.description != blank %}
         {% assign desc_words = section.settings.description | split: ' ' %}
         <p
-          class="font-grotesk font-medium text-center mx-auto mb-8 md:mb-16 text-base lg:text-3xl lg:tracking-[-0.02em] lg:leading-[1.16]"
+          class="font-grotesk font-medium text-center mx-auto mb-8 md:mb-16 text-[1.8rem] lg:text-3xl lg:tracking-[-0.02em] lg:leading-[1.16]"
           style="color: {{ section.settings.description_color }};">
           {% for word in desc_words %}
             {{ word }}
@@ -49,7 +49,7 @@
                 width="{{ section.settings.description_icon_size }}"
                 height=""
                 style="width: {{ section.settings.description_icon_size }}px; height: auto;"
-                class="inline-block align-middle mx-1 -translate-y-[0.1em]">
+                class="inline-block align-middle -translate-y-[0.1em] lg:mx-1 -mx-2 lg:scale-100 scale-[0.6]">
             {% endif %}
             {% unless forloop.last %} {% echo ' ' %} {% endunless %}
           {% endfor %}
@@ -60,8 +60,7 @@
         {% assign btn_words = section.settings.button_label | split: ' ' %}
         <a
           href="{{ section.settings.button_link | default: '#' }}"
-          class="font-grotesk font-medium mx-auto px-10 py-5 rounded-full bg-blueelectric text-white hover:opacity-90 transition-colors flex items-center justify-center"
-          style="background-color: #0066FF;">
+          class="font-grotesk font-medium mx-auto px-10 py-5 rounded-full bg-blue text-white hover:opacity-90 transition-colors flex items-center justify-center">
           {% if section.settings.button_icon != blank %}
             <img
               src="{{ section.settings.button_icon | image_url: width: section.settings.button_icon_size }}"
@@ -69,7 +68,7 @@
               width="{{ section.settings.button_icon_size }}"
               height=""
               style="width: {{ section.settings.button_icon_size }}px; height: auto;"
-              class="mr-4 inline-block align-middle">
+              class="mr-4 inline-block align-middle w-[1.6rem]">
           {% endif %}
 
           {% for word in btn_words %}
@@ -118,6 +117,21 @@
       "label": "Icon for Heading",
       "info": "Icon inserted after second word in heading"
     },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading Font Weight",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "semibold", "label": "Semi-Bold" },
+        { "value": "bold", "label": "Bold" }
+      ],
+      "default": "medium"
+    },
+    // heading weight select options
+
     {
       "type": "range",
       "id": "heading_icon_size",

@@ -1,28 +1,27 @@
 <div class="py-16">
-  <div class="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-0">
+  <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-0">
     <!-- Left Column (50%) -->
-    <div class="md:w-[50%] pr-8 space-y-8 flex flex-col items-center sticky top-0">
-      {% if section.settings.logo_1 != blank %}
-        <img
-          src="{{ section.settings.logo_1 | img_url: 'medium' }}"
-          alt="{{ section.settings.logo_1.alt | escape }}"
-          class="w-auto h-auto"
-          loading="lazy"
-          width="{{ section.settings.logo_1.width }}"
-          height="{{ section.settings.logo_1.height }}"
-        >
-      {% endif %}
-
-      {% if section.settings.logo_2 != blank %}
-        <img
-          src="{{ section.settings.logo_2 | img_url: 'medium' }}"
-          alt="{{ section.settings.logo_2.alt | escape }}"
-          class="w-auto max-w-full h-auto"
-          loading="lazy"
-          width="{{ section.settings.logo_2.width }}"
-          height="{{ section.settings.logo_2.height }}"
-        >
-      {% endif %}
+    <div class="md:w-[50%] md:pr-8 space-y-8 flex flex-col items-center sticky top-0">
+      <div class="flex flex-col items-center lg:items-start">
+        {% if section.settings.logo_1 != blank %}
+          <img
+            src="{{ section.settings.logo_1 | img_url: "master" }}"
+            alt="{{ section.settings.logo_1.alt | escape }}"
+            class="w-auto h-auto mb-6 max-w-[24rem] md:max-w-[36rem] md:-translate-x-[2rem]"
+            loading="lazy"
+            width="{{ section.settings.logo_1.width }}"
+            height="{{ section.settings.logo_1.height }}">
+        {% endif %}
+        {% if section.settings.logo_2 != blank %}
+          <img
+            src="{{ section.settings.logo_2 | img_url: 'medium' }}"
+            alt="{{ section.settings.logo_2.alt | escape }}"
+            class="w-auto max-w-[30rem] md:max-w-full h-auto"
+            loading="lazy"
+            width="{{ section.settings.logo_2.width }}"
+            height="{{ section.settings.logo_2.height }}">
+        {% endif %}
+      </div>
     </div>
 
     <!-- Right Column (50%) -->
@@ -36,20 +35,18 @@
                 data-original="{{ block.settings.logo | img_url: 'master' }}"
                 data-violet="{{ block.settings.logo_violet | img_url: 'master' }}"
                 alt="{{ block.settings.logo.alt | escape }}"
-                class="w-auto h-[80px] object-contain transition-all duration-300"
+                class="w-auto h-[4rem] md:h-[8rem] object-contain transition-all duration-300"
                 loading="lazy"
                 width="{{ block.settings.logo.width }}"
-                height="{{ block.settings.logo.height }}"
-              >
+                height="{{ block.settings.logo.height }}">
             </div>
           {% endif %}
 
           {% if block.settings.logo_text != blank %}
             <div class="text-content">
               <p
-                class="scroll-text ml-4 text-2xl md:text-5xl md:leading-7 transition-all duration-300"
-                style="color: #262626; opacity: 0.3;"
-              >
+                class="font-grotesk scroll-text ml-4 text-xl md:text-[6.6rem] md:leading-7 transition-all duration-300"
+                style="color: #262626; opacity: 0.3;">
                 {{ block.settings.logo_text }}
               </p>
             </div>
@@ -61,69 +58,69 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const blocks = document.querySelectorAll('.scroll-block');
+  document.addEventListener('DOMContentLoaded', function () {
+    const blocks = document.querySelectorAll('.scroll-block');
 
-  function updateActiveBlock() {
-    const viewportHeight = window.innerHeight;
-    const triggerPoint = viewportHeight / 2;
+    function updateActiveBlock() {
+      const viewportHeight = window.innerHeight;
+      const triggerPoint = viewportHeight / 2;
 
-    blocks.forEach((block) => {
-      const rect = block.getBoundingClientRect();
-      const blockMiddle = rect.top + (rect.height / 2);
-      const img = block.querySelector('.logo-container img');
-      const text = block.querySelector('.scroll-text');
+      blocks.forEach((block) => {
+        const rect = block.getBoundingClientRect();
+        const blockMiddle = rect.top + rect.height / 2;
+        const img = block.querySelector('.logo-container img');
+        const text = block.querySelector('.scroll-text');
 
-      if (blockMiddle <= triggerPoint && blockMiddle > 0) {
-        // Reset images and text styles
-        blocks.forEach(b => {
-          const otherImg = b.querySelector('.logo-container img');
-          const otherText = b.querySelector('.scroll-text');
+        if (blockMiddle <= triggerPoint && blockMiddle > 0) {
+          // Reset images and text styles
+          blocks.forEach((b) => {
+            const otherImg = b.querySelector('.logo-container img');
+            const otherText = b.querySelector('.scroll-text');
 
-          if (otherImg && otherImg.dataset.original) {
-            otherImg.src = otherImg.dataset.original;
+            if (otherImg && otherImg.dataset.original) {
+              otherImg.src = otherImg.dataset.original;
+            }
+
+            if (otherText) {
+              otherText.style.color = '#262626';
+              otherText.style.opacity = '0.3';
+            }
+          });
+
+          // Set current block image and text
+          if (img && img.dataset.violet) {
+            img.src = img.dataset.violet;
           }
 
-          if (otherText) {
-            otherText.style.color = '#262626';
-            otherText.style.opacity = '0.3';
+          if (text) {
+            text.style.color = '#6638B7';
+            text.style.opacity = '1';
           }
-        });
-
-        // Set current block image and text
-        if (img && img.dataset.violet) {
-          img.src = img.dataset.violet;
         }
+      });
+    }
 
-        if (text) {
-          text.style.color = '#6638B7';
-          text.style.opacity = '1';
-        }
+    // Inicial: activa el primero
+    if (blocks.length > 0) {
+      const firstImg = blocks[0].querySelector('.logo-container img');
+      const firstText = blocks[0].querySelector('.scroll-text');
+
+      if (firstImg && firstImg.dataset.violet) {
+        firstImg.src = firstImg.dataset.violet;
       }
+
+      if (firstText) {
+        firstText.style.color = '#6638B7';
+        firstText.style.opacity = '1';
+      }
+    }
+
+    window.addEventListener('scroll', function () {
+      requestAnimationFrame(updateActiveBlock);
     });
-  }
 
-  // Inicial: activa el primero
-  if (blocks.length > 0) {
-    const firstImg = blocks[0].querySelector('.logo-container img');
-    const firstText = blocks[0].querySelector('.scroll-text');
-
-    if (firstImg && firstImg.dataset.violet) {
-      firstImg.src = firstImg.dataset.violet;
-    }
-
-    if (firstText) {
-      firstText.style.color = '#6638B7';
-      firstText.style.opacity = '1';
-    }
-  }
-
-  window.addEventListener('scroll', function() {
-    requestAnimationFrame(updateActiveBlock);
+    updateActiveBlock();
   });
-
-  updateActiveBlock();
-});
 </script>
 
 {% schema %}
