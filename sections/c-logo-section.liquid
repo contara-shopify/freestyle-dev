@@ -18,13 +18,13 @@
       </div>
     </div>
 
-    <div class="relative min-h-[120px] flex items-center  justify-center lg:justify-start  lg:text-start" id="testimonials-container">
+    <div class="relative min-h-[120px] flex items-center mt-6 lg:mt-0 justify-center lg:justify-start  lg:text-start" id="testimonials-container">
       {% for block in section.blocks %}
         <div class="absolute w-full justify-center lg:justify-start transition-opacity duration-300 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %}" 
              data-testimonial 
              {{ block.shopify_attributes }}>
-          <h3  class="text-xl md:text-xl font-Grotesk mb-4 justify-center items-center text-center lg:text-left text-black font-regular md:w-[500px]">{{ block.settings.testimonial_text }}</h3>
-          <p class="text-xl text-black font-fkroman text-center lg:text-left">- {{ block.settings.author_name }}, {{ block.settings.location }}</p>
+          <h3  class="text-xl md:text-[22px] font-grotesk font-normal mb-4 justify-center items-center text-center lg:text-left text-black font-regular md:w-[550px]">{{ block.settings.testimonial_text }}</h3>
+          <p class="text-xl md:text-[22px] text-black font-fkroman font-light text-center lg:text-left">- {{ block.settings.author_name }}, {{ block.settings.location }}</p>
         </div>
       {% endfor %}
     </div>
