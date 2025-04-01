@@ -33,7 +33,8 @@ export default {
         'grotesk': ['GroteskNeue', 'system-ui'],
         'roman': ['Roman-light', 'system-ui'],
         'fkroman': ['FK Roman Standard', 'sans-serif'],
-        'groteskNueMedium':['FK Grotesk Neue Medium', 'sans-serif']
+        'groteskNueMedium':['FK Grotesk Neue Medium', 'sans-serif'],
+        'Inter':['Inter', 'system-ui']
       },
       container: {
         center: true,

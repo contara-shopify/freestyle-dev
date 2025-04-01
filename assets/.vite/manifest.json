@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-Bi95cgYU.css",
+    "file": "main-BSWgwQs0.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -95,6 +95,11 @@
   "frontend/styles/sections/review-section.scss": {
     "file": "review-section-BdDn4zGL.css",
     "src": "frontend/styles/sections/review-section.scss",
+    "isEntry": true
+  },
+  "frontend/styles/sections/review-video.scss": {
+    "file": "review-video-B8HoMLMV.css",
+    "src": "frontend/styles/sections/review-video.scss",
     "isEntry": true
   },
   "frontend/styles/sections/trial-faq.scss": {

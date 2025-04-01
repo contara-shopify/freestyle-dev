@@ -57,7 +57,6 @@
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
-
     {% render 'typography' %}
 
     {% render 'entry' with 'main.theme.js' %}
@@ -72,16 +71,12 @@
     {% endif %}
 
     {{ content_for_header }}
-    {% render 'custom-fonts' %} 
-
-
-
+    {% render 'custom-fonts' %}
   </head>
   <body
     x-data
     :class="$store.shopMainStore.body_no_scroll ? 'no-scroll' : ''"
-    class="grid min-h-svh template-{{ template.name }} m-{{ template | replace: '.', '-' }}"
-  >
+    class="grid min-h-svh template-{{ template.name }} m-{{ template | replace: '.', '-' }}">
     <div id="l-main">
       <header
         id="id_header"
@@ -98,11 +93,11 @@
       <main
         id="MainContent"
         class="flex flex-col outline-none overflow-x-hidden max-w-full"
-        tabindex="-1">
-        {{ content_for_layout }}
-      </main>
+        tabindex="-1"></main>
+      {{ content_for_layout }}
+
       <footer>
-        {% sections 'footer' %}
+        {% comment %} {% sections 'footer' %} {% endcomment %}
       </footer>
       <div class="l-overlay"></div>
       {% render 'mini-cart' %}

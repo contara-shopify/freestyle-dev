@@ -4,7 +4,7 @@
 {% endcomment %}
 {% assign path = entry | replace: '~/', '../../' | replace: '@/', '../' %}
 {% if path == "/frontend/entrypoints/main.scss" or path == "main.scss" %}
-  {{ 'main-Bi95cgYU.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
+  {{ 'main-BSWgwQs0.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/entrypoints/main.theme.js" or path == "main.theme.js" %}
   <script src="{{ 'main.theme-yAH8z4Ac.js' | asset_url | split: '?' | first }}" type="module" crossorigin="anonymous"></script>
 {% elsif path == "/frontend/entrypoints/page-pdp.scss" or path == "page-pdp.scss" %}
@@ -39,6 +39,8 @@
   {{ 'our-mission-l0sNRNKZ.js' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/styles/sections/review-section.scss" or path == "../styles/sections/review-section.scss" %}
   {{ 'review-section-BdDn4zGL.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
+{% elsif path == "/frontend/styles/sections/review-video.scss" or path == "../styles/sections/review-video.scss" %}
+  {{ 'review-video-B8HoMLMV.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% elsif path == "/frontend/styles/sections/trial-faq.scss" or path == "../styles/sections/trial-faq.scss" %}
   {{ 'trial-faq-BHr7zDDp.css' | asset_url | split: '?' | first | stylesheet_tag: preload: preload_stylesheet }}
 {% endif %}
