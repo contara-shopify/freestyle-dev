@@ -28,7 +28,6 @@ export default {
     extend: {
       fontFamily: {
         grotesk: ['GroteskNeue', 'system-ui'],
-        roman: ['Roman-light', 'system-ui'],
         fkroman: ['FK Roman Standard', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
