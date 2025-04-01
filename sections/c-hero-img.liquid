@@ -35,7 +35,7 @@
 
     {% if section.settings.description != blank %}
   {% assign desc_words = section.settings.description | split: ' ' %}
-  <p class="text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
+  <p class="font-grotesk font-medium text-center mx-auto mb-8 md:mb-12 md:mt-8 text-base"
      style="color: {{ section.settings.description_color }}; font-size: 36px;">
     {% for word in desc_words %}
       {{ word }}
