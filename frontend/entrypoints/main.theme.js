@@ -5,8 +5,8 @@ import persist from '@alpinejs/persist';
 
 // Import Swiper
 import Swiper from 'swiper';
-// import 'swiper/swiper-bundle.css';
-import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/swiper-bundle.css';
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 
 import '../components/alp-main-store';
 import '../components/alp-cart';
@@ -14,7 +14,7 @@ import '../components/alp-build-box'; // FE TODO Must be included only for the b
 
 window.Alpine = Alpine;
 window.Swiper = Swiper;
-Swiper.use([Navigation, Pagination]);
+Swiper.use([Navigation, Pagination, Autoplay, EffectFade]);
 
 Alpine.plugin(persist);
 Alpine.start();

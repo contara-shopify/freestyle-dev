@@ -1,14 +1,17 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-B_WT_iFo.css",
+    "file": "main-Wk2xvgYO.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
   "frontend/entrypoints/main.theme.js": {
-    "file": "main.theme-yAH8z4Ac.js",
+    "file": "main.theme-5O-2x3pg.js",
     "name": "main.theme",
     "src": "frontend/entrypoints/main.theme.js",
-    "isEntry": true
+    "isEntry": true,
+    "css": [
+      "main-CJ-KzOvo.css"
+    ]
   },
   "frontend/entrypoints/page-pdp.scss": {
     "file": "page-pdp-Dwdxf5Hg.css",
