@@ -1,1 +1,0 @@
-.b-header__mobile-menu{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;--tw-bg-opacity: 1;background-color:rgb(230 230 250 / var(--tw-bg-opacity, 1))}@media (min-width: 976px){.b-header__mobile-menu{display:none}}.b-header__mobile-menu{transform:translate(-100%);transition:transform .3s ease-in-out}.b-header__mobile-menu.is-open{transform:translate(0)}

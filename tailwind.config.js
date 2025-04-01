@@ -32,6 +32,7 @@ export default {
       fontFamily: {
         Grotesk: ['GroteskNeue', 'sans-serif'],
         roman: ['Roman', 'sans-serif'],
+        fkroman: ['FK Roman Standard', 'sans-serif'],
       },
       container: {
         center: true,

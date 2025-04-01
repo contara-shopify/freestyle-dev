@@ -29,6 +29,8 @@ export default {
       fontFamily: {
         'grotesk': ['GroteskNeue', 'system-ui'],
         'roman': ['Roman-light', 'system-ui'],
+        'fkroman': ['FK Roman Standard', 'sans-serif'],
+        'groteskNueMedium':['FK Grotesk Neue Medium', 'sans-serif']
       }
     },
     colors: {

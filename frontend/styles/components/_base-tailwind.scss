@@ -178,3 +178,11 @@
     before:transition-[width] before:duration-300 after:transition-[width] after:duration-300;
   }
 }
+
+@font-face {
+  font-family: 'FK Roman Standard';
+  src: url('/fonts/FKRomanStandard-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

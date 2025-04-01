@@ -3,25 +3,30 @@
 @use 'sass:meta';
 $fonts_locale: null !default;
 $fonts: (
-    default: (
-        regular: (
-            font-family: ('Aksen', 'Arial', sans-serif),
-            font-weight: 400,
-        ),
-        bold: (
-            font-family: ('Aksen', 'Arial', sans-serif),
-            font-weight: 700,
-        ),
-        gaspacho: (
-            font-family: ('Gazpacho', 'Arial', sans-serif),
-            font-weight: normal,
-        ),
-        gumbo_regular: (
-            font-family: ('Gumbo_Regular', 'Arial', sans-serif),
-            font-weight: normal,
-        ),
+  default: (
+    regular: (
+      font-family: ('Aksen', 'Arial', sans-serif),
+      font-weight: 400,
     ),
+    bold: (
+      font-family: ('Aksen', 'Arial', sans-serif),
+      font-weight: 700,
+    ),
+    gaspacho: (
+      font-family: ('Gazpacho', 'Arial', sans-serif),
+      font-weight: normal,
+    ),
+    gumbo_regular: (
+      font-family: ('Gumbo_Regular', 'Arial', sans-serif),
+      font-weight: normal,
+    ),
+    fkroman: (
+      font-family: ('FK Roman Standard', 'sans-serif'),
+      font-weight: normal,
+    ),
+  )
 );
+
 
 /* stylelint-disable
     scss/at-function-named-arguments,

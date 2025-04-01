@@ -44,11 +44,11 @@
       </ul>
     </nav>
 
-    <div class="flex items-center gap-4 lg:hidden pl-4">
+    {% comment %} <div class="flex items-center gap-4 lg:hidden pl-4">
       <a href="{{ routes.cart_url }}" class="text-black uppercase text-sm hover:text-gray-600">
         Cart [ {{ cart.item_count }} ]
       </a>
-    </div>
+    </div> {% endcomment %}
 
     <div class="hidden lg:flex items-center space-x-8">
       <a href="/account" class="text-black hover:text-gray-600 flex items-center mr-8">

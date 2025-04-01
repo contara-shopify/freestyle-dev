@@ -23,8 +23,8 @@
         <div class="absolute w-full justify-center lg:justify-start transition-opacity duration-300 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %}" 
              data-testimonial 
              {{ block.shopify_attributes }}>
-          <h3  class="text-xl md:text-xl mb-4 text-black font-regular md:w-[500px]">{{ block.settings.testimonial_text }}</h3>
-          <p class="text-xl text-black" style="font-family: 'Roman-light';">- {{ block.settings.author_name }}, {{ block.settings.location }}</p>
+          <h3  class="text-xl md:text-xl font-Grotesk mb-4 justify-center items-center text-center lg:text-left text-black font-regular md:w-[500px]">{{ block.settings.testimonial_text }}</h3>
+          <p class="text-xl text-black font-fkroman text-center lg:text-left">- {{ block.settings.author_name }}, {{ block.settings.location }}</p>
         </div>
       {% endfor %}
     </div>
