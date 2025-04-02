@@ -135,8 +135,8 @@
         "video_bMmbGT": {
           "type": "video",
           "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/75428d75535246a5b144af0852d24b5e.mp4",
-            "use_keyframes": true,
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/77a120e6ca654be9a3a384d6597db148.mp4",
+            "use_keyframes": false,
             "keyframe_prefix": "/assets/keyframe-",
             "keyframe_count": 30
           }
