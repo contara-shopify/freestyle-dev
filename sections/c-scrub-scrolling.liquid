@@ -5,7 +5,14 @@
         {% case block.type %}
             {% when 'video' %}
                 <div class="scrub-scrolling__video">
-                    <video src="{{ block.settings.video_url }}" muted loop playsinline></video>
+                    <video 
+                        src="{{ block.settings.video_url }}" 
+                        muted 
+                        loop 
+                        playsinline
+                        preload="auto"
+                        poster="{{ block.settings.poster_image | img_url: 'master' }}"
+                    ></video>
                 </div>
             {% when 'text' %}
                 <style>
@@ -39,26 +46,71 @@
 </div>
 
 <script>
-    const section = document.querySelector('.scrub-scrolling')
-    const video = section.querySelector('video')
+    document.addEventListener('DOMContentLoaded', function() {
+        const section = document.querySelector('.scrub-scrolling');
+        const video = section.querySelector('video');
+        let rafId = null;
+        let lastScrollTop = 0;
+        let ticking = false;
 
-    video.pause()
-
-    const scroll = () => {
-        const distance = window.scrollY - section.offsetTop
-        const total = section.clientHeight - window.innerHeight
-
-        let percentage = distance / total
-        percentage = Math.max(0, percentage)
-        percentage = Math.min(percentage, 1)
-
-        if (video.duration > 0) {
-            video.currentTime = video.duration * percentage
+        // Preload the video
+        if (video) {
+            video.pause();
+            
+            // Ensure metadata is loaded before attempting to scrub
+            video.addEventListener('loadedmetadata', function() {
+                // Initialize the scroll position
+                updateVideoFrame();
+                
+                // Add the scroll listener after video is ready
+                window.addEventListener('scroll', onScroll, { passive: true });
+            });
         }
-    }
 
-    scroll()
-    window.addEventListener('scroll', scroll)
+        function onScroll() {
+            lastScrollTop = window.scrollY;
+            
+            // Use requestAnimationFrame to throttle updates
+            if (!ticking) {
+                rafId = window.requestAnimationFrame(updateVideoFrame);
+                ticking = true;
+            }
+        }
+
+        function updateVideoFrame() {
+            if (!video || video.duration <= 0) {
+                ticking = false;
+                return;
+            }
+            
+            const rect = section.getBoundingClientRect();
+            const sectionTop = rect.top + window.scrollY;
+            const distance = window.scrollY - sectionTop;
+            const total = section.clientHeight - window.innerHeight;
+            
+            // Calculate percentage scrolled
+            let percentage = distance / total;
+            percentage = Math.max(0, Math.min(percentage, 1));
+            
+            // Calculate and set the video time based on scroll percentage
+            const targetTime = video.duration * percentage;
+            
+            // Only update if the change is significant enough
+            if (Math.abs(video.currentTime - targetTime) > 0.01) {
+                video.currentTime = targetTime;
+            }
+            
+            ticking = false;
+        }
+
+        // Clean up on section unload
+        return function cleanup() {
+            window.removeEventListener('scroll', onScroll);
+            if (rafId) {
+                window.cancelAnimationFrame(rafId);
+            }
+        };
+    });
 </script>
 
 {% schema %}
@@ -74,6 +126,12 @@
           "type": "text",
           "label": "Video URL",
           "id": "video_url"
+        },
+        {
+          "type": "image_picker",
+          "label": "Poster Image (loading placeholder)",
+          "id": "poster_image",
+          "info": "Shown while the video is loading"
         }
       ]
     },
