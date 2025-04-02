@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-TVWPomH-.css",
+    "file": "main-D3NLl8ju.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -103,6 +103,11 @@
   "frontend/styles/sections/review-video.scss": {
     "file": "review-video-B8HoMLMV.css",
     "src": "frontend/styles/sections/review-video.scss",
+    "isEntry": true
+  },
+  "frontend/styles/sections/scrub-scrolling.scss": {
+    "file": "scrub-scrolling-CG3hBJQ6.css",
+    "src": "frontend/styles/sections/scrub-scrolling.scss",
     "isEntry": true
   },
   "frontend/styles/sections/trial-faq.scss": {

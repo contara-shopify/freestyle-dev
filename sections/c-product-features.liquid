@@ -1,4 +1,4 @@
-<div class="py-16 lg:pb-40">
+<div class="py-16 lg:pb-40" id="{{ section.id }}">
   <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-0">
     <!-- Left Column (50%) -->
     <div class="md:w-[50%] md:pr-8 space-y-8 flex flex-col items-center sticky top-0">
@@ -27,26 +27,17 @@
     <!-- Right Column (50%) -->
     <div class="md:w-[50%]">
       {% for block in section.blocks %}
-        <div class="scroll-block flex items-center mb-4 md:mb-[25px]">
+        <div class="scroll-block flex items-center mb-4 md:mb-[25px] transition-all duration-100">
           {% if block.settings.logo != blank and block.settings.logo_violet != blank %}
-            <div class="logo-container mr-4">
-              <img
-                src="{{ block.settings.logo | img_url: 'master' }}"
-                data-original="{{ block.settings.logo | img_url: 'master' }}"
-                data-violet="{{ block.settings.logo_violet | img_url: 'master' }}"
-                alt="{{ block.settings.logo.alt | escape }}"
-                class="w-auto h-[4rem] md:h-[8rem] object-contain transition-all duration-100"
-                loading="lazy"
-                width="{{ block.settings.logo.width }}"
-                height="{{ block.settings.logo.height }}">
+            <div class="logo-container mr-4 w-auto h-[4rem] md:h-[8rem]">    
+                {{ block.settings.logo_svg }}
             </div>
           {% endif %}
 
           {% if block.settings.logo_text != blank %}
             <div class="text-content">
               <p
-                class="font-grotesk font-regular scroll-text ml-4 text-xl md:text-[6.6rem] leading-[0.8] transition-all duration-100"
-                style="color: #262626; opacity: 0.3;">
+                class="font-grotesk font-regular scroll-text ml-4 text-xl md:text-[6.6rem] leading-[0.8] ">
                 {{ block.settings.logo_text }}
               </p>
             </div>
@@ -57,70 +48,53 @@
   </div>
 </div>
 
+<style>
+  #{{ section.id }} .logo-container svg{
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const blocks = document.querySelectorAll('.scroll-block');
-
-    function updateActiveBlock() {
-      const viewportHeight = window.innerHeight;
-      const triggerPoint = viewportHeight / 2;
-
-      blocks.forEach((block) => {
-        const rect = block.getBoundingClientRect();
-        const blockMiddle = rect.top + rect.height / 2;
-        const img = block.querySelector('.logo-container img');
-        const text = block.querySelector('.scroll-text');
-
-        if (blockMiddle <= triggerPoint && blockMiddle > 0) {
-          // Reset images and text styles
-          blocks.forEach((b) => {
-            const otherImg = b.querySelector('.logo-container img');
-            const otherText = b.querySelector('.scroll-text');
-
-            if (otherImg && otherImg.dataset.original) {
-              otherImg.src = otherImg.dataset.original;
+    document.addEventListener('DOMContentLoaded', function () {
+        const blocks = document.querySelectorAll('.scroll-block');
+    
+        function updateActiveBlock() {
+            const viewportHeight = window.innerHeight;
+            const triggerPoint = viewportHeight / 2;
+            let closestBlock = null;
+            let closestDistance = Infinity;
+    
+            blocks.forEach((block) => {
+                const rect = block.getBoundingClientRect();
+                const blockMiddle = rect.top + rect.height / 2;
+                const distance = Math.abs(blockMiddle - triggerPoint);
+    
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestBlock = block;
+                }
+            });
+    
+            // Сбрасываем стили у всех
+            blocks.forEach((block) => {
+                block.style.opacity = '0.3';
+                block.style.color = '#262626';
+            });
+    
+            // Подсвечиваем только ближайший к центру
+            if (closestBlock) {
+                closestBlock.style.opacity = '1';
+                closestBlock.style.color = '#6638B7';
             }
-
-            if (otherText) {
-              otherText.style.color = '#262626';
-              otherText.style.opacity = '0.3';
-            }
-          });
-
-          // Set current block image and text
-          if (img && img.dataset.violet) {
-            img.src = img.dataset.violet;
-          }
-
-          if (text) {
-            text.style.color = '#6638B7';
-            text.style.opacity = '1';
-          }
         }
-      });
-    }
-
-    // Inicial: activa el primero
-    if (blocks.length > 0) {
-      const firstImg = blocks[0].querySelector('.logo-container img');
-      const firstText = blocks[0].querySelector('.scroll-text');
-
-      if (firstImg && firstImg.dataset.violet) {
-        firstImg.src = firstImg.dataset.violet;
-      }
-
-      if (firstText) {
-        firstText.style.color = '#6638B7';
-        firstText.style.opacity = '1';
-      }
-    }
-
-    window.addEventListener('scroll', function () {
-      requestAnimationFrame(updateActiveBlock);
+    
+        window.addEventListener('scroll', function () {
+            requestAnimationFrame(updateActiveBlock);
+        });
+    
+        updateActiveBlock(); // Вызываем сразу для инициализации
     });
-
-    updateActiveBlock();
-  });
 </script>
 
 {% schema %}
@@ -144,6 +118,11 @@
       "name": "Logo Block",
       "limit": 4,
       "settings": [
+        {
+          "type": "textarea",
+          "id": "logo_svg",
+          "label": "Logo SVG"
+        },
         {
           "type": "image_picker",
           "id": "logo",

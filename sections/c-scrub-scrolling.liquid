@@ -1,0 +1,167 @@
+{% render 'entry' with '@/styles/sections/scrub-scrolling.scss' %}
+
+<div class="scrub-scrolling">
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when 'video' %}
+                <div class="scrub-scrolling__video">
+                    <video src="{{ block.settings.video_url }}" muted loop playsinline></video>
+                </div>
+            {% when 'text' %}
+                <style>
+                    #scrub-scrolling__text-{{ block.id }} {
+                        padding: {{ block.settings.padding }}px;
+                        color: {{ block.settings.text_color }};
+
+                        {% if block.settings.horizontal_position == 'center' %}
+                            text-align: center;
+                        {% endif %}
+                    }
+
+                    @media (max-width: 768px) {
+                        #scrub-scrolling__text-{{ block.id }} {
+                            padding: {{ block.settings.padding | divided_by: 2 }}px;
+                        }
+                    }
+                </style>
+
+                <div class="scrub-scrolling__text font-grotesk flex items-{{ block.settings.text_vertical }} justify-{{ block.settings.horizontal_position }} font-{{ block.settings.font_weight }}" id="scrub-scrolling__text-{{ block.id }}">
+                    <div class="scrub-scrolling__content">
+                        <h3 class="font-grotesk text-2xl md:text-5xl font-Inter md:font-medium mb-8">{{ block.settings.title }}</h3>
+                        <div class="text-lg mb-8">{{ block.settings.text }}</div>
+                        {% if block.settings.button_text != blank %}
+                            <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+        {% endcase %}
+    {% endfor %}
+</div>
+
+<script>
+    const section = document.querySelector('.scrub-scrolling')
+    const video = section.querySelector('video')
+
+    video.pause()
+
+    const scroll = () => {
+        const distance = window.scrollY - section.offsetTop
+        const total = section.clientHeight - window.innerHeight
+
+        let percentage = distance / total
+        percentage = Math.max(0, percentage)
+        percentage = Math.min(percentage, 1)
+
+        if (video.duration > 0) {
+            video.currentTime = video.duration * percentage
+        }
+    }
+
+    scroll()
+    window.addEventListener('scroll', scroll)
+</script>
+
+{% schema %}
+{
+  "name": "Scrub Scrolling",
+  "blocks": [
+    {
+      "name": "Video",
+      "type": "video",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "label": "Video URL",
+          "id": "video_url"
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "type": "text",
+      "settings": [
+        {
+            "type": "range",
+            "label": "Padding",
+            "id": "padding",
+            "min": 40,
+            "max": 100,
+            "step": 1,
+            "default": 40
+        },
+        {
+            "type": "select",
+            "label": "Text vertical position",
+            "id": "text_vertical",
+            "options": [
+                {
+                    "value": "start",
+                    "label": "Top"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "end",
+                    "label": "Bottom"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "label": "Text horizontal position",
+            "id": "horizontal_position",
+            "options": [
+                {
+                    "value": "start",
+                    "label": "Left"
+                },
+                {
+                    "value": "center",
+                    "label": "Center"
+                },
+                {
+                    "value": "end",
+                    "label": "Right"
+                }
+            ]
+        },
+        {
+            "type": "color",
+            "label": "Text color",
+            "id": "text_color",
+            "default": "#020617"
+        },
+        {
+            "type": "text",
+            "label": "Title",
+            "id": "title"
+        },
+        {
+            "type": "richtext",
+            "label": "Text",
+            "id": "text"
+        },
+        {
+            "type": "text",
+            "label": "Button text",
+            "id": "button_text",
+            "default": "Read More"
+        },
+        {
+            "type": "url",
+            "label": "Button URL",
+            "id": "button_url"
+        }
+    ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrub Scrolling"
+    }
+  ]
+}
+{% endschema %}

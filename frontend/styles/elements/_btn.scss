@@ -163,3 +163,25 @@
 //     color: var(--color-white);
 //   }
 // }
+
+
+.button {
+    background-color: #6638b7;
+    color: #fff;
+    display: inline-block;
+    padding: 0 2.4rem;
+    line-height: 4rem;
+    border-radius: 5rem;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 400;
+    min-width: 14rem;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid #6638b7;
+
+    &:hover {
+        background-color: #fff;
+        color: #6638b7;
+    }
+}

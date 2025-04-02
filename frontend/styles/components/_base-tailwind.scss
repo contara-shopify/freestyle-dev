@@ -9,6 +9,8 @@
     font-variant-ligatures: none;
     font-size: 10px;
     line-height: 1.2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     // overflow-y: scroll;
   }
 
@@ -48,11 +50,11 @@
   }
 
   #l-main {
-    overflow: hidden;
-    width: 100%;
+    // overflow: hidden;
+    // width: 100%;
 
-    &.m-header-sticky {
-    }
+    // &.m-header-sticky {
+    // }
   }
 
   details > summary {
