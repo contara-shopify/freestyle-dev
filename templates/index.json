@@ -26,7 +26,7 @@
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin  Shield™",
-        "button_link": ""
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
       }
     },
     "logo-section": {
@@ -218,7 +218,7 @@
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
-        "button_link": ""
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
       }
     },
     "review_scroller_custom_CMUd3m": {
@@ -311,6 +311,7 @@
         "review_GAyDCY",
         "review_tbzFjt"
       ],
+      "disabled": true,
       "settings": {
         "title": "For parents, by parents",
         "subtitle": "Don’t just trust us. Hear from our community <br> why they love and trust Freestyle."
