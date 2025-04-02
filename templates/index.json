@@ -136,7 +136,7 @@
           "type": "video",
           "settings": {
             "video_url": "https://cdn.shopify.com/videos/c/o/v/75428d75535246a5b144af0852d24b5e.mp4",
-            "use_keyframes": false,
+            "use_keyframes": true,
             "keyframe_prefix": "/assets/keyframe-",
             "keyframe_count": 30
           }
