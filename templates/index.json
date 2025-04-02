@@ -135,7 +135,10 @@
         "video_bMmbGT": {
           "type": "video",
           "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/b7c66024ce114134a33620875dba7e6f.mp4"
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/75428d75535246a5b144af0852d24b5e.mp4",
+            "use_keyframes": false,
+            "keyframe_prefix": "/assets/keyframe-",
+            "keyframe_count": 30
           }
         },
         "text_zBpedE": {
@@ -198,7 +201,9 @@
         "text_Mgmdew",
         "text_wTUQNR"
       ],
-      "settings": {}
+      "settings": {
+        "enable_smooth_scroll": true
+      }
     },
     "c_hero_img_3b7kXN": {
       "type": "c-hero-img",
