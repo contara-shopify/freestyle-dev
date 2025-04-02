@@ -145,9 +145,9 @@
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Title 1",
-            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>",
-            "button_text": "Read More",
+            "title": "Up to 14x more absorbent than leading brands",
+            "text": "<p>Thanks to its 7-layer design, Skin Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
+            "button_text": "",
             "button_url": ""
           }
         },
@@ -158,9 +158,9 @@
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Title 2",
-            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>",
-            "button_text": "Read More",
+            "title": "7-layer protection means fewer leaks and longer nights",
+            "text": "<p>Best-in-class absorbent material draws away moisture quickly  and locks it in to protect against rash or discomfort.</p>",
+            "button_text": "",
             "button_url": ""
           }
         },
@@ -171,9 +171,22 @@
             "text_vertical": "start",
             "horizontal_position": "center",
             "text_color": "#020617",
-            "title": "TItle 3",
-            "text": "<p>Lorem ipsum</p>",
-            "button_text": "Read More",
+            "title": "Safer, for longer, than anything else",
+            "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "text_wTUQNR": {
+          "type": "text",
+          "settings": {
+            "padding": 40,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "Cloud-like softness engineered for delicate skin",
+            "text": "<p>We found the softest materials available to keep them comfortable round the clock.</p>",
+            "button_text": "",
             "button_url": ""
           }
         }
@@ -182,7 +195,8 @@
         "video_bMmbGT",
         "text_zBpedE",
         "text_XAFeQB",
-        "text_Mgmdew"
+        "text_Mgmdew",
+        "text_wTUQNR"
       ],
       "settings": {}
     },
