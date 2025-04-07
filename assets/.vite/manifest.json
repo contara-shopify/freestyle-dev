@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-D3NLl8ju.css",
+    "file": "main-DyV-_WMJ.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -93,6 +93,11 @@
     "file": "our-mission-l0sNRNKZ.js",
     "name": "our-mission",
     "src": "frontend/styles/sections/our-mission.scss",
+    "isEntry": true
+  },
+  "frontend/styles/sections/product.scss": {
+    "file": "product-8CYtv99r.css",
+    "src": "frontend/styles/sections/product.scss",
     "isEntry": true
   },
   "frontend/styles/sections/review-section.scss": {

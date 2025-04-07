@@ -1,214 +1,228 @@
-<div class="product">
-    <div class="container">
-        <div class="product__gallery">
-            <div class="product__gallery-item">
-                <img src="{{ productCurrent.images[0].src }}" alt="{{ productCurrent.title }}">
-                <div class="product__gallery-item-title">
-                    {{ productCurrent.title }}
-                </div>
-            </div>
-        </div>
-        <div class="product__content">
-            <div class="product__title">
-                {{ productCurrent.title }}
-            </div>
-            <div class="product__price">
-                {{ productCurrent.price | money }}
+{% render 'entry' with '@/styles/sections/product.scss' %} 
+
+
+{% assign sst = section.settings %}
+{% assign blocks = section.blocks %}
+{% assign features = blocks | where: 'type', 'product_feature' %}
+
+{%  assign activeVariant = product.selected_or_first_available_variant %}
+
+<div class="product" x-data="product">
+    <div class="container container-lg">
+        <div class="product__inner">
+            {% render 'product-gallery', product: product %}
+
+            <div class="product__content">
+                {% for block in blocks %}
+                    {% case block.type %}
+                        {% when 'text_line' %}
+                            <div class="product__vendor">
+                                {{ block.settings.text }}
+                            </div>
+
+                        {% when 'title' %}
+                            <div class="product__title">
+                                {{ product.title }}
+                            </div>
+
+                        {% when 'cta' %}
+                            <div x-show="activeVariant.available">
+                                {% form 'product', product, class: 'product__cta' %}
+                                    <input type="hidden" name="id" :value="activeVariant.id">
+                                    <input type="hidden" name="selling_plan" :value="sellingPlan.id">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button class="btn btn--primary w-full">
+                                        Add to Cart
+                                    </button>
+                                {% endform %}   
+                            </div>
+
+                            <div x-show="!activeVariant.available">
+                                <button class="btn btn--secondary w-full">
+                                    Out of Stock
+                                </button>
+                            </div>
+
+                        {% when 'description' %}
+                            <div class="product__description">
+                                {{ product.description }}
+                            </div>
+
+                        {% when 'product_features' %}
+                            <div class="product__features flex flex-col gap-4">
+                                {% for feature in features %}
+                                    <div class="product__feature flex items-center gap-6">
+                                        <div class="product__feature-icon">
+                                            {{ feature.settings.icon }}
+                                        </div>
+                                        <div class="product__feature-title">
+                                            {{ feature.settings.title }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                        {% when 'variants' %}
+                            <div class="product__sizes" x-show="variants.length > 1">
+                                <h2 class="product__sizes-title heading-5">{{ block.settings.title }}</h2>
+
+                                <div class="product__sizes-list mb-10">
+                                    <template x-for="item in variants" x-key="item.id">
+                                        <label class="product__size">
+                                            <input type="radio" :checked="item.id === activeVariant.id" name="size" :value="item.id" @change="updateActiveVariant(item.id)">
+                                            <div class="product__size-content" :data-percent-off="item.compare_at_price > item.price ? percentOff(item.price, item.compare_at_price) : null">
+                                                <div class="product__size-info">
+                                                    <div class="product__size-title" x-text="item.size"></div>
+                                                    <div class="product__size-weight" x-text="item.weight + ' lbs'"></div>
+                                                </div>
+                                                <div class="product__size-price" x-text="price(item.price)"></div>
+                                            </div>
+                                        </label>
+                                    </template>
+                                </div>
+                                <div class="product__diapers">
+                                    Box contains <span x-text="activeVariant.diapersQty"></span> diapers
+                                </div>
+                            </div>
+                    {% endcase %}
+                {% endfor %}
             </div>
         </div>
     </div>
 </div>
+{% render 'entry' with '@/scripts/sections/main-product.js' %} 
+
 <script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('product', () => ({
+            activeVariant: null,
+            sellingPlan: '',
+            updateSellingPlan(id) {
+                this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
+            },
+            parseDiaperInfo(str) {
+                const regex = /Size\s+(\d+)\s+\((\d+\-\d+|\d+\+)\s*lbs\)\s*-\s*(\d+)\s+diapers/i;
+                const match = str.match(regex);
 
-  document.addEventListener('alpine:init', () => {
+                if (match) {
+                    return {
+                    size: match[1],
+                    weight: match[2],
+                    diapersQty: parseInt(match[3], 10)
+                    };
+                } else {
+                    return null;
+                }
+            },
+            variants: [
+                {% for variant in product.variants %}
+                    {
+                        available: {{ variant.available }},
+                        id: {{ variant.id }},
+                        title: `{{ variant.title }}`,
+                        price: {{ variant.price }},
+                        compare_at_price: {{ variant.compare_at_price | default: 0 }},
+                        selling_plan_allocations: [
+                            {% for selling_plan_allocation in variant.selling_plan_allocations %}
+                                {
+                                    price: {{ selling_plan_allocation.price }},
+                                    id: {{ selling_plan_allocation.selling_plan.id }},
+                                    name: `{{ selling_plan_allocation.selling_plan.name }}`
+                                },
+                            {% endfor %}
+                        ]
+                    },
+                {% endfor %}
+            ],
+            updateActiveVariant(id) {
+                if (id) {
+                    this.activeVariant = this.variants.find(item => item.id == id);
+                } else {
+                    this.activeVariant = this.variants[0];
+                }
+            },
+            price(price) {
+                return `$${(price / 100).toFixed(2)}`;
+            },
+            percentOff(price, compare_at_price) {
+                return `${((compare_at_price - price) / compare_at_price * 100).toFixed(0)}% off`;
+            },
+            setupVariants() {
+                this.variants.forEach(variant => {
+                    variant.size = +this.parseDiaperInfo(variant.title)?.size;
+                    variant.weight = this.parseDiaperInfo(variant.title)?.weight;
+                    variant.diapersQty = this.parseDiaperInfo(variant.title)?.diapersQty;
 
-    Alpine.data('product', (sectionId) => ({
-      sectionId,
-      mainProduct: {{ productCurrent | json }} || {},
-      mode: null, // one-time | subscribe
-      showSubscription: false,
-      discount: 0,
-      regularPrice: 0,
-      discountedPrice: 0,
-      actualPrice: 0,
-      isLoading: false,
-      sellingPlanGroups: undefined,
-      sellingPlanId: null,
-      sellingPlansMap: [],
-      selectedPlanId: null,
-      selectedPlan: {},
-      selectedProduct: null,
-      quantity: 1,
-
-      init() {
-        console.log('Main product INIT:', this.mainProduct);
-        if (!this.mainProduct || !this.mainProduct.price) {
-          console.error('mainProduct or its price is missing');
-          return;
-        }
-
-        const tabElement = this.$el.querySelector('.tabs-product-selector');
-        this.sellingPlanGroups = this.mainProduct.selling_plan_groups;
-
-        if (this.sellingPlanGroups?.length > 0) {
-          const firstGroup = this.sellingPlanGroups[0];
-          if (firstGroup?.selling_plans?.length > 0) {
-            this.sellingPlanId = firstGroup.app_id;
-            this.sellingPlansMap = firstGroup.selling_plans;
-            this.selectedPlanId = this.sellingPlansMap[0].id;
-            this.selectedPlan = this.sellingPlansMap.find((plan) => plan.id === this.selectedPlanId);
-            this.discount = this.selectedPlan.price_adjustments[0].value;
-          }
-        }
-
-        if (tabElement) {
-          this.tab1Selected = JSON.parse(tabElement.getAttribute('data-tab1-selected'));
-          this.tab2Selected = JSON.parse(tabElement.getAttribute('data-tab2-selected'));
-          this.mode = tabElement.getAttribute('data-tab-selected');
-        }
-
-        this.showSubscription = this.mode === 'subscribe';
-        this.updateActualPrice();
-        this.showSkeletonAndInitSlider();
-      },
-
-      showSkeletonAndInitSlider() {
-        this.sliderInitialized = false;
-        this.sliderLoading = true;
-
-        // Delay for skeleton
-        setTimeout(() => {
-          this.initSlider();
-        }, 100);
-      },
-
-      initNewProduct(product) {
-        this.mainProduct = product;
-        console.log('New product:', this.mainProduct);
-        this.init();
-        // this.$nextTick(() => {
-          // Alpine.initTree(this.$el);
-        // });
-      },
-
-      initSlider() {
-        const swiper = new Swiper('#swiper-container-{{ section.id }}', {
-          loop: true,
-          navigation: {
-            nextEl: '#b-product__gallery-{{ section.id }} .swiper-button-next',
-            prevEl: '#b-product__gallery-{{ section.id }} .swiper-button-prev',
-          },
-          pagination: {
-            el: '#swiper-container-{{ section.id }} .swiper-pagination',
-            clickable: true,
-          },
-        });
-        this.sliderInitialized = true;
-        this.sliderLoading = false;
-      },
-
-      formatPrice(price) {
-        const formattedPrice = price.toFixed(2);
-        return `$${formattedPrice}`;
-      },
-
-      watchSelectedPlanId() {
-        this.$watch('selectedPlan', (newValue) => {
-          console.log('Selected plan changed:', newValue);
-          this.updateActualPrice();
-        });
-      },
-
-      updateActualPrice() {
-        this.regularPrice = this.mainProduct.price / 100;
-
-        if (this.mode === 'subscribe' && this.discount > 0) {
-          this.discountedPrice = this.regularPrice - (this.regularPrice * this.discount / 100);
-          this.actualPrice = this.discountedPrice;
-          console.log('this.actualPrice:', this.actualPrice);
-        } else {
-          this.actualPrice = this.regularPrice;
-        }
-      },
-
-      switchTab(tab) {
-        this.mode = tab;
-        this.showSubscription = (tab === 'subscribe');
-        this.updateActualPrice();
-        console.log('Switched tab this.regularPrice:', this.regularPrice);
-      },
-
-      addToCartPDP(quantity) {
-        const variantId = this.$el.getAttribute('data-first-variant');
-        const product = {
-          variantId,
-          quantity,
-          properties: {},
-        };
-        if (this.mode === 'subscribe') {
-          product.sellingPlanId = this.selectedPlanId;
-        }
-        Alpine.store('cart').addToCart(product);
-        this.quantity = 1;
-      },
-
-      loadProduct(productHandle) {
-        const url = `/products/${productHandle}?sections=${this.sectionId}`;
-        const productUrl = `/products/${productHandle}.js`
-
-        fetch(url)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
+                    console.log(this.parseDiaperInfo(variant.title)?.size);
+                });
+            },
+            init() {
+                this.setupVariants();
+                this.updateActiveVariant();
+                console.log(this.variants);
             }
-            console.log('Product details:', response);
-            return response.json();
-          })
-          .then((product) => {
-            if (!product[this.sectionId]) {
-              console.error('Product section not found');
-              return;
-            }
-            const container = document.createElement('div');
-            container.innerHTML = product[this.sectionId];
-            const productDetails = container.querySelector('#MainProduct-' + this.sectionId);
-            if (this.$refs.productCardRef) {
-              this.$refs.productCardRef.replaceWith(productDetails);
-            } else {
-              console.error('Reference to productCardRef not found');
-            }
-            return fetch(productUrl);
-          })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error('Failed to fetch product data');
-            }
-            return response.json();
-          })
-          .then((productData) => {
-            this.$nextTick(() => {
-              this.initNewProduct(productData);
-            });
-            window.history.pushState({ urlPath: productHandle }, '', productHandle);
-          })
-          .catch((error) => {
-            console.error('Error loading product:', error);
-          });
-      },
-    }));
-
-  });
+        }))
+    })
 </script>
 
 {% schema %}
 {
-  "name": "Main Product",
-  "tag": "section",
-  "class": "section",
-  "presets": [
-    {
-      "name": "Main Product"
-    }
-  ]
+    "name": "Main Product",
+    "blocks": [
+        {
+            "type": "cta",
+            "name": "CTA",
+            "limit": 1
+        },
+        {
+            "type": "description",
+            "name": "Description",
+            "limit": 1
+        },
+        {
+            "type": "product_features",
+            "name": "Product Features",
+            "limit": 1
+        },
+        {
+            "type": "product_feature",
+            "name": "Product Feature",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "icon",
+                    "label": "Icon"
+                },
+                {
+                    "type": "richtext",
+                    "id": "title",
+                    "label": "Text"
+                }
+            ]
+        },
+        {
+            "type": "tags",
+            "name": "Tags",
+            "limit": 1
+        },
+        {
+            "type": "title",
+            "name": "Title",
+            "limit": 1
+        },
+        {
+            "type": "variants",
+            "name": "Variants",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                }
+            ],
+            "limit": 1
+        }
+    ],
+    "settings": []
 }
 {% endschema %}

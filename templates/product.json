@@ -8,76 +8,35 @@
  * ------------------------------------------------------------
  */
  {
-  "sections": {
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "title_hijtjK": {
-          "type": "title",
-          "settings": {}
-        },
-        "price_LVaq8i": {
-          "type": "price",
-          "settings": {}
-        },
-        "reviews_T3jPBg": {
-          "type": "reviews",
-          "settings": {}
-        },
-        "tabs_product_selector_BVHa78": {
-          "type": "tabs_product_selector",
-          "settings": {
-            "tab_selected": "subscribe",
-            "tab1_title": "One-time purchase",
-            "tab1_product_list": [
-              "best-sellers-variety-pack",
-              "chocolate-chip",
-              "madagascar-vanilla-honey-almond",
-              "nut-seed-variety-pack",
-              "peruvian-dark-chocolate-peanut-butter"
-            ],
-            "tab2_title": "Subscribe and Save"
+    "sections": {
+      "main": {
+        "type": "main-product",
+        "blocks": {
+          "title_hijtjK": {
+            "type": "title",
+            "settings": {}
+          },
+          "description_RgQkN8": {
+            "type": "description",
+            "settings": {}
+          },
+          "variants_EBNBwP": {
+            "type": "variants",
+            "settings": {
+              "title": "Select size:"
+            }
           }
         },
-        "variant_picker_AHmrDG": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {}
-        },
-        "buy_buttons_7BMHpx": {
-          "type": "buy_buttons",
-          "settings": {}
-        },
-        "description_RgQkN8": {
-          "type": "description",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "title_hijtjK",
-        "price_LVaq8i",
-        "reviews_T3jPBg",
-        "tabs_product_selector_BVHa78",
-        "variant_picker_AHmrDG",
-        "buy_buttons_7BMHpx",
-        "description_RgQkN8"
-      ],
-      "settings": {
-        "product_list": [
-          "chocolate-chip",
-          "madagascar-vanilla-honey-almond",
-          "best-sellers-variety-pack",
-          "nut-seed-variety-pack",
-          "peruvian-dark-chocolate-peanut-butter",
-          "smores",
-          "whole-grain-variety-pack"
+        "block_order": [
+          "title_hijtjK",
+          "description_RgQkN8",
+          "variants_EBNBwP"
         ],
-        "enable_color_palette": true
+        "settings": {}
       }
-    }
-  },
-  "order": [
-    "main",
-
-  ]
-}
+    },
+    "order": [
+      "main"
+    ]
+  }
+  
