@@ -7,339 +7,345 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "c_hero_img_9HYJYd": {
-        "type": "c-hero-img",
-        "settings": {
-          "image": "shopify://shop_images/new_hero_banner.jpg",
-          "heading": "Safer. Softer. Better Protection.",
-          "heading_color": "#ffffff",
-          "heading_weight": "medium",
-          "heading_icon_size": 36,
-          "description": "Meet Skin Shield™– the future of diapers",
-          "description_color": "#ffffff",
-          "button_icon": "shopify://shop_images/wallmart-icon.svg",
-          "button_icon_size": 16,
-          "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
-          "button_text_icon_size": 16,
-          "description_icon": "shopify://shop_images/heart-icon-violet.svg",
-          "description_icon_size": 36,
-          "button_label": "Shop Skin  Shield™",
-          "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
-        }
-      },
-      "logo-section": {
-        "type": "c-logo-section",
-        "blocks": {
-          "testimonial_88pVHw": {
-            "type": "testimonial",
-            "settings": {
-              "testimonial_text": "“The Skin❤️Shield diapers made parenting so much easier!”",
-              "author_name": "Sofie Flores",
-              "location": "Los Angeles"
-            }
-          },
-          "testimonial_aKw8E8": {
-            "type": "testimonial",
-            "settings": {
-              "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
-              "author_name": "Sofie Flores",
-              "location": "Los Angeles"
-            }
-          },
-          "testimonial_kEdngG": {
-            "type": "testimonial",
-            "settings": {
-              "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
-              "author_name": "Sofie Flores",
-              "location": "Los Angeles"
-            }
-          },
-          "testimonial_6xcadw": {
-            "type": "testimonial",
-            "settings": {
-              "testimonial_text": "The Skin❤️Shield diapers made parenting so much easier!",
-              "author_name": "Sofie Flores",
-              "location": "Los Angeles"
-            }
-          }
-        },
-        "block_order": [
-          "testimonial_88pVHw",
-          "testimonial_aKw8E8",
-          "testimonial_kEdngG",
-          "testimonial_6xcadw"
-        ],
-        "settings": {}
-      },
-      "product_features": {
-        "type": "c-product-features",
-        "blocks": {
-          "logo_block_EGnBYC": {
-            "type": "logo_block",
-            "settings": {
-              "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<g clip-path=\"url(#clip0_2001_2457)\">\n<path fill=\"currentColor\" d=\"M0 195.167V172.86H24.1636C51.0887 172.86 60.9267 162.831 60.9267 140.525V126H90.2682V375H59.2007V195.167H0Z\"></path>\n<path fill=\"currentColor\" d=\"M119.507 310.502V288.369L243.604 126H282.439V285.775H324.035V310.502H282.439V375H251.717V310.502H119.507ZM151.438 285.775H251.717V159.546H248.265L151.438 285.775Z\"></path>\n<path fill=\"currentColor\" d=\"M334.652 198.798H365.547L414.047 264.333H417.499L466.171 198.798H496.893V203.985L434.931 285.256L500 369.813V375H468.933L417.326 306.352H413.874L362.44 375H331.545V369.813L396.442 285.256L334.652 203.985V198.798Z\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_2001_2457\">\n<rect fill=\"white\" height=\"500\" width=\"500\"></rect>\n</clippath>\n</defs>\n</svg>",
-              "logo": "shopify://shop_images/14x_g.svg",
-              "logo_violet": "shopify://shop_images/14x_p.svg",
-              "logo_text": "Better absorption"
-            }
-          },
-          "logo_block_gcWxKN": {
-            "type": "logo_block",
-            "settings": {
-              "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<path stroke-width=\"24\" stroke=\"currentColor\" d=\"M459.07 130.776L459.877 132.166L460.158 132.443C480.38 168.247 476.189 211.499 452.187 242.44L446.481 249.795L452.187 257.15C476.477 288.462 480.497 332.125 459.377 368.505C438.286 404.54 397.31 423.114 357.565 418.084L348.599 416.95L345.032 425.254C329.529 461.353 293.109 487 250.448 487C207.747 487 171.367 461.614 155.877 425.283L152.302 416.897L143.264 418.093C103.302 423.381 62.6023 404.863 41.1953 368.462C19.8442 332.156 24.0817 288.217 48.4108 256.855L54.1167 249.5L48.4108 242.145C24.0787 210.779 19.8466 167.135 41.1953 130.833L41.2024 130.821L41.2094 130.809C62.3014 94.7528 102.995 76.1778 143.043 81.2119L152.027 82.3411L155.578 74.012C171.089 37.6318 207.501 12 250.149 12C292.797 12 329.209 37.6318 344.721 74.012L348.275 82.3484L357.266 81.2106C397.064 76.1741 438.005 94.5037 459.07 130.776ZM382.134 196.113L385.71 192.588V191.548C393.322 180.432 392.13 165.282 382.134 155.428C370.88 144.334 352.904 144.334 341.651 155.428L227.711 267.745L169.717 210.578C158.464 199.484 140.488 199.484 129.234 210.578C117.884 221.766 117.884 239.78 129.234 250.968L207.619 328.236C218.873 339.33 236.848 339.33 248.102 328.236L382.134 196.113Z\"></path>\n</svg>",
-              "logo": "shopify://shop_images/chlorine_g.svg",
-              "logo_violet": "shopify://shop_images/chlorine_p.svg",
-              "logo_text": "Total chlorine free"
-            }
-          },
-          "logo_block_XaYNnR": {
-            "type": "logo_block",
-            "settings": {
-              "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<g clip-path=\"url(#clip0_2001_2444)\">\n<path stroke-width=\"2\" stroke=\"currentColor\" fill=\"currentColor\" d=\"M15.0251 357.71L15.0254 357.711C31.8368 379.959 59.8772 393.229 89.8918 393.229H393.014C429.422 393.229 463.459 376.911 483.409 349.731C503.37 322.538 506.551 288.186 491.889 258.409L491.888 258.407C477.284 228.863 447.135 207.867 411.526 202.356C409.027 171.206 390.861 142.692 362.217 124.726L362.216 124.726C333.274 106.61 296.7 101.142 262.719 109.785C229.078 118.341 201.533 139.889 187.615 168.476C162.64 157.706 133.173 159.06 109.553 172.05C85.6445 185.199 71.0309 208.507 71.0309 233.626V234.419C42.0087 239.934 17.8131 257.878 6.47001 282.437C-4.98745 307.244 -1.73929 335.499 15.0251 357.71ZM90.8347 233.628C90.89 203.924 117.702 179.585 151.262 179.11V179.158L152.266 179.153C164.753 179.103 176.951 182.506 187.171 188.849L187.18 188.854C189.77 190.427 193.032 190.813 195.977 189.921C198.941 189.024 201.251 186.88 202.221 184.176L202.223 184.169C211.521 157.708 234.533 136.856 264.163 128.055C293.794 119.253 326.361 123.684 351.673 139.916C376.98 156.144 391.956 182.182 391.956 209.823V210.229C391.956 214.951 395.99 218.754 400.98 219.144C431.443 221.607 458.287 237.94 471.859 262.181L471.86 262.183C485.479 286.409 484.02 315.179 467.973 338.214C451.915 361.267 423.534 375.343 392.956 375.343H89.8347C52.4263 375.343 21.6895 349.366 19.6174 316.392C17.5462 283.432 44.8249 254.577 81.9979 250.863C86.9287 250.416 90.8347 246.662 90.8347 242V233.628Z\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_2001_2444\">\n<rect fill=\"white\" height=\"500\" width=\"500\"></rect>\n</clippath>\n</defs>\n</svg>",
-              "logo": "shopify://shop_images/cloud_g.svg",
-              "logo_violet": "shopify://shop_images/cloud_p.svg",
-              "logo_text": "Cloud-like softness"
-            }
-          },
-          "logo_block_7B6MRn": {
-            "type": "logo_block",
-            "settings": {
-              "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<g clip-path=\"url(#clip0_2001_2465)\">\n<path stroke=\"#BCBCBC\" fill=\"currentColor\" d=\"M333.015 449.352C332.217 449.576 331.419 449.69 330.622 449.693V450.193M333.015 449.352L330.622 450.193M333.015 449.352C373.375 437.694 402.226 411.837 416.464 374.568C418.066 370.378 415.831 365.753 411.461 364.217L333.015 449.352ZM330.622 450.193C331.467 450.19 332.31 450.069 333.15 449.834L333.153 449.833C373.655 438.133 402.634 412.171 416.931 374.746C418.639 370.279 416.248 365.369 411.627 363.745C407.034 362.125 401.92 364.379 400.217 368.835L400.684 369.013L400.217 368.835C387.759 401.455 363.504 423.188 328.051 433.422L328.05 433.422M330.622 450.193L328.05 433.422M328.05 433.422C323.369 434.784 320.662 439.549 322.097 444.1M328.05 433.422L322.097 444.1M108.135 364.509H106.89C105.391 364.509 103.89 364.169 102.512 363.469C102.511 363.469 102.511 363.469 102.511 363.469L102.737 363.023L108.135 364.509ZM108.135 364.509L108.021 364.399M108.135 364.509L108.021 364.399M108.021 364.399C109.511 364.217 110.956 363.688 112.23 362.832C115.133 360.89 116.648 357.576 116.165 354.213C114.922 345.512 114.331 337.783 114.331 330.588C114.331 290.827 135.594 250.206 172.769 210.269L108.021 364.399ZM396.348 209.891C369.605 180.578 349.305 152.938 335.988 127.65L335.987 127.648C326.851 110.434 318.319 89.0245 309.9 62.1804L301.694 36.0199L301.208 34.4708L300.738 36.0249L292.808 62.2612L292.808 62.2616C284.944 88.364 276.313 110.36 267.177 127.668L267.177 127.669C253.282 154.157 231.877 182.992 203.579 213.34L396.348 209.891ZM396.348 209.891V209.78L397.213 210.704L411.886 226.382L411.52 226.723L411.886 226.382C448.088 265.093 466.5 304.374 466.5 343.156C466.5 386.143 450.539 422.233 417.738 453.468L417.737 453.469C384.955 484.438 346.865 499.5 301.296 499.5C255.747 499.5 217.794 484.438 185.288 453.468C152.664 422.61 136.784 386.52 136.784 343.156C136.784 304.449 155.196 265.168 191.398 226.382L191.398 226.382L203.579 213.34L396.348 209.891ZM322.097 444.1C323.251 447.8 326.779 450.177 330.582 450.193L322.097 444.1ZM172.77 210.268L184.804 197.387C205.581 177.222 221.087 159.151 233.606 140.521L233.607 140.52C235.886 137.113 235.655 132.717 233.001 129.552L233.001 129.551C217.015 110.553 203.948 92.0804 196.179 77.5633C189.318 64.7103 182.723 48.174 175.471 25.4774L175.47 25.4771L167.264 -0.152473L166.778 -1.66925L166.31 -0.147052L158.4 25.5584L158.4 25.5585C152.058 46.1831 145.167 63.7067 137.928 77.605C126.841 98.6149 109.806 121.554 87.2828 145.779L87.2822 145.779L77.5543 156.28L172.77 210.268ZM90.8423 167.711L90.8436 167.709L100.563 157.218L100.572 157.21L100.582 157.2L100.592 157.189C124.144 131.86 142.05 107.693 153.862 85.3115L153.863 85.3094C158.432 76.5505 162.831 66.5249 167.046 55.3535C171.495 67.1161 175.846 76.9414 180.367 85.3898C189.953 103.315 204.141 122.068 215.478 135.887C204.169 151.938 190.233 167.842 172.016 185.513L172.007 185.521L171.999 185.53L159.521 198.876L159.52 198.876C119.413 241.956 96.542 286.431 96.542 330.626C96.542 333.625 96.6226 336.702 96.8128 339.87C92.0904 336.507 87.4852 332.719 82.931 328.424C59.9895 306.639 51.3086 281.15 51.3086 250.893C51.3086 223.842 64.5725 195.846 90.8423 167.711ZM216.827 224.771L216.828 224.771C246.154 193.319 268.451 163.255 283.071 135.413C289.505 123.208 295.671 108.898 301.497 92.6595C307.491 109.088 313.66 123.206 320.134 135.415C334.696 163.067 357.011 193.186 386.475 224.978L386.476 224.979L404.718 244.512C404.719 244.514 404.721 244.516 404.723 244.518C433.936 277.804 448.691 310.959 448.691 343.137C448.691 381.322 434.477 413.421 405.223 441.275C375.972 468.938 341.925 482.368 301.296 482.368C260.666 482.368 226.817 468.938 197.803 441.275L197.802 441.273C168.71 413.763 154.592 381.666 154.592 343.137C154.592 308.864 171.396 273.417 204.646 237.813L216.827 224.771Z\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_2001_2465\">\n<rect fill=\"white\" height=\"500\" width=\"500\"></rect>\n</clippath>\n</defs>\n</svg>",
-              "logo": "shopify://shop_images/overnight_g.svg",
-              "logo_violet": "shopify://shop_images/overnight_p.svg",
-              "logo_text": "Overnight protection"
-            }
-          }
-        },
-        "block_order": [
-          "logo_block_EGnBYC",
-          "logo_block_gcWxKN",
-          "logo_block_XaYNnR",
-          "logo_block_7B6MRn"
-        ],
-        "settings": {
-          "logo_1": "shopify://shop_images/skin-shield-logo.png",
-          "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
-        }
-      },
-      "video_scroll_d4i3BU": {
-        "type": "video-scroll",
-        "disabled": true,
-        "settings": {}
-      },
-      "c_scrub_scrolling_dke3Md": {
-        "type": "c-scrub-scrolling",
-        "blocks": {
-          "video_bMmbGT": {
-            "type": "video",
-            "settings": {
-              "video_url": "https://cdn.shopify.com/videos/c/o/v/56fcd9228e86486fa5bc57ce31cea6a1.mp4",
-              "video_url_mobile": "https://cdn.shopify.com/videos/c/o/v/6b6110bc3fd542df90f46b5abd32c1e3.mp4",
-              "use_keyframes": false,
-              "keyframe_prefix": "/assets/keyframe-",
-              "keyframe_count": 30
-            }
-          },
-          "text_zBpedE": {
-            "type": "text",
-            "settings": {
-              "padding": 80,
-              "text_vertical": "start",
-              "horizontal_position": "start",
-              "text_color": "#020617",
-              "title": "Up to 14x more absorbent than leading brands",
-              "text": "<p>Thanks to its 7-layer design, Skin Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
-              "button_text": "",
-              "button_url": ""
-            }
-          },
-          "text_XAFeQB": {
-            "type": "text",
-            "settings": {
-              "padding": 80,
-              "text_vertical": "start",
-              "horizontal_position": "start",
-              "text_color": "#020617",
-              "title": "7-layer protection means fewer leaks and longer nights",
-              "text": "<p>Best-in-class absorbent material draws away moisture quickly  and locks it in to protect against rash or discomfort.</p>",
-              "button_text": "",
-              "button_url": ""
-            }
-          },
-          "text_Mgmdew": {
-            "type": "text",
-            "settings": {
-              "padding": 40,
-              "text_vertical": "start",
-              "horizontal_position": "start",
-              "text_color": "#020617",
-              "title": "Safer, for longer, than anything else",
-              "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
-              "button_text": "",
-              "button_url": ""
-            }
-          },
-          "text_wTUQNR": {
-            "type": "text",
-            "settings": {
-              "padding": 40,
-              "text_vertical": "start",
-              "horizontal_position": "start",
-              "text_color": "#020617",
-              "title": "Cloud-like softness engineered for delicate skin",
-              "text": "<p>We found the softest materials available to keep them comfortable round the clock.</p>",
-              "button_text": "",
-              "button_url": ""
-            }
-          }
-        },
-        "block_order": [
-          "video_bMmbGT",
-          "text_zBpedE",
-          "text_XAFeQB",
-          "text_Mgmdew",
-          "text_wTUQNR"
-        ],
-        "settings": {
-          "enable_smooth_scroll": true
-        }
-      },
-      "c_hero_img_3b7kXN": {
-        "type": "c-hero-img",
-        "settings": {
-          "image": "shopify://shop_images/242A6894_6.jpg",
-          "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
-          "heading_color": "#ffffff",
-          "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
-          "heading_weight": "medium",
-          "heading_icon_size": 94,
-          "description": "",
-          "description_color": "#ffffff",
-          "button_icon": "shopify://shop_images/wallmart-icon.svg",
-          "button_icon_size": 16,
-          "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
-          "button_text_icon_size": 16,
-          "description_icon": "shopify://shop_images/heart-icon-violet.svg",
-          "description_icon_size": 36,
-          "button_label": "Shop Skin Shield™",
-          "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
-        }
-      },
-      "review_scroller_custom_CMUd3m": {
-        "type": "review-scroller-custom",
-        "blocks": {
-          "review_Aw7wkC": {
-            "type": "review",
-            "settings": {
-              "author_name": "@JohnDoe",
-              "author_url": "",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-              "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
-            }
-          },
-          "review_3Briaz": {
-            "type": "review",
-            "settings": {
-              "author_name": "@JohnDoe",
-              "author_url": "",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-              "review_video": "shopify://files/videos/242A4817_optimized.mp4"
-            }
-          },
-          "review_UGacVf": {
-            "type": "review",
-            "settings": {
-              "author_name": "@JohnDoe",
-              "author_url": "",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-              "review_video": "shopify://files/videos/242A4817_optimized.mp4"
-            }
-          },
-          "review_Pw4aDj": {
-            "type": "review",
-            "settings": {
-              "author_name": "@JohnDoe",
-              "author_url": "",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-              "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
-            }
-          },
-          "review_hWVwfN": {
-            "type": "review",
-            "settings": {
-              "author_name": "@JohnDoe",
-              "author_url": "",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-              "review_video": "shopify://files/videos/242A4817_optimized.mp4"
-            }
-          },
-          "review_GAyDCY": {
-            "type": "review",
-            "settings": {
-              "author_name": "@JohnDoe",
-              "author_url": "",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-              "review_video": "shopify://files/videos/242A4817_optimized.mp4"
-            }
-          },
-          "review_tbzFjt": {
-            "type": "review",
-            "settings": {
-              "author_name": "@JohnDoe",
-              "author_url": "",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-              "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
-            }
-          }
-        },
-        "block_order": [
-          "review_Aw7wkC",
-          "review_3Briaz",
-          "review_UGacVf",
-          "review_Pw4aDj",
-          "review_hWVwfN",
-          "review_GAyDCY",
-          "review_tbzFjt"
-        ],
-        "disabled": true,
-        "settings": {
-          "title": "For parents, by parents",
-          "subtitle": "Don’t just trust us. Hear from our community <br> why they love and trust Freestyle."
-        }
-      },
-      "footer_custom_fPQhVk": {
-        "type": "footer-custom",
-        "settings": {
-          "newsletter_title": "Product launches, community fun, VIP drops, and more",
-          "tagline": "Parenting is the Ultimate Creative Act."
-        }
+{
+  "sections": {
+    "c_hero_img_9HYJYd": {
+      "type": "c-hero-img",
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/new_hero_banner.jpg",
+        "heading": "Safer. Softer. Better Protection.",
+        "heading_color": "#ffffff",
+        "heading_weight": "medium",
+        "heading_icon_size": 36,
+        "description": "Meet Skin Shield™– the future of diapers",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 16,
+        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon_size": 16,
+        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
+        "description_icon_size": 36,
+        "button_label": "Shop Skin  Shield™",
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
       }
     },
-    "order": [
-      "c_hero_img_9HYJYd",
-      "logo-section",
-      "product_features",
-      "video_scroll_d4i3BU",
-      "c_scrub_scrolling_dke3Md",
-      "c_hero_img_3b7kXN",
-      "review_scroller_custom_CMUd3m",
-      "footer_custom_fPQhVk"
-    ]
-  }
-  
+    "logo-section": {
+      "type": "c-logo-section",
+      "blocks": {
+        "testimonial_88pVHw": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"No blowouts!! We tried several eco/non-toxic diaper options and these are by far the best for our baby. Everything stays contained, we've hardly ever had a blowout!\"",
+            "author_name": "Annabelle M.",
+            "location": "Colorado"
+          }
+        },
+        "testimonial_aKw8E8": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"Finally, a nontoxic diaper that doesn’t leak! I’ve tried about 15 brands of nontoxic diapers, and these are the best so far!\"",
+            "author_name": "Catherine Q.",
+            "location": "Virginia"
+          }
+        },
+        "testimonial_kEdngG": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"Absorbent, well-fitting and leak-free! I absolutely love these diapers!\"",
+            "author_name": "Katherine B.",
+            "location": "Florida"
+          }
+        },
+        "testimonial_6xcadw": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "\"Best diapers, best customer service! freestyle diapers are our absolute favorite! I’ve tried a few other brands but none absorb as much moisture (keeping my baby so dry) as freestyle.\"",
+            "author_name": "Taylor R.",
+            "location": "Arizona"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_88pVHw",
+        "testimonial_aKw8E8",
+        "testimonial_kEdngG",
+        "testimonial_6xcadw"
+      ],
+      "custom_css": [
+        "span {font-weight: 400;}"
+      ],
+      "settings": {}
+    },
+    "product_features": {
+      "type": "c-product-features",
+      "blocks": {
+        "logo_block_EGnBYC": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<g clip-path=\"url(#clip0_2001_2457)\">\n<path fill=\"currentColor\" d=\"M0 195.167V172.86H24.1636C51.0887 172.86 60.9267 162.831 60.9267 140.525V126H90.2682V375H59.2007V195.167H0Z\"></path>\n<path fill=\"currentColor\" d=\"M119.507 310.502V288.369L243.604 126H282.439V285.775H324.035V310.502H282.439V375H251.717V310.502H119.507ZM151.438 285.775H251.717V159.546H248.265L151.438 285.775Z\"></path>\n<path fill=\"currentColor\" d=\"M334.652 198.798H365.547L414.047 264.333H417.499L466.171 198.798H496.893V203.985L434.931 285.256L500 369.813V375H468.933L417.326 306.352H413.874L362.44 375H331.545V369.813L396.442 285.256L334.652 203.985V198.798Z\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_2001_2457\">\n<rect fill=\"white\" height=\"500\" width=\"500\"></rect>\n</clippath>\n</defs>\n</svg>",
+            "logo": "shopify://shop_images/14x_g.svg",
+            "logo_violet": "shopify://shop_images/14x_p.svg",
+            "logo_text": "Better absorption"
+          }
+        },
+        "logo_block_gcWxKN": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<path stroke-width=\"24\" stroke=\"currentColor\" d=\"M459.07 130.776L459.877 132.166L460.158 132.443C480.38 168.247 476.189 211.499 452.187 242.44L446.481 249.795L452.187 257.15C476.477 288.462 480.497 332.125 459.377 368.505C438.286 404.54 397.31 423.114 357.565 418.084L348.599 416.95L345.032 425.254C329.529 461.353 293.109 487 250.448 487C207.747 487 171.367 461.614 155.877 425.283L152.302 416.897L143.264 418.093C103.302 423.381 62.6023 404.863 41.1953 368.462C19.8442 332.156 24.0817 288.217 48.4108 256.855L54.1167 249.5L48.4108 242.145C24.0787 210.779 19.8466 167.135 41.1953 130.833L41.2024 130.821L41.2094 130.809C62.3014 94.7528 102.995 76.1778 143.043 81.2119L152.027 82.3411L155.578 74.012C171.089 37.6318 207.501 12 250.149 12C292.797 12 329.209 37.6318 344.721 74.012L348.275 82.3484L357.266 81.2106C397.064 76.1741 438.005 94.5037 459.07 130.776ZM382.134 196.113L385.71 192.588V191.548C393.322 180.432 392.13 165.282 382.134 155.428C370.88 144.334 352.904 144.334 341.651 155.428L227.711 267.745L169.717 210.578C158.464 199.484 140.488 199.484 129.234 210.578C117.884 221.766 117.884 239.78 129.234 250.968L207.619 328.236C218.873 339.33 236.848 339.33 248.102 328.236L382.134 196.113Z\"></path>\n</svg>",
+            "logo": "shopify://shop_images/chlorine_g.svg",
+            "logo_violet": "shopify://shop_images/chlorine_p.svg",
+            "logo_text": "Total chlorine free"
+          }
+        },
+        "logo_block_XaYNnR": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<g clip-path=\"url(#clip0_2001_2444)\">\n<path stroke-width=\"2\" stroke=\"currentColor\" fill=\"currentColor\" d=\"M15.0251 357.71L15.0254 357.711C31.8368 379.959 59.8772 393.229 89.8918 393.229H393.014C429.422 393.229 463.459 376.911 483.409 349.731C503.37 322.538 506.551 288.186 491.889 258.409L491.888 258.407C477.284 228.863 447.135 207.867 411.526 202.356C409.027 171.206 390.861 142.692 362.217 124.726L362.216 124.726C333.274 106.61 296.7 101.142 262.719 109.785C229.078 118.341 201.533 139.889 187.615 168.476C162.64 157.706 133.173 159.06 109.553 172.05C85.6445 185.199 71.0309 208.507 71.0309 233.626V234.419C42.0087 239.934 17.8131 257.878 6.47001 282.437C-4.98745 307.244 -1.73929 335.499 15.0251 357.71ZM90.8347 233.628C90.89 203.924 117.702 179.585 151.262 179.11V179.158L152.266 179.153C164.753 179.103 176.951 182.506 187.171 188.849L187.18 188.854C189.77 190.427 193.032 190.813 195.977 189.921C198.941 189.024 201.251 186.88 202.221 184.176L202.223 184.169C211.521 157.708 234.533 136.856 264.163 128.055C293.794 119.253 326.361 123.684 351.673 139.916C376.98 156.144 391.956 182.182 391.956 209.823V210.229C391.956 214.951 395.99 218.754 400.98 219.144C431.443 221.607 458.287 237.94 471.859 262.181L471.86 262.183C485.479 286.409 484.02 315.179 467.973 338.214C451.915 361.267 423.534 375.343 392.956 375.343H89.8347C52.4263 375.343 21.6895 349.366 19.6174 316.392C17.5462 283.432 44.8249 254.577 81.9979 250.863C86.9287 250.416 90.8347 246.662 90.8347 242V233.628Z\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_2001_2444\">\n<rect fill=\"white\" height=\"500\" width=\"500\"></rect>\n</clippath>\n</defs>\n</svg>",
+            "logo": "shopify://shop_images/cloud_g.svg",
+            "logo_violet": "shopify://shop_images/cloud_p.svg",
+            "logo_text": "Cloud-like softness"
+          }
+        },
+        "logo_block_7B6MRn": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<g clip-path=\"url(#clip0_2001_2465)\">\n<path stroke=\"#BCBCBC\" fill=\"currentColor\" d=\"M333.015 449.352C332.217 449.576 331.419 449.69 330.622 449.693V450.193M333.015 449.352L330.622 450.193M333.015 449.352C373.375 437.694 402.226 411.837 416.464 374.568C418.066 370.378 415.831 365.753 411.461 364.217L333.015 449.352ZM330.622 450.193C331.467 450.19 332.31 450.069 333.15 449.834L333.153 449.833C373.655 438.133 402.634 412.171 416.931 374.746C418.639 370.279 416.248 365.369 411.627 363.745C407.034 362.125 401.92 364.379 400.217 368.835L400.684 369.013L400.217 368.835C387.759 401.455 363.504 423.188 328.051 433.422L328.05 433.422M330.622 450.193L328.05 433.422M328.05 433.422C323.369 434.784 320.662 439.549 322.097 444.1M328.05 433.422L322.097 444.1M108.135 364.509H106.89C105.391 364.509 103.89 364.169 102.512 363.469C102.511 363.469 102.511 363.469 102.511 363.469L102.737 363.023L108.135 364.509ZM108.135 364.509L108.021 364.399M108.135 364.509L108.021 364.399M108.021 364.399C109.511 364.217 110.956 363.688 112.23 362.832C115.133 360.89 116.648 357.576 116.165 354.213C114.922 345.512 114.331 337.783 114.331 330.588C114.331 290.827 135.594 250.206 172.769 210.269L108.021 364.399ZM396.348 209.891C369.605 180.578 349.305 152.938 335.988 127.65L335.987 127.648C326.851 110.434 318.319 89.0245 309.9 62.1804L301.694 36.0199L301.208 34.4708L300.738 36.0249L292.808 62.2612L292.808 62.2616C284.944 88.364 276.313 110.36 267.177 127.668L267.177 127.669C253.282 154.157 231.877 182.992 203.579 213.34L396.348 209.891ZM396.348 209.891V209.78L397.213 210.704L411.886 226.382L411.52 226.723L411.886 226.382C448.088 265.093 466.5 304.374 466.5 343.156C466.5 386.143 450.539 422.233 417.738 453.468L417.737 453.469C384.955 484.438 346.865 499.5 301.296 499.5C255.747 499.5 217.794 484.438 185.288 453.468C152.664 422.61 136.784 386.52 136.784 343.156C136.784 304.449 155.196 265.168 191.398 226.382L191.398 226.382L203.579 213.34L396.348 209.891ZM322.097 444.1C323.251 447.8 326.779 450.177 330.582 450.193L322.097 444.1ZM172.77 210.268L184.804 197.387C205.581 177.222 221.087 159.151 233.606 140.521L233.607 140.52C235.886 137.113 235.655 132.717 233.001 129.552L233.001 129.551C217.015 110.553 203.948 92.0804 196.179 77.5633C189.318 64.7103 182.723 48.174 175.471 25.4774L175.47 25.4771L167.264 -0.152473L166.778 -1.66925L166.31 -0.147052L158.4 25.5584L158.4 25.5585C152.058 46.1831 145.167 63.7067 137.928 77.605C126.841 98.6149 109.806 121.554 87.2828 145.779L87.2822 145.779L77.5543 156.28L172.77 210.268ZM90.8423 167.711L90.8436 167.709L100.563 157.218L100.572 157.21L100.582 157.2L100.592 157.189C124.144 131.86 142.05 107.693 153.862 85.3115L153.863 85.3094C158.432 76.5505 162.831 66.5249 167.046 55.3535C171.495 67.1161 175.846 76.9414 180.367 85.3898C189.953 103.315 204.141 122.068 215.478 135.887C204.169 151.938 190.233 167.842 172.016 185.513L172.007 185.521L171.999 185.53L159.521 198.876L159.52 198.876C119.413 241.956 96.542 286.431 96.542 330.626C96.542 333.625 96.6226 336.702 96.8128 339.87C92.0904 336.507 87.4852 332.719 82.931 328.424C59.9895 306.639 51.3086 281.15 51.3086 250.893C51.3086 223.842 64.5725 195.846 90.8423 167.711ZM216.827 224.771L216.828 224.771C246.154 193.319 268.451 163.255 283.071 135.413C289.505 123.208 295.671 108.898 301.497 92.6595C307.491 109.088 313.66 123.206 320.134 135.415C334.696 163.067 357.011 193.186 386.475 224.978L386.476 224.979L404.718 244.512C404.719 244.514 404.721 244.516 404.723 244.518C433.936 277.804 448.691 310.959 448.691 343.137C448.691 381.322 434.477 413.421 405.223 441.275C375.972 468.938 341.925 482.368 301.296 482.368C260.666 482.368 226.817 468.938 197.803 441.275L197.802 441.273C168.71 413.763 154.592 381.666 154.592 343.137C154.592 308.864 171.396 273.417 204.646 237.813L216.827 224.771Z\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_2001_2465\">\n<rect fill=\"white\" height=\"500\" width=\"500\"></rect>\n</clippath>\n</defs>\n</svg>",
+            "logo": "shopify://shop_images/overnight_g.svg",
+            "logo_violet": "shopify://shop_images/overnight_p.svg",
+            "logo_text": "Overnight protection"
+          }
+        }
+      },
+      "block_order": [
+        "logo_block_EGnBYC",
+        "logo_block_gcWxKN",
+        "logo_block_XaYNnR",
+        "logo_block_7B6MRn"
+      ],
+      "settings": {
+        "logo_1": "shopify://shop_images/skin-shield-logo.png",
+        "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
+      }
+    },
+    "video_scroll_d4i3BU": {
+      "type": "video-scroll",
+      "disabled": true,
+      "settings": {}
+    },
+    "c_scrub_scrolling_dke3Md": {
+      "type": "c-scrub-scrolling",
+      "blocks": {
+        "video_bMmbGT": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/56fcd9228e86486fa5bc57ce31cea6a1.mp4",
+            "video_url_mobile": "https://cdn.shopify.com/videos/c/o/v/6b6110bc3fd542df90f46b5abd32c1e3.mp4",
+            "use_keyframes": false,
+            "keyframe_prefix": "/assets/keyframe-",
+            "keyframe_count": 30
+          }
+        },
+        "text_zBpedE": {
+          "type": "text",
+          "settings": {
+            "padding": 80,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "Up to 14x more absorbent than leading brands",
+            "text": "<p>Thanks to its 7-layer design, Skin Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "text_XAFeQB": {
+          "type": "text",
+          "settings": {
+            "padding": 80,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "7-layer protection means fewer leaks and longer nights",
+            "text": "<p>Best-in-class absorbent material draws away moisture quickly  and locks it in to protect against rash or discomfort.</p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "text_Mgmdew": {
+          "type": "text",
+          "settings": {
+            "padding": 40,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "Safer, for longer, than anything else",
+            "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "text_wTUQNR": {
+          "type": "text",
+          "settings": {
+            "padding": 40,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "Cloud-like softness engineered for delicate skin",
+            "text": "<p>We found the softest materials available to keep them comfortable round the clock.</p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_bMmbGT",
+        "text_zBpedE",
+        "text_XAFeQB",
+        "text_Mgmdew",
+        "text_wTUQNR"
+      ],
+      "custom_css": [
+        "h3 {font-weight: 400;}"
+      ],
+      "settings": {
+        "enable_smooth_scroll": true
+      }
+    },
+    "c_hero_img_3b7kXN": {
+      "type": "c-hero-img",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_6.jpg",
+        "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
+        "heading_color": "#ffffff",
+        "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
+        "heading_weight": "medium",
+        "heading_icon_size": 94,
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 16,
+        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon_size": 16,
+        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
+        "description_icon_size": 36,
+        "button_label": "Shop Skin Shield™",
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
+      }
+    },
+    "review_scroller_custom_CMUd3m": {
+      "type": "review-scroller-custom",
+      "blocks": {
+        "review_Aw7wkC": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+          }
+        },
+        "review_3Briaz": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_UGacVf": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_Pw4aDj": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+          }
+        },
+        "review_hWVwfN": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_GAyDCY": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_tbzFjt": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "review_Aw7wkC",
+        "review_3Briaz",
+        "review_UGacVf",
+        "review_Pw4aDj",
+        "review_hWVwfN",
+        "review_GAyDCY",
+        "review_tbzFjt"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "For parents, by parents",
+        "subtitle": "Don’t just trust us. Hear from our community <br> why they love and trust Freestyle."
+      }
+    },
+    "footer_custom_fPQhVk": {
+      "type": "footer-custom",
+      "settings": {
+        "newsletter_title": "Product launches, community fun, VIP drops, and more",
+        "tagline": "Parenting is the Ultimate Creative Act."
+      }
+    }
+  },
+  "order": [
+    "c_hero_img_9HYJYd",
+    "logo-section",
+    "product_features",
+    "video_scroll_d4i3BU",
+    "c_scrub_scrolling_dke3Md",
+    "c_hero_img_3b7kXN",
+    "review_scroller_custom_CMUd3m",
+    "footer_custom_fPQhVk"
+  ]
+}

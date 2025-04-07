@@ -14,7 +14,7 @@
             </svg>
           {% endfor %}
         </div>
-        <span class="text-black font-semibold text-baseLarge">50,000+ Verified 5-Star reviews</span>
+        <span class="text-black font-semibold text-baseLarge">1000+ Verified 5-Star reviews</span>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
                 {{ block.settings.testimonial_text }}
               </h3>
               <p class="text-xl md:text-[22px] text-black font-fkroman font-light text-center lg:text-left">
-                - {{ block.settings.author_name }}, {{ block.settings.location }}
+                - {{ block.settings.author_name }}{% if block.settings.location != blank %} | {{ block.settings.location }}{% endif %}
               </p>
             </div>
           </div>
