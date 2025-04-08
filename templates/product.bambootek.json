@@ -34,8 +34,8 @@
         "cta_MaBGF4": {
           "type": "cta",
           "settings": {
-            "cta_type": "external_link",
-            "cta_label": "Shop at Walmart.com",
+            "cta_type": "add_to_cart",
+            "cta_label": "Add  to Cart",
             "cta_url": "#"
           }
         },
