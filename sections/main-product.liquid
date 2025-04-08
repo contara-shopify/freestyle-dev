@@ -4,6 +4,7 @@
 {% assign sst = section.settings %}
 {% assign blocks = section.blocks %}
 {% assign features = blocks | where: 'type', 'product_feature' %}
+{% assign accordionItems = blocks | where: 'type', 'accordion_item' %}
 
 {%  assign activeVariant = product.selected_or_first_available_variant %}
 
@@ -12,7 +13,7 @@
         <div class="product__inner">
             {% render 'product-gallery', product: product %}
 
-            <div class="product__content">
+            <div class="product__content flex flex-col gap-8 md:pb-16">
                 {% for block in blocks %}
                     {% case block.type %}
                         {% when 'text_line' %}
@@ -21,27 +22,42 @@
                             </div>
 
                         {% when 'title' %}
-                            <div class="product__title">
-                                {{ product.title }}
+                            <div class="product__title-wrapper">
+                                <div class="product__title">
+                                    {{ product.title }}
+                                </div>
+
+                                <div class="product__rating">
+                                    {% render 'rating-stars' %}
+                                </div>
                             </div>
 
                         {% when 'cta' %}
-                            <div x-show="activeVariant.available">
-                                {% form 'product', product, class: 'product__cta' %}
-                                    <input type="hidden" name="id" :value="activeVariant.id">
-                                    <input type="hidden" name="selling_plan" :value="sellingPlan.id">
-                                    <input type="hidden" name="quantity" value="1">
-                                    <button class="btn btn--primary w-full">
-                                        Add to Cart
-                                    </button>
-                                {% endform %}   
-                            </div>
+                            <div class="product__cta">
+                                {% if block.settings.cta_type == 'add_to_cart' %}
+                                    <div x-show="activeVariant.available">
+                                        {% form 'product', product, class: 'product__cta' %}
+                                        <input type="hidden" name="id" :value="activeVariant.id">
+                                        <input type="hidden" name="selling_plan" :value="sellingPlan.id">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button class="btn">
+                                            Add to Cart
+                                        </button>
+                                    {% endform %}   
+                                </div>
 
-                            <div x-show="!activeVariant.available">
-                                <button class="btn btn--secondary w-full">
-                                    Out of Stock
-                                </button>
-                            </div>
+                                <div x-show="!activeVariant.available">
+                                    <button class="btn btn--secondary w-full">
+                                        Out of Stock
+                                    </button>
+                                </div>
+
+                            {% else %}
+                                <a href="{{ block.settings.cta_url }}" class="btn btn--walmart">
+                                    {{ block.settings.cta_label }}
+                                </a>
+                            {% endif %}
+                        </div>
 
                         {% when 'description' %}
                             <div class="product__description">
@@ -49,10 +65,10 @@
                             </div>
 
                         {% when 'product_features' %}
-                            <div class="product__features flex flex-col gap-4">
+                            <div class="product__features flex flex-col gap-10 md:py-8">
                                 {% for feature in features %}
-                                    <div class="product__feature flex items-center gap-6">
-                                        <div class="product__feature-icon">
+                                    <div class="product__feature flex items-center gap-8 md:gap-14">
+                                        <div class="product__feature-icon flex items-center justify-center">
                                             {{ feature.settings.icon }}
                                         </div>
                                         <div class="product__feature-title">
@@ -60,22 +76,43 @@
                                         </div>
                                     </div>
                                 {% endfor %}
+
+                                {% if block.settings.note %}
+                                    <div class="product__feature flex items-center gap-4 md:gap-14">
+                                        <div class="product__feature-icon"></div>
+                                        <div class="product__feature-note">
+                                            {{ block.settings.note }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                        {% when 'separator' %}
+                            <hr class="product__separator">
+
+                        {% when 'tags' %}
+                            <div class="product__tags flex flex-wrap gap-4">
+                                {% for tag in product.tags %}
+                                    <div class="product__tag flex items-center gap-2">
+                                        {{ tag }}
+                                    </div>
+                                {% endfor %}
                             </div>
 
                         {% when 'variants' %}
                             <div class="product__sizes" x-show="variants.length > 1">
-                                <h2 class="product__sizes-title heading-5">{{ block.settings.title }}</h2>
+                                <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
 
                                 <div class="product__sizes-list mb-10">
                                     <template x-for="item in variants" x-key="item.id">
                                         <label class="product__size">
                                             <input type="radio" :checked="item.id === activeVariant.id" name="size" :value="item.id" @change="updateActiveVariant(item.id)">
                                             <div class="product__size-content" :data-percent-off="item.compare_at_price > item.price ? percentOff(item.price, item.compare_at_price) : null">
-                                                <div class="product__size-info">
+                                                <div class="product__size-info" :style="{ backgroundColor: item.id === activeVariant.id ? item.accentTop : 'transparent' }">
                                                     <div class="product__size-title" x-text="item.size"></div>
                                                     <div class="product__size-weight" x-text="item.weight + ' lbs'"></div>
                                                 </div>
-                                                <div class="product__size-price" x-text="price(item.price)"></div>
+                                                <div class="product__size-price" :style="{ backgroundColor: item.id === activeVariant.id ? item.accentBottom : 'transparent' }" x-text="price(item.price)"></div>
                                             </div>
                                         </label>
                                     </template>
@@ -83,6 +120,20 @@
                                 <div class="product__diapers">
                                     Box contains <span x-text="activeVariant.diapersQty"></span> diapers
                                 </div>
+                            </div>
+
+                        {% when 'accordion' %}
+                            <div class="product__accordion">
+                                {% for item in accordionItems %}
+                                    <div class="product__accordion-item" x-data="{ open: false }">
+                                        <div class="product__accordion-title" :class="{ 'product__accordion-title--active': open }" @click="open = !open">
+                                            {{ item.settings.title }}
+                                        </div>
+                                        <div class="product__accordion-content" x-show="open">
+                                            {{ item.settings.content }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
                     {% endcase %}
                 {% endfor %}
@@ -97,6 +148,8 @@
         Alpine.data('product', () => ({
             activeVariant: null,
             sellingPlan: '',
+            sizesAccentColorsString: `{{ sst.sizes_accent_colors }}`,
+            sizesAccentColors: [],
             updateSellingPlan(id) {
                 this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
             },
@@ -106,9 +159,9 @@
 
                 if (match) {
                     return {
-                    size: match[1],
-                    weight: match[2],
-                    diapersQty: parseInt(match[3], 10)
+                        size: match[1],
+                        weight: match[2],
+                        diapersQty: parseInt(match[3], 10)
                     };
                 } else {
                     return null;
@@ -147,19 +200,35 @@
             percentOff(price, compare_at_price) {
                 return `${((compare_at_price - price) / compare_at_price * 100).toFixed(0)}% off`;
             },
+            parseSizeColors(input) {
+                this.sizesAccentColors = input
+                  .trim()
+                  .split('\n')
+                  .map(line => {
+                    const [sizePart, colorPart] = line.split(' - ');
+                    const size = sizePart.trim();
+                    const [accentTop, accentBottom] = colorPart.split('|').map(c => `#${c.trim()}`);
+              
+                    return {
+                      size,
+                      accentTop,
+                      accentBottom
+                    };
+                  });
+            },
             setupVariants() {
                 this.variants.forEach(variant => {
                     variant.size = +this.parseDiaperInfo(variant.title)?.size;
                     variant.weight = this.parseDiaperInfo(variant.title)?.weight;
                     variant.diapersQty = this.parseDiaperInfo(variant.title)?.diapersQty;
-
-                    console.log(this.parseDiaperInfo(variant.title)?.size);
+                    variant.accentTop = this.sizesAccentColors.find(item => item.size == variant.size)?.accentTop;
+                    variant.accentBottom = this.sizesAccentColors.find(item => item.size == variant.size)?.accentBottom;
                 });
             },
             init() {
+                this.parseSizeColors(this.sizesAccentColorsString);
                 this.setupVariants();
                 this.updateActiveVariant();
-                console.log(this.variants);
             }
         }))
     })
@@ -168,11 +237,68 @@
 {% schema %}
 {
     "name": "Main Product",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "sizes_accent_colors",
+            "label": "Sizes Accent Colors",
+            "info": "size - accent_color_top|accent_color_bottom"
+        }
+    ],
     "blocks": [
+        {
+            "type": "accordion",
+            "name": "Accordion",
+            "limit": 1
+        },
+        {
+            "type": "accordion_item",
+            "name": "Accordion Item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Content"
+                }
+            ]
+        },
         {
             "type": "cta",
             "name": "CTA",
-            "limit": 1
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "cta_type",
+                    "label": "CTA Type",
+                    "options": [
+                        {
+                            "value": "add_to_cart",
+                            "label": "Add to Cart"
+                        },
+                        {
+                            "value": "external_link",
+                            "label": "External Link"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "cta_label",
+                    "label": "CTA Label",
+                    "default": "Add to Cart"
+                },
+                {
+                    "type": "url",
+                    "id": "cta_url",
+                    "label": "CTA URL"
+                }
+            ]
         },
         {
             "type": "description",
@@ -182,7 +308,14 @@
         {
             "type": "product_features",
             "name": "Product Features",
-            "limit": 1
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "note",
+                    "label": "Note"
+                }
+            ]
         },
         {
             "type": "product_feature",
@@ -201,6 +334,10 @@
             ]
         },
         {
+            "type": "separator",
+            "name": "Separator"
+        },
+        {
             "type": "tags",
             "name": "Tags",
             "limit": 1
@@ -212,17 +349,22 @@
         },
         {
             "type": "variants",
-            "name": "Variants",
+            "name": "Variants", 
             "settings": [
                 {
                     "type": "text",
                     "id": "title",
                     "label": "Title"
+                },
+                {
+                    "type": "textarea",
+                    "id": "sizes_accent_colors",
+                    "label": "Sizes Accent Colors",
+                    "info": "size - accent_color_top|accent_color_bottom"
                 }
             ],
             "limit": 1
         }
-    ],
-    "settings": []
+    ]
 }
 {% endschema %}

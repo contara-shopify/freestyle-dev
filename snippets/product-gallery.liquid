@@ -1,4 +1,4 @@
-<div class="product__gallery flex flex-row-reverse">
+<div class="product__gallery flex flex-col md:flex-row-reverse">
     {% if product.images %}
         <div class="product__gallery-main">
             <div class="swiper-wrapper">
@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="product__gallery-thumbs flex flex-col md:flex-row gap-4">
+    <div class="product__gallery-thumbs flex flex-col md:flex-row gap-4 items-start">
         {% for image in product.images %}
             <div class="product__gallery-thumb " data-index="{{ forloop.index0 }}">
                 <img src="{{ image | image_url: width: 480 }}" alt="{{ image.alt }}" width="480" height="480">
