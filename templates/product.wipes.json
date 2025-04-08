@@ -14,9 +14,7 @@
       "blocks": {
         "title_hijtjK": {
           "type": "title",
-          "settings": {
-            "image": "shopify://shop_images/alt-title-2.png"
-          }
+          "settings": {}
         },
         "separator_NF3Aqz": {
           "type": "separator",
@@ -26,7 +24,7 @@
           "type": "variants",
           "settings": {
             "title": "Select size:",
-            "sizes_accent_colors": "1 - F3B232 | FBECA6\n2 - F3B232 | FBECA6\n3 - CBDB2A| E2E66A\n4 - 8BB6E1 | C3D6EE\n5 - AC95C7 | C4B3D7\n6 - F04C5E | F6A1B2"
+            "sizes_accent_colors": ""
           }
         },
         "tags_8BMpFw": {
@@ -36,8 +34,8 @@
         "cta_MaBGF4": {
           "type": "cta",
           "settings": {
-            "cta_type": "add_to_cart",
-            "cta_label": "Add  to Cart",
+            "cta_type": "external_link",
+            "cta_label": "Shop at Walmart.com",
             "cta_url": "#"
           }
         },
