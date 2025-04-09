@@ -29,9 +29,9 @@
       {% for block in section.blocks %}
         <div class="scroll-block flex items-center mb-4 md:mb-[25px] transition-all duration-100">
           {% if block.settings.logo != blank and block.settings.logo_violet != blank %}
-            <div class="logo-container mr-4 w-auto h-[4rem] md:h-[8rem]">    
-                {{ block.settings.logo_svg }}
-            </div>
+         <div class="logo-container mr-4 w-[4rem] md:w-auto h-[4rem] md:h-[8rem]">    
+  {{ block.settings.logo_svg }}
+</div>
           {% endif %}
 
           {% if block.settings.logo_text != blank %}
