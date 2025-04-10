@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -139,13 +139,93 @@
         "sizes_accent_colors": "1 - F3B232 | FBECA6\n2 - F3B232 | FBECA6\n3 - CBDB2A| E2E66A\n4 - 8BB6E1 | C3D6EE\n5 - AC95C7 | C4B3D7\n6 - F04C5E | F6A1B2"
       }
     },
+    "c_scrub_scrolling_dke3Md": {
+      "type": "c-scrub-scrolling",
+      "blocks": {
+        "video_bMmbGT": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/56fcd9228e86486fa5bc57ce31cea6a1.mp4",
+            "video_url_mobile": "https://cdn.shopify.com/videos/c/o/v/6b6110bc3fd542df90f46b5abd32c1e3.mp4",
+            "use_keyframes": false,
+            "keyframe_prefix": "/assets/keyframe-",
+            "keyframe_count": 30
+          }
+        },
+        "text_zBpedE": {
+          "type": "text",
+          "settings": {
+            "padding": 80,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "Up to 14x more absorbent than leading brands",
+            "text": "<p>Thanks to its 7-layer design, Skin Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "text_XAFeQB": {
+          "type": "text",
+          "settings": {
+            "padding": 80,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "7-layer protection means fewer leaks and longer nights",
+            "text": "<p>Best-in-class absorbent material draws away moisture quickly  and locks it in to protect against rash or discomfort.</p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "text_Mgmdew": {
+          "type": "text",
+          "settings": {
+            "padding": 40,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "Safer, for longer, than anything else",
+            "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "text_wTUQNR": {
+          "type": "text",
+          "settings": {
+            "padding": 40,
+            "text_vertical": "start",
+            "horizontal_position": "start",
+            "text_color": "#020617",
+            "title": "Cloud-like softness engineered for delicate skin",
+            "text": "<p>We found the softest materials available to keep them comfortable round the clock.</p>",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_bMmbGT",
+        "text_zBpedE",
+        "text_XAFeQB",
+        "text_Mgmdew",
+        "text_wTUQNR"
+      ],
+      "custom_css": [
+        "h3 {font-weight: 400;}"
+      ],
+      "settings": {
+        "enable_smooth_scroll": true
+      }
+    },
     "174411240666086477": {
       "type": "apps",
       "blocks": {
         "junip_junip_product_review_xLN8Xa": {
           "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
           "settings": {
-            "product": "{{product}}"
+            "product": "diaper"
           }
         }
       },
@@ -174,11 +254,150 @@
         "button_label": "Shop Skin Shield™",
         "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
       }
+    },
+    "c_product_details_R4KkFT": {
+      "type": "c-product-details",
+      "settings": {}
+    },
+    "c_hero_banner_hGRU9e": {
+      "type": "c-hero-banner",
+      "settings": {
+        "title": "The wipes you’ve been dreaming of",
+        "subtitle": "Up to 20% larger and thicker than competitors’ and made with over 99% water, our hypoallergenic Jumbo Wipes are formulated for delicate,sensitive skin.",
+        "baner_button": "Shop Jumbo Wipes",
+        "baner_button_link": "",
+        "image_bg": "shopify://shop_images/242A6894_3.jpg",
+        "bg_color": "#ffffff",
+        "bg_size": "cover",
+        "image_alignment_x": "center",
+        "image_alignment_y": "middle",
+        "text_position-x": "center",
+        "text_position-y": "center",
+        "text_alignment": "center",
+        "title_font_size": 60,
+        "title_font_size_mobile": 28,
+        "title_color": "#FFFFFF",
+        "subtitle_font_size": 14,
+        "subtitle_font_size_mobile": 14,
+        "text_color": "#FFFFFF",
+        "padding_desktop": 40,
+        "padding_mobile": 20,
+        "banner_text_width": "600",
+        "banner_height_desktop": "568",
+        "banner_height_mobile": "300"
+      }
+    },
+    "review_scroller_custom_CMUd3m": {
+      "type": "review-scroller-custom",
+      "blocks": {
+        "review_Aw7wkC": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+          }
+        },
+        "review_3Briaz": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_UGacVf": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_Pw4aDj": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+          }
+        },
+        "review_hWVwfN": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_GAyDCY": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/242A4817_optimized.mp4"
+          }
+        },
+        "review_tbzFjt": {
+          "type": "review",
+          "settings": {
+            "author_name": "@JohnDoe",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
+            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "review_Aw7wkC",
+        "review_3Briaz",
+        "review_UGacVf",
+        "review_Pw4aDj",
+        "review_hWVwfN",
+        "review_GAyDCY",
+        "review_tbzFjt"
+      ],
+      "settings": {
+        "title": "For parents, by parents",
+        "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
+      }
+    },
+    "footer_custom_fPQhVk": {
+      "type": "footer-custom",
+      "settings": {
+        "newsletter_title": "Product launches, community fun, VIP drops, and more",
+        "tagline": "Parenting is the Ultimate Creative Act."
+      }
     }
   },
   "order": [
     "main",
+    "c_scrub_scrolling_dke3Md",
     "174411240666086477",
-    "c_hero_img_3b7kXN"
+    "c_hero_img_3b7kXN",
+    "c_product_details_R4KkFT",
+    "c_hero_banner_hGRU9e",
+    "review_scroller_custom_CMUd3m",
+    "footer_custom_fPQhVk"
   ]
 }

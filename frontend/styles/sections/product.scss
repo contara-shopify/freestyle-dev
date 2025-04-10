@@ -1,4 +1,4 @@
-@use '../config/variables' as *;
+@use '../config/all-config' as *;
 
 .product {
     padding-top: 2.4rem;
@@ -12,7 +12,7 @@
         display: grid;
         gap: 2.4rem;
         align-items: start;
-        
+
         @screen md {
             gap: 4.8rem;
             grid-template-columns: 1fr 1fr;
@@ -48,29 +48,42 @@
         border: 0;
         border-top: 1px solid #E3E3E3;
     }
-    
 
     &__gallery {
         gap: 1rem;
-        
+
         @screen md {
             position: sticky;
             top: 8rem;
         }
-        
+
         &-main {
             width: 100%;
-            
+
             @screen md {
                 width: calc(100% - 9.5rem);
             }
 
             img {
+              background: linear-gradient(
+                to bottom,
+                #DADAFF 0%,
+                #E3E3FF 100%
+              );
                 border-radius: 3rem;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
+        }
+
+        &-thumb {
+          background: linear-gradient(
+            to bottom,
+            #DADAFF 0%,
+            #E3E3FF 100%
+          );
+          border-radius: 20px;
         }
 
         &-thumbs {
@@ -92,23 +105,24 @@
 
         &-list{
             gap: 1rem;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
 
-            @screen md {
-                flex-wrap: nowrap;
+            @include media(max-t) {
+              grid-template-columns: repeat(3, 1fr);
             }
+
+            @include media(max-m) {
+              grid-template-columns: repeat(2, 1fr);
+            }
+
+
         }
     }
 
     &__size {
         display: block;
-        width: calc(33.3% - 1rem);
         cursor: pointer;
-
-        @screen md {
-            width: 25%;
-        }
 
         input {
             display: none;
@@ -119,7 +133,7 @@
             overflow: hidden;
             text-align: center;
             border: 1px solid #E3E3E3;
-            transition: border-color 0.3s ease; 
+            transition: border-color 0.3s ease;
         }
 
         input:checked + &-content,
@@ -144,7 +158,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            transition: all 0.3s ease; 
+            transition: all 0.3s ease;
         }
 
         &-title {
@@ -161,7 +175,7 @@
             border-top: 1px solid #E3E3E3;
             padding: 1.2rem 0.6rem;
             font-weight: 500;
-            transition: all 0.3s ease; 
+            transition: all 0.3s ease;
         }
     }
 
@@ -188,6 +202,10 @@
     &__description {
         line-height: 1.4;
         font-weight: 400;
+
+        p {
+          margin-bottom: 15px;
+        }
     }
 
     &__features {

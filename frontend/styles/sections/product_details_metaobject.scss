@@ -1,0 +1,121 @@
+
+@use '../config/all-config' as *;
+
+.b-details_mtobj {
+  padding: 90px 0;
+
+  &--title {
+    padding: 0 0 40px;
+    letter-spacing: -2px;
+  }
+
+  &--box {
+    gap: 30px;
+
+    @include media(max-t) {
+      flex-direction: column;
+    }
+  }
+
+  &--column {
+    border: 1px solid #262626;
+    border-radius: 28px;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 1.2em;
+    letter-spacing: -0.5px;
+  }
+
+  &--column-title {
+    background-color: $secondary-color;
+    padding: 20px 30px;
+    border-bottom: 1px solid #262626;
+
+    strong {
+      font-weight: normal;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '❤';
+        color: red;
+        margin: 0 5px;
+        text-shadow:
+        -1px -1px 0 #6638b7,
+        1px -1px 0 #6638b7,
+        -1px  1px 0 #6638b7,
+        1px  1px 0 #6638b7,
+        0px -1px 0 #6638b7,
+        0px  1px 0 #6638b7,
+        -1px  0px 0 #6638b7,
+        1px  0px 0 #6638b7;
+      }
+
+      &::before {
+        content: '♡';
+        display: none;
+      }
+    }
+  }
+
+  &--column-list {
+    ul {
+      padding: 20px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    li {
+      padding-left: 20px;
+      position: relative;
+
+      &::before {
+        content: '✔';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 18px;
+        line-height: 24px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &--column-list2 {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr auto;
+    }
+
+    li {
+      position: relative;
+      padding: 20px 30px;
+      border-top: 1px solid #262626;
+    }
+
+    li:nth-child(odd) {
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        border-right: 1px solid #262626;
+        top: 0;
+        height: 300%;
+      }
+    }
+
+    li:nth-child(even) {
+      text-align: center;
+    }
+
+    li:nth-child(1),
+    li:nth-child(2) {
+      background-color: $secondary-color;
+      font-weight: 500;
+      border-top: none;
+    }
+  }
+}

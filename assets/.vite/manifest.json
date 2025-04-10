@@ -14,7 +14,7 @@
     ]
   },
   "frontend/entrypoints/page-pdp.scss": {
-    "file": "page-pdp-Dwdxf5Hg.css",
+    "file": "page-pdp-BWhg4kHS.css",
     "src": "frontend/entrypoints/page-pdp.scss",
     "isEntry": true
   },
@@ -96,8 +96,13 @@
     "isEntry": true
   },
   "frontend/styles/sections/product.scss": {
-    "file": "product-DAuHaM6E.css",
+    "file": "product-DJo6gwCK.css",
     "src": "frontend/styles/sections/product.scss",
+    "isEntry": true
+  },
+  "frontend/styles/sections/product_details_metaobject.scss": {
+    "file": "product_details_metaobject-BaG5hIYK.css",
+    "src": "frontend/styles/sections/product_details_metaobject.scss",
     "isEntry": true
   },
   "frontend/styles/sections/review-section.scss": {

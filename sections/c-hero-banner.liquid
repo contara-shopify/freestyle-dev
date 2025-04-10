@@ -6,13 +6,13 @@
 
     <div class="b-hero-banner__content">
         {% if section.settings.title != blank %}
-            <h1 class="b-hero-banner__title font-Gazpacho uppercase">{{ section.settings.title }}</h1>
+            <h1 class="b-hero-banner__title">{{ section.settings.title }}</h1>
         {% endif %}
         {% if section.settings.subtitle != blank %}
-            <p class="b-hero-banner__text">{{ section.settings.subtitle }}</p>
+            <p class="b-hero-banner__text font-Inter">{{ section.settings.subtitle }}</p>
         {% endif %}
         {% if section.settings.baner_button != blank %}
-            <a href="{{ section.settings.baner_button_link }}" class="b-hero-banner_btn">{{ section.settings.baner_button }}</a>
+            <a href="{{ section.settings.baner_button_link }}" class="b-hero-banner_btn font-Inter">{{ section.settings.baner_button }}</a>
         {% endif %}
     </div>
 </div>
@@ -88,28 +88,30 @@
 
     .b-hero-banner__title {
         font-size: {{ section.settings.title_font_size }}px;
+        line-height: 1.2em;
         color: {{ section.settings.title_color }};
+        margin-bottom: 20px;
     }
 
     .b-hero-banner__text {
         font-size: {{ section.settings.subtitle_font_size }}px;
         color: {{ section.settings.text_color }};
-        font-weight: 600;
+        margin-bottom: 20px;
     }
 
     .b-hero-banner_btn {
         display: inline-block;
-        padding: 12px 26px 13px;
-        background-color: #014ad3;
+        padding: 12px 26px 11px;
+        background-color: #6638B7;
         color: #fff;
-        font-size: 16px;
+        font-size: 13px;
         line-height: 20px;
         text-decoration: none;
         text-transform: uppercase;
         margin-top: 6px;
-        border-radius: 10px;
-        min-width: 145px;
-        font-weight: 800;
+        border-radius: 25px;
+        min-width: 199px;
+        font-weight: 600;
         transition: all 0.3s;
     }
 

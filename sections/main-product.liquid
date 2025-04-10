@@ -1,12 +1,12 @@
-{% render 'entry' with '@/styles/sections/product.scss' %} 
+{% render 'entry' with '@/styles/sections/product.scss' %}
 
 
 {% assign sst = section.settings %}
 {% assign blocks = section.blocks %}
 {% assign features = blocks | where: 'type', 'product_feature' %}
 {% assign accordionItems = blocks | where: 'type', 'accordion_item' %}
-
-{%  assign activeVariant = product.selected_or_first_available_variant %}
+{% assign productCurrent = product %}
+{% assign activeVariant = product.selected_or_first_available_variant %}
 
 <div class="product" x-data="product">
     <div class="container container-lg">
@@ -49,7 +49,7 @@
                                         <button class="btn">
                                             Add to Cart
                                         </button>
-                                    {% endform %}   
+                                    {% endform %}
                                 </div>
 
                                 <div x-show="!activeVariant.available">
@@ -113,17 +113,15 @@
                                 <div class="product__sizes-list mb-10">
                                     <template x-for="item in variants" x-key="item.id">
                                         <label class="product__size">
-                                            <input type="radio" :checked="item.id === activeVariant.id" name="size" :value="item.id" @change="updateActiveVariant(item.id)">
-                                            <div class="product__size-content" :data-percent-off="item.compare_at_price > item.price ? percentOff(item.price, item.compare_at_price) : null">
-                                                <div class="product__size-info" :style="{ backgroundColor: item.id === activeVariant.id ? item.accentTop : 'transparent' }">
-                                                    <div class="product__size-title" x-text="item.size"></div>
-
-                                                    <div class="product__size-label" x-show="item.type === 'wipes'" x-text="item.size > 1 ? 'packs' : item.size + 'pack'"></div>
-
-                                                    <div class="product__size-weight" x-show="item.weight" x-text="item.weight + ' lbs'"></div>
-                                                </div>
-                                                <div class="product__size-price" :style="{ backgroundColor: item.id === activeVariant.id ? item.accentBottom : 'transparent' }" x-text="price(item.price)"></div>
-                                            </div>
+                                          <input type="radio" :checked="item.id === activeVariant.id" name="size" :value="item.id" @change="updateActiveVariant(item.id)">
+                                          <div class="product__size-content" :data-percent-off="item.compare_at_price > item.price ? percentOff(item.price, item.compare_at_price) : null">
+                                              <div class="product__size-info" :style="{ backgroundColor: item.id === activeVariant.id ? item.accentTop : 'transparent' }">
+                                                  <div class="product__size-title" x-text="item.size"></div>
+                                                  <div class="product__size-label" x-show="item.type === 'wipes'" x-text="item.size > 1 ? 'packs' : item.size + 'pack'"></div>
+                                                  <div class="product__size-weight" x-show="item.weight" x-text="item.weight + ' lbs'"></div>
+                                              </div>
+                                              <div class="product__size-price" :style="{ backgroundColor: item.id === activeVariant.id ? item.accentBottom : 'transparent' }" x-text="price(item.price)"></div>
+                                          </div>
                                         </label>
                                     </template>
                                 </div>
@@ -152,7 +150,7 @@
         </div>
     </div>
 </div>
-{% render 'entry' with '@/scripts/sections/main-product.js' %} 
+{% render 'entry' with '@/scripts/sections/main-product.js' %}
 
 <script>
     document.addEventListener('alpine:init', () => {
@@ -161,29 +159,31 @@
             sellingPlan: '',
             sizesAccentColorsString: `{{ sst.sizes_accent_colors }}`,
             sizesAccentColors: [],
+            product: {{ productCurrent | json }},
             updateSellingPlan(id) {
                 this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
             },
             parseDiaperInfo(str) {
-                const diaperMatch = str.match(/Size (\d+) \(([\d\+\-]+lbs)\) - (\d+)\s*diapers/i);
-                const wipeMatch = str.match(/(\d+)\s*Pack\s*-\s*(\d+)\s*Wipes/i);
+              const diaperMatch = str.match(/Size (\d+)\s*\(([\d\+\-]+)\s*lbs\)\s*-\s*(\d+)\s*diapers/i);
+              const wipeMatch = str.match(/Size (\d+)\s*\((Packs?)\)\s*-\s*(\d+)\s*wipes/i);
 
-                if (diaperMatch) {
-                    return {
-                        type: 'diaper',
-                        size: diaperMatch[1],
-                        weight: diaperMatch[2],
-                        diapersQty: parseInt(diaperMatch[3])
-                    };
-                } else if (wipeMatch) {
-                    return {
-                        type: 'wipes',
-                        size: parseInt(wipeMatch[1]),
-                        wipesQty: parseInt(wipeMatch[2])
-                    };
-                } else {
-                    return null;
-                }
+              if (diaperMatch) {
+                return {
+                  type: 'diaper',
+                  size: parseInt(diaperMatch[1]),
+                  weight: diaperMatch[2],
+                  weightValue: parseInt(diaperMatch[2].replace('+', '')),
+                  diapersQty: parseInt(diaperMatch[3])
+                };
+              } else if (wipeMatch) {
+                return {
+                  type: 'wipes',
+                  size: parseInt(wipeMatch[1]),
+                  wipesQty: parseInt(wipeMatch[3])
+                };
+              } else {
+                return null;
+              }
             },
             variants: [
                 {% for variant in product.variants %}
@@ -193,6 +193,7 @@
                         title: `{{ variant.title }}`,
                         price: {{ variant.price }},
                         compare_at_price: {{ variant.compare_at_price | default: 0 }},
+                        weight: {{ variant.weight | default: 0 }},
                         selling_plan_allocations: [
                             {% for selling_plan_allocation in variant.selling_plan_allocations %}
                                 {
@@ -226,7 +227,7 @@
                     const [sizePart, colorPart] = line.split(' - ');
                     const size = sizePart.trim();
                     const [accentTop, accentBottom] = colorPart.split('|').map(c => `#${c.trim()}`);
-              
+
                     return {
                       size,
                       accentTop,
@@ -235,8 +236,9 @@
                   });
             },
             setupVariants() {
+              console.log('this.variants', this.variants);
                 this.variants.forEach(variant => {
-                    variant.size = +this.parseDiaperInfo(variant.title)?.size;
+                    variant.size = Number(this.parseDiaperInfo(variant.title)?.size);
                     variant.weight = this.parseDiaperInfo(variant.title)?.weight;
                     variant.diapersQty = this.parseDiaperInfo(variant.title)?.diapersQty;
                     variant.wipesQty = this.parseDiaperInfo(variant.title)?.wipesQty;
@@ -249,8 +251,8 @@
                 this.parseSizeColors(this.sizesAccentColorsString);
                 this.setupVariants();
                 this.updateActiveVariant();
-
-                console.log(this.variants);
+                console.log('product.variants', this.product.variants);
+                console.log('this.variants', this.variants);
             }
         }))
     })
@@ -378,7 +380,7 @@
         },
         {
             "type": "variants",
-            "name": "Variants", 
+            "name": "Variants",
             "settings": [
                 {
                     "type": "text",

@@ -1,0 +1,34 @@
+<section>
+  {% if product.metafields.custom.product_details %}
+    {% render 'entry' with '@/styles/sections/product_details_metaobject.scss' %}
+    {% assign details = product.metafields.custom.product_details.value %}
+    <div class="container container-lg">
+      <div class="b-details_mtobj">
+        <div class="text-5xl font-grotesk text-center b-details_mtobj--title">
+          {{ details.title }}
+        </div>
+        <div class="b-details_mtobj--box flex ">
+          <div class="b-details_mtobj--column m-first md:w-[40%]">
+            <div class="b-details_mtobj--column-title">{{ details.main_title | metafield_tag }}</div>
+            <div class="b-details_mtobj--column-list">{{ details.first_block | metafield_tag }}</div>
+          </div>
+          <div class="b-details_mtobj--column grow">
+            <div class="b-details_mtobj--column-list2">{{ details.second_block | metafield_tag }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+  {
+    "name": "Product Details Meta",
+    "tag": "section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Product Details Meta"
+      }
+    ]
+  }
+  {% endschema %}
