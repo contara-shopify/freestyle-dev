@@ -59,108 +59,166 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const section = document.querySelector('.scrub-scrolling');
-    const videoContainer = section.querySelector('.scrub-scrolling__video');
-    const video = videoContainer.querySelector('video');
-    const keyframesContainer = section.querySelector('.scrub-scrolling__keyframes');
-    const useKeyframes = keyframesContainer && keyframesContainer.children.length > 0;
-
-    const keyframes = useKeyframes ? Array.from(keyframesContainer.querySelectorAll('img')) : [];
-    let isVideoMode = !useKeyframes;
-    let lastPercentage = -1;
-    let rafId = null;
-    let sectionTop = 0;
-    let sectionHeight = 0;
-    let windowHeight = window.innerHeight;
-    let videoLoaded = false;
-
-    function updateMeasurements() {
-        const rect = section.getBoundingClientRect();
-        sectionTop = rect.top + window.scrollY;
-        sectionHeight = section.offsetHeight;
-        windowHeight = window.innerHeight;
-    }
-
-    // Preload keyframes only when idle
-    if (useKeyframes) {
-        requestIdleCallback(() => {
-            keyframes.forEach(img => {
-                const preload = new Image();
-                preload.src = img.src;
+    document.addEventListener('DOMContentLoaded', function() {
+        const section = document.querySelector('.scrub-scrolling');
+        const videoContainer = section.querySelector('.scrub-scrolling__video');
+        const video = videoContainer.querySelector('video');
+        const keyframesContainer = section.querySelector('.scrub-scrolling__keyframes');
+        const useKeyframes = keyframesContainer && keyframesContainer.children.length > 0;
+        
+        let keyframes = [];
+        let isVideoMode = !useKeyframes;
+        let targetPercentage = 0;
+        let currentPercentage = 0;
+        let animationSpeed = 0.08; // Controls how quickly the animation catches up (lower = smoother but slower)
+        let rafId = null;
+        let isInView = false;
+        let videoLoaded = false;
+        
+        // First check if we should use the video or keyframes approach
+        if (useKeyframes) {
+            // Create an ordered array of keyframe images
+            keyframes = Array.from(keyframesContainer.querySelectorAll('img')).sort((a, b) => {
+                return parseInt(a.dataset.index) - parseInt(b.dataset.index);
             });
-        });
-        video.style.display = 'none';
-    } else {
-        const isMobile = window.innerWidth <= 768;
-        const videoSrc = isMobile ? video.getAttribute("data-url-mobile") : video.getAttribute("data-url-desktop");
-
-        if (videoSrc) {
-            video.src = videoSrc;
-            video.load();
-        }
-
-        video.addEventListener('loadedmetadata', function () {
-            videoLoaded = true;
-            video.currentTime = 0;
-        });
-
-        video.style.willChange = 'transform, opacity';
-        video.style.transform = 'translateZ(0)';
-    }
-
-    function getScrollPercentage() {
-        const scrollY = window.scrollY;
-        const start = sectionTop - windowHeight;
-        const end = sectionTop + sectionHeight;
-        const percent = (scrollY - start) / (end - start);
-        return Math.max(0, Math.min(1, percent));
-    }
-
-    function update() {
-        const percent = getScrollPercentage();
-        if (percent === lastPercentage) {
-            rafId = requestAnimationFrame(update);
-            return;
-        }
-
-        lastPercentage = percent;
-
-        if (isVideoMode && videoLoaded && video.duration > 0) {
-            video.currentTime = video.duration * percent;
-        } else if (keyframes.length > 0) {
-            const frameIndex = Math.min(
-                Math.floor(percent * keyframes.length),
-                keyframes.length - 1
-            );
-
-            for (let i = 0; i < keyframes.length; i++) {
-                keyframes[i].style.display = i === frameIndex ? 'block' : 'none';
+            
+            // Hide the video element if we're using keyframes
+            video.style.opacity = 0;
+            
+            // Preload all keyframe images
+            keyframes.forEach(img => {
+                const image = new Image();
+                image.src = img.src;
+            });
+        } else {
+            // Load the video if we're using video mode
+            const videoSrc = video.dataset.src;
+            if (videoSrc) {
+                video.src = videoSrc;
+                
+                video.addEventListener('loadedmetadata', function() {
+                    videoLoaded = true;
+                    // Initialize with first frame
+                    video.currentTime = 0;
+                });
+                
+                video.addEventListener('error', function() {
+                    console.error('Error loading video. Falling back to first frame only.');
+                });
             }
         }
-
-        rafId = requestAnimationFrame(update);
-    }
-
-    function startLoop() {
-        if (!rafId) rafId = requestAnimationFrame(update);
-    }
-
-    const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-            updateMeasurements();
-            startLoop();
-        } else {
-            cancelAnimationFrame(rafId);
-            rafId = null;
+        
+        // Setup Intersection Observer to only animate when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isInView = entry.isIntersecting;
+                
+                if (isInView) {
+                    if (!rafId) {
+                        rafId = requestAnimationFrame(animate);
+                    }
+                } else {
+                    if (rafId) {
+                        cancelAnimationFrame(rafId);
+                        rafId = null;
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(section);
+        
+        // Calculate the scroll percentage
+        function updateScrollPercentage() {
+            // Get the position of the section relative to the viewport
+            const rect = section.getBoundingClientRect();
+            
+            // Calculate how far through the section we've scrolled
+            // Start when the section top enters the viewport, end when the section bottom leaves the viewport
+            const sectionHeight = section.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            const startPoint = -windowHeight; // Start when section top is at viewport bottom
+            const endPoint = sectionHeight; // End when section bottom is at viewport top
+            const currentPoint = -rect.top; // Negative because we want positive values as we scroll down
+            
+            // Calculate percentage (0 to 1)
+            let percentage = (currentPoint - startPoint) / (endPoint - startPoint);
+            
+            // Clamp the percentage between 0 and 1
+            percentage = Math.max(0, Math.min(1, percentage));
+            
+            return percentage;
         }
-    }, { threshold: 0.1 });
-
-    observer.observe(section);
-    window.addEventListener('resize', updateMeasurements);
-});
+        
+        // Smooth animation function using easing
+        function animate() {
+            if (!isInView) {
+                rafId = null;
+                return;
+            }
+            
+            // Update the target percentage based on current scroll position
+            targetPercentage = updateScrollPercentage();
+            
+            // Smooth easing animation
+            currentPercentage += (targetPercentage - currentPercentage) * animationSpeed;
+            
+            // Update the visuals based on our animation percentage
+            updateVisuals(currentPercentage);
+            
+            // Continue the animation loop
+            rafId = requestAnimationFrame(animate);
+        }
+        
+        // Update either the video time or the visible keyframe
+        function updateVisuals(percentage) {
+            if (isVideoMode) {
+                if (videoLoaded && video.duration > 0) {
+                    // Calculate target time based on percentage
+                    const targetTime = video.duration * percentage;
+                    
+                    // Only update if there's a significant difference to save performance
+                    if (Math.abs(video.currentTime - targetTime) > 0.01) {
+                        video.currentTime = targetTime;
+                    }
+                }
+            } else if (keyframes.length > 0) {
+                // Find which keyframe to show based on percentage
+                const frameIndex = Math.min(
+                    Math.floor(percentage * keyframes.length),
+                    keyframes.length - 1
+                );
+                
+                // Hide all frames and show only the current one
+                keyframes.forEach((frame, index) => {
+                    frame.style.display = index === frameIndex ? 'block' : 'none';
+                });
+            }
+        }
+        
+        // Add smooth scrolling effect to the page (optional)
+        if ({{ section.settings.enable_smooth_scroll | default: true }}) {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        }
+        
+        // Initialize by calculating initial position
+        updateScrollPercentage();
+        
+        // Start animation loop if in view
+        if (isInView) {
+            rafId = requestAnimationFrame(animate);
+        }
+        
+        // Cleanup function
+        return function cleanup() {
+            observer.disconnect();
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+            }
+        };
+    });
 </script>
-
 
 {% schema %}
 {
