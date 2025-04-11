@@ -106,6 +106,7 @@
                     keyframes.length - 1
                 );
                 keyframes.forEach((frame, index) => {
+                    // Ensure only the current frame is shown
                     frame.style.display = index === frameIndex ? 'block' : 'none';
                 });
             }
@@ -152,7 +153,9 @@
             video.style.opacity = 0;
             keyframes.forEach(img => {
                 const image = new Image();
-                image.src = img.src;
+                image.src = img.src;  // Preload images
+                image.onload = () => img.style.display = 'block';  // Only show once loaded
+                image.onerror = () => console.error('Failed to load keyframe image: ' + img.src);
             });
         } else {
             const isMobile = window.innerWidth <= 768;
@@ -185,6 +188,7 @@
         };
     });
 </script>
+
 
 
 {% schema %}
