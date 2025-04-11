@@ -162,7 +162,8 @@
             targetPercentage = updateScrollPercentage();
             
             // Smooth easing animation
-            currentPercentage += (targetPercentage - currentPercentage) * animationSpeed;
+            currentPercentage = targetPercentage;
+
             
             // Update the visuals based on our animation percentage
             updateVisuals(currentPercentage);
