@@ -1,26 +1,151 @@
-<div class="product__gallery flex flex-col md:flex-row-reverse">
-    {% if product.images %}
-        <div class="product__gallery-main">
-            <div class="swiper-wrapper">
-                {% for image in product.images %}
-                <div class="swiper-slide">
-                    {{ image | image_url: width: 960 | image_tag: width: 960, height: 960 }}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+<div class="product__gallery flex flex-col md:flex-row gap-4" 
+     x-data="productGallery({ activeVariant: $root.activeVariant })"
+    x-init="initSwipers(); $watch('$root.activeVariant', (variant) => handleVariantChange(variant?.id))">
+   {% if product.images %}
+       <div class="product__gallery-thumbs swiper !h-auto md:h-[480px] w-full md:w-24" x-ref="thumbsSwiper">
+           <div class="swiper-wrapper">
+               {% for image in product.images %}
+                   <div class="swiper-slide !h-24 !w-24" 
+                        data-index="{{ forloop.index0 }}"
+                        data-variant-ids="{{ image.variants | map: 'id' | join: ',' }}"
+                        @click="mainSwiper.slideTo({{ forloop.index0 }})">
+                       <img src="{{ image | image_url: width: 120 }}" 
+                            alt="{{ image.alt }}" 
+                            width="120" 
+                            height="120" 
+                            class="w-full h-full object-cover rounded">
+                   </div>
+               {% endfor %}
+           </div>
+       </div>
 
-    <div class="product__gallery-thumbs flex flex-col md:flex-row gap-4 items-start">
-        {% for image in product.images %}
-            <div class="product__gallery-thumb " data-index="{{ forloop.index0 }}">
-                <img src="{{ image | image_url: width: 480 }}" alt="{{ image.alt }}" width="480" height="480">
-            </div>
-        {% endfor %}
-    </div>
-
-    {% else %}
-        <div class="product__gallery-main product__gallery-main--full">
-            {{ product.featured_image | image_url: width: 960 | image_tag: width: 960, height: 960 }}
-        </div>
-    {% endif %}
+       <div class="product__gallery-main swiper flex-1" x-ref="mainSwiper">
+           <div class="swiper-wrapper">
+               {% for image in product.images %}
+                   <div class="swiper-slide" 
+                        data-variant-ids="{{ image.variants | map: 'id' | join: ',' }}">
+                       {{ image | image_url: width: 600 | image_tag: width: 600, height: 600, class: "w-full h-full object-contain" }}
+                   </div>
+               {% endfor %}
+           </div>
+       </div>
+   {% else %}
+       <div class="product__gallery-main product__gallery-main--full flex-1">
+           {{ product.featured_image | image_url: width: 600 | image_tag: width: 600, height: 600, class: "w-full h-full object-contain" }}
+       </div>
+   {% endif %}
 </div>
+
+<style>
+.product__gallery {
+   @apply w-full;
+}
+
+.product__gallery-main {
+ @apply w-full;
+ max-width: 320px;
+}
+
+@media (min-width: 1024px) {
+ .product__gallery-main {
+   max-width: 500px;
+ }
+}
+
+.product__gallery-main .swiper-slide {
+   @apply flex items-center justify-center;
+   height: 600px !important;
+}
+
+.product__gallery-main .swiper-slide img {
+   @apply max-h-full w-auto;
+}
+
+.product__gallery-thumbs .swiper-wrapper {
+   @apply flex-row md:flex-col gap-2;
+}
+
+.product__gallery-thumbs .swiper-slide {
+   @apply cursor-pointer opacity-50 transition-opacity;
+   width: 96px !important;
+   height: 96px !important;
+}
+
+.product__gallery-thumbs .swiper-slide-thumb-active {
+   @apply opacity-100 border-2 border-purple-500 rounded;
+}
+
+@media (max-width: 767px) {
+   .product__gallery {
+       @apply flex-col;
+   }
+
+   .product__gallery-main .swiper-slide {
+       height: 400px !important;
+   }
+
+   .product__gallery-thumbs {
+       @apply w-full overflow-x-auto;
+   }
+
+   .product__gallery-thumbs .swiper-wrapper {
+       @apply flex-row gap-2;
+   }
+}
+</style>
+
+<script>
+document.addEventListener('alpine:init', () => {
+   Alpine.data('productGallery', () => ({
+       mainSwiper: null,
+       thumbsSwiper: null,
+
+   vhandleVariantChange(variantId) {
+    if (!this.mainSwiper || !variantId) return;
+
+    console.log('Handling variant change:', variantId);
+
+    const slides = this.mainSwiper.slides;
+    const variantIdStr = variantId.toString();
+
+    for (let i = 0; i < slides.length; i++) {
+        const raw = slides[i].dataset.variantIds || "";
+        const variantIds = raw.split(',').map(id => id.trim());
+
+        console.log('Checking slide', i, 'with variants:', variantIds);
+
+        if (variantIds.includes(variantIdStr)) {
+            console.log('Found matching slide:', i);
+            this.mainSwiper.slideTo(i);
+            break;
+        }
+    }
+},
+
+       initSwipers() {
+           this.thumbsSwiper = new Swiper(this.$refs.thumbsSwiper, {
+               spaceBetween: 8,
+               slidesPerView: 'auto',
+               direction: 'horizontal',
+               watchSlidesProgress: true,
+               breakpoints: {
+                   768: {
+                       direction: 'vertical',
+                       slidesPerView: 'auto'
+                   }
+               }
+           });
+
+           this.mainSwiper = new Swiper(this.$refs.mainSwiper, {
+               spaceBetween: 10,
+               thumbs: {
+                   swiper: this.thumbsSwiper
+               },
+               allowTouchMove: true
+           });
+
+           this.$root.updateMainSwiper?.(this.mainSwiper);
+       }
+   }));
+});
+</script>

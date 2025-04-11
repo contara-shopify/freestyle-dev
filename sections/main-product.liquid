@@ -11,7 +11,7 @@
 
 <div class="product" x-data="product">
     <div class="container container-lg">
-        <div class="product__inner">
+      <div class="product__inner">
             {% render 'product-gallery', product: product %}
 
             <div class="product__content flex flex-col gap-8 md:pb-16">
@@ -191,6 +191,7 @@
         Alpine.data('product', () => ({
             activeVariant: null,
             sellingPlan: '',
+            mainSwiper: null,
             productType: `{{ product.type }}`,
             sizesAccentColorsString: `{{ sst.sizes_accent_colors }}`,
             sizesAccentColors: [],
@@ -262,11 +263,16 @@
                     },
                 {% endfor %}
             ],
+            updateMainSwiper(swiper) {
+                this.mainSwiper = swiper;
+            },
             updateActiveVariant(id) {
                 if (id) {
                     this.activeVariant = this.variants.find(item => item.id == id);
+                    console.log('Updated active variant:', this.activeVariant);
                 } else {
                     this.activeVariant = this.variants[0];
+                    console.log('Set default variant:', this.activeVariant);
                 }
             },
             addToCart(variantID, redirect = false) {
@@ -336,6 +342,14 @@
         }))
     })
 </script>
+<style>
+ 
+
+  @media (max-width: 720px) {
+    .product__inner {
+    }
+  }
+</style>
 
 {% schema %}
 {
