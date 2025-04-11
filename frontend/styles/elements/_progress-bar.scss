@@ -44,6 +44,7 @@
     border-radius: 7px;
     overflow: hidden;
     background-color: rgba(18, 18, 18, 0.1);
+    display: none;
 
     &::after {
       position: absolute;

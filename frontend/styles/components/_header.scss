@@ -43,6 +43,24 @@
     }
   }
 
+
+  .menu-item {
+    &.m-active {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        right: -7px;
+        top: -5px;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background-color: #6638B7;
+      }
+    }
+  }
+
   &__mobile-menu {
     @apply lg:hidden fixed inset-0 z-50;
     transform: translateX(-100%);

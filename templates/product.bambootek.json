@@ -37,7 +37,7 @@
           "type": "cta",
           "settings": {
             "cta_type": "add_to_cart",
-            "cta_label": "Add  to Cart",
+            "cta_label": "Buy now",
             "cta_url": "#"
           }
         },
@@ -173,7 +173,7 @@
         "heading": "Shop Bamboo     Tek™ <br>\non shelves nationwide",
         "heading_color": "#ffffff",
         "heading_icon": "shopify://shop_images/BambooTek.png",
-        "heading_weight": "medium",
+        "heading_weight": "normal",
         "heading_icon_size": 94,
         "description": "",
         "description_color": "#ffffff",
@@ -202,10 +202,10 @@
         "text_alignment": "center",
         "title_font_size": 60,
         "title_font_size_mobile": 30,
-        "title_color": "#FFFFFF",
+        "title_color": "#ffffff",
         "subtitle_font_size": 14,
         "subtitle_font_size_mobile": 14,
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "padding_desktop": 40,
         "padding_mobile": 20,
         "banner_text_width": "550",

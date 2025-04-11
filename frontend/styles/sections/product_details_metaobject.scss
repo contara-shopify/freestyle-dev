@@ -4,6 +4,10 @@
 .b-details_mtobj {
   padding: 90px 0;
 
+  @include media(max-t) {
+    padding: 40px 0;
+  }
+
   &--title {
     padding: 0 0 40px;
     letter-spacing: -2px;
@@ -28,33 +32,13 @@
 
   &--column-title {
     background-color: $secondary-color;
-    padding: 20px 30px;
+    padding: 19px 30px 20px;
     border-bottom: 1px solid #262626;
+    display: flex;
+    gap: 5px;
 
-    strong {
-      font-weight: normal;
-      position: relative;
-      display: inline-block;
+    img {
 
-      &::after {
-        content: '❤';
-        color: red;
-        margin: 0 5px;
-        text-shadow:
-        -1px -1px 0 #6638b7,
-        1px -1px 0 #6638b7,
-        -1px  1px 0 #6638b7,
-        1px  1px 0 #6638b7,
-        0px -1px 0 #6638b7,
-        0px  1px 0 #6638b7,
-        -1px  0px 0 #6638b7,
-        1px  0px 0 #6638b7;
-      }
-
-      &::before {
-        content: '♡';
-        display: none;
-      }
     }
   }
 
