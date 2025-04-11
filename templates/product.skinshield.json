@@ -241,7 +241,7 @@
         "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
         "heading_color": "#ffffff",
         "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
-        "heading_weight": "medium",
+        "heading_weight": "normal",
         "heading_icon_size": 94,
         "description": "",
         "description_color": "#ffffff",
@@ -276,15 +276,15 @@
         "text_alignment": "center",
         "title_font_size": 60,
         "title_font_size_mobile": 28,
-        "title_color": "#FFFFFF",
+        "title_color": "#ffffff",
         "subtitle_font_size": 14,
         "subtitle_font_size_mobile": 14,
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "padding_desktop": 40,
         "padding_mobile": 20,
         "banner_text_width": "600",
-        "banner_height_desktop": "568",
-        "banner_height_mobile": "300"
+        "banner_height_desktop": "831",
+        "banner_height_mobile": "500"
       }
     },
     "review_scroller_custom_CMUd3m": {

@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "c_hero_img_9HYJYd": {
       "type": "c-hero-img",
@@ -16,7 +16,7 @@
         "image": "shopify://shop_images/new_hero_banner.jpg",
         "heading": "Safer. Softer. Better Protection.",
         "heading_color": "#ffffff",
-        "heading_weight": "medium",
+        "heading_weight": "normal",
         "heading_icon_size": 36,
         "description": "Meet Skin Shield™– the future of diapers",
         "description_color": "#ffffff",
