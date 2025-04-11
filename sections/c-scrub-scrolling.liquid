@@ -69,111 +69,204 @@
         
         let keyframes = [];
         let isVideoMode = !useKeyframes;
-        let targetPercentage = 0;
-        let currentPercentage = 0;
-        let animationSpeed = 0.03; 
-        let rafId = null;
         let isInView = false;
         let videoLoaded = false;
-        let lastUpdateTime = 0;
+        let ticking = false;
+        let lastTime = performance.now();
+        let currentProgress = 0;
+        let targetProgress = 0;
+        const SMOOTH_FACTOR = 0.12;
+        const FRAME_BUFFER_SIZE = 4;
+        let lastFrameTimes = [];
+        let lastScrollPosition = 0;
+        let scrollVelocity = 0;
+        const MAX_SCROLL_VELOCITY = 50;
+
+        function preloadResources() {
+            if (useKeyframes) {
+                keyframes = Array.from(keyframesContainer.querySelectorAll('img')).sort((a, b) => {
+                    return parseInt(a.dataset.index) - parseInt(b.dataset.index);
+                });
+                video.style.opacity = 0;
+                
+                keyframes.forEach(img => {
+                    const preloadImg = new Image();
+                    preloadImg.src = img.src;
+                    img.style.display = 'none';
+                });
+            } else {
+                const isMobile = window.innerWidth <= 768;
+                const videoSrc = isMobile ? video.getAttribute("data-url-mobile") : video.getAttribute("data-url-desktop");
         
-        if (useKeyframes) {
-            keyframes = Array.from(keyframesContainer.querySelectorAll('img')).sort((a, b) => {
-                return parseInt(a.dataset.index) - parseInt(b.dataset.index);
-            });
-            video.style.opacity = 0;
-            keyframes.forEach(img => { new Image().src = img.src; });
-        } else {
-            const isMobile = window.innerWidth <= 768;
-            const videoSrc = isMobile ? video.getAttribute("data-url-mobile") : video.getAttribute("data-url-desktop");
-    
-            if (videoSrc) {
-                video.src = videoSrc;
-                video.load();
+                if (videoSrc) {
+                    video.src = videoSrc;
+                    video.preload = 'auto';
+                    video.style.opacity = 1;
+                    video.style.display = 'block';
+                    video.style.willChange = 'currentTime';
+                    video.load();
+
+                    video.addEventListener('loadedmetadata', function() {
+                        videoLoaded = true;
+                        video.currentTime = 0;
+                        if (video.duration) {
+                            setTimeout(() => {
+                                video.currentTime = video.duration * 0.5;
+                                setTimeout(() => video.currentTime = 0, 100);
+                            }, 100);
+                        }
+                    });
+
+                    video.addEventListener('error', function(e) {
+                        console.error('Error loading video:', e);
+                    });
+                }
+            }
+        }
+
+        function easeInOutQuad(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        }
+
+        function getScrollProgress() {
+            const rect = section.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const elementHeight = rect.height;
+            
+            // Calculate the point where the animation starts (45% inside the view)
+            const startOffset = viewportHeight * 0.45;
+            
+            // Calculate the point where the animation ends (10% before exiting the view)
+            const endOffset = viewportHeight * 0.60;
+            
+            const adjustedTop = rect.top + startOffset;
+            const adjustedBottom = rect.bottom - endOffset;
+            
+            const scrollRange = viewportHeight + elementHeight - startOffset - endOffset;
+            
+            const rawProgress = (viewportHeight - adjustedTop) / scrollRange;
+            const progress = Math.min(Math.max(rawProgress, 0), 1);
+            
+            return easeInOutQuad(progress);
+        }
+
+        function updateScrollVelocity() {
+            const currentScroll = window.pageYOffset;
+            scrollVelocity = Math.min(
+                Math.abs(currentScroll - lastScrollPosition),
+                MAX_SCROLL_VELOCITY
+            );
+            lastScrollPosition = currentScroll;
+            return scrollVelocity;
+        }
+
+        function getDynamicSmoothFactor() {
+            const velocity = updateScrollVelocity() / MAX_SCROLL_VELOCITY;
+            return SMOOTH_FACTOR * (1 + velocity * 0.5);
+        }
+
+        function smoothValue(newValue) {
+            lastFrameTimes.push(newValue);
+            if (lastFrameTimes.length > FRAME_BUFFER_SIZE) {
+                lastFrameTimes.shift();
             }
             
-            video.addEventListener('loadedmetadata', function() {
-                videoLoaded = true;
-                video.currentTime = 0;
+            let weightedSum = 0;
+            let weightSum = 0;
+            lastFrameTimes.forEach((value, index) => {
+                const weight = (index + 1) / lastFrameTimes.length;
+                weightedSum += value * weight;
+                weightSum += weight;
             });
+            
+            return weightedSum / weightSum;
         }
-        
-        video.style.willChange = 'transform, opacity';
-        video.style.backfaceVisibility = 'hidden';
-        video.style.transform = 'translate3d(0, 0, 0)';
-        
+
+        function updateVideo() {
+            if (!videoLoaded || !isInView || !video.duration) return;
+
+            const now = performance.now();
+            const deltaTime = Math.min((now - lastTime) / 1000, 0.016);
+            lastTime = now;
+
+            targetProgress = getScrollProgress();
+            const smoothFactor = getDynamicSmoothFactor();
+            currentProgress += (targetProgress - currentProgress) * smoothFactor;
+
+            const rawTime = video.duration * currentProgress;
+            const smoothTime = smoothValue(rawTime);
+
+            const threshold = 0.008 + (scrollVelocity / MAX_SCROLL_VELOCITY) * 0.004;
+            if (Math.abs(video.currentTime - smoothTime) > threshold) {
+                video.currentTime = smoothTime;
+            }
+
+            if (Math.abs(currentProgress - targetProgress) > 0.0001) {
+                requestUpdate();
+            }
+        }
+
+        function requestUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    if (isVideoMode && videoLoaded) {
+                        updateVideo();
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        let scrollTimeout;
+        let lastScrollTime = 0;
+        const SCROLL_THROTTLE = 1000 / 40;
+
+        window.addEventListener('scroll', function() {
+            if (!isInView) return;
+
+            const now = performance.now();
+            if (now - lastScrollTime < SCROLL_THROTTLE) return;
+            lastScrollTime = now;
+            
+            requestUpdate();
+
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                scrollVelocity = 0;
+                lastFrameTimes = [];
+                targetProgress = getScrollProgress();
+                currentProgress = targetProgress;
+                requestUpdate();
+            }, 100);
+        }, { passive: true });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 isInView = entry.isIntersecting;
-                if (isInView && !rafId) {
-                    rafId = requestAnimationFrame(animate);
-                } else if (!isInView && rafId) {
-                    cancelAnimationFrame(rafId);
-                    rafId = null;
+                if (isInView && isVideoMode && videoLoaded) {
+                    lastTime = performance.now();
+                    lastScrollPosition = window.pageYOffset;
+                    scrollVelocity = 0;
+                    targetProgress = getScrollProgress();
+                    currentProgress = targetProgress;
+                    lastFrameTimes = [];
+                    requestUpdate();
                 }
             });
-        }, { threshold: 0.1 });
+        }, { 
+            threshold: [0, 0.25, 0.5, 0.75, 1],
+            rootMargin: '50px 0px'
+        });
         
         observer.observe(section);
-        
-        function updateScrollPercentage() {
-            const rect = section.getBoundingClientRect();
-            const sectionHeight = section.offsetHeight;
-            const windowHeight = window.innerHeight;
-            const startPoint = -windowHeight;
-            const endPoint = sectionHeight;
-            const currentPoint = -rect.top;
-            let percentage = (currentPoint - startPoint) / (endPoint - startPoint);
-            return Math.max(0, Math.min(1, percentage));
-        }
-        
-        function animate(timestamp) {
-            if (!isInView) {
-                rafId = null;
-                return;
-            }
-    
-            if (timestamp - lastUpdateTime > 16) { // 16 мс = 60 FPS
-                targetPercentage = updateScrollPercentage();
-                currentPercentage += (targetPercentage - currentPercentage) * animationSpeed;
-                updateVisuals(currentPercentage);
-                lastUpdateTime = timestamp;
-            }
-    
-            rafId = requestAnimationFrame(animate);
-        }
-        
-        function updateVisuals(percentage) {
-            if (isVideoMode) {
-                if (videoLoaded && video.duration > 0) {
-                    const targetTime = video.duration * percentage;
-                    video.currentTime += (targetTime - video.currentTime) * 0.1;
-                }
-            } else if (keyframes.length > 0) {
-                const frameIndex = Math.min(
-                    Math.floor(percentage * keyframes.length),
-                    keyframes.length - 1
-                );
-                keyframes.forEach((frame, index) => {
-                    frame.style.display = index === frameIndex ? 'block' : 'none';
-                });
-            }
-        }
-        
-        if ({{ section.settings.enable_smooth_scroll | default: true }}) {
-            document.documentElement.style.scrollBehavior = 'smooth';
-        }
-        
-        updateScrollPercentage();
-        if (isInView) {
-            rafId = requestAnimationFrame(animate);
-        }
-        
+        preloadResources();
+
         return function cleanup() {
             observer.disconnect();
-            if (rafId) {
-                cancelAnimationFrame(rafId);
-            }
+            window.removeEventListener('scroll', requestUpdate);
+            clearTimeout(scrollTimeout);
+            lastFrameTimes = [];
         };
     });
     
