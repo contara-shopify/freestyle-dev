@@ -384,7 +384,7 @@
         "label": "Button Text",
         "default": "SHOP DIAPERS"
       },
-  
+
       {
         "type": "text",
         "id": "mobile_menu_shipping_text",

@@ -7,37 +7,41 @@
 <div class="relative b-header__wrapper py-8 px-10 bg-white">
   <div class="b-header__inner mx-auto flex justify-between items-center">
     <div class="flex items-center">
-
-      <div class="flex items-center">
-        <a href="{{ routes.root_url }}" class="inline-flex items-center no-underline">
-          {%- if settings.header_logo != blank -%}
-            <img
-              src="{{ settings.header_logo | img_url: '200x' }}"
-              class="h-[2.7rem] w-auto max-w-[150px] object-contain"
-              alt="{{ shop.name }}"
-              loading="lazy"
-            >
-          {%- else -%}
-            <span class="text-xl mt-2 md:mt-0 md:text-2xl font-bold text-[#6638B7]">{{ shop.name }}</span>
-          {%- endif -%}
-        </a>
-      </div>
+      <a href="{{ routes.root_url }}" class="inline-flex items-center no-underline">
+        {%- if settings.header_logo != blank -%}
+          <img
+            src="{{ settings.header_logo | img_url: '200x' }}"
+            class="h-[2.7rem] w-auto max-w-[150px] object-contain"
+            alt="{{ shop.name }}"
+            loading="lazy"
+          >
+        {%- else -%}
+          <span class="text-xl mt-2 md:mt-0 md:text-2xl font-bold text-[#6638B7]">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
     </div>
 
-    <nav class="hidden lg:block {% if hide_elements %}!hidden{% endif %}">
+    <nav class="hidden lg:block ">
       <ul class="flex space-x-8 uppercase text-sm">
         {% for i in (1..3) %}
           {% assign image_setting = 'menu_image_' | append: i %}
           {% assign link_setting = 'menu_link_' | append: i %}
+          {% assign current_link = settings[link_setting] | remove: shop.url | prepend: '/' %}
+          {% assign current_path = request.path %}
+          {% assign is_active = current_path == current_link %}
+          {% comment %} <pre>Path: {{ request.path }}</pre> {% endcomment %}
           {% if settings[image_setting] != blank %}
-            <li class="menu-item">
-              <a href="{{ settings[link_setting] }}" class="text-black hover:text-gray-600">
+            <li class="menu-item flex items-center ">
+              <a
+                href="{{ settings[link_setting] }}"
+                class="text-black hover:text-gray-600"
+              >
                 <img
-                  src="{{ settings[image_setting] | img_url: '' }}"
+                  src="{{ settings[image_setting] | image_url }}"
                   alt="{{ settings[image_setting].alt | escape }}"
-                  class="h-10 w-auto"
+                  class="w-auto"
                   loading="lazy"
-                  style="object-fit: scale-down"
+                  style=""
                 >
               </a>
             </li>
@@ -56,10 +60,27 @@
       <a href="/apps/retextion/login" class="text-black hover:text-gray-600 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" role="presentation" style="width: 2.4rem; height: 2.4rem;"><path fill="#6638b7" fill-rule="evenodd" d="M10 8.75a2.917 2.917 0 1 0 0-5.833 2.917 2.917 0 0 0 0 5.833ZM10 10a4.167 4.167 0 1 0 0-8.333A4.167 4.167 0 0 0 10 10ZM7.5 13.125a3.542 3.542 0 0 0-3.542 3.542v.833a.625.625 0 1 1-1.25 0v-.833A4.792 4.792 0 0 1 7.5 11.875h5a4.792 4.792 0 0 1 4.792 4.792v.833a.625.625 0 1 1-1.25 0v-.833a3.542 3.542 0 0 0-3.542-3.542h-5Z" clip-rule="evenodd"></path></svg>
       </a>
-      <a href="{{ routes.cart_url }}" class="text-black text-sm hover:text-gray-600 flex items-center !hidden gap-2">
-        <span class="flex items-center text-baseLarge font-normal mr-[5px]" style="margin-right: 10px;">Cart</span>
-        <img src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/bag-logo.svg?v=1743207997" class="h-8 w-8" alt="Bag Icon">
-      </a>
+      <div class="b-header_cart" x-data>
+        <span
+          id="i-mini-cart"
+          @click.stop="$store.cart.toggleCart()"
+          class="b-header_cart-toggle text-color_1 relative cursor-pointer flex hover:scale-110">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            id="cart"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.00436 6.41686L0.761719 3.17422L2.17593 1.76001L5.41857 5.00265H20.6603C21.2126 5.00265 21.6603 5.45037 21.6603 6.00265C21.6603 6.09997 21.6461 6.19678 21.6182 6.29L19.2182 14.29C19.0913 14.713 18.7019 15.0027 18.2603 15.0027H6.00436V17.0027H17.0044V19.0027H5.00436C4.45207 19.0027 4.00436 18.5549 4.00436 18.0027V6.41686ZM5.50436 23.0027C4.67593 23.0027 4.00436 22.3311 4.00436 21.5027C4.00436 20.6742 4.67593 20.0027 5.50436 20.0027C6.33279 20.0027 7.00436 20.6742 7.00436 21.5027C7.00436 22.3311 6.33279 23.0027 5.50436 23.0027ZM17.5044 23.0027C16.6759 23.0027 16.0044 22.3311 16.0044 21.5027C16.0044 20.6742 16.6759 20.0027 17.5044 20.0027C18.3328 20.0027 19.0044 20.6742 19.0044 21.5027C19.0044 22.3311 18.3328 23.0027 17.5044 23.0027Z" fill="currentColor"/>
+          </svg>
+
+          <span
+            class="b-header__cart-count"
+            x-text="$store.cart.itemsCount"
+            x-show="$store.cart.itemsCount > 0"></span>
+        </span>
+      </div>
     </div>
   </div>
 

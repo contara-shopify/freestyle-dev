@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "current": {
     "header_logo": "shopify://shop_images/Vector_2.svg",
     "header_bg": "#b9e1ed",
@@ -29,18 +29,13 @@
     "social_youtube_icon": "shopify://shop_images/Frame_3.svg",
     "footer_menu_3": "",
     "copyright_text": "© 2024 All In Food",
-    "cart_products": [
-      "madagascar-vanilla-honey-almond",
-      "chocolate-chip",
-      "peruvian-dark-chocolate-peanut-butter",
-      "smores"
-    ],
-    "menu_image_1": "shopify://shop_images/skin2.png",
-    "menu_link_1": "shopify://collections/all",
-    "menu_image_2": "shopify://shop_images/bamboo2.png",
+    "cart_products": [],
+    "menu_image_1": "shopify://shop_images/Group_26612.jpg",
+    "menu_link_1": "/products_preview?preview_key=328774c5d33197b6d9963817b86d48d1",
+    "menu_image_2": "shopify://shop_images/Group_26572.jpg",
     "menu_link_2": "shopify://products/diaper",
-    "menu_image_3": "shopify://shop_images/jumbo2.png",
-    "menu_link_3": "shopify://products/the-freestyle-gift-card-for-loved-ones",
+    "menu_image_3": "shopify://shop_images/Jumbo_Wipes.jpg",
+    "menu_link_3": "shopify://products/freestyle-bamboo-wipes-72ct",
     "color_schemes": {
       "scheme-1": {
         "settings": {

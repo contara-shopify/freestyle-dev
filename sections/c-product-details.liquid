@@ -4,12 +4,16 @@
     {% assign details = product.metafields.custom.product_details.value %}
     <div class="container container-lg">
       <div class="b-details_mtobj">
-        <div class="text-5xl font-grotesk text-center b-details_mtobj--title">
+        <div class="text-3xl md:text-5xl font-grotesk text-center b-details_mtobj--title">
           {{ details.title }}
         </div>
         <div class="b-details_mtobj--box flex ">
           <div class="b-details_mtobj--column m-first md:w-[40%]">
-            <div class="b-details_mtobj--column-title">{{ details.main_title | metafield_tag }}</div>
+            <div class="b-details_mtobj--column-title">
+              {{ details.first_part_title_left_column }}
+              <img src="{{ details.picture_title_left_column.value | image_url }}" alt="{{ product.title }}" />
+              {{ details.second_part_title_left_column }}
+            </div>
             <div class="b-details_mtobj--column-list">{{ details.first_block | metafield_tag }}</div>
           </div>
           <div class="b-details_mtobj--column grow">

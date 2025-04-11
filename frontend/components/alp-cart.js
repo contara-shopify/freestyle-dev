@@ -40,7 +40,9 @@ document.addEventListener('alpine:init', () => {
         quantity = 1,
         properties = {},
         sellingPlanId = null
-      }, showCart = true) {
+      },
+      showCart = true,
+      redirectToCheckout = false) {
       if (!variantId) {
         console.error('Variant ID is required to add a product to the cart.');
         return;
@@ -67,6 +69,9 @@ document.addEventListener('alpine:init', () => {
         this.loadCart();
         if (showCart) {
           this.toggleCart();
+        }
+        if (redirectToCheckout) {
+          window.location.href = '/checkout';
         }
       })
       // .then(response => {

@@ -80,7 +80,7 @@ export default {
           DEFAULT: '#0066FF',
         },
         color_1: {
-          DEFAULT: '#1b4c62',
+          DEFAULT: '#6638b7',
           secondary: '#61A2C7',
           tertiary: '#C1E0EB',
         },
