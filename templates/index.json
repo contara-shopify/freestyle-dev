@@ -244,8 +244,8 @@
             "author_url": "",
             "is_verified": false,
             "author_handle": "",
-            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
+            "review_text": "\"I am literally so excited about these. They are so nice. If you are looking for a new TCF diaper and you want something more affordable...definitely check out Freestyle from Walmart.\"",
+            "review_video": "shopify://files/videos/Video.mov"
           }
         },
         "review_3Briaz": {
@@ -302,17 +302,6 @@
             "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
             "review_video": "shopify://files/videos/242A4817_optimized.mp4"
           }
-        },
-        "review_tbzFjt": {
-          "type": "review",
-          "settings": {
-            "author_name": "@JohnDoe",
-            "author_url": "",
-            "is_verified": false,
-            "author_handle": "",
-            "review_text": "Not only does baby Miro look cool as hell, nothing escapes this well-designed, natural, v absorbent diaper.",
-            "review_video": "shopify://files/videos/Freestyle-Diaper-Animation-V1.mp4"
-          }
         }
       },
       "block_order": [
@@ -321,13 +310,11 @@
         "review_UGacVf",
         "review_Pw4aDj",
         "review_hWVwfN",
-        "review_GAyDCY",
-        "review_tbzFjt"
+        "review_GAyDCY"
       ],
-      "disabled": true,
       "settings": {
         "title": "For parents, by parents",
-        "subtitle": "Don’t just trust us. Hear from our community <br> why they love and trust Freestyle."
+        "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
       }
     },
     "footer_custom_fPQhVk": {
