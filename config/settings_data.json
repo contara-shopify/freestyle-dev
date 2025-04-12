@@ -127,6 +127,8 @@
     }
   },
   "platform_customizations": {
-    "custom_css": []
+    "custom_css": [
+      ".menu-item {display: none;}"
+    ]
   }
 }
