@@ -386,8 +386,15 @@
               if (targetSlide) {
                   const index = parseInt(targetSlide.dataset.index);
                   this.slideToSlide(event, index);
+              } else if (slides.length > 0) {
+                const activeSlide = Array.from(slides).find(slide => slide.classList.contains('m-active'));
+                if (activeSlide) {
+                      this.slideToSlide(event, 0);
+                  } else {
+                      // this.slideToSlide(event, 0);
+                  }
               } else {
-                this.slideToSlide(event, 0);
+                console.log("No slides found");
               }
             },
 
