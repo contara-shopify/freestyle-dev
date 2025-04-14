@@ -9,11 +9,10 @@
 {% assign activeVariant = product.selected_or_first_available_variant %}
 {% assign product_badge = product.metafields.custom.badge_product %}
 
-<div class="product" x-data="product">
+<div class="product" x-data="product" x-init="init">
     <div class="container container-lg">
       <div class="product__inner">
             {% render 'product-gallery', product: product %}
-
             <div class="product__content flex flex-col gap-8 md:pb-16">
                 {% for block in blocks %}
                     {% case block.type %}
@@ -189,9 +188,13 @@
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('product', () => ({
+            loading: true,
             activeVariant: null,
             sellingPlan: '',
             mainSwiper: null,
+            mainSwiperPagination: null,
+            paginationSlides: null,
+           activeSlideNum: 0,
             productType: `{{ product.type }}`,
             sizesAccentColorsString: `{{ sst.sizes_accent_colors }}`,
             sizesAccentColors: [],
@@ -263,16 +266,15 @@
                     },
                 {% endfor %}
             ],
-            updateMainSwiper(swiper) {
-                this.mainSwiper = swiper;
-            },
             updateActiveVariant(id) {
                 if (id) {
                     this.activeVariant = this.variants.find(item => item.id == id);
                     console.log('Updated active variant:', this.activeVariant);
+                    this.slideToSlideByDataAttribute(this.activeVariant.id);
                 } else {
                     this.activeVariant = this.variants[0];
                     console.log('Set default variant:', this.activeVariant);
+                    // this.slideToSlideByDataAttribute(this.activeVariant.id);
                 }
             },
             addToCart(variantID, redirect = false) {
@@ -331,10 +333,72 @@
                 });
               }
             },
+            updateMainSwiper(swiper) {
+                this.mainSwiper = swiper;
+            },
+            initSwiperMain() {
+                const swiper = this.$refs.mainSwiper;
+                const swiperMain = new Swiper(swiper, {
+                    loop: true,
+                    slidesPerView: 1,
+                    // pagination: {
+                    //   clickable: true,
+                    //   el: this.$refs.mainSwiperPagination,
+                    // },
+                });
+                this.$nextTick(() => {
+                  this.updateMainSwiper(swiperMain);
+                  this.loading = false;
+                });
+            },
+            initSwiperPagination() {
+              const swiper = this.$refs.mainSwiperPagination;
+              const swiperPagination = new Swiper(swiper, {
+                  // loop: true,
+                  direction: "vertical",
+                  slidesPerView: 6,
+                  spaceBetween: 10,
+                  draggable: true,
+                  mousewheel: true,
+              });
+              this.$nextTick(() => {
+                this.mainSwiperPagination = swiperPagination;
+              });
+            },
+            slideToSlide(event, index) {
+              this.mainSwiper.slideTo(index);
+              this.mainSwiperPagination.slideTo(index);
+              this.activeSlideNum = index;
+              const variantId = event.target.closest('.swiper-slide').getAttribute('data-variant-id');
+              if (variantId !== null && variantId !== undefined && variantId !== '') {
+                console.log('slideToSlideVARIANT', variantId);
+                this.activeVariant = this.variants.find(item => item.id == variantId);
+              } else {
+                console.log("Dont SlideToSlideVARIANT");
+              }
+            },
+            slideToSlideByDataAttribute(dataAttrValue) {
+              const slides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide.m-variant');
+              const targetSlide = Array.from(slides).find(slide => {
+                const variantId = slide.getAttribute('data-variant-id');
+                return String(variantId) === String(dataAttrValue);
+              });
+              if (targetSlide) {
+                  const index = parseInt(targetSlide.dataset.index);
+                  this.slideToSlide(event, index);
+              } else {
+                this.slideToSlide(event, 0);
+              }
+            },
+
             init() {
+                this.paginationSlides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide');
                 this.parseSizeColors(this.sizesAccentColorsString);
                 this.setupVariants();
+                this.loading = true;
                 this.updateActiveVariant();
+                this.initSwiperMain();
+                this.initSwiperPagination();
                 console.log('product.variants', this.product.variants);
                 console.log('this.variants', this.variants);
                 console.log('this.templateName', this.templateName);
@@ -343,12 +407,7 @@
     })
 </script>
 <style>
- 
 
-  @media (max-width: 720px) {
-    .product__inner {
-    }
-  }
 </style>
 
 {% schema %}
