@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "c_hero_img_9HYJYd": {
       "type": "c-hero-img",
@@ -139,8 +139,8 @@
         "video_bMmbGT": {
           "type": "video",
           "settings": {
-            "video_url": "https://cdn.shopify.com/videos/c/o/v/afdf35a926314859b00bac52ddbad4f2.mp4",
-            "video_url_mobile": "https://cdn.shopify.com/videos/c/o/v/afdf35a926314859b00bac52ddbad4f2.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/56fcd9228e86486fa5bc57ce31cea6a1.mp4",
+            "video_url_mobile": "https://cdn.shopify.com/videos/c/o/v/6b6110bc3fd542df90f46b5abd32c1e3.mp4",
             "use_keyframes": false,
             "keyframe_prefix": "/assets/keyframe-",
             "keyframe_count": 60
