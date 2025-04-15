@@ -1,62 +1,62 @@
 {% render 'entry' with '@/styles/sections/scrub-scrolling.scss' %}
 
 <div class="scrub-scrolling">
-    {% for block in section.blocks %}
-        {% case block.type %}
-            {% when 'video' %}
-                <div class="scrub-scrolling__video">
-                    <video 
-                        muted 
-                        loop 
-                        playsinline
-                        preload="true"
-                        poster="{{ block.settings.poster_image | img_url: 'master' }}"
-                        data-url-desktop="{{ block.settings.video_url }}"
-                        data-url-mobile="{{ block.settings.video_url_mobile }}"
-                    ></video>
-                    <!-- Preloaded keyframes as images for smoother transitions -->
-                    <div class="scrub-scrolling__keyframes" style="display: none;">
-                        {% if block.settings.use_keyframes %}
-                            {% for i in (1..block.settings.keyframe_count) %}
-                                <img 
-                                    src="{{ block.settings.keyframe_prefix }}{{ i }}.jpg" 
-                                    data-index="{{ i }}" 
-                                    data-total="{{ block.settings.keyframe_count }}"
-                                    alt="Video keyframe {{ i }}"
-                                />
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                </div>
-            {% when 'text' %}
-                <style>
-                    #scrub-scrolling__text-{{ block.id }} {
-                        padding: {{ block.settings.padding }}px;
-                        color: {{ block.settings.text_color }};
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'video' %}
+        <div class="scrub-scrolling__video">
+          <video
+              muted
+              loop
+              playsinline
+              preload="true"
+              poster="{{ block.settings.poster_image | img_url: 'master' }}"
+              data-url-desktop="{{ block.settings.video_url }}"
+              data-url-mobile="{{ block.settings.video_url_mobile }}"
+          ></video>
+          <!-- Preloaded keyframes as images for smoother transitions -->
+          <div class="scrub-scrolling__keyframes" style="display: none;">
+              {% if block.settings.use_keyframes %}
+                  {% for i in (1..block.settings.keyframe_count) %}
+                      <img
+                          src="{{ block.settings.keyframe_prefix }}{{ i }}.jpg"
+                          data-index="{{ i }}"
+                          data-total="{{ block.settings.keyframe_count }}"
+                          alt="Video keyframe {{ i }}"
+                      />
+                  {% endfor %}
+              {% endif %}
+          </div>
+        </div>
+      {% when 'text' %}
+      <style>
+          #scrub-scrolling__text-{{ block.id }} {
+              padding: {{ block.settings.padding }}px;
+              color: {{ block.settings.text_color }};
 
-                        {% if block.settings.horizontal_position == 'center' %}
-                            text-align: center;
-                        {% endif %}
-                    }
+              {% if block.settings.horizontal_position == 'center' %}
+                  text-align: center;
+              {% endif %}
+          }
 
-                    @media (max-width: 768px) {
-                        #scrub-scrolling__text-{{ block.id }} {
-                            padding: {{ block.settings.padding | divided_by: 2 }}px;
-                        }
-                    }
-                </style>
+          @media (max-width: 768px) {
+            #scrub-scrolling__text-{{ block.id }} {
+              padding: {{ block.settings.padding | divided_by: 2 }}px;
+            }
+          }
+      </style>
 
-                <div class="scrub-scrolling__text font-grotesk flex items-{{ block.settings.text_vertical }} justify-{{ block.settings.horizontal_position }} font-{{ block.settings.font_weight }}" id="scrub-scrolling__text-{{ block.id }}">
-                    <div class="scrub-scrolling__content">
-                        <h3 class="font-grotesk text-2xl md:text-5xl font-Inter md:font-medium mb-8">{{ block.settings.title }}</h3>
-                        <div class="text-lg mb-8">{{ block.settings.text }}</div>
-                        {% if block.settings.button_text != blank %}
-                            <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text }}</a>
-                        {% endif %}
-                    </div>
-                </div>
-        {% endcase %}
-    {% endfor %}
+      <div class="scrub-scrolling__text font-grotesk flex items-{{ block.settings.text_vertical }} justify-{{ block.settings.horizontal_position }} font-{{ block.settings.font_weight }}" id="scrub-scrolling__text-{{ block.id }}">
+        <div class="scrub-scrolling__content">
+          <h3 class="font-grotesk text-2xl md:text-5xl font-Inter md:font-medium mb-8">{{ block.settings.title }}</h3>
+          <div class="text-lg mb-8">{{ block.settings.text }}</div>
+          {% if block.settings.button_text != blank %}
+              <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endcase %}
+  {% endfor %}
 </div>
 
 <script>
@@ -66,7 +66,7 @@
         const video = videoContainer.querySelector('video');
         const keyframesContainer = section.querySelector('.scrub-scrolling__keyframes');
         const useKeyframes = keyframesContainer && keyframesContainer.children.length > 0;
-        
+
         let keyframes = [];
         let isVideoMode = !useKeyframes;
         let isInView = false;
@@ -75,7 +75,8 @@
         let lastTime = performance.now();
         let currentProgress = 0;
         let targetProgress = 0;
-        const SMOOTH_FACTOR = 0.12;
+        // const SMOOTH_FACTOR = 0.12;
+        const SMOOTH_FACTOR = 0.8;
         const FRAME_BUFFER_SIZE = 4;
         let lastFrameTimes = [];
         let lastScrollPosition = 0;
@@ -88,7 +89,7 @@
                     return parseInt(a.dataset.index) - parseInt(b.dataset.index);
                 });
                 video.style.opacity = 0;
-                
+
                 keyframes.forEach(img => {
                     const preloadImg = new Image();
                     preloadImg.src = img.src;
@@ -97,7 +98,7 @@
             } else {
                 const isMobile = window.innerWidth <= 768;
                 const videoSrc = isMobile ? video.getAttribute("data-url-mobile") : video.getAttribute("data-url-desktop");
-        
+
                 if (videoSrc) {
                     video.src = videoSrc;
                     video.preload = 'auto';
@@ -132,21 +133,21 @@
             const rect = section.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
             const elementHeight = rect.height;
-            
+
             // Calculate the point where the animation starts (45% inside the view)
             const startOffset = viewportHeight * 0.45;
-            
+
             // Calculate the point where the animation ends (10% before exiting the view)
             const endOffset = viewportHeight * 0.60;
-            
+
             const adjustedTop = rect.top + startOffset;
             const adjustedBottom = rect.bottom - endOffset;
-            
+
             const scrollRange = viewportHeight + elementHeight - startOffset - endOffset;
-            
+
             const rawProgress = (viewportHeight - adjustedTop) / scrollRange;
             const progress = Math.min(Math.max(rawProgress, 0), 1);
-            
+
             return easeInOutQuad(progress);
         }
 
@@ -170,7 +171,7 @@
             if (lastFrameTimes.length > FRAME_BUFFER_SIZE) {
                 lastFrameTimes.shift();
             }
-            
+
             let weightedSum = 0;
             let weightSum = 0;
             lastFrameTimes.forEach((value, index) => {
@@ -178,7 +179,7 @@
                 weightedSum += value * weight;
                 weightSum += weight;
             });
-            
+
             return weightedSum / weightSum;
         }
 
@@ -228,7 +229,7 @@
             const now = performance.now();
             if (now - lastScrollTime < SCROLL_THROTTLE) return;
             lastScrollTime = now;
-            
+
             requestUpdate();
 
             clearTimeout(scrollTimeout);
@@ -254,11 +255,11 @@
                     requestUpdate();
                 }
             });
-        }, { 
+        }, {
             threshold: [0, 0.25, 0.5, 0.75, 1],
             rootMargin: '50px 0px'
         });
-        
+
         observer.observe(section);
         preloadResources();
 
@@ -269,7 +270,7 @@
             lastFrameTimes = [];
         };
     });
-    
+
 </script>
 
 {% schema %}
