@@ -1,4 +1,4 @@
-<div class="b-hero-banner
+<div id="hero-banner-{{ section.id }}" class="b-hero-banner
     text-pos-x-{{ section.settings.text_position-x }}
     text-pos-y-{{ section.settings.text_position-y }}
     bg-image-pos-x-{{ section.settings.image_alignment_x }}
@@ -18,8 +18,10 @@
 </div>
 
 <style>
-    .b-hero-banner {
+    #hero-banner-{{ section.id }}.b-hero-banner {
+       {% if section.settings.image_bg %}
         background-image: url({{ section.settings.image_bg | img_url: 'master' }});
+        {% endif %}
         background-size: {{ section.settings.bg_size }};
         background-color: {{ section.settings.bg_color }};
         background-repeat: no-repeat;
@@ -30,76 +32,76 @@
     }
 
     /* Image Position */
-    .b-hero-banner.bg-image-pos-x-left {
+    #hero-banner-{{ section.id }}.b-hero-banner.bg-image-pos-x-left {
         background-position-x: left;
     }
 
-    .b-hero-banner.bg-image-pos-x-right {
+    #hero-banner-{{ section.id }}.b-hero-banner.bg-image-pos-x-right {
         background-position-x: right;
     }
 
-    .b-hero-banner.bg-image-pos-x-center {
+    #hero-banner-{{ section.id }}.b-hero-banner.bg-image-pos-x-center {
         background-position-x: center;
     }
 
-    .b-hero-banner.bg-image-pos-y-top {
+    #hero-banner-{{ section.id }}.b-hero-banner.bg-image-pos-y-top {
         background-position-y: top;
     }
 
-    .b-hero-banner.bg-image-pos-y-bottom {
+    #hero-banner-{{ section.id }}.b-hero-banner.bg-image-pos-y-bottom {
         background-position-y: bottom;
     }
 
-    .b-hero-banner.bg-image-pos-y-middle {
+    #hero-banner-{{ section.id }}.b-hero-banner.bg-image-pos-y-middle {
         background-position-y: center;
     }
 
     /* Text Position */
-    .b-hero-banner.text-pos-x-center {
+    #hero-banner-{{ section.id }}.b-hero-banner.text-pos-x-center {
         justify-content: center;
     }
 
-    .b-hero-banner.text-pos-x-left {
+    #hero-banner-{{ section.id }}.b-hero-banner.text-pos-x-left {
         justify-content: flex-start;
     }
 
-    .b-hero-banner.text-pos-x-right {
+    #hero-banner-{{ section.id }}.b-hero-banner.text-pos-x-right {
         justify-content: flex-end;
     }
 
-    .b-hero-banner.text-pos-y-center {
+    #hero-banner-{{ section.id }}.b-hero-banner.text-pos-y-center {
         align-items: center;
     }
 
-    .b-hero-banner.text-pos-y-top {
+    #hero-banner-{{ section.id }}.b-hero-banner.text-pos-y-top {
         align-items: flex-start;
     }
 
-    .b-hero-banner.text-pos-y-bottom {
+    #hero-banner-{{ section.id }}.b-hero-banner.text-pos-y-bottom {
         align-items: flex-end;
     }
 
     /* Main Styles */
-    .b-hero-banner__content {
+    #hero-banner-{{ section.id }} .b-hero-banner__content {
         text-align: {{ section.settings.text_alignment }};
         max-width: {{ section.settings.banner_text_width }}px;
         line-height: 1.5;
     }
 
-    .b-hero-banner__title {
+    #hero-banner-{{ section.id }} .b-hero-banner__title {
         font-size: {{ section.settings.title_font_size }}px;
         line-height: 1.2em;
         color: {{ section.settings.title_color }};
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
 
-    .b-hero-banner__text {
+    #hero-banner-{{ section.id }} .b-hero-banner__text {
         font-size: {{ section.settings.subtitle_font_size }}px;
         color: {{ section.settings.text_color }};
         margin-bottom: 20px;
     }
 
-    .b-hero-banner_btn {
+    #hero-banner-{{ section.id }} .b-hero-banner_btn {
         display: inline-block;
         padding: 12px 26px 11px;
         background-color: #6638B7;
@@ -115,26 +117,26 @@
         transition: all 0.3s;
     }
 
-    .b-hero-banner_btn:hover {
+    #hero-banner-{{ section.id }} .b-hero-banner_btn:hover {
         background-color: #000;
     }
 
     /* Mobile Styles */
     @media (max-width: 767px) {
-        .b-hero-banner {
+      #hero-banner-{{ section.id }}.b-hero-banner {
             height: {{ section.settings.banner_height_mobile }}px;
             padding: {{ section.settings.padding_mobile }}px;
         }
 
-        .b-hero-banner__title {
+        #hero-banner-{{ section.id }} .b-hero-banner__title {
             font-size: {{ section.settings.title_font_size_mobile }}px;
         }
 
-        .b-hero-banner__text {
+        #hero-banner-{{ section.id }} .b-hero-banner__text {
             font-size: {{ section.settings.subtitle_font_size_mobile }}px;
         }
 
-        .b-hero-banner__content {
+        #hero-banner-{{ section.id }} .b-hero-banner__content {
             max-width: 100%;
             width: 100%;
             text-align: center;
@@ -143,7 +145,7 @@
 
     /* Desktop Styles */
     @media (min-width: 768px) {
-        .b-hero-banner {
+      #hero-banner-{{ section.id }}.b-hero-banner {
             height: {{ section.settings.banner_height_desktop }}px;
         }
     }

@@ -87,12 +87,12 @@ export default {
           tertiary: '#C1E0EB',
         },
         color_2: {
-          DEFAULT: '#5F1F5B',
+          DEFAULT: '#DADAFF',
           secondary: '#A85C9D',
           tertiary: '#E8C7E8',
         },
         color_3: {
-          DEFAULT: '#D45E59',
+          DEFAULT: '#DFFFDA',
           secondary: '#020617',
           tertiary: '#FFFFFF',
         },

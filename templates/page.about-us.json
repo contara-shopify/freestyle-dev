@@ -7,217 +7,285 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
-    "hero_image": {
-      "type": "hero-image",
+    "c_hero_img_3b7kXN": {
+      "type": "c-hero-img",
       "settings": {
-        "heading": "The Changing Table: tales of real parenthood.",
-        "heading_color": "#FFFD7B"
+        "image": "shopify://shop_images/HEADER.jpg",
+        "heading": "Parenting is the <br>\nultimate creative act",
+        "heading_color": "#ffffff",
+        "heading_weight": "normal",
+        "heading_icon_size": 94,
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 16,
+        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon_size": 16,
+        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
+        "description_icon_size": 36,
+        "button_label": "",
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
       }
     },
-    "changing_table_hero": {
-      "type": "changing-table-hero",
+    "c_hero_banner_9rR8e6": {
+      "type": "c-hero-banner",
+      "name": "Hero Banner",
       "settings": {
-        "heading": "The Changing Table: tales of real parenthood.",
-        "description": "Crafting top-tier baby gear is just the start. Every week, we dive headfirst into the wild world of parenting with a fresh series, rallying experts to tackle burning questions about pregnancy, parent life, and the art of raising tiny humans. Think of it as unfiltered advice from the forefront of modern parenting.",
-        "button_label": "WATCH ON YOUTUBE",
-        "button_url": ""
+        "title": "About us",
+        "subtitle": "We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents ourselves, we wanted to create kids products that every generation could all feel great about. So, we reimagined diapers from the inside out, prioritizing performance, safety, and comfort. Because you deserve one less thing to keep you up at night.",
+        "baner_button": "",
+        "baner_button_link": "",
+        "bg_color": "#6638b7",
+        "bg_size": "cover",
+        "image_alignment_x": "center",
+        "image_alignment_y": "middle",
+        "text_position-x": "center",
+        "text_position-y": "center",
+        "text_alignment": "center",
+        "title_font_size": 48,
+        "title_font_size_mobile": 36,
+        "title_color": "#ffffff",
+        "subtitle_font_size": 18,
+        "subtitle_font_size_mobile": 16,
+        "text_color": "#ffffff",
+        "padding_desktop": 40,
+        "padding_mobile": 20,
+        "banner_text_width": "760",
+        "banner_height_desktop": "572",
+        "banner_height_mobile": "450"
       }
     },
-    "custom_faq": {
-      "type": "custom-faq",
+    "c_3column_blocks_kprbKX": {
+      "type": "c-3column-blocks",
       "blocks": {
-        "faq_1": {
-          "type": "faq",
+        "block_BcdaVe": {
+          "type": "block",
           "settings": {
-            "question": "Do you have a sizing chart?",
-            "answer": "<p>For sure! Check it out here.</p>"
+            "image": "shopify://shop_images/242A6894_1.jpg",
+            "title": "Performance Meets Design",
+            "text": "Everything in our diaper bags was due for an upgrade, so we chose innovation—rethinking how diapers should function instead of just accepting the status quo. \nThis means the highest performing, best-in-class, considered products you can rely on every time.",
+            "enable_button": false,
+            "button_text": "Learn More",
+            "button_url": ""
           }
         },
-        "faq_2": {
-          "type": "faq",
+        "block_TyQWMC": {
+          "type": "block",
           "settings": {
-            "question": "What are the ingredients used in the diaper?",
-            "answer": "<p>Our diapers are made with premium materials...</p>"
+            "image": "shopify://shop_images/242A6894_1.jpg",
+            "title": "Performance Meets Design",
+            "text": "Everything in our diaper bags was due for an upgrade, so we chose innovation—rethinking how diapers should function instead of just accepting the status quo. \nThis means the highest performing, best-in-class, considered products you can rely on every time.",
+            "enable_button": false,
+            "button_text": "Learn More",
+            "button_url": ""
           }
         },
-        "faq_3": {
-          "type": "faq",
+        "block_UhixCp": {
+          "type": "block",
           "settings": {
-            "question": "What are the ingredients in the wipes?",
-            "answer": "<p>Our wipes are made with natural ingredients...</p>"
+            "image": "shopify://shop_images/242A6894_1.jpg",
+            "title": "Performance Meets Design",
+            "text": "Everything in our diaper bags was due for an upgrade, so we chose innovation—rethinking how diapers should function instead of just accepting the status quo. \nThis means the highest performing, best-in-class, considered products you can rely on every time.",
+            "enable_button": false,
+            "button_text": "Learn More",
+            "button_url": ""
           }
         }
       },
+      "block_order": [
+        "block_BcdaVe",
+        "block_TyQWMC",
+        "block_UhixCp"
+      ],
+      "name": "3 Column blocks",
       "settings": {
-        "show_title": true,
-        "main_title": "Frequently Asked Questions",
-        "subtitle_text": "You know they look good, but you still got questions. Fire away!",
-        "faq_section_title": "Diaper & Wipe Specs"
+        "title": "Ethos and core values"
       }
     },
-    "testimonials": {
-      "type": "sub-text-certified",
+    "c_image_aside_about_us_QpyCzL": {
+      "type": "c-image-aside-about-us",
+      "name": "Aside Image About",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Rectangle_612.jpg",
+        "bg_color": "#dfffda",
+        "title": "Meet the team",
+        "content": "Freestyle was founded by two dads, Mike and Russ, who wanted better, cleaner, more practical kids products without the pandering, baby talk, and blowouts. Our journey started out with lots of research followed by innovation, testing, and insight-gathering. Along the way, we’ve built a community of creative parents who are also freestyling this whole parenting thing and trying to make the world a better place for the generations to come. We can’t wait for you to be part of it.",
+        "show_button": false,
+        "button_text": "",
+        "button_link": ""
+      }
+    },
+    "c_hero_banner_8zCmDY": {
+      "type": "c-hero-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "title": "Modern families rule the world",
+        "subtitle": "We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents ourselves, we wanted to create kids products that every generation could all feel great about. So, we reimagined diapers from the inside out, prioritizing performance, safety, and comfort. Because you deserve one less thing to keep you up at night.",
+        "baner_button": "",
+        "baner_button_link": "",
+        "bg_color": "#fcfcfc",
+        "bg_size": "cover",
+        "image_alignment_x": "center",
+        "image_alignment_y": "middle",
+        "text_position-x": "center",
+        "text_position-y": "center",
+        "text_alignment": "center",
+        "title_font_size": 48,
+        "title_font_size_mobile": 36,
+        "title_color": "#262626",
+        "subtitle_font_size": 18,
+        "subtitle_font_size_mobile": 16,
+        "text_color": "#262626",
+        "padding_desktop": 40,
+        "padding_mobile": 20,
+        "banner_text_width": "760",
+        "banner_height_desktop": "572",
+        "banner_height_mobile": "450"
+      }
+    },
+    "c_hero_img_RezTB7": {
+      "type": "c-hero-img",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_6.jpg",
+        "heading": "Shop Skin      Shield™\nDiapers at Walmart",
+        "heading_color": "#ffffff",
+        "heading_weight": "normal",
+        "heading_icon_size": 94,
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 16,
+        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon_size": 16,
+        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
+        "description_icon_size": 36,
+        "button_label": "",
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
+      }
+    },
+          "c_hero_img_3b8kXN": {
+      "type": "c-hero-img",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_6.jpg",
+        "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
+        "heading_color": "#ffffff",
+        "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
+        "heading_weight": "normal",
+        "heading_icon_size": 94,
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 16,
+        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon_size": 16,
+        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
+        "description_icon_size": 36,
+        "button_label": "Shop Skin Shield™",
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
+      }
+    },
+    "review_scroller_custom_CMUd3m": {
+      "type": "review-scroller-custom",
       "blocks": {
-        "testimonial_1": {
-          "type": "testimonial",
+        "review_Aw7wkC": {
+          "type": "review",
           "settings": {
-            "quote": "Los pañales más suaves y absorbentes que hemos usado.",
-            "name": "María García",
-            "location": "Madrid, España"
+            "author_name": "@taylor.dyne",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"I am literally so excited about these. They are so nice. If you are looking for a new TCF diaper and you want something more affordable...definitely check out Freestyle from Walmart.\"",
+            "review_video": "shopify://files/videos/Video.mov"
+          }
+        },
+        "review_3Briaz": {
+          "type": "review",
+          "settings": {
+            "author_name": "@cathrinmanningg",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"I still don't understand how the paper towel was completely dry!!! If you're looking for a super soft & very absorbent diaper, you need to try these Freestyle diapers!\"",
+            "review_video": "shopify://files/videos/Download(2).mp4"
+          }
+        },
+        "review_UGacVf": {
+          "type": "review",
+          "settings": {
+            "author_name": "@megtimmons",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"If you are not using Freestyle diapers, you need to\"",
+            "review_video": "shopify://files/videos/f638ab6e9897459186a252843e0004d2.mov"
+          }
+        },
+        "review_Pw4aDj": {
+          "type": "review",
+          "settings": {
+            "author_name": "@nicolewebz",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"It is so absorbent you can use it as an overnight diaper. It is so soft. The best thing about the diaper is it is TCF...these are actually really cost effective and very comparable to some non-TCF diapers.\"",
+            "review_video": "shopify://files/videos/Download.mp4"
+          }
+        },
+        "review_hWVwfN": {
+          "type": "review",
+          "settings": {
+            "author_name": "@cathrinmanningg",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"These diapers are so dang soft...the price point is actually reasonable....I love them so much\"",
+            "review_video": "shopify://files/videos/Download (1).mp4"
+          }
+        },
+        "review_tbzFjt": {
+          "type": "review",
+          "settings": {
+            "author_name": "@emmsab",
+            "author_url": "",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"That's amazing. Wow.\"",
+            "review_video": "shopify://files/videos/copy_9479F2B8-C285-4D6C-A2DA-48DEE54C16B8.MOV"
           }
         }
       },
+      "block_order": [
+        "review_Aw7wkC",
+        "review_3Briaz",
+        "review_UGacVf",
+        "review_Pw4aDj",
+        "review_hWVwfN",
+        "review_tbzFjt"
+      ],
       "settings": {
-        "background_color": "#FFFFFF",
-        "text_color": "#000000"
+        "title": "For parents, by parents",
+        "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
       }
     },
-    "grid_blogs_video": {
-      "type": "grid-blogs-video",
-      "blocks": {
-        "column_1": {
-          "type": "column",
-          "settings": {
-            "title": "The Key to Motherhood",
-            "subtitle": "Military Spouse & Entrepreneur",
-            "button_label": "WATCH ON YOUTUBE",
-            "button_link": ""
-          }
-        },
-        "column_2": {
-          "type": "column",
-          "settings": {
-            "title": "Finding Your Post-Partum Identity",
-            "subtitle": "Fitness Trainer",
-            "button_label": "WATCH ON YOUTUBE",
-            "button_link": ""
-          }
-        },
-        "column_3": {
-          "type": "column",
-          "settings": {
-            "title": "Fatherhood Your Way",
-            "subtitle": "Professional Footballer & Creative",
-            "button_label": "WATCH ON YOUTUBE",
-            "button_link": ""
-          }
-        }
-      },
-      "settings": {}
-    },
-    "description_subhero": {
-      "type": "description-subhero",
+    "footer_custom_fPQhVk": {
+      "type": "footer-custom",
       "settings": {
-        "title": "WE SEE YOU",
-        "description": "<p>We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents, we wanted to find diapers that made our kids happy but also made us happy. With our Hyper Absorbent BambooTek™ core and collaborations with our favorite artists, we're out to give diapers a new life – and give parents a diaper that cuts out the baby talk.</p>",
-        "text_color": "#00FF00",
-        "bg_color": "#6B7280"
+        "newsletter_title": "Product launches, community fun, VIP drops, and more",
+        "tagline": "Parenting is the Ultimate Creative Act."
       }
-    },
-    "grid_hero": {
-      "type": "grid-hero",
-      "blocks": {
-        "grid_1": {
-          "type": "grid_item",
-          "settings": {
-            "number": "01",
-            "title": "Parenthood is the ultimate creative act.",
-            "background_type": "color",
-            "background_color": "#FF8C00"
-          }
-        },
-        "grid_2": {
-          "type": "grid_item",
-          "settings": {
-            "number": "02",
-            "title": "Diapers should be as original and inspiring as our babies.",
-            "background_type": "color",
-            "background_color": "#E6E6FA"
-          }
-        },
-        "grid_3": {
-          "type": "grid_item",
-          "settings": {
-            "number": "03",
-            "title": "Modern families run the world.",
-            "background_type": "color",
-            "background_color": "#90EE90"
-          }
-        }
-      },
-      "settings": {}
-    },
-    "hero_bottom": {
-      "type": "hero-bottom",
-      "settings": {
-        "heading": "Diapers just caught a vibe.",
-        "button_label": "SHOP NOW",
-        "button_link": "/collections/all"
-      }
-    },
-    "hero_blog": {
-      "type": "hero-blog",
-      "settings": {
-        "date": "MAY 29, 2024",
-        "date_color": "#FFFFFF",
-        "heading": "Discover The Coziest Baby Lovey Blanket For Your Little One's",
-        "heading_color": "#FFFD7B",
-        "description": "Discover why selecting the right baby lovey blanket is crucial for comfort & security. Learn about the types, benefits & safety guidelines for your little one's.",
-        "description_color": "#FFFFFF",
-        "button_label": "READ MORE",
-        "button_link": "",
-        "button_color": "#FFF9BE"
-      }
-    },
-    "grid_blogs": {
-      "type": "grid-blogs",
-      "blocks": {
-        "blog_1": {
-          "type": "blog_item",
-          "settings": {
-            "date_text": "MAY 28, 2024",
-            "date_color": "#FFFD7B",
-            "title_text": "Explore The Best Way to Wash Baby Clothes Safely",
-            "title_color": "#FFFD7B",
-            "url_link": ""
-          }
-        },
-        "blog_2": {
-          "type": "blog_item",
-          "settings": {
-            "date_text": "MAY 26, 2024",
-            "date_color": "#FFFD7B",
-            "title_text": "Best Baby Products To Make Life Easier With Your Little Ones",
-            "title_color": "#FFFD7B",
-            "url_link": ""
-          }
-        },
-        "blog_3": {
-          "type": "blog_item",
-          "settings": {
-            "date_text": "MAY 26, 2024",
-            "date_color": "#FFFD7B",
-            "title_text": "Discover The Comfortable And Protective Diapers For Toddlers",
-            "title_color": "#FFFD7B",
-            "url_link": ""
-          }
-        }
-      },
-      "settings": {}
     }
   },
   "order": [
-    "custom_faq",
-    "changing_table_hero",
-    "grid_blogs_video",
-    "hero_image",
-    "description_subhero",
-    "grid_hero",
-    "testimonials",
-    "hero_bottom",
-    "hero_blog",
-    "grid_blogs"
+    "c_hero_img_3b7kXN",
+    "c_hero_banner_9rR8e6",
+    "c_hero_img_RezTB7",
+    "c_3column_blocks_kprbKX",
+    "c_image_aside_about_us_QpyCzL",
+    "c_hero_banner_8zCmDY",
+     "c_hero_img_3b8kXN",
+    "review_scroller_custom_CMUd3m",
+    "footer_custom_fPQhVk"
   ]
 }

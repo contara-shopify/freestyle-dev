@@ -1,0 +1,100 @@
+<section class="py-12 md:py-32">
+  <div class="container container-lg">
+  <!-- Title Section -->
+  <h2 class="text-3xl md:text-4xl tracking-tighter text-center mb-12 md:mb-32">{{ section.settings.title }}</h2>
+  <!-- Blocks Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 lg:gap-16">
+    {% for block in section.blocks %}
+      <div class="overflow-hidden bg-color_2 border border-black-content rounded-xxxl">
+        <!-- Block Image -->
+        <figure class="relative border-b border-black-content">
+          <img
+          src="{{ block.settings.image | img_url: 'master' }}"
+          alt="{{ block.settings.title }}"
+          class="w-full object-cover">
+        </figure>
+
+        <!-- Block Content -->
+        <div class="p-16">
+          <!-- Block Title -->
+          <h3 class="text-baseBig mt-2 md:mt-4 mb-8 md:mb-16">{{ block.settings.title }}</h3>
+
+          <!-- Block Text -->
+          <p class="text-baseBig">{{ block.settings.text }}</p>
+
+          <!-- Block Button -->
+          {% if block.settings.enable_button %}
+            <div class="mt-4">
+              <a href="{{ block.settings.button_url }}" class="inline-block bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                {{ block.settings.button_text }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "3 Blocks Section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Title Section",
+      "id": "title",
+      "default": "My Blocks"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        },
+        {
+          "type": "text",
+          "label": "Title of Block",
+          "id": "title",
+          "default": "Title of Block"
+        },
+        {
+          "type": "textarea",
+          "label": "Text of Block",
+          "id": "text",
+          "default": "This is a block text"
+        },
+        {
+          "type": "checkbox",
+          "label": "Enable Button",
+          "id": "enable_button",
+          "default": false
+        },
+        {
+          "type": "text",
+          "label": "Button Text",
+          "id": "button_text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "label": "Button URL",
+          "id": "button_url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "3 Column blocks",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
