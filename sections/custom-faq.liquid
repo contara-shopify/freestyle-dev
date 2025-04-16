@@ -34,6 +34,12 @@
       "settings": [
         {
           "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Frequently Asked Questions"
+        },
+        {
+          "type": "text",
           "id": "question",
           "label": "Question",
           "default": "¿What is the size of the diaper?"
@@ -42,6 +48,42 @@
           "type": "richtext",
           "id": "answer",
           "label": "Answer",
+          "default": "<p>Answer example</p>"
+        },
+        {
+          "type": "text",
+          "id": "question-1",
+          "label": "Question 1",
+          "default": "¿What is the size of the diaper?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer-1",
+          "label": "Answer 1",
+          "default": "<p>Answer example</p>"
+        },
+        {
+          "type": "text",
+          "id": "question-2",
+          "label": "Question 2",
+          "default": "¿What is the size of the diaper?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer-2",
+          "label": "Answer 2",
+          "default": "<p>Answer example</p>"
+        },
+        {
+          "type": "text",
+          "id": "question-3",
+          "label": "Question 3",
+          "default": "¿What is the size of the diaper?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer-3",
+          "label": "Answer 3",
           "default": "<p>Answer example</p>"
         }
       ]
@@ -62,29 +104,35 @@
 
 <section class="w-full px-12 py-12 md:px-0">
   <div class="max-w-7xl md:max-w-none mx-auto md:px-16">
-    {% if section.settings.show_title %}
-      <h2 class=" text-3xl md:text-5xl md:max-w-6xl font-medium text-left text-core mb-8">
-        {{ section.settings.main_title }}
-      </h2>
-    {% endif %}
-
-    <div class="grid md:grid-cols-2 gap-8 md:mt-72">
-      <div>
-        <p class="text-lg md:text-xl text-core md:max-w-4xl">
-          {{ section.settings.subtitle_text }}
-        </p>
-      </div>
-
-      <div>
-        <h4 class="text-xl  md:text-5xl font-light text-core mb-8">
+    <div class="grid md:grid-cols-2 gap-8 relative">
+      <div class="relative">
+          {% if section.settings.show_title %}
+            <h2 class="text-4xl sticky top-40 z-10 mb-30 bg-white">
+              {{ section.settings.main_title }}
+            </h2>
+          {% endif %}
+          <p class="text-2-5xl font-bold p-20 bg-[#D9D9D9] max-w-[537px]">
+            {{ section.settings.subtitle_text }}
+          </p>
+        </div>
+      <div class="py-4">
+        <h4 class="text-2-5xl">
           {{ section.settings.faq_section_title }}
         </h4>
-        
-        <ul class="space-y-4">
+
+        <ul class="">
           {% for block in section.blocks %}
             {% if block.type == 'faq' %}
-              <li class="border-b border-core" {{ block.shopify_attributes }}>
-                <button class="w-full py-4 flex justify-between items-center text-left font-medium text-core" 
+              {% if block.settings.title != blank %}
+                <div class="mb-20">
+                  <h2 class="text-2-5xl">
+                    {{ block.settings.title }}
+                  </h2>
+                </div>
+              {% endif %}
+
+              <li class="border-b " {{ block.shopify_attributes }}>
+                <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
                         onclick="toggleFaq(this)"
                         aria-expanded="false">
                   <span>{{ block.settings.question }}</span>
@@ -93,8 +141,53 @@
                   </svg>
                 </button>
                 <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                  <div class="pb-4 prose prose-sm text-core font-medium text-base md:text-2xl mb-10 md:mb-20">
+                  <div class="pb-4 text-base">
                     {{ block.settings.answer }}
+                  </div>
+                </div>
+              </li>
+              <li class="border-b " {{ block.shopify_attributes }}>
+                <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                        onclick="toggleFaq(this)"
+                        aria-expanded="false">
+                  <span>{{ block.settings.question-1 }}</span>
+                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                  <div class="pb-4 text-base">
+                    {{ block.settings.answer-1 }}
+                  </div>
+                </div>
+              </li>
+              <li class="border-b " {{ block.shopify_attributes }}>
+                <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                        onclick="toggleFaq(this)"
+                        aria-expanded="false">
+                  <span>{{ block.settings.question-2 }}</span>
+                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                  <div class="pb-4 text-base">
+                    {{ block.settings.answer-2 }}
+                  </div>
+                </div>
+              </li>
+              <li class="border-b mb-32" {{ block.shopify_attributes }}>
+                <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
+                        onclick="toggleFaq(this)"
+                        aria-expanded="false">
+                  <span>{{ block.settings.question-3 }}</span>
+                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                  <div class="pb-4 text-base">
+                    {{ block.settings.answer-3 }}
                   </div>
                 </div>
               </li>
@@ -112,9 +205,9 @@
     const inner = content.firstElementChild;
     const icon = button.querySelector('svg');
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
-    
+
     button.setAttribute('aria-expanded', !isExpanded);
-    
+
     if (!isExpanded) {
       const innerStyles = window.getComputedStyle(inner);
       const marginBottom = parseInt(innerStyles.marginBottom);

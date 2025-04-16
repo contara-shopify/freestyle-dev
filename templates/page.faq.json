@@ -1,0 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "disabled": true,
+      "settings": {
+        "heading": "404 Page Not Found",
+        "text": "The page you are looking for does not exist.",
+        "button_label": "Go to Home"
+      }
+    },
+    "custom_faq_jA7H93": {
+      "type": "custom-faq",
+      "blocks": {
+        "faq_QrEh8D": {
+          "type": "faq",
+          "settings": {
+            "title": "Product",
+            "question": "Size and pack details",
+            "answer": "<p>Answer example</p>",
+            "question-1": "Lab-tested non-toxic ingredients",
+            "answer-1": "<p>Answer example</p>",
+            "question-2": "SkinShield’s Performance",
+            "answer-2": "<p>Answer example</p>",
+            "question-3": "Where to shop",
+            "answer-3": "<p>Answer example</p>"
+          }
+        },
+        "faq_hyY7pj": {
+          "type": "faq",
+          "settings": {
+            "title": "Retailers",
+            "question": "Size and pack details",
+            "answer": "<p>Answer example</p>",
+            "question-1": "Lab-tested non-toxic ingredients",
+            "answer-1": "<p>Answer example</p>",
+            "question-2": "SkinShield’s Performance",
+            "answer-2": "<p>Answer example</p>",
+            "question-3": "Where to shop",
+            "answer-3": "<p>Answer example</p>"
+          }
+        },
+        "faq_iGcwTm": {
+          "type": "faq",
+          "settings": {
+            "title": "Orders",
+            "question": "Size and pack details",
+            "answer": "<p>Answer example</p>",
+            "question-1": "Lab-tested non-toxic ingredients",
+            "answer-1": "<p>Answer example</p>",
+            "question-2": "SkinShield’s Performance",
+            "answer-2": "<p>Answer example</p>",
+            "question-3": "Where to shop",
+            "answer-3": "<p>Answer example</p>"
+          }
+        },
+        "faq_Kn76qA": {
+          "type": "faq",
+          "settings": {
+            "title": "Shipping",
+            "question": "Size and pack details",
+            "answer": "<p>Answer example</p>",
+            "question-1": "Lab-tested non-toxic ingredients",
+            "answer-1": "<p>Answer example</p>",
+            "question-2": "SkinShield’s Performance",
+            "answer-2": "<p>Answer example</p>",
+            "question-3": "Where to shop",
+            "answer-3": "<p>Answer example</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_QrEh8D",
+        "faq_hyY7pj",
+        "faq_iGcwTm",
+        "faq_Kn76qA"
+      ],
+      "name": "Custom FAQ",
+      "settings": {
+        "show_title": true,
+        "main_title": "Frequently Asked Questions",
+        "subtitle_text": "Copy for questions + dropdown menues in copy document",
+        "faq_section_title": ""
+      }
+    },
+    "footer_custom_RBxFEB": {
+      "type": "footer-custom",
+      "name": "Footer custom",
+      "settings": {
+        "newsletter_title": "Product launches, community fun, VIP drops, and more",
+        "tagline": "Parenting is the Ultimate Creative Act."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_faq_jA7H93",
+    "footer_custom_RBxFEB"
+  ]
+}
