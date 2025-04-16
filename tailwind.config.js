@@ -12,6 +12,7 @@ export default {
       baseLarge: ['2rem', '2.8rem'],
       xl: ['2.4rem', '3.2rem'],
       '2xl': ['3rem', '3.6rem'],
+      '2-5xl': ['3.2rem', '4rem'],
       '3xl': ['3.6rem', '4rem'],
       '4xl': ['4.8rem', '4.8rem'],
       '5xl': ['6rem', '6rem'],
