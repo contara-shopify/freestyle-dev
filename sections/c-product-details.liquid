@@ -2,7 +2,7 @@
   {% if product.metafields.custom.product_details %}
     {% render 'entry' with '@/styles/sections/product_details_metaobject.scss' %}
     {% assign details = product.metafields.custom.product_details.value %}
-    <div class="container container-lg">
+    <div class="container">
       <div class="b-details_mtobj">
         <div class="text-3xl md:text-5xl font-grotesk text-center b-details_mtobj--title">
           {{ details.title }}

@@ -8,6 +8,10 @@
     padding: 40px 0;
   }
 
+  @include media(max-m) {
+    padding: 20px;
+  }
+
   &--title {
     padding: 0 0 40px;
     letter-spacing: -2px;

@@ -13,7 +13,7 @@
     <div class="container container-lg">
       <div class="product__inner">
             {% render 'product-gallery', product: product %}
-            <div class="product__content flex flex-col gap-8 md:pb-16">
+            <div class="product__content flex flex-col gap-6 md:pb-16 lg:mr-24">
                 {% for block in blocks %}
                     {% case block.type %}
                         {% when 'text_line' %}
@@ -30,7 +30,7 @@
                                 {% endif %}
                                 {% if block.settings.image != blank %}
                                     <h1 class="product__title-image">
-                                        <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ product.title }}" width="400" height="40">
+                                      <img src="{{ block.settings.image | image_url }}" alt="{{ product.title }}">
                                     </h1>
                                 {% else %}
                                     <h1 class="product__title">
@@ -111,7 +111,7 @@
 
                         {% when 'tags' %}
                             {% if product.tags.size > 0 %}
-                            <div class="product__tags flex flex-wrap gap-4">
+                            <div class="product__tags flex flex-wrap gap-4 mb-4">
                               {% for tag in product.tags %}
                                   <div class="product__tag flex items-center gap-2">
                                       {{ tag }}
@@ -121,7 +121,7 @@
                             {% endif %}
                         {% when 'variants' %}
                             <div class="product__sizes" x-show="variants.length > 1">
-                                <h4 class="product__sizes-title mb-6">{{ block.settings.title }}</h4>
+                                <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
 
                                 <div class="product__sizes-list mb-10">
                                     <template x-for="item in variants" x-key="item.id">
@@ -158,7 +158,7 @@
                                         </label>
                                     </template>
                                 </div>
-                                <div class="product__diapers">
+                                <div class="product__diapers mb-4">
                                     <span class="product__diapers-diapers" x-show="activeVariant.diapersQty" x-text="'Box Contains: ' + activeVariant.diapersQty + ' Diapers'"></span>
                                     <span class="product__diapers-wipes" x-show="activeVariant.wipesQty" x-text="'Pack Contains: ' + activeVariant.wipesQty + ' Wipes'"></span>
                                 </div>

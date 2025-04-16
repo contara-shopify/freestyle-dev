@@ -20,12 +20,12 @@
         max-width: 100%;
 
         @screen md {
-          gap: 3rem;
+          // gap: 3rem;
           grid-template-columns: 1fr 1fr;
         }
 
         @screen xl {
-            gap: 10rem;
+            // gap: 10rem;
         }
     }
 
@@ -38,8 +38,12 @@
             font-size: 4.2rem;
         }
 
+        &-wrapper {
+          padding-top: 0;
+        }
+
         &-image {
-            max-width: 40rem;
+            // max-width: 40rem;
 
             img {
                 width: 100%;
@@ -141,6 +145,10 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s ease;
+
+                @include media(max-m) {
+                  border-radius: 1rem;
+                }
               }
             }
 
@@ -156,6 +164,10 @@
                 height: 100%;
                 object-fit: cover;
                 border-radius: 2rem;
+
+                @include media(max-m) {
+                  border-radius: 1rem;
+                }
             }
 
             .swiper-wrapper {
@@ -164,15 +176,24 @@
         }
     }
 
+    &__content {
+
+
+      @include media(min-m) {
+        padding-left: 7rem;
+      }
+    }
+
     &__sizes {
         &-title {
             font-weight: 500;
+            letter-spacing: -1px;
         }
 
         &-list{
             gap: 1rem;
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(6, 69px);
 
             @include media(max-t) {
               grid-template-columns: repeat(3, 1fr);
@@ -197,7 +218,7 @@
         }
 
         &-content {
-            border-radius: 1.6rem;
+            border-radius: 1rem;
             overflow: hidden;
             text-align: center;
             border: 1px solid #E3E3E3;
@@ -220,8 +241,8 @@
         }
 
         &-info {
-            padding: 1.6rem 0.6rem 1rem;
-            gap: 1rem;
+            padding: 1.6rem 0.6rem 3px;
+            gap: 3px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -236,14 +257,15 @@
         }
 
         &-weight {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
 
         &-price {
             border-top: 1px solid #E3E3E3;
-            padding: 1.2rem 0.6rem;
+            padding: 8px 0.6rem;
             font-weight: 500;
             transition: all 0.3s ease;
+            font-size: 14px;
         }
     }
 
@@ -265,6 +287,7 @@
 
     &__diapers {
         font-weight: 700;
+        letter-spacing: -0.5px;
     }
 
     &__description {
