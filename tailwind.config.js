@@ -45,6 +45,7 @@ export default {
       },
       borderRadius: {
         regular: '8px',
+        xxxl: '32px',
       },
       animation: {
         'gradient-wave': 'gradient-wave 3s ease infinite',
@@ -139,7 +140,7 @@ export default {
         black: {
           DEFAULT: '#020617',
           bg: '#000000',
-          content: '#000000',
+          content: '#262626',
           inactive: 'rgba(0, 0, 0, 0.5)',
         },
         lightBlue: {
@@ -168,7 +169,7 @@ export default {
       addBase({
         ':root': {
           // Body colors
-          '--color-body-content': theme('colors.color_1.content'),
+          '--color-body-content': theme('colors.black.content'),
           '--color-body-bg': theme('colors.white.bg'),
 
           // Brand colors 1 (primary)

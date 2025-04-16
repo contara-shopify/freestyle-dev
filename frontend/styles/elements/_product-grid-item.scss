@@ -1,34 +1,64 @@
 @use '../config/all-config' as cfg;
 
 .b-product {
-  text-align: center;
 
-  &-title {
-    @include cfg.font(gaspacho, 14px, 1.2em);
+  &__figure {
+    @apply relative rounded-xxxl overflow-hidden;
 
-    margin-bottom: 1rem;
-  }
+    padding: 0 0 100% 0;
+    margin-bottom: 2.5rem;
+    background: #ebeceb;
 
-  &-link {
-
-  }
-
-  &-price {
-    @include cfg.font(regular, 18px, 1.2em);
-  }
-
-  &-actions {
-    padding: 10px 0 0;
-  }
-
-  &__desc {
-    p {
-      padding-bottom: 1.5rem;
+    &:hover {
+      .b-product__figure-img {
+        @apply scale-110;
+      }
     }
   }
 
-  &__galley {
+  &__figure-img {
+    @apply absolute inset-0 w-full h-full object-cover;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__figure-badge  {
+    @apply absolute bottom-8 right-8 z-10 border border-color_1  text-color_1 text-sm uppercase rounded-[64px];
+
+    padding: 0.8rem 2.3rem 0.7rem;
+  }
+
+  &__content {
 
   }
 
+  &__rating {
+    @apply mb-2;
+
+    .junip-product-summary-star svg {
+      stroke: var(--color_1);
+    }
+  }
+
+  &__title {
+    @apply text-baseBig mb-2;
+  }
+
+  &__title-link {
+    @apply text-black-content hover:text-color_1 transition-all duration-300;
+  }
+
+  &__price {
+    @apply text-sm ;
+  }
+
+  &__description {
+    @apply text-sm;
+  }
+
+  &__btns {
+    .btn {
+      min-width: 163px;
+    }
+  }
 }

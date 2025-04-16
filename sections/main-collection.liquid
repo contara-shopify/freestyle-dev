@@ -1,0 +1,122 @@
+<section class="pt-16 pb-32">
+  <!-- Title Section -->
+  <main class="container container-lg" x-data="collectionPage">
+  <!-- Product Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+    <h2 class="text-4xl tracking-tighter mb-32">{{ collection.title }}</h2>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-20">
+    {% for product in collection.products %}
+      <script>
+        console.log('product', {{ product | json }});
+      </script>
+      {% assign on_sale = false %}
+      {% if product.compare_at_price > product.price %}
+        {% assign on_sale = true %}
+      {% endif %}
+      {% assign metaobj = product.metafields.custom %}
+      <product-card class="b-product">
+        <!-- Product Image -->
+        <figure class="b-product__figure ">
+          <a href="{{ product.url }}" class="b-product__figure-link">
+            <img
+              src="{{ product.featured_image | image_url: width: 800 }}"
+              alt="{{ product.title }}"
+              class="b-product__figure-img"
+            />
+            {% if metaobj.badge_product %}
+              <span class="b-product__figure-badge">{{ metaobj.badge_product.value }}</span>
+            {% endif %}
+          </a>
+        </figure>
+
+        <!-- Product Details -->
+        <div class="b-product__content">
+
+
+          <!-- Product Rating -->
+          <div class="b-product__rating">
+            <span class="junip-store-key" data-store-key="{{shop.metafields.junip.store_key}}"></span>
+            <span
+              class="junip-product-summary"
+              data-product-id="{{ product.id }}"
+              data-product-rating-count="{{ product.metafields.junip.rating_count }}"
+              data-product-rating-average="{{ product.metafields.junip.rating_average }}"> </span>
+          </div>
+
+          <div class="md:flex justify-between">
+            <!-- Product Title -->
+            <h3 class="b-product__title">
+              <a href="{{ product.url }}" class="b-product__title-link">
+                {{ product.title }}
+              </a>
+            </h3>
+            <!-- Product Price -->
+            <span class="b-product__price {% if on_sale %}m-on-sale{% endif %}">
+              {% if on_sale %}
+                <span class="money compare-at-price">
+                  {{ product.compare_at_price | money }}
+                </span>
+              {% else %}
+                <span class="money">
+                  {{ product.price | money }}
+                </span>
+              {% endif %}
+            </span>
+          </div>
+          <!-- Short Description -->
+          {% if metaobj.short_description %}
+            <div class="b-product__description">{{ metaobj.short_description | metafield_tag }}</div>
+          {% endif %}
+
+          <!-- Add to Cart Button -->
+
+          <div class="mt-4 b-product__btns">
+            {% if product.available %}
+              <span @click="addToCartPDP(quantity = 1)" data-first-variant="{{product.first_available_variant.id}}" class="btn btn-primary">
+                Add to Cart
+              </span>
+            {% else %}
+              <span class="btn btn-secondary opacity-50 pointer-events-none">
+                Sold Out
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </product-card>
+    {% endfor %}
+  </div>
+  </main>
+</section>
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('collectionPage', () => ({
+      addToCartPDP(quantity) {
+      const variantId = this.$el.getAttribute('data-first-variant');
+      const product = {
+        variantId,
+        quantity,
+        sellingPlanId: this.selectedPlanId,
+        properties: {},
+      };
+      Alpine.store('cart').addToCart(product);
+      this.quantity = 1;
+    },
+    }));
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Collection Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Default Collection Page",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}
