@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -143,7 +143,7 @@
         "junip_junip_product_review_xLN8Xa": {
           "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
           "settings": {
-            "product": "{{product}}"
+            "product": "freestyle-bamboo-wipes-72ct"
           }
         }
       },
@@ -167,6 +167,8 @@
         "button_icon_size": 16,
         "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
         "button_text_icon_size": 16,
+        "banner_height_desktop": "818",
+        "banner_height_mobile": "500",
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",

@@ -77,13 +77,11 @@
                 }
             });
 
-            // Сбрасываем стили у всех
             blocks.forEach((block) => {
                 block.style.opacity = '0.3';
                 block.style.color = '#262626';
             });
 
-            // Подсвечиваем только ближайший к центру
             if (closestBlock) {
                 closestBlock.style.opacity = '1';
                 closestBlock.style.color = '#6638B7';
@@ -94,7 +92,7 @@
             requestAnimationFrame(updateActiveBlock);
         });
 
-        updateActiveBlock(); // Вызываем сразу для инициализации
+        updateActiveBlock();
     });
 </script>
 
