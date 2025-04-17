@@ -8,6 +8,7 @@
 {% assign productCurrent = product %}
 {% assign activeVariant = product.selected_or_first_available_variant %}
 {% assign product_badge = product.metafields.custom.badge_product %}
+{% assign product_attributes = product.metafields.custom.product_attributes %}
 
 <div class="product" x-data="product" x-init="init">
     <div class="container container-lg">
@@ -88,8 +89,13 @@
                                 {% for feature in features %}
                                     <div class="product__feature flex items-center gap-8 md:gap-14">
                                         <div class="product__feature-icon flex items-center justify-center">
+                                          {% if feature.settings.icon_image != blank %}
+                                            <img src="{{ feature.settings.icon_image | image_url }}" alt="{{ product.title }}">
+                                          {% else %}
                                             {{ feature.settings.icon }}
+                                          {% endif %}
                                         </div>
+
                                         <div class="product__feature-title">
                                             {{ feature.settings.title }}
                                         </div>
@@ -107,18 +113,26 @@
                             </div>
 
                         {% when 'separator' %}
-                            <hr class="product__separator">
+
+                        <hr class="product__separator">
 
                         {% when 'tags' %}
-                            {% if product.tags.size > 0 %}
                             <div class="product__tags flex flex-wrap gap-4 mb-4">
-                              {% for tag in product.tags %}
-                                  <div class="product__tag flex items-center gap-2">
-                                      {{ tag }}
-                                  </div>
+                              {% for attribute in product_attributes.value %}
+                                <div class="product__tag flex items-center gap-2">
+                                  {{ attribute }}
+                                </div>
                               {% endfor %}
                             </div>
-                            {% endif %}
+                            {% comment %} {% if product.tags.size > 0 %}
+                              <div class="product__tags flex flex-wrap gap-4 mb-4">
+                                {% for tag in product.tags %}
+                                    <div class="product__tag flex items-center gap-2">
+                                        {{ tag }}
+                                    </div>
+                                {% endfor %}
+                              </div>
+                            {% endif %} {% endcomment %}
                         {% when 'variants' %}
                             <div class="product__sizes" x-show="variants.length > 1">
                                 <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
@@ -508,6 +522,11 @@
                     "type": "textarea",
                     "id": "icon",
                     "label": "Icon"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "icon_image",
+                    "label": "Icon Image"
                 },
                 {
                     "type": "richtext",

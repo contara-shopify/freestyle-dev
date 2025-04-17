@@ -1,0 +1,2 @@
+document.addEventListener("DOMContentLoaded",()=>{class e{constructor(){this.video=document.querySelector("[data-hero-video-player]"),this.video&&this.init()}init(){this.video.play().catch(t=>{console.log("Auto-play was prevented:",t)}),document.addEventListener("visibilitychange",()=>{document.hidden?this.video.pause():this.video.play().catch(()=>{})})}}document.querySelector("[data-hero-video]")&&new e});
+//# sourceMappingURL=c-hero-video-ItaGN4_Z.js.map

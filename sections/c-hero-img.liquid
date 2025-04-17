@@ -1,6 +1,6 @@
 {% render 'entry' with '@/scripts/sections/c-hero-video.js' %}
 
-<div class="custom-hero-video relative w-full lg:min-h-[76rem] h-[50vh] lg:h-[76vh] overflow-hidden" data-hero-video>
+<div id="hero-mage-{{ section.id }}" class="custom-hero-video relative w-full overflow-hidden" data-hero-video>
   <div class="absolute inset-0 w-full h-full bg-black opacity-20 z-10"></div>
   <div class="custom-hero-video__container relative w-full h-full">
     {% if section.settings.image != blank %}
@@ -12,7 +12,7 @@
         class="absolute inset-0 w-full h-full object-cover">
     {% endif %}
 
-    <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10 lg:pt-[20rem]">
+    <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10">
       {% if section.settings.heading != blank %}
         {% assign heading_words = section.settings.heading | split: ' ' %}
         <h2
@@ -89,6 +89,17 @@
     </div>
   </div>
 </div>
+
+<style>
+  #hero-mage-{{ section.id }} {
+    height: {{ section.settings.banner_height_desktop }}px;
+  }
+  @media (max-width: 767px) {
+    #hero-mage-{{ section.id }} {
+      height: {{ section.settings.banner_height_mobile }}px;
+    }
+  }
+</style>
 
 {% schema %}
 {
@@ -185,6 +196,18 @@
       "unit": "px",
       "label": "Button Text Icon Size (px)",
       "default": 24
+    },
+    {
+      "type": "text",
+      "label": "Banner Height (Desktop)",
+      "id": "banner_height_desktop",
+      "default": "818"
+    },
+    {
+      "type": "text",
+      "label": "Banner Height (Mobile)",
+      "id": "banner_height_mobile",
+      "default": "500"
     },
     {
       "type": "image_picker",
