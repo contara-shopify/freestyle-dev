@@ -29,7 +29,7 @@
       {% for block in section.blocks %}
         <div class="scroll-block flex items-center mb-4 md:mb-[25px] transition-all duration-100">
           {% if block.settings.logo != blank and block.settings.logo_violet != blank %}
-          <div class="logo-container mr-4 w-16 md:w-auto h-[4rem] md:h-[8rem]">     
+          <div class="logo-container mr-4 w-16 md:w-auto h-[4rem] md:h-[8rem]">
             {{ block.settings.logo_svg }}
           </div>
           {% endif %}
@@ -44,6 +44,7 @@
           {% endif %}
         </div>
       {% endfor %}
+      <div class="opacity-30 text-black pl-[17%]">{{ section.settings.additional_text }}</div>
     </div>
   </div>
 </div>
@@ -58,41 +59,41 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const blocks = document.querySelectorAll('.scroll-block');
-    
+
         function updateActiveBlock() {
             const viewportHeight = window.innerHeight;
             const triggerPoint = viewportHeight / 2;
             let closestBlock = null;
             let closestDistance = Infinity;
-    
+
             blocks.forEach((block) => {
                 const rect = block.getBoundingClientRect();
                 const blockMiddle = rect.top + rect.height / 2;
                 const distance = Math.abs(blockMiddle - triggerPoint);
-    
+
                 if (distance < closestDistance) {
                     closestDistance = distance;
                     closestBlock = block;
                 }
             });
-    
+
             // Сбрасываем стили у всех
             blocks.forEach((block) => {
                 block.style.opacity = '0.3';
                 block.style.color = '#262626';
             });
-    
+
             // Подсвечиваем только ближайший к центру
             if (closestBlock) {
                 closestBlock.style.opacity = '1';
                 closestBlock.style.color = '#6638B7';
             }
         }
-    
+
         window.addEventListener('scroll', function () {
             requestAnimationFrame(updateActiveBlock);
         });
-    
+
         updateActiveBlock(); // Вызываем сразу для инициализации
     });
 </script>
@@ -104,12 +105,18 @@
     {
       "type": "image_picker",
       "id": "logo_1",
-      "label": "Logo Izquierdo 1"
+      "label": "Logo First"
     },
     {
       "type": "image_picker",
       "id": "logo_2",
-      "label": "Logo Izquierdo 2"
+      "label": "Logo Second"
+    },
+    {
+      "type": "text",
+      "id": "additional_text",
+      "label": "Text additional",
+      "default": "*up to 14x better absorption than leading brands"
     }
   ],
   "blocks": [
@@ -131,12 +138,12 @@
         {
           "type": "image_picker",
           "id": "logo_violet",
-          "label": "Logo en violeta"
+          "label": "Logo Second"
         },
         {
           "type": "text",
           "id": "logo_text",
-          "label": "Texto junto al logo"
+          "label": "Text Block"
         }
       ]
     }

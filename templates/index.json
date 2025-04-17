@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "c_hero_img_9HYJYd": {
       "type": "c-hero-img",
@@ -16,7 +16,7 @@
         "image": "shopify://shop_images/new_hero_banner.jpg",
         "heading": "Safer. Softer. Better Protection.",
         "heading_color": "#ffffff",
-        "heading_weight": "normal",
+        "heading_weight": "medium",
         "heading_icon_size": 36,
         "description": "Meet Skin Shield™– the future of diapers",
         "description_color": "#ffffff",
@@ -125,7 +125,8 @@
       ],
       "settings": {
         "logo_1": "shopify://shop_images/skin-shield-logo.png",
-        "logo_2": "shopify://shop_images/7-Layer_Protection.svg"
+        "logo_2": "shopify://shop_images/7-Layer_Protection.svg",
+        "additional_text": "up to 14x better absorption than leading brands"
       }
     },
     "video_scroll_d4i3BU": {
@@ -154,9 +155,9 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "Up to 14x more absorbent than leading brands",
-            "text": "<p>Thanks to its 7-layer design, Skin Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
-            "button_text": "",
-            "button_url": ""
+            "text": "<p>Thanks to its 7-layer design, Skin <em>1</em> Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
+            "button_text": "Meet the future of diapers",
+            "button_url": "#"
           }
         },
         "text_XAFeQB": {
@@ -168,7 +169,7 @@
             "text_color": "#020617",
             "title": "7-layer protection means fewer leaks and longer nights",
             "text": "<p>Best-in-class absorbent material draws away moisture quickly  and locks it in to protect against rash or discomfort.</p>",
-            "button_text": "",
+            "button_text": "Level up bedtime",
             "button_url": ""
           }
         },
@@ -179,10 +180,10 @@
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Safer, for longer, than anything else",
+            "title": "Safer, for longer,than anything else",
             "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
-            "button_text": "",
-            "button_url": ""
+            "button_text": "Our safety standards",
+            "button_url": "#"
           }
         },
         "text_wTUQNR": {
@@ -194,7 +195,8 @@
             "text_color": "#020617",
             "title": "Cloud-like softness engineered for delicate skin",
             "text": "<p>We found the softest materials available to keep them comfortable round the clock.</p>",
-            "button_text": "",
+            "button_text": "Shop Skin <span></span> Shield™",
+            "button_icon": "shopify://shop_images/Group_26613.svg",
             "button_url": ""
           }
         }
@@ -210,7 +212,10 @@
         "h3 {font-weight: 400;}"
       ],
       "settings": {
-        "enable_smooth_scroll": true
+        "enable_smooth_scroll": true,
+        "button_text": "Shop Skin  <span></span> Shield™",
+        "button_icon": "shopify://shop_images/Group_26613.svg",
+        "button_url": "#"
       }
     },
     "c_hero_img_3b7kXN": {
@@ -220,7 +225,7 @@
         "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
         "heading_color": "#ffffff",
         "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
-        "heading_weight": "normal",
+        "heading_weight": "medium",
         "heading_icon_size": 94,
         "description": "",
         "description_color": "#ffffff",
