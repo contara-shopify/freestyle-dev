@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelectorAll("[data-mobile-menu-toggle]"),e=document.getElementById("mobileMenu");function l(){e.classList.contains("-translate-x-full")?e.classList.remove("-translate-x-full"):e.classList.add("-translate-x-full"),document.body.classList.toggle("overflow-hidden")}t.forEach(n=>{n.addEventListener("click",l)})});
-//# sourceMappingURL=header-3kt7Fq5v.js.map

@@ -2,6 +2,53 @@
     position: relative;
     background-color: #dbdaff;
 
+    &__promo {
+      max-width: 75rem;
+      text-align: center;
+      margin: 0 auto;
+      padding: 80px 20px 0;
+      margin-bottom: -30px;
+      position: relative;
+      // position: absolute;
+      // top: 30px;
+      // left: 50%;
+      // transform: translateX(-50%);
+      z-index: 17;
+
+      @media screen and (max-width: 767px) {
+        padding: 40px 20px 0;
+        margin-bottom: -10px;
+      }
+    }
+
+    .button {
+      &.m-main {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        // display: none;
+        z-index: 20;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+
+        &.m-active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      span {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: translateY(5px);
+      }
+    }
+
     &__video {
         position: sticky;
         top: 0;
@@ -26,10 +73,26 @@
 
     &__content {
         width: 100%;
-        max-width: 45rem;
+        max-width: 75rem;
 
         p {
             line-height: 1.5;
+        }
+
+        p {
+          em {
+            font-size: 0;
+            display: inline-block;
+            font-style: normal;
+            margin: 0 -3px;
+
+            &:before {
+              display: inline-block;
+              content: "❤";
+              font-size: 18px;
+              color: #ff0000;
+            }
+          }
         }
     }
 }

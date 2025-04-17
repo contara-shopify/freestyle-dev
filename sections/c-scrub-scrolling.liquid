@@ -1,6 +1,12 @@
 {% render 'entry' with '@/styles/sections/scrub-scrolling.scss' %}
 
 <div class="scrub-scrolling">
+  {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_url }}" class="button m-main">{{ section.settings.button_text | html }}</a>
+  {% endif %}
+  {% if section.settings.promo_text != blank %}
+    <h3 class="scrub-scrolling__promo font-grotesk text-2xl md:text-5xl">{{ section.settings.promo_text }}</h3>
+  {% endif %}
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'video' %}
@@ -39,6 +45,14 @@
               {% endif %}
           }
 
+          .scrub-scrolling .button span {
+            background-image: url({{ section.settings.button_icon | img_url: 'master' }});
+          }
+
+          .scrub-scrolling__content .button span {
+            background-image: url({{ block.settings.button_icon | img_url: 'master' }});
+          }
+
           @media (max-width: 768px) {
             #scrub-scrolling__text-{{ block.id }} {
               padding: {{ block.settings.padding | divided_by: 2 }}px;
@@ -49,9 +63,9 @@
       <div class="scrub-scrolling__text font-grotesk flex items-{{ block.settings.text_vertical }} justify-{{ block.settings.horizontal_position }} font-{{ block.settings.font_weight }}" id="scrub-scrolling__text-{{ block.id }}">
         <div class="scrub-scrolling__content">
           <h3 class="font-grotesk text-2xl md:text-5xl font-Inter md:font-medium mb-8">{{ block.settings.title }}</h3>
-          <div class="text-lg mb-8">{{ block.settings.text }}</div>
+          <div class="text-lg mb-8">{{ block.settings.text | html }}</div>
           {% if block.settings.button_text != blank %}
-              <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text }}</a>
+              <a href="{{ block.settings.button_url }}" class="button">{{ block.settings.button_text | html }}</a>
           {% endif %}
         </div>
       </div>
@@ -65,6 +79,7 @@
         const videoContainer = section.querySelector('.scrub-scrolling__video');
         const video = videoContainer.querySelector('video');
         const keyframesContainer = section.querySelector('.scrub-scrolling__keyframes');
+        const mainBtn = document.querySelector('.button.m-main');
         const useKeyframes = keyframesContainer && keyframesContainer.children.length > 0;
 
         let keyframes = [];
@@ -230,10 +245,18 @@
             if (now - lastScrollTime < SCROLL_THROTTLE) return;
             lastScrollTime = now;
 
+            // Show button when scrolling starts
+              if (window.pageYOffset > 0 && mainBtn.style.display === 'none') {
+                  mainBtn.style.display = 'block';  // Make button visible
+              }
+
             requestUpdate();
 
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
+                if (window.pageYOffset <= 0) {
+                    mainBtn.style.display = 'none';  // Hide button when at the top
+                }
                 scrollVelocity = 0;
                 lastFrameTimes = [];
                 targetProgress = getScrollProgress();
@@ -272,6 +295,65 @@
     });
 
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const mainBtn = document.querySelector('.button.m-main');
+    const section = document.querySelector('.scrub-scrolling');
+    let isFixed = true;
+
+    // Изначально скрываем кнопку
+    mainBtn.style.display = 'none';
+
+    function updateButtonPosition() {
+        const rect = section.getBoundingClientRect();
+        const sectionBottom = rect.bottom;
+        const sectionTop = rect.top;
+
+        // Показываем кнопку, когда блок появился на экране
+        if (sectionTop <= window.innerHeight && mainBtn.style.display === 'none') {
+            mainBtn.style.display = 'block';  // Показываем кнопку
+            setTimeout(() => {
+              mainBtn.classList.add('m-active');
+            }, 300);
+        }
+
+        // Если блок прокручен, меняем позицию кнопки
+        if (sectionBottom <= window.innerHeight) {
+            if (isFixed) {
+                mainBtn.style.position = 'absolute';
+                mainBtn.style.bottom = '30px';
+                isFixed = false;
+            }
+        } else {
+            if (!isFixed) {
+                mainBtn.style.position = 'fixed';
+                mainBtn.style.bottom = '30px';
+                isFixed = true;
+            }
+        }
+
+        // Скрываем кнопку, если блок вернулся обратно на экран
+        if (sectionTop > window.innerHeight) {
+            mainBtn.classList.remove('m-active');
+            setTimeout(() => {
+                    mainBtn.style.display = 'none';
+            }, 300);
+        }
+    }
+
+    window.addEventListener('scroll', function () {
+        updateButtonPosition();
+    });
+
+    window.addEventListener('resize', function () {
+        updateButtonPosition();
+    });
+
+    // Начальная проверка, чтобы скрыть кнопку до того, как прокручен блок
+    updateButtonPosition();
+});
+
+</script>
 
 {% schema %}
 {
@@ -283,6 +365,28 @@
       "label": "Enable smooth scrolling",
       "default": true,
       "info": "Makes the entire page scroll more smoothly"
+    },
+    {
+      "type": "text",
+      "label": "Promo Text",
+      "id": "promo_text",
+      "default": "Your baby is perfect,now their diaper is too."
+    },
+    {
+      "type": "text",
+      "label": "Button text",
+      "id": "button_text",
+      "default": "Read More"
+    },
+    {
+      "type": "image_picker",
+      "label": "Button Icon",
+      "id": "button_icon",
+    },
+    {
+      "type": "url",
+      "label": "Button URL",
+      "id": "button_url"
     }
   ],
   "blocks": [
@@ -405,6 +509,11 @@
             "label": "Button text",
             "id": "button_text",
             "default": "Read More"
+        },
+        {
+            "type": "image_picker",
+            "label": "Button Icon",
+            "id": "button_icon",
         },
         {
             "type": "url",
