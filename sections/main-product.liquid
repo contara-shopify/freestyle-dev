@@ -32,6 +32,24 @@
                   <h1 class="product__title-image">
                     <img src="{{ block.settings.image | image_url }}" alt="{{ product.title }}">
                   </h1>
+                {% elsif block.settings.alternate_title != blank %}
+                  <h1 class="product__title">
+                    {% assign bamboo_icon = settings.bamboo_icon
+                      | image_url: width: 100
+                      | image_tag:
+                        class: 'w-[2.2rem] md:w-[3.6rem] inline-block translate-y-[-0.6rem] md:translate-y-[-1rem] mx-1'
+                    %}
+                    {% assign heart_icon = settings.heart_icon
+                      | image_url: width: 100
+                      | image_tag:
+                        class: 'w-[3rem] md:w-[5rem] inline-block translate-y-[-0.4rem] md:translate-y-[-0.7rem] mx-1'
+                    %}
+                    {{
+                      block.settings.alternate_title
+                      | replace: '[bamboo]', bamboo_icon
+                      | replace: '[heart]', heart_icon
+                    }}
+                  </h1>
                 {% else %}
                   <h1 class="product__title">
                     {{ product.title }}
@@ -562,6 +580,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Alternate Title Image"
+        },
+        {
+          "type": "text",
+          "id": "alternate_title",
+          "label": "Alternate Title"
         }
       ]
     },

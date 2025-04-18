@@ -14,9 +14,7 @@
       "blocks": {
         "title_hijtjK": {
           "type": "title",
-          "settings": {
-            "image": "shopify://shop_images/shield-title.png"
-          }
+          "settings": {}
         },
         "separator_NF3Aqz": {
           "type": "separator",
