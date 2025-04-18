@@ -19,7 +19,10 @@
             <div
               class="review-block swiper-slide"
               {{ block.shopify_attributes }}>
-              <div class="review-block__video-wrapper">
+              <a
+                href="{{ block.settings.author_url }}"
+                class="review-block__video-wrapper block"
+                target="_blank">
                 {%- if block.settings.review_video -%}
                   {{
                     block.settings.review_video
@@ -35,9 +38,12 @@
                     <span class="text-gray-400">No video available</span>
                   </div>
                 {%- endif -%}
-              </div>
+              </a>
               <div class="flex flex-col text-white gap-4">
-                <div class="font-normal text-core text-sm md:text-base whitespace-normal flex items-center gap-2">
+                <a
+                  href="{{ block.settings.author_url }}"
+                  class="font-normal text-core text-sm md:text-base whitespace-normal flex items-center gap-2"
+                  target="_blank">
                   <img
                     src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ig-con.svg?v=1743370385"
                     alt="Instagram icon"
@@ -46,7 +52,7 @@
                     style="width: 16px; height: 16px;">
 
                   {{ block.settings.author_name | default: 'John Doe | @JohnDoe' }}
-                </div>
+                </a>
                 <div style="font-size: 16px; line-height: 1.4; margin-bottom: 1rem;" class="whitespace-normal">
                   {{
                     block.settings.review_text
