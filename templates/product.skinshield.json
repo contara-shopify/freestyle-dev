@@ -14,7 +14,9 @@
       "blocks": {
         "title_hijtjK": {
           "type": "title",
-          "settings": {}
+          "settings": {
+            "alternate_title": "Skin[heart]Shield™ Diapers"
+          }
         },
         "separator_NF3Aqz": {
           "type": "separator",

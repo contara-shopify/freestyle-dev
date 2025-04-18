@@ -15,7 +15,7 @@
         "title_hijtjK": {
           "type": "title",
           "settings": {
-            "image": "shopify://shop_images/alt-title-2.png"
+            "alternate_title": "Bamboo[bamboo]Tek® Diapers"
           }
         },
         "separator_NF3Aqz": {
@@ -164,7 +164,9 @@
           }
         }
       },
-      "block_order": ["junip_junip_product_review_xLN8Xa"],
+      "block_order": [
+        "junip_junip_product_review_xLN8Xa"
+      ],
       "settings": {}
     },
     "c_hero_img_3b7kXN": {
