@@ -24,7 +24,7 @@
     <nav class="hidden lg:block">
       <ul class="flex space-x-8">
         {% assign bamboo_icon = settings['bamboo_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.2rem] inline-block translate-y-[-0.2rem] mx-1' %}
-        {% assign heart_icon = settings['heart_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.6rem] inline-block translate-y-[-0.2rem] mx-1' %}
+        {% assign heart_icon = settings['heart_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]' %}
         {% for link in settings.main_menu.links %}
           <li class="menu-item flex items-center ">
             <a href="{{ link.url }}" class="text-black hover:text-[#6638B7] font-grotesk font-normal">
