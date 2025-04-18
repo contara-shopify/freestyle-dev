@@ -212,7 +212,7 @@
       "custom_css": ["h3 {font-weight: 400;}"],
       "settings": {
         "enable_smooth_scroll": true,
-        "promo_text": "Your baby is perfect,now their diaper is too.",
+        "promo_text": "Your baby is perfect, now their diaper is too.",
         "button_text": "Shop Skin  <span></span> Shield™",
         "button_icon": "shopify://shop_images/Group_26613.svg",
         "button_url": "#"
