@@ -1,15 +1,15 @@
 <div class="bg-[#F1F2F5] pt-8 lg:pt-0">
   <!-- Newsletter y Menús -->
-  <div class=" flex flex-col lg:flex-row border-b-[1px] border-black">
+  <div class="grid grid-cols-12 lg:grid-cols-12">
     <!-- Columna izquierda (30%) - Newsletter -->
-    <div class="lg:w-full px-8 md:px-20 lg:px-20 xl:px-40 border-b-[1px] border-black lg:p-6 pb-12 lg:py-24 flex flex-col items-center">
-      <h2 class="text-xl md:text-4xl font-grotesk text-center font-normal mb-8 md:mb-12">
-        Product launches, community fun, VIP drops, and more
+    <div class="px-8 md:px-20 border-b-[1px] border-transparent lg:p-6 pb-12 lg:py-24 flex flex-col items-center lg:items-start col-span-12 lg:col-span-5">
+      <h2 class="text-xl md:text-4xl font-grotesk text-center lg:text-left font-normal mb-8 md:mb-12">
+        {{ section.settings.newsletter_title }}
       </h2>
       <form class="flex flex-row w-full max-w-[42rem] mt-8">
         <input
           type="email"
-          class="flex-1 px-12 py-6 rounded-full border border-black "
+          class="flex-1 px-12 py-6 rounded-full border border-black bg-transparent"
           placeholder="Enter your email">
         <button
           type="submit"
@@ -20,144 +20,45 @@
     </div>
 
     <!-- Menus -->
-    <div class="!hidden lg:w-[60%] mb-12 mt-12 md:mb-0 lg:mt-0 px-4 md:border-b lg:border-l-2 lg:border-black lg:rounded-bl-3xl p-6 lg:pt-24 lg:pb-64 lg:px-28 lg:-ml-10">
-      <div class="grid grid-cols-2 px-8 md:px-0 md:grid-cols-5 gap-16">
+    <div class="mb-12 mt-12 lg:-mb-[1px] lg:mt-0 px-4 lg:border-l-[1px] lg:border-black lg:rounded-bl-3xl p-6 lg:pt-24 lg:pb-64 lg:px-28 col-span-12 lg:col-span-7">
+      <div class="grid grid-cols-2 px-8 md:px-0 md:grid-cols-5 gap-8 xl:gap-12 lg:flex lg:justify-between">
         <!-- Shop -->
-        <div>
-          <h3 class="font-grotesk font-medium mb-10 md:mb-20">Shop</h3>
-          <ul class="space-y-8">
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Skin❤️Shield ™</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Bamboo Tek™ Diaper</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Jumbo Wipes</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Accessories</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Retail -->
-        <div>
-          <h3 class="font-grotesk font-medium mb-10 md:mb-20">Retail</h3>
-          <ul class="space-y-8">
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Walmart</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Amazon</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Locate others</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- About -->
-        <div>
-          <h3 class="font-grotesk font-medium mb-10 md:mb-20">About</h3>
-          <ul class="space-y-8">
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Safety & Lab Tests</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >About Us</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Help -->
-        <div>
-          <h3 class="font-grotesk font-medium mb-10 md:mb-20">Help</h3>
-          <ul class="space-y-8">
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Contact</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >FAQs</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Social -->
-        <div>
-          <h3 class="font-grotesk font-medium mb-10 md:mb-20">Social</h3>
-          <ul class="space-y-8">
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >Instagram</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]"
-                >TikTok</a
-              >
-            </li>
-          </ul>
-        </div>
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'footer_nav' %}
+              <div>
+                <h3 class="font-grotesk font-medium mb-10 md:mb-20">{{ block.settings.title }}</h3>
+                {% if block.settings.menu != blank %}
+                  <ul class="space-y-8">
+                    {% for link in block.settings.menu.links %}
+                      {% assign new_label = '<span class="font-normal text-[0.8rem] tracking-[0.02em] uppercase text-purple-700 -translate-y-[0.4rem] inline-block">New</span>' %}
+                      <li>
+                        <a
+                          href="{{ link.url }}"
+                          class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]">
+                          {{ link.title | replace: '[new]', new_label }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
       </div>
     </div>
   </div>
 
   <!-- Tagline -->
-  <div class="border-t border-gray-100 py-16">
+  <div class="border-t border-black py-16">
     <div class="container mx-auto md:py-16 text-center">
       <h3 class="lg:text-[48px] text-[24px] font-medium leading-[90%] tracking-[-0.045em] font-grotesk text-purple-700">
-        Parenting is the<span class="font-fkroman font-light lg:text-[48px] text-[24px] leading-[1.3] tracking-[-0.045em]">
-          Ultimate Creative Act.</span
-        >
+        {{
+          section.settings.tagline
+          | replace: '[',
+            '<span class="font-fkroman font-light lg:text-[48px] text-[24px] leading-[1.3] tracking-[-0.045em]">'
+          | replace: ']', '</span>'
+        }}
       </h3>
     </div>
   </div>
@@ -165,12 +66,19 @@
   <!-- Footer bottom -->
   <div class="border-t border-gray-100">
     <div class="container mx-auto py-6 px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-      <p>Freestyle World, Inc.</p>
-      <div class="flex gap-6 mt-4 md:mt-0">
-        <a href="#" class="hover:text-black">Privacy Policy</a>
-        <a href="#" class="hover:text-black">Terms of Service</a>
-        <a href="#" class="hover:text-black">Consumer Health Policy</a>
-      </div>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'footer_bottom_nav' %}
+              <p>{{ block.settings.title }}</p>
+              <div class="flex gap-6 mt-4 md:mt-0">
+                {% for link in block.settings.menu.links %}
+                  <a href="{{ link.url }}" class="hover:text-black" target="_blank">{{ link.title }}</a>
+                {% endfor %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </div>
@@ -189,7 +97,43 @@
       "type": "text",
       "id": "tagline",
       "label": "Tagline",
-      "default": "Parenting is the Ultimate Creative Act."
+      "default": "Parenting is the [Ultimate Creative Act.]"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "footer_nav",
+      "name": "Footer nav",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "footer_bottom_nav",
+      "name": "Footer bottom nav",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
     }
   ],
   "presets": [
