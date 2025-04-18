@@ -23,9 +23,9 @@
       id="swiper-container-{{ section.id }}">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          <div class="swiper-slide">
+          <div class="swiper-slide !h-auto">
             <div
-              class="w-full justify-center lg:justify-start"
+              class="w-full justify-center lg:justify-center h-full flex flex-col"
               data-testimonial
               {{ block.shopify_attributes }}>
               <h3 class="text-xl md:text-[2.2rem] md:leading-[1.2] font-grotesk font-normal mb-4 justify-center items-center text-center lg:text-left text-black font-regular">
