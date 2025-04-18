@@ -371,7 +371,7 @@
       {
         "type": "product_list",
         "id": "cart_products",
-        "label": "Cart Products Carousel",
+        "label": "Cart Products Carousel"
       }
     ]
   },
@@ -390,13 +390,37 @@
         "id": "mobile_menu_shipping_text",
         "label": "Shipping Text",
         "default": "FREE SHIPPING ON ALL DIAPERS"
-
       }
     ]
   },
   {
     "name": "Main Menu",
     "settings": [
+      {
+        "type": "header",
+        "content": "Desktop Menu"
+      },
+      {
+        "type": "link_list",
+        "id": "main_menu",
+        "label": "Main Menu"
+      },
+      {
+        "type": "header",
+        "content": "Desktop Menu Icons"
+      },
+      {
+        "type": "image_picker",
+        "id": "bamboo_icon",
+        "label": "Bamboo Icon",
+        "info": "Use [bamboo] to display the icon"
+      },
+      {
+        "type": "image_picker",
+        "id": "heart_icon",
+        "label": "Heart Icon",
+        "info": "Use [heart] to display the icon"
+      },
       {
         "type": "header",
         "content": "Item Menu 1"
