@@ -31,8 +31,9 @@
               <h3 class="text-xl md:text-[2.2rem] md:leading-[1.2] font-grotesk font-normal mb-4 justify-center items-center text-center lg:text-left text-black font-regular">
                 {{ block.settings.testimonial_text }}
               </h3>
-              <p class="text-xl md:text-[22px] text-black font-fkroman font-light text-center lg:text-left">
-                - {{ block.settings.author_name }}{% if block.settings.location != blank %} | {{ block.settings.location }}{% endif %}
+              <p class="text-xl md:text-[22px] text-black font-fkroman font-light text-center lg:text-left tracking-[-1.1px]">
+                - {{ block.settings.author_name -}}
+                {%- if block.settings.location != blank %} | {{ block.settings.location }}{% endif %}
               </p>
             </div>
           </div>
