@@ -68,8 +68,15 @@
           }
         }
       },
-      "block_order": ["testimonial_88pVHw", "testimonial_aKw8E8", "testimonial_kEdngG", "testimonial_6xcadw"],
-      "custom_css": ["span {font-weight: 400;}"],
+      "block_order": [
+        "testimonial_88pVHw",
+        "testimonial_aKw8E8",
+        "testimonial_kEdngG",
+        "testimonial_6xcadw"
+      ],
+      "custom_css": [
+        "span {font-weight: 400;}"
+      ],
       "settings": {}
     },
     "product_features": {
@@ -112,7 +119,12 @@
           }
         }
       },
-      "block_order": ["logo_block_EGnBYC", "logo_block_gcWxKN", "logo_block_XaYNnR", "logo_block_7B6MRn"],
+      "block_order": [
+        "logo_block_EGnBYC",
+        "logo_block_gcWxKN",
+        "logo_block_XaYNnR",
+        "logo_block_7B6MRn"
+      ],
       "settings": {
         "logo_1": "shopify://shop_images/skin-shield-logo.png",
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg",
@@ -170,7 +182,7 @@
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Safer, for longer,than anything else",
+            "title": "Safer, for longer,<br>than anything else",
             "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
             "button_text": "Our safety standards",
             "button_url": "#"
@@ -191,12 +203,20 @@
           }
         }
       },
-      "block_order": ["video_bMmbGT", "text_zBpedE", "text_XAFeQB", "text_Mgmdew", "text_wTUQNR"],
-      "custom_css": ["h3 {font-weight: 400;}"],
+      "block_order": [
+        "video_bMmbGT",
+        "text_zBpedE",
+        "text_XAFeQB",
+        "text_Mgmdew",
+        "text_wTUQNR"
+      ],
+      "custom_css": [
+        "h3 {font-weight: 400;}"
+      ],
       "settings": {
         "enable_smooth_scroll": true,
-        "promo_text": "Your baby is perfect, now their diaper is too.",
-        "button_text": "Shop Skin  <span></span> Shield™",
+        "promo_text": "Your baby is perfect,<br>now their diaper is too.",
+        "button_text": "Shop Skin   Shield™",
         "button_icon": "shopify://shop_images/Group_26613.svg",
         "button_url": "#"
       }
