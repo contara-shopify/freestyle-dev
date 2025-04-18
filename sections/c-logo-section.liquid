@@ -28,7 +28,7 @@
               class="w-full justify-center lg:justify-center h-full flex flex-col"
               data-testimonial
               {{ block.shopify_attributes }}>
-              <h3 class="text-xl md:text-[2.2rem] md:leading-[1.2] font-grotesk font-normal mb-4 justify-center items-center text-center lg:text-left text-black font-regular">
+              <h3 class="text-xl md:text-[2.2rem] md:leading-[1.2] font-grotesk font-normal mb-0 justify-center items-center text-center lg:text-left text-black font-regular">
                 {{ block.settings.testimonial_text }}
               </h3>
               <p class="text-xl md:text-[22px] text-black font-fkroman font-light text-center lg:text-left tracking-[-1.1px]">
@@ -51,11 +51,11 @@
         spaceBetween: 0,
         speed: 1000,
         loop: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-          reverseDirection: true,
-        },
+        // autoplay: {
+        //   delay: 2500,
+        //   disableOnInteraction: false,
+        //   reverseDirection: true,
+        // },
       });
     }
   });
