@@ -150,9 +150,7 @@
           }
         }
       },
-      "block_order": [
-        "junip_junip_product_review_xLN8Xa"
-      ],
+      "block_order": ["junip_junip_product_review_xLN8Xa"],
       "settings": {}
     },
     "c_hero_img_3b7kXN": {
@@ -258,20 +256,7 @@
         "title": "For parents, by parents",
         "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
       }
-    },
-    "footer_custom_fPQhVk": {
-      "type": "footer-custom",
-      "settings": {
-        "newsletter_title": "Product launches, community fun, VIP drops, and more",
-        "tagline": "Parenting is the Ultimate Creative Act."
-      }
     }
   },
-  "order": [
-    "main",
-    "174411240666086477",
-    "c_hero_img_3b7kXN",
-    "review_scroller_custom_CMUd3m",
-    "footer_custom_fPQhVk"
-  ]
+  "order": ["main", "174411240666086477", "c_hero_img_3b7kXN", "review_scroller_custom_CMUd3m"]
 }

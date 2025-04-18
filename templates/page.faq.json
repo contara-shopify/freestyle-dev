@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-404",
@@ -84,26 +84,16 @@
         "faq_iGcwTm",
         "faq_Kn76qA"
       ],
-      "name": "Custom FAQ",
       "settings": {
         "show_title": true,
         "main_title": "Frequently Asked Questions",
         "subtitle_text": "Copy for questions + dropdown menues in copy document",
         "faq_section_title": ""
       }
-    },
-    "footer_custom_RBxFEB": {
-      "type": "footer-custom",
-      "name": "Footer custom",
-      "settings": {
-        "newsletter_title": "Product launches, community fun, VIP drops, and more",
-        "tagline": "Parenting is the Ultimate Creative Act."
-      }
     }
   },
   "order": [
     "main",
-    "custom_faq_jA7H93",
-    "footer_custom_RBxFEB"
+    "custom_faq_jA7H93"
   ]
 }

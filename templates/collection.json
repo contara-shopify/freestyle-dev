@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-404",
@@ -20,10 +20,9 @@
     },
     "main_collection_Tmq6eM": {
       "type": "main-collection",
-      "name": "Default Collection Page",
       "settings": {}
     },
-        "c_hero_img_3b7kXN": {
+    "c_hero_img_3b7kXN": {
       "type": "c-hero-img",
       "settings": {
         "image": "shopify://shop_images/242A6894_6.jpg",
@@ -126,20 +125,12 @@
         "title": "For parents, by parents",
         "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
       }
-    },
-    "footer_custom_fPQhVk": {
-      "type": "footer-custom",
-      "settings": {
-        "newsletter_title": "Product launches, community fun, VIP drops, and more",
-        "tagline": "Parenting is the Ultimate Creative Act."
-      }
     }
   },
   "order": [
     "main",
     "main_collection_Tmq6eM",
-        "c_hero_img_3b7kXN",
-    "review_scroller_custom_CMUd3m",
-    "footer_custom_fPQhVk"
+    "c_hero_img_3b7kXN",
+    "review_scroller_custom_CMUd3m"
   ]
 }

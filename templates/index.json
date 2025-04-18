@@ -68,15 +68,8 @@
           }
         }
       },
-      "block_order": [
-        "testimonial_88pVHw",
-        "testimonial_aKw8E8",
-        "testimonial_kEdngG",
-        "testimonial_6xcadw"
-      ],
-      "custom_css": [
-        "span {font-weight: 400;}"
-      ],
+      "block_order": ["testimonial_88pVHw", "testimonial_aKw8E8", "testimonial_kEdngG", "testimonial_6xcadw"],
+      "custom_css": ["span {font-weight: 400;}"],
       "settings": {}
     },
     "product_features": {
@@ -119,12 +112,7 @@
           }
         }
       },
-      "block_order": [
-        "logo_block_EGnBYC",
-        "logo_block_gcWxKN",
-        "logo_block_XaYNnR",
-        "logo_block_7B6MRn"
-      ],
+      "block_order": ["logo_block_EGnBYC", "logo_block_gcWxKN", "logo_block_XaYNnR", "logo_block_7B6MRn"],
       "settings": {
         "logo_1": "shopify://shop_images/skin-shield-logo.png",
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg",
@@ -203,16 +191,8 @@
           }
         }
       },
-      "block_order": [
-        "video_bMmbGT",
-        "text_zBpedE",
-        "text_XAFeQB",
-        "text_Mgmdew",
-        "text_wTUQNR"
-      ],
-      "custom_css": [
-        "h3 {font-weight: 400;}"
-      ],
+      "block_order": ["video_bMmbGT", "text_zBpedE", "text_XAFeQB", "text_Mgmdew", "text_wTUQNR"],
+      "custom_css": ["h3 {font-weight: 400;}"],
       "settings": {
         "enable_smooth_scroll": true,
         "promo_text": "Your baby is perfect,now their diaper is too.",
@@ -326,65 +306,6 @@
         "title": "For parents, by parents",
         "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
       }
-    },
-    "footer_custom_fPQhVk": {
-      "type": "footer-custom",
-      "blocks": {
-        "footer_nav_RViiQH": {
-          "type": "footer_nav",
-          "settings": {
-            "title": "Shop",
-            "menu": "footer-shop-menu"
-          }
-        },
-        "footer_nav_nGyqKW": {
-          "type": "footer_nav",
-          "settings": {
-            "title": "Retail",
-            "menu": "footer-retail-menu"
-          }
-        },
-        "footer_nav_LLLTWU": {
-          "type": "footer_nav",
-          "settings": {
-            "title": "About",
-            "menu": "footer-about-menu"
-          }
-        },
-        "footer_nav_W3Fgpf": {
-          "type": "footer_nav",
-          "settings": {
-            "title": "Help",
-            "menu": "footer-help-menu"
-          }
-        },
-        "footer_nav_NH9Xmf": {
-          "type": "footer_nav",
-          "settings": {
-            "title": "Social",
-            "menu": "footer-social-menu"
-          }
-        },
-        "footer_bottom_nav_R3WzNG": {
-          "type": "footer_bottom_nav",
-          "settings": {
-            "title": "Freestyle World, Inc.",
-            "menu": "footer-bottom-menu"
-          }
-        }
-      },
-      "block_order": [
-        "footer_nav_RViiQH",
-        "footer_nav_nGyqKW",
-        "footer_nav_LLLTWU",
-        "footer_nav_W3Fgpf",
-        "footer_nav_NH9Xmf",
-        "footer_bottom_nav_R3WzNG"
-      ],
-      "settings": {
-        "newsletter_title": "Product launches, community fun, VIP drops, and more",
-        "tagline": "Parenting is the [Ultimate Creative Act.]"
-      }
     }
   },
   "order": [
@@ -394,7 +315,6 @@
     "video_scroll_d4i3BU",
     "c_scrub_scrolling_dke3Md",
     "c_hero_img_3b7kXN",
-    "review_scroller_custom_CMUd3m",
-    "footer_custom_fPQhVk"
+    "review_scroller_custom_CMUd3m"
   ]
 }

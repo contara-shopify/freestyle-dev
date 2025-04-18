@@ -31,7 +31,6 @@
     },
     "c_hero_banner_9rR8e6": {
       "type": "c-hero-banner",
-      "name": "Hero Banner",
       "settings": {
         "title": "About us",
         "subtitle": "We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents ourselves, we wanted to create kids products that every generation could all feel great about. So, we reimagined diapers from the inside out, prioritizing performance, safety, and comfort. Because you deserve one less thing to keep you up at night.",
@@ -119,14 +118,12 @@
         "block_TyQWMC",
         "block_UhixCp"
       ],
-      "name": "3 Column blocks",
       "settings": {
         "title": "Ethos and core values"
       }
     },
     "c_image_aside_about_us_QpyCzL": {
       "type": "c-image-aside-about-us",
-      "name": "Aside Image About",
       "settings": {
         "desktop_image": "shopify://shop_images/Rectangle_612.jpg",
         "bg_color": "#dfffda",
@@ -139,7 +136,6 @@
     },
     "c_hero_banner_8zCmDY": {
       "type": "c-hero-banner",
-      "name": "Hero Banner",
       "settings": {
         "title": "Modern families rule the world",
         "subtitle": "We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents ourselves, we wanted to create kids products that every generation could all feel great about. So, we reimagined diapers from the inside out, prioritizing performance, safety, and comfort. Because you deserve one less thing to keep you up at night.",
@@ -268,13 +264,6 @@
         "title": "For parents, by parents",
         "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
       }
-    },
-    "footer_custom_fPQhVk": {
-      "type": "footer-custom",
-      "settings": {
-        "newsletter_title": "Product launches, community fun, VIP drops, and more",
-        "tagline": "Parenting is the Ultimate Creative Act."
-      }
     }
   },
   "order": [
@@ -285,7 +274,6 @@
     "c_image_aside_about_us_QpyCzL",
     "c_hero_banner_8zCmDY",
     "c_hero_img_3b8kXN",
-    "review_scroller_custom_CMUd3m",
-    "footer_custom_fPQhVk"
+    "review_scroller_custom_CMUd3m"
   ]
 }
