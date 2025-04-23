@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "c_hero_img_9HYJYd": {
       "type": "c-hero-img",
@@ -193,7 +193,7 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "Safer, for longer,than anything else",
-            "text": "<p>Our lab-tested diapers are made from</p><p>clean, non-toxic, total-chlorine-free materials.</p>",
+            "text": "<p>Our lab-tested diapers are made from clean, </p><p>non-toxic, total-chlorine-free materials.</p>",
             "button_text": "Our safety standards",
             "button_url": "#"
           }
