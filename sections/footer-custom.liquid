@@ -26,6 +26,8 @@
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'footer_nav' %}
+              {% assign bamboo_icon = settings['bamboo_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.2rem] inline-block translate-y-[-0.2rem] mx-1' %}
+              {% assign heart_icon = settings['heart_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]' %}
               <div>
                 <h3 class="font-grotesk font-medium mb-10 md:mb-20">{{ block.settings.title }}</h3>
                 {% if block.settings.menu != blank %}
@@ -36,7 +38,7 @@
                         <a
                           href="{{ link.url }}"
                           class="text-gray-600 font-grotesk font-normal hover:text-black text-[1.4rem] tracking-[0.02em]">
-                          {{ link.title | replace: '[new]', new_label }}
+                          {{ link.title | replace: '[bamboo]', bamboo_icon | replace: '[heart]', heart_icon | replace: '[new]', new_label }}
                         </a>
                       </li>
                     {% endfor %}

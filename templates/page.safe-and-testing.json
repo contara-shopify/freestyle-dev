@@ -11,10 +11,112 @@
   "sections": {
     "main": {
       "type": "main-404",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "heading": "404 Page Not Found",
+        "text": "The page you are looking for does not exist.",
+        "button_label": "Go to Home"
+      }
+    },
+    "c_hero_img_TGLpf8": {
+      "type": "c-hero-img",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_1_1.jpg",
+        "heading": "Safer. Softer. Better Protection.",
+        "heading_color": "#ffffff",
+        "heading_weight": "medium",
+        "heading_icon_size": 36,
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/Vector_3.png",
+        "button_icon_size": 24,
+        "button_text_icon": "shopify://shop_images/Group_26613.svg",
+        "button_text_icon_size": 24,
+        "banner_height_desktop": "700",
+        "banner_height_mobile": "500",
+        "description_icon_size": 36,
+        "button_label": "Shop Skin Shield™",
+        "button_link": "#"
+      }
+    },
+    "c_hero_text_p6zYVE": {
+      "type": "c-hero-text",
+      "settings": {
+        "title": "",
+        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p>That is why we are committed to only using clean,  non-toxic, Total Chlorine Free materials and lab testing our products to make sure.<br/><br/></p>",
+        "baner_button": "",
+        "baner_button_link": "",
+        "bg_color": "#ffffff",
+        "bg_size": "cover",
+        "image_alignment_x": "center",
+        "image_alignment_y": "middle",
+        "text_position-x": "center",
+        "text_position-y": "center",
+        "text_alignment": "center",
+        "title_font_size": 60,
+        "title_font_size_mobile": 77,
+        "title_color": "#000000",
+        "subtitle_font_size": 20,
+        "subtitle_font_size_mobile": 16,
+        "text_color": "#000000",
+        "padding_desktop": 40,
+        "padding_mobile": 20,
+        "banner_text_width": "830",
+        "banner_height_desktop": "476",
+        "banner_height_mobile": "300"
+      }
+    },
+    "table_safety_4hqBwB": {
+      "type": "table-safety",
+      "blocks": {
+        "comparison_row_nk3TnP": {
+          "type": "comparison_row",
+          "settings": {
+            "label": "Absorption",
+            "freestyle_value": "230 gr",
+            "brand1_value": "217 gr",
+            "brand2_value": "219 gr",
+            "brand3_value": "224 gr"
+          }
+        },
+        "comparison_row_yfyXxq": {
+          "type": "comparison_row",
+          "settings": {
+            "label": "Absorption",
+            "freestyle_value": "230 gr",
+            "brand1_value": "217 gr",
+            "brand2_value": "219 gr",
+            "brand3_value": "224 gr"
+          }
+        },
+        "comparison_row_3VKqKD": {
+          "type": "comparison_row",
+          "settings": {
+            "label": "Absorption",
+            "freestyle_value": "230 gr",
+            "brand1_value": "217 gr",
+            "brand2_value": "219 gr",
+            "brand3_value": "224 gr"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_nk3TnP",
+        "comparison_row_yfyXxq",
+        "comparison_row_3VKqKD"
+      ],
+      "settings": {
+        "title": "Better than the best",
+        "highlight_bg_color": "#c2b0ff",
+        "button_label": "Shop Now",
+        "button_url": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "c_hero_img_TGLpf8",
+    "c_hero_text_p6zYVE",
+    "table_safety_4hqBwB"
   ]
 }

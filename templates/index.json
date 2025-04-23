@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "c_hero_img_9HYJYd": {
       "type": "c-hero-img",
@@ -38,33 +38,41 @@
         "testimonial_88pVHw": {
           "type": "testimonial",
           "settings": {
-            "testimonial_text": "\"No blowouts!! We tried several eco/non-toxic diaper options and these are by far the best for our baby. Everything stays contained, we've hardly ever had a blowout!\"",
-            "author_name": "Annabelle M.",
+            "testimonial_text": "“Amazing and SO soft!!! We just tried the new Skin Shield diapers and we LOVE them so far! We've tried almost every TCF diaper out there and these are definitely a new favorite!”",
+            "author_name": "McKenna",
             "location": "Colorado"
           }
         },
         "testimonial_aKw8E8": {
           "type": "testimonial",
           "settings": {
-            "testimonial_text": "\"Finally, a nontoxic diaper that doesn’t leak! I’ve tried about 15 brands of nontoxic diapers, and these are the best so far!\"",
-            "author_name": "Catherine Q.",
+            "testimonial_text": "“Fantastic Diapers. They are SUPER absorbent though. I've left these on my girl all night and in the morning it's almost like she still has room for 3 more hours if I left her LOL.”",
+            "author_name": "Ashley",
             "location": "Virginia"
           }
         },
         "testimonial_kEdngG": {
           "type": "testimonial",
           "settings": {
-            "testimonial_text": "\"Absorbent, well-fitting and leak-free! I absolutely love these diapers!\"",
-            "author_name": "Katherine B.",
+            "testimonial_text": "“Super soft! They are so soft ! We love them.”",
+            "author_name": "Debbie",
             "location": "Florida"
           }
         },
         "testimonial_6xcadw": {
           "type": "testimonial",
           "settings": {
-            "testimonial_text": "\"Best diapers, best customer service! freestyle diapers are our absolute favorite! I’ve tried a few other brands but none absorb as much moisture (keeping my baby so dry) as freestyle.\"",
-            "author_name": "Taylor R.",
+            "testimonial_text": "“These are hands down THE BEST diapers! I have never experienced a leak with either child and there is no need to use overnight diapers, as these hold up! I had tried multiple brands prior and I will never stray from Freestyle.”",
+            "author_name": "Heather",
             "location": "Arizona"
+          }
+        },
+        "testimonial_tyLFUV": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "“Officially our new favorite diapers. Crazy how soft they are and our son has had zero leaks and totally dry overnight. Highly recommend.”",
+            "author_name": "Anonymous",
+            "location": "Los Angeles"
           }
         }
       },
@@ -72,7 +80,8 @@
         "testimonial_88pVHw",
         "testimonial_aKw8E8",
         "testimonial_kEdngG",
-        "testimonial_6xcadw"
+        "testimonial_6xcadw",
+        "testimonial_tyLFUV"
       ],
       "custom_css": [
         "span {font-weight: 400;}"
@@ -97,7 +106,7 @@
             "logo_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewbox=\"0 0 500 500\" height=\"500\" width=\"500\">\n<path stroke-width=\"24\" stroke=\"currentColor\" d=\"M459.07 130.776L459.877 132.166L460.158 132.443C480.38 168.247 476.189 211.499 452.187 242.44L446.481 249.795L452.187 257.15C476.477 288.462 480.497 332.125 459.377 368.505C438.286 404.54 397.31 423.114 357.565 418.084L348.599 416.95L345.032 425.254C329.529 461.353 293.109 487 250.448 487C207.747 487 171.367 461.614 155.877 425.283L152.302 416.897L143.264 418.093C103.302 423.381 62.6023 404.863 41.1953 368.462C19.8442 332.156 24.0817 288.217 48.4108 256.855L54.1167 249.5L48.4108 242.145C24.0787 210.779 19.8466 167.135 41.1953 130.833L41.2024 130.821L41.2094 130.809C62.3014 94.7528 102.995 76.1778 143.043 81.2119L152.027 82.3411L155.578 74.012C171.089 37.6318 207.501 12 250.149 12C292.797 12 329.209 37.6318 344.721 74.012L348.275 82.3484L357.266 81.2106C397.064 76.1741 438.005 94.5037 459.07 130.776ZM382.134 196.113L385.71 192.588V191.548C393.322 180.432 392.13 165.282 382.134 155.428C370.88 144.334 352.904 144.334 341.651 155.428L227.711 267.745L169.717 210.578C158.464 199.484 140.488 199.484 129.234 210.578C117.884 221.766 117.884 239.78 129.234 250.968L207.619 328.236C218.873 339.33 236.848 339.33 248.102 328.236L382.134 196.113Z\"></path>\n</svg>",
             "logo": "shopify://shop_images/chlorine_g.svg",
             "logo_violet": "shopify://shop_images/chlorine_p.svg",
-            "logo_text": "Total chlorine free"
+            "logo_text": "Total Chlorine Free"
           }
         },
         "logo_block_XaYNnR": {
@@ -128,6 +137,7 @@
       "settings": {
         "logo_1": "shopify://shop_images/skin-shield-logo.png",
         "logo_2": "shopify://shop_images/7-Layer_Protection.svg",
+        "main_text": "",
         "additional_text": "*up to 14x better absorption than leading brands"
       }
     },
@@ -157,7 +167,7 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "Up to 14x more absorbent than leading brands",
-            "text": "<p>Thanks to its 7-layer design, Skin <em>1</em> Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
+            "text": "<p>Thanks to its 7-layer design, Skin <em>1</em> Shield™ starts dry and stays dry. </p><p>Better protection for them and fewer changes for you. </p>",
             "button_text": "Meet the future of diapers",
             "button_url": "#"
           }
@@ -170,7 +180,7 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "7-layer protection means fewer leaks and longer nights",
-            "text": "<p>Best-in-class absorbent material draws away moisture quickly  and locks it in to protect against rash or discomfort.</p>",
+            "text": "<p>Best-in-class absorbent material draws away moisture quickly</p><p>and locks it in to protect against rash or discomfort.</p>",
             "button_text": "Level up bedtime",
             "button_url": ""
           }
@@ -182,8 +192,8 @@
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Safer, for longer,<br>than anything else",
-            "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
+            "title": "Safer, for longer,than anything else",
+            "text": "<p>Our lab-tested diapers are made from</p><p>clean, non-toxic, total-chlorine-free materials.</p>",
             "button_text": "Our safety standards",
             "button_url": "#"
           }
@@ -196,8 +206,8 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "Cloud-like softness engineered for delicate skin",
-            "text": "<p>We found the softest materials available to keep them comfortable round the clock.</p>",
-            "button_text": "Shop Skin <span></span> Shield™",
+            "text": "<p>We found the softest materials available to keep them </p><p>comfortable round the clock.</p>",
+            "button_text": "Shop Skin  Shield™",
             "button_icon": "shopify://shop_images/Group_26613.svg",
             "button_url": ""
           }
@@ -215,9 +225,8 @@
       ],
       "settings": {
         "enable_smooth_scroll": true,
-        "promo_text": "Your baby is perfect,<br>now their diaper is too.",
-        "button_text": "Shop Skin   Shield™",
-        "button_icon": "shopify://shop_images/Group_26613.svg",
+        "promo_text": "Your baby is perfect,now their diaper is too.",
+        "button_text": "Shop Skin [heart_white] Shield™",
         "button_url": "#"
       }
     },
@@ -225,16 +234,16 @@
       "type": "c-hero-img",
       "settings": {
         "image": "shopify://shop_images/242A6894_6.jpg",
-        "heading": "Shop Skin Shield ™ <br>\nExclusively at Walmart",
+        "heading": "Shop Skin Shield™ <br>\nExclusively at Walmart",
         "heading_color": "#ffffff",
-        "heading_icon": "shopify://shop_images/hear-icon-2-light.svg",
+        "heading_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
         "heading_weight": "medium",
         "heading_icon_size": 94,
         "description": "",
         "description_color": "#ffffff",
         "button_icon": "shopify://shop_images/wallmart-icon.svg",
         "button_icon_size": 16,
-        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
+        "button_text_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
         "button_text_icon_size": 16,
         "banner_height_desktop": "818",
         "banner_height_mobile": "500",
@@ -251,7 +260,7 @@
           "type": "review",
           "settings": {
             "author_name": "@taylor.dyne",
-            "author_url": "https://www.instagram.com/taylor.dyne/",
+            "author_url": "https://www.tiktok.com/@taylor.dyne",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"I am literally so excited about these. They are so nice. If you are looking for a new TCF diaper and you want something more affordable...definitely check out Freestyle from Walmart.\"",
@@ -262,18 +271,18 @@
           "type": "review",
           "settings": {
             "author_name": "@cathrinmanningg",
-            "author_url": "https://www.instagram.com/cathrinmanningg/",
+            "author_url": "https://www.tiktok.com/@cathrinmanningg",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"I still don't understand how the paper towel was completely dry!!! If you're looking for a super soft & very absorbent diaper, you need to try these Freestyle diapers!\"",
-            "review_video": "shopify://files/videos/Download(2).mp4"
+            "review_video": "shopify://files/videos/freestyle absorbancy test final.mp4"
           }
         },
         "review_UGacVf": {
           "type": "review",
           "settings": {
             "author_name": "@megtimmons",
-            "author_url": "https://www.instagram.com/megtimmons/",
+            "author_url": "https://www.tiktok.com/@megtimmons",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"If you are not using Freestyle diapers, you need to\"",
@@ -283,23 +292,23 @@
         "review_Pw4aDj": {
           "type": "review",
           "settings": {
-            "author_name": "@nicolewebz",
-            "author_url": "https://www.instagram.com/nicolewebz/",
+            "author_name": "@madipcurtis",
+            "author_url": "https://www.tiktok.com/@madipcurtis?lang=fr",
             "is_verified": false,
             "author_handle": "",
-            "review_text": "\"It is so absorbent you can use it as an overnight diaper. It is so soft. The best thing about the diaper is it is TCF...these are actually really cost effective and very comparable to some non-TCF diapers.\"",
-            "review_video": "shopify://files/videos/Download.mp4"
+            "review_text": "\"This is so crazy. I see a clear winner here. Go grab a pack and try it for yourself.\"",
+            "review_video": "shopify://files/videos/IMG_0.MOV"
           }
         },
         "review_hWVwfN": {
           "type": "review",
           "settings": {
-            "author_name": "@cathrinmanningg",
-            "author_url": "https://www.instagram.com/cathrinmanningg/",
+            "author_name": "@frowzyy",
+            "author_url": "https://www.instagram.com/frowzyy/",
             "is_verified": false,
             "author_handle": "",
-            "review_text": "\"These diapers are so dang soft...the price point is actually reasonable....I love them so much\"",
-            "review_video": "shopify://files/videos/Download (1).mp4"
+            "review_text": "“It's the obvious choice– Freestyle diapers. No leaks, no mess, no stress. Just diapers.\"",
+            "review_video": "shopify://files/videos/KennedyAd2.mov"
           }
         },
         "review_GAyDCY": {

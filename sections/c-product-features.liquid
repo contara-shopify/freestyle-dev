@@ -21,6 +21,11 @@
             width="{{ section.settings.logo_2.width }}"
             height="{{ section.settings.logo_2.height }}">
         {% endif %}
+        {% if section.settings.main_text != blank %}
+          <div class="text-4xl">
+            {{ section.settings.main_text }}
+          </div>
+        {% endif %}
       </div>
     </div>
 
@@ -109,6 +114,11 @@
       "type": "image_picker",
       "id": "logo_2",
       "label": "Logo Second"
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Text Block"
     },
     {
       "type": "text",

@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -52,7 +52,7 @@
         "product_features_jDgQVM": {
           "type": "product_features",
           "settings": {
-            "note": "<p>*up to 14x better absorption than leading brands</p>"
+            "note": ""
           }
         },
         "accordion_gjrxaL": {
@@ -98,28 +98,28 @@
           "type": "accordion_item",
           "settings": {
             "title": "Size and pack details",
-            "content": "<p>Take a look at our size chart here. </p><p>Each monthly shipment includes six packs of diapers and four packs of wipes for around one month’s use. <br/><br/>Size 1: 34 diapers per pack, 205 diapers total count<br/><br/>Size 2: 32 diapers per pack, 192 diapers total count<br/><br/>Size 3: 28 diapers per pack, 168 diapers total count<br/><br/>Size 4: 24 diapers per pack, 144 diapers total count<br/><br/>Size 5: 22 diapers per pack, 132 diapers total count<br/><br/>Size 6: 20 diapers per pack, 120 diapers total count<br/><br/>4 packs of wipes: 72 wipes per pack; 288 wipes total count</p>"
+            "content": "<p>Take a look at our size chart <a href=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/5f329f7857e7e20b7268da7a362627ea1aaedf46-5625x5625.jpg?v=1745406523\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/5f329f7857e7e20b7268da7a362627ea1aaedf46-5625x5625.jpg?v=1745406523\">here</a>. </p><p>Each monthly shipment includes six packs of diapers and four packs of wipes for around one month’s use. <br/><br/>Size 1: 34 diapers per pack, 205 diapers total count<br/><br/>Size 2: 32 diapers per pack, 192 diapers total count<br/><br/>Size 3: 28 diapers per pack, 168 diapers total count<br/><br/>Size 4: 24 diapers per pack, 144 diapers total count<br/><br/>Size 5: 22 diapers per pack, 132 diapers total count<br/><br/>Size 6: 20 diapers per pack, 120 diapers total count<br/><br/>4 packs of wipes: 72 wipes per pack; 288 wipes total count</p>"
           }
         },
         "accordion_item_EkR6bT": {
           "type": "accordion_item",
           "settings": {
             "title": "Lab-tested non-toxic ingredients",
-            "content": "<p>The Freestyle Formula<br/><br/>All Freestyle diapers are Total Chlorine Free. <br/><br/>Our diaper is made from our proprietary tree-free, Bamboo Tek™ core (100% bamboo pulp and superabsorbent polymer), performance driven non-woven fabrics (polypropylene and polyethylene), water-soluble, toxin-free inks, and some elastic (spandex, polypropylene and polyethylene) to hold it all together.<br/><br/>Read more about our safety and testing here (CTA safety and testing page)</p>"
+            "content": "<p>The Freestyle Formula<br/><br/>All Freestyle diapers are Total Chlorine Free. <br/><br/>Our diaper is made from our proprietary tree-free, Bamboo Tek™ core (100% bamboo pulp and superabsorbent polymer), performance driven non-woven fabrics (polypropylene and polyethylene), water-soluble, toxin-free inks, and some elastic (spandex, polypropylene and polyethylene) to hold it all together.<br/><br/>Read more about our safety and testing <a href=\"/pages/safety-and-testing\" target=\"_blank\" title=\"Safety and Testing\">here </a>(CTA safety and testing page)</p>"
           }
         },
         "accordion_item_QDWeYg": {
           "type": "accordion_item",
           "settings": {
             "title": "Which diaper to choose",
-            "content": "<p>Both offer great skin protection and clean, non toxic construction. SkinShield™ is focused on innovation and high-performance, while BambooTek™ is a tree-free, environmentally friendly option.<br/><br/>V1: Read more about SkinShield here (CTA SkinShield PDP) and find at Walmart.com (CTA Walmart PDP). <br/><br/>V2: Read more about SkinShield here (CTA SkinShield PDP) and find at Walmart.com (CTA Walmart PDP) and Walmart stores nationwide (CTA Store Locator page)</p>"
+            "content": "<p>Both offer great skin protection and clean, non toxic construction. SkinShield™ is focused on innovation and high-performance, while BambooTek™ is a tree-free, environmentally friendly option.<br/><br/>V1: Read more about SkinShield <a href=\"/products/bambootek®-diapers-glow\" target=\"_blank\" title=\"BambooTek® Diapers - Glow\">here </a>(CTA SkinShield PDP) and find at <a href=\"https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597 \" target=\"_blank\" title=\"https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597 \">Walmart.com</a> (CTA Walmart PDP). <br/><br/>V2: Read more about SkinShield here (CTA SkinShield PDP) and find at Walmart.com (CTA Walmart PDP) and <a href=\"https://www.freestyle.world/stores \" target=\"_blank\" title=\"https://www.freestyle.world/stores \">Walmart stores</a> nationwide (CTA Store Locator page)</p>"
           }
         },
         "accordion_item_ztzDDX": {
           "type": "accordion_item",
           "settings": {
             "title": "Where to shop",
-            "content": "<p>BambooTek diapers are available on Amazon, online subscription, and various retailers around the country (find one here, look out for the green bamboo emoji).<br/><br/>We recently refreshed the design of our packaging– as our various retailers work through inventory, some of our products may have different packaging. Rest easy, though, the products are all the same, just with a design refresh! </p>"
+            "content": "<p>BambooTek diapers are available on <a href=\"https://www.amazon.com/Freestyle-Diaper-Absorbent-Non-Toxic-Disposable/dp/B0D66ZYHLK?ref_=ast_sto_dp&th=1&psc=1 \" target=\"_blank\" title=\"https://www.amazon.com/Freestyle-Diaper-Absorbent-Non-Toxic-Disposable/dp/B0D66ZYHLK?ref_=ast_sto_dp&th=1&psc=1 \">Amazon</a>, online subscription, and various retailers around the country (find one <a href=\"https://www.freestyle.world/stores\" target=\"_blank\" title=\"https://www.freestyle.world/stores\">here</a>, look out for the green bamboo emoji).<br/><br/>We recently refreshed the design of our packaging– as our various retailers work through inventory, some of our products may have different packaging. Rest easy, though, the products are all the same, just with a design refresh! </p>"
           }
         }
       },
@@ -162,7 +162,9 @@
           }
         }
       },
-      "block_order": ["junip_junip_product_review_xLN8Xa"],
+      "block_order": [
+        "junip_junip_product_review_xLN8Xa"
+      ],
       "settings": {}
     },
     "c_hero_img_3b7kXN": {
@@ -221,7 +223,7 @@
           "type": "review",
           "settings": {
             "author_name": "@taylor.dyne",
-            "author_url": "https://www.instagram.com/taylor.dyne/",
+            "author_url": "https://www.tiktok.com/@taylor.dyne",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"I am literally so excited about these. They are so nice. If you are looking for a new TCF diaper and you want something more affordable...definitely check out Freestyle from Walmart.\"",
@@ -232,18 +234,18 @@
           "type": "review",
           "settings": {
             "author_name": "@cathrinmanningg",
-            "author_url": "https://www.instagram.com/cathrinmanningg/",
+            "author_url": "https://www.tiktok.com/@cathrinmanningg",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"I still don't understand how the paper towel was completely dry!!! If you're looking for a super soft & very absorbent diaper, you need to try these Freestyle diapers!\"",
-            "review_video": "shopify://files/videos/Download(2).mp4"
+            "review_video": "shopify://files/videos/freestyle absorbancy test final.mp4"
           }
         },
         "review_UGacVf": {
           "type": "review",
           "settings": {
             "author_name": "@megtimmons",
-            "author_url": "https://www.instagram.com/megtimmons/",
+            "author_url": "https://www.tiktok.com/@megtimmons",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"If you are not using Freestyle diapers, you need to\"",
@@ -253,23 +255,23 @@
         "review_Pw4aDj": {
           "type": "review",
           "settings": {
-            "author_name": "@nicolewebz",
-            "author_url": "https://www.instagram.com/nicolewebz/",
+            "author_name": "@madipcurtis",
+            "author_url": "https://www.tiktok.com/@madipcurtis?lang=fr",
             "is_verified": false,
             "author_handle": "",
-            "review_text": "\"It is so absorbent you can use it as an overnight diaper. It is so soft. The best thing about the diaper is it is TCF...these are actually really cost effective and very comparable to some non-TCF diapers.\"",
-            "review_video": "shopify://files/videos/Download.mp4"
+            "review_text": "\"This is so crazy. I see a clear winner here. Go grab a pack and try it for yourself.\"",
+            "review_video": "shopify://files/videos/IMG_0.MOV"
           }
         },
         "review_hWVwfN": {
           "type": "review",
           "settings": {
-            "author_name": "@cathrinmanningg",
-            "author_url": "https://www.instagram.com/cathrinmanningg/",
+            "author_name": "@frowzyy",
+            "author_url": "https://www.instagram.com/frowzyy/",
             "is_verified": false,
             "author_handle": "",
-            "review_text": "\"These diapers are so dang soft...the price point is actually reasonable....I love them so much\"",
-            "review_video": "shopify://files/videos/Download (1).mp4"
+            "review_text": "“It's the obvious choice– Freestyle diapers. No leaks, no mess, no stress. Just diapers.\"",
+            "review_video": "shopify://files/videos/KennedyAd2.mov"
           }
         },
         "review_GAyDCY": {

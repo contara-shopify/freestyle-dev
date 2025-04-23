@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -38,7 +38,7 @@
           "settings": {
             "cta_type": "external_link",
             "cta_label": "Shop at Walmart.com",
-            "cta_url": "#"
+            "cta_url": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597"
           }
         },
         "separator_WX87Ph": {
@@ -70,7 +70,7 @@
           "type": "product_feature",
           "settings": {
             "icon": "<svg width=\"40\" height=\"43\" viewbox=\"0 0 40 43\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M36.8641 11.2178L36.9469 11.3626L36.9692 11.385C38.5987 14.3436 38.2524 17.9114 36.3057 20.4621L35.7268 21.2205L36.3057 21.9789C38.2816 24.5677 38.6106 28.1832 36.8903 31.1959C35.1752 34.1748 31.8489 35.7023 28.6318 35.2885L27.6903 35.1674L27.3209 36.0417C26.0579 39.0307 23.0981 41.1408 19.6453 41.1408C16.1883 41.1408 13.2326 39.0521 11.971 36.0447L11.6006 35.1618L10.6517 35.2894C7.41831 35.7243 4.11518 34.2031 2.37308 31.1922C0.634218 28.1869 0.979942 24.548 2.95993 21.9538L3.53877 21.1954L2.95993 20.437C0.97964 17.8424 0.634461 14.2286 2.37308 11.2237L2.37451 11.2212C4.08995 8.24066 7.39254 6.71329 10.6349 7.12754L11.5781 7.24805L11.946 6.37115C13.2097 3.35848 16.1688 1.25 19.6203 1.25C23.0717 1.25 26.0308 3.35847 27.2946 6.37115L27.6628 7.24882L28.6068 7.1274C31.8292 6.71291 35.1515 8.22045 36.8641 11.2178ZM30.8324 16.8172L31.1976 16.4512V16.337C31.8504 15.3116 31.7286 13.9448 30.8324 13.0468C29.7939 12.0063 28.1259 12.0063 27.0875 13.0468L17.7449 22.4073L13.0783 17.7318C12.0399 16.6914 10.3719 16.6914 9.33343 17.7318C8.29628 18.771 8.29628 20.438 9.33343 21.4772L15.8849 28.0412C16.9234 29.0817 18.5914 29.0817 19.6298 28.0412L30.8324 16.8172Z\" stroke=\"#262626\" stroke-width=\"2.5\"></path>\n</svg>",
-            "title": "<p>Total chlorine free</p>"
+            "title": "<p>Total Chlorine Free</p>"
           }
         },
         "product_feature_nUkWcM": {
@@ -91,14 +91,14 @@
           "type": "accordion_item",
           "settings": {
             "title": "Size and pack details",
-            "content": "<p>Take a look at our size chart here. Each box includes enough diapers for 1-2 weeks of use. </p>"
+            "content": "<p>Take a look at our size chart <a href=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/5f329f7857e7e20b7268da7a362627ea1aaedf46-5625x5625.jpg?v=1745406523\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/5f329f7857e7e20b7268da7a362627ea1aaedf46-5625x5625.jpg?v=1745406523\">here</a>. Each box includes enough diapers for 1-2 weeks of use. <br/><br/></p>"
           }
         },
         "accordion_item_cWHA4e": {
           "type": "accordion_item",
           "settings": {
             "title": "Lab-tested non-toxic ingredients",
-            "content": "<p>The Freestyle Formula<br/><br/>All Freestyle diapers are Total Chlorine Free. <br/><br/>The core of this diaper is made with our proprietary SAP Matrix (Super Absorbent Polymers and Cotton) and FSC Certified Total Chlorine Free Wood Pulp. The Topsheet, Backsheet, Leakguard, and Films are made with Performance-Driven Nonwoven Fabrics (Polyester, Polyethylene, and Polypropylene). Elastics (Spandex, Polypropylene, Polyethylene) and adhesives (Hydrocarbon Resin) are used to hold it all together - and we mean all.<br/><br/>Read more about our safety and testing here (CTA safety and testing page)</p>"
+            "content": "<p>The Freestyle Formula<br/><br/>All Freestyle diapers are Total Chlorine Free. <br/><br/>The core of this diaper is made with our proprietary SAP Matrix (Super Absorbent Polymers and Cotton) and FSC Certified Total Chlorine Free Wood Pulp. The Topsheet, Backsheet, Leakguard, and Films are made with Performance-Driven Nonwoven Fabrics (Polyester, Polyethylene, and Polypropylene). Elastics (Spandex, Polypropylene, Polyethylene) and adhesives (Hydrocarbon Resin) are used to hold it all together - and we mean all.<br/><br/>Read more about our safety and testing <a href=\"/pages/safety-and-testing\" target=\"_blank\" title=\"Safety and Testing\">here </a>(CTA safety and testing page)</p>"
           }
         },
         "accordion_item_QDWeYg": {
@@ -112,7 +112,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Where to shop",
-            "content": "<p>SkinShield diapers are available exclusively at Walmart.com (CTA Walmart PDP) and select Walmart stores (find one here, look out for the red heart).<br/><br/>Walmart offers free shipping, customized subscriptions, same-day delivery, and in-store pickups, plus free, easy 90 day returns with Walmart+.</p>"
+            "content": "<p>SkinShield diapers are available exclusively at <a href=\"https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597 \" target=\"_blank\" title=\"https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597 \">Walmart.com</a> (CTA Walmart PDP) and select Walmart stores (find one <a href=\"https://www.freestyle.world/stores \" target=\"_blank\" title=\"https://www.freestyle.world/stores \">here</a>, look out for the red heart).<br/><br/>Walmart offers free shipping, customized subscriptions, same-day delivery, and in-store pickups, plus free, easy 90 day returns with Walmart+.</p>"
           }
         }
       },
@@ -160,7 +160,7 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "Up to 14x more absorbent than leading brands",
-            "text": "<p>Thanks to its 7-layer design, Skin <em>1</em> Shield™ starts dry and stays dry.  Better protection for them and fewer changes for you. </p>",
+            "text": "<p>Thanks to its 7-layer design, Skin <em>1</em> Shield™ starts dry and stays dry.  </p><p>Better protection for them and fewer changes for you. </p>",
             "button_text": "Meet the future of diapers",
             "button_url": "#"
           }
@@ -173,7 +173,7 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "7-layer protection means fewer leaks and longer nights",
-            "text": "<p>Best-in-class absorbent material draws away moisture quickly  and locks it in to protect against rash or discomfort.</p>",
+            "text": "<p>Best-in-class absorbent material draws away moisture quickly </p><p>and locks it in to protect against rash or discomfort.</p>",
             "button_text": "Level up bedtime",
             "button_url": ""
           }
@@ -185,8 +185,8 @@
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Safer, for longer,<br>than anything else",
-            "text": "<p>Our lab-tested diapers are made from clean, non-toxic, total-chlorine-free materials.</p>",
+            "title": "Safer, for longer,than anything else",
+            "text": "<p>Our lab-tested diapers are made from clean, </p><p>non-toxic, total-chlorine-free materials.</p>",
             "button_text": "Our safety standards",
             "button_url": "#"
           }
@@ -199,21 +199,39 @@
             "horizontal_position": "start",
             "text_color": "#020617",
             "title": "Cloud-like softness engineered for delicate skin",
-            "text": "<p>We found the softest materials available to keep them comfortable round the clock.</p>",
-            "button_text": "Shop Skin <span></span> Shield™",
+            "text": "<p>We found the softest materials available to keep them comfortable </p><p>round the clock.</p>",
+            "button_text": "Shop Skin  Shield™",
             "button_icon": "shopify://shop_images/Group_26613.svg",
             "button_url": ""
           }
         }
       },
-      "block_order": ["video_bMmbGT", "text_zBpedE", "text_XAFeQB", "text_Mgmdew", "text_wTUQNR"],
-      "custom_css": ["h3 {font-weight: 400;}"],
+      "block_order": [
+        "video_bMmbGT",
+        "text_zBpedE",
+        "text_XAFeQB",
+        "text_Mgmdew",
+        "text_wTUQNR"
+      ],
+      "custom_css": [
+        "h3 {font-weight: 400;}"
+      ],
       "settings": {
         "enable_smooth_scroll": true,
-        "promo_text": "Your baby is perfect,<br>now their diaper is too.",
-        "button_text": "Shop Skin   Shield™",
-        "button_icon": "shopify://shop_images/Group_26613.svg",
+        "promo_text": "Your baby is perfect,now their diaper is too.",
+        "button_text": "Shop Skin [heart_white] Shield™",
         "button_url": "#"
+      }
+    },
+    "c_link_to_review_9qC9yd": {
+      "type": "c-link-to-review",
+      "settings": {
+        "heading": "See what parents are saying",
+        "text": "",
+        "image": "shopify://shop_images/Group_26388.png",
+        "image_alt": "Review Image",
+        "button_link": "https://www.walmart.com/reviews/product/13912063699",
+        "button_text": "Read reviews"
       }
     },
     "174411240666086477": {
@@ -221,12 +239,15 @@
       "blocks": {
         "junip_junip_product_review_xLN8Xa": {
           "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
           "settings": {
             "product": "diaper"
           }
         }
       },
-      "block_order": ["junip_junip_product_review_xLN8Xa"],
+      "block_order": [
+        "junip_junip_product_review_xLN8Xa"
+      ],
       "settings": {}
     },
     "c_hero_img_3b7kXN": {
@@ -291,7 +312,7 @@
           "type": "review",
           "settings": {
             "author_name": "@taylor.dyne",
-            "author_url": "https://www.instagram.com/taylor.dyne/",
+            "author_url": "https://www.tiktok.com/@taylor.dyne",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"I am literally so excited about these. They are so nice. If you are looking for a new TCF diaper and you want something more affordable...definitely check out Freestyle from Walmart.\"",
@@ -302,18 +323,18 @@
           "type": "review",
           "settings": {
             "author_name": "@cathrinmanningg",
-            "author_url": "https://www.instagram.com/cathrinmanningg/",
+            "author_url": "https://www.tiktok.com/@cathrinmanningg",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"I still don't understand how the paper towel was completely dry!!! If you're looking for a super soft & very absorbent diaper, you need to try these Freestyle diapers!\"",
-            "review_video": "shopify://files/videos/Download(2).mp4"
+            "review_video": "shopify://files/videos/freestyle absorbancy test final.mp4"
           }
         },
         "review_UGacVf": {
           "type": "review",
           "settings": {
             "author_name": "@megtimmons",
-            "author_url": "https://www.instagram.com/megtimmons/",
+            "author_url": "https://www.tiktok.com/@megtimmons",
             "is_verified": false,
             "author_handle": "",
             "review_text": "\"If you are not using Freestyle diapers, you need to\"",
@@ -323,23 +344,23 @@
         "review_Pw4aDj": {
           "type": "review",
           "settings": {
-            "author_name": "@nicolewebz",
-            "author_url": "https://www.instagram.com/nicolewebz/",
+            "author_name": "@madipcurtis",
+            "author_url": "https://www.tiktok.com/@madipcurtis?lang=fr",
             "is_verified": false,
             "author_handle": "",
-            "review_text": "\"It is so absorbent you can use it as an overnight diaper. It is so soft. The best thing about the diaper is it is TCF...these are actually really cost effective and very comparable to some non-TCF diapers.\"",
-            "review_video": "shopify://files/videos/Download.mp4"
+            "review_text": "\"This is so crazy. I see a clear winner here. Go grab a pack and try it for yourself.\"",
+            "review_video": "shopify://files/videos/IMG_0.MOV"
           }
         },
         "review_hWVwfN": {
           "type": "review",
           "settings": {
-            "author_name": "@cathrinmanningg",
-            "author_url": "https://www.instagram.com/cathrinmanningg/",
+            "author_name": "@frowzyy",
+            "author_url": "https://www.instagram.com/frowzyy/",
             "is_verified": false,
             "author_handle": "",
-            "review_text": "\"These diapers are so dang soft...the price point is actually reasonable....I love them so much\"",
-            "review_video": "shopify://files/videos/Download (1).mp4"
+            "review_text": "“It's the obvious choice– Freestyle diapers. No leaks, no mess, no stress. Just diapers.\"",
+            "review_video": "shopify://files/videos/KennedyAd2.mov"
           }
         },
         "review_GAyDCY": {
@@ -371,6 +392,7 @@
   "order": [
     "main",
     "c_scrub_scrolling_dke3Md",
+    "c_link_to_review_9qC9yd",
     "174411240666086477",
     "c_hero_img_3b7kXN",
     "c_product_details_R4KkFT",

@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-C3xmyBhk.css",
+    "file": "main-G1BF3KBa.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -96,12 +96,12 @@
     "isEntry": true
   },
   "frontend/styles/sections/product.scss": {
-    "file": "product-DUteEbYm.css",
+    "file": "product-B2vEXVty.css",
     "src": "frontend/styles/sections/product.scss",
     "isEntry": true
   },
   "frontend/styles/sections/product_details_metaobject.scss": {
-    "file": "product_details_metaobject-1uIlQyZw.css",
+    "file": "product_details_metaobject-o_bp5Svd.css",
     "src": "frontend/styles/sections/product_details_metaobject.scss",
     "isEntry": true
   },

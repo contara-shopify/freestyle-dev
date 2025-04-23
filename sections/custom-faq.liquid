@@ -1,223 +1,214 @@
 {% schema %}
-{
-  "name": "Custom FAQ",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_title",
-      "label": "Show title",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "main_title",
-      "label": "Main title",
-      "default": "Frequently Asked Questions"
-    },
-    {
-      "type": "text",
-      "id": "subtitle_text",
-      "label": "Descriptive text",
-      "default": "You know they look good, but you still got questions. Fire away!"
-    },
-    {
-      "type": "text",
-      "id": "faq_section_title",
-      "label": "FAQ section title",
-      "default": "Diaper & Wipe Specs"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "faq",
-      "name": "FAQ question",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Frequently Asked Questions"
-        },
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question",
-          "default": "¿What is the size of the diaper?"
-        },
-        {
-          "type": "richtext",
-          "id": "answer",
-          "label": "Answer",
-          "default": "<p>Answer example</p>"
-        },
-        {
-          "type": "text",
-          "id": "question-1",
-          "label": "Question 1",
-          "default": "¿What is the size of the diaper?"
-        },
-        {
-          "type": "richtext",
-          "id": "answer-1",
-          "label": "Answer 1",
-          "default": "<p>Answer example</p>"
-        },
-        {
-          "type": "text",
-          "id": "question-2",
-          "label": "Question 2",
-          "default": "¿What is the size of the diaper?"
-        },
-        {
-          "type": "richtext",
-          "id": "answer-2",
-          "label": "Answer 2",
-          "default": "<p>Answer example</p>"
-        },
-        {
-          "type": "text",
-          "id": "question-3",
-          "label": "Question 3",
-          "default": "¿What is the size of the diaper?"
-        },
-        {
-          "type": "richtext",
-          "id": "answer-3",
-          "label": "Answer 3",
-          "default": "<p>Answer example</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Custom FAQ",
-      "blocks": [
-        {
-          "type": "faq"
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
+  {
+    "name": "Custom FAQ",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_title",
+        "label": "Show title",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "main_title",
+        "label": "Main title",
+        "default": "Frequently Asked Questions"
+      },
+      {
+        "type": "text",
+        "id": "faq_section_title",
+        "label": "FAQ section title",
+        "default": "Diaper & Wipe Specs"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "FAQ question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Frequently Asked Questions"
+          },
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "¿What is the size of the diaper?"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>Answer example</p>"
+          },
+          {
+            "type": "text",
+            "id": "question-1",
+            "label": "Question 1",
+            "default": "¿What is the size of the diaper?"
+          },
+          {
+            "type": "richtext",
+            "id": "answer-1",
+            "label": "Answer 1",
+            "default": "<p>Answer example</p>"
+          },
+          {
+            "type": "text",
+            "id": "question-2",
+            "label": "Question 2",
+            "default": "¿What is the size of the diaper?"
+          },
+          {
+            "type": "richtext",
+            "id": "answer-2",
+            "label": "Answer 2",
+            "default": "<p>Answer example</p>"
+          },
+          {
+            "type": "text",
+            "id": "question-3",
+            "label": "Question 3",
+            "default": "¿What is the size of the diaper?"
+          },
+          {
+            "type": "richtext",
+            "id": "answer-3",
+            "label": "Answer 3",
+            "default": "<p>Answer example</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom FAQ",
+        "blocks": [
+          {
+            "type": "faq"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
 
-<section class="w-full px-12 py-12 md:px-0">
-  <div class="max-w-7xl md:max-w-none mx-auto md:px-16">
-    <div class="grid md:grid-cols-2 gap-8 relative">
-      <div class="relative">
-          {% if section.settings.show_title %}
-            <h2 class="text-4xl sticky top-40 z-10 mb-30 bg-white">
-              {{ section.settings.main_title }}
-            </h2>
-          {% endif %}
-          <p class="text-2-5xl font-bold p-20 bg-[#D9D9D9] max-w-[537px]">
-            {{ section.settings.subtitle_text }}
-          </p>
-        </div>
-      <div class="py-4">
-        <h4 class="text-2-5xl">
-          {{ section.settings.faq_section_title }}
-        </h4>
-
-        <ul class="">
-          {% for block in section.blocks %}
-            {% if block.type == 'faq' %}
-              {% if block.settings.title != blank %}
-                <div class="mb-20">
-                  <h2 class="text-2-5xl">
-                    {{ block.settings.title }}
-                  </h2>
-                </div>
-              {% endif %}
-
-              <li class="border-b " {{ block.shopify_attributes }}>
-                <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
-                        onclick="toggleFaq(this)"
-                        aria-expanded="false">
-                  <span>{{ block.settings.question }}</span>
-                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
-                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                  <div class="pb-4 text-base">
-                    {{ block.settings.answer }}
-                  </div>
-                </div>
-              </li>
-              <li class="border-b " {{ block.shopify_attributes }}>
-                <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
-                        onclick="toggleFaq(this)"
-                        aria-expanded="false">
-                  <span>{{ block.settings.question-1 }}</span>
-                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
-                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                  <div class="pb-4 text-base">
-                    {{ block.settings.answer-1 }}
-                  </div>
-                </div>
-              </li>
-              <li class="border-b " {{ block.shopify_attributes }}>
-                <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
-                        onclick="toggleFaq(this)"
-                        aria-expanded="false">
-                  <span>{{ block.settings.question-2 }}</span>
-                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
-                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                  <div class="pb-4 text-base">
-                    {{ block.settings.answer-2 }}
-                  </div>
-                </div>
-              </li>
-              <li class="border-b mb-32" {{ block.shopify_attributes }}>
-                <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
-                        onclick="toggleFaq(this)"
-                        aria-expanded="false">
-                  <span>{{ block.settings.question-3 }}</span>
-                  <svg class="w-8 h-8 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
-                <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                  <div class="pb-4 text-base">
-                    {{ block.settings.answer-3 }}
-                  </div>
-                </div>
-              </li>
+  <section class="w-full px-12 pt-12 md:pt-36 py-12 md:px-0">
+    <div class="max-w-7xl md:max-w-none mx-auto md:px-16">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-24 lg:gap-40 relative">
+        <div class="relative">
+            {% if section.settings.show_title %}
+              <h2 class="text-3xl md:text-4xl sticky top-40 z-10 mb-10 md:mb-30 bg-white">
+                {{ section.settings.main_title }}
+              </h2>
             {% endif %}
-          {% endfor %}
-        </ul>
+          </div>
+        <div class="py-4">
+          <h4 class="text-2-5xl">
+            {{ section.settings.faq_section_title }}
+          </h4>
+
+          <ul class="">
+            {% for block in section.blocks %}
+              {% if block.type == 'faq' %}
+                {% if block.settings.title != blank %}
+                  <div class="mb-8 md:mb-12 lg:mb-20">
+                    <h2 class="text-2-5xl">
+                      {{ block.settings.title }}
+                    </h2>
+                  </div>
+                {% endif %}
+
+                <li class="border-b " {{ block.shopify_attributes }}>
+                  <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                          onclick="toggleFaq(this)"
+                          aria-expanded="false">
+                    <span>{{ block.settings.question }}</span>
+                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                    <div class="pb-4 text-base">
+                      {{ block.settings.answer }}
+                    </div>
+                  </div>
+                </li>
+                <li class="border-b " {{ block.shopify_attributes }}>
+                  <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                          onclick="toggleFaq(this)"
+                          aria-expanded="false">
+                    <span>{{ block.settings.question-1 }}</span>
+                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                    <div class="pb-4 text-base">
+                      {{ block.settings.answer-1 }}
+                    </div>
+                  </div>
+                </li>
+                <li class="border-b " {{ block.shopify_attributes }}>
+                  <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                          onclick="toggleFaq(this)"
+                          aria-expanded="false">
+                    <span>{{ block.settings.question-2 }}</span>
+                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                    <div class="pb-4 text-base">
+                      {{ block.settings.answer-2 }}
+                    </div>
+                  </div>
+                </li>
+                <li class="border-b mb-20 md:mb-32" {{ block.shopify_attributes }}>
+                  <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
+                          onclick="toggleFaq(this)"
+                          aria-expanded="false">
+                    <span>{{ block.settings.question-3 }}</span>
+                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                    </svg>
+                  </button>
+                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                    <div class="pb-4 text-base">
+                      {{ block.settings.answer-3 }}
+                    </div>
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  function toggleFaq(button) {
-    const content = button.nextElementSibling;
-    const inner = content.firstElementChild;
-    const icon = button.querySelector('svg');
-    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  <script>
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const inner = content.firstElementChild;
+      const icon = button.querySelector('svg');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-    button.setAttribute('aria-expanded', !isExpanded);
+      button.setAttribute('aria-expanded', !isExpanded);
 
-    if (!isExpanded) {
-      const innerStyles = window.getComputedStyle(inner);
-      const marginBottom = parseInt(innerStyles.marginBottom);
-      content.style.maxHeight = (inner.offsetHeight + marginBottom) + 'px';
-      content.style.opacity = '1';
-      icon.style.transform = 'rotate(180deg)';
-    } else {
-      content.style.maxHeight = '0';
-      content.style.opacity = '0';
-      icon.style.transform = '';
+      if (!isExpanded) {
+        const innerStyles = window.getComputedStyle(inner);
+        const marginBottom = parseInt(innerStyles.marginBottom);
+        content.style.maxHeight = (inner.offsetHeight + marginBottom) + 'px';
+        content.style.opacity = '1';
+        icon.style.transform = 'rotate(135deg)';
+      } else {
+        content.style.maxHeight = '0';
+        content.style.opacity = '0';
+        icon.style.transform = '';
+      }
     }
-  }
-</script>
+  </script>

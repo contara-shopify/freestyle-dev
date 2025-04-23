@@ -57,7 +57,7 @@
                 {% endif %}
 
                 <div class="product__rating">
-                  {% render 'rating-stars' %}
+                  {% render 'rating-stars', text: section.settings.review_numbers %}
                 </div>
               </div>
 
@@ -467,6 +467,12 @@
       "id": "sizes_accent_colors",
       "label": "Sizes Accent Colors",
       "info": "size - accent_color_top|accent_color_bottom"
+    },
+    {
+      "type": "text",
+      "id": "review_numbers",
+      "label": "How many reviews?",
+      "default": "4.8 out of 5 (1000+ reviews)"
     }
   ],
   "blocks": [

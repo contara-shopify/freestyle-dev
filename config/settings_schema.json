@@ -422,6 +422,12 @@
         "info": "Use [heart] to display the icon"
       },
       {
+        "type": "image_picker",
+        "id": "heart_icon_white",
+        "label": "Heart Icon White",
+        "info": "Use [heart_white] to display the icon"
+      },
+      {
         "type": "header",
         "content": "Item Menu 1"
       },

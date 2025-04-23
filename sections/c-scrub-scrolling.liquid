@@ -1,8 +1,10 @@
 {% render 'entry' with '@/styles/sections/scrub-scrolling.scss' %}
 
 <div class="scrub-scrolling">
+  {% assign bamboo_icon = settings['bamboo_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.2rem] inline-block translate-y-[-0.2rem] mx-1' %}
+  {% assign heart_icon = settings['heart_icon_white'] | image_url: width: 100 | image_tag: class: 'w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]' %}
   {% if section.settings.button_text != blank %}
-    <a href="{{ section.settings.button_url }}" class="button m-main">{{ section.settings.button_text | html }}</a>
+    <a href="{{ section.settings.button_url }}" class="button m-main">{{ section.settings.button_text | replace: '[bamboo]', bamboo_icon | replace: '[heart_white]', heart_icon }}</a>
   {% endif %}
   {% if section.settings.promo_text != blank %}
     <h3 class="scrub-scrolling__promo font-grotesk text-2xl md:text-5xl">{{ section.settings.promo_text }}</h3>
@@ -379,11 +381,6 @@
       "label": "Button text",
       "id": "button_text",
       "default": "Read More"
-    },
-    {
-      "type": "image_picker",
-      "label": "Button Icon",
-      "id": "button_icon"
     },
     {
       "type": "url",
