@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -154,7 +154,7 @@
         "junip_junip_product_review_xLN8Xa": {
           "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
           "settings": {
-            "product": "freestyle-bamboo-wipes-72ct"
+            "product": "soft-bamboo-wipes"
           }
         }
       },
