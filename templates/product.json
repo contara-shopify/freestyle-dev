@@ -15,7 +15,8 @@
         "title_hijtjK": {
           "type": "title",
           "settings": {
-            "image": "shopify://shop_images/shield-title.png"
+            "image": "shopify://shop_images/shield-title.png",
+            "alternate_title": ""
           }
         },
         "separator_NF3Aqz": {
@@ -37,7 +38,7 @@
         "cta_MaBGF4": {
           "type": "cta",
           "settings": {
-            "cta_type": "external_link",
+            "cta_type": "add_to_cart",
             "cta_label": "Shop at Walmart.com",
             "cta_url": "#"
           }
@@ -137,7 +138,10 @@
         "accordion_item_ztzDDX"
       ],
       "settings": {
-        "sizes_accent_colors": "1 - F3B232 | FBECA6\n2 - F3B232 | FBECA6\n3 - CBDB2A| E2E66A\n4 - 8BB6E1 | C3D6EE\n5 - AC95C7 | C4B3D7\n6 - F04C5E | F6A1B2"
+        "sizes_accent_colors": "1 - F3B232 | FBECA6\n2 - F3B232 | FBECA6\n3 - CBDB2A| E2E66A\n4 - 8BB6E1 | C3D6EE\n5 - AC95C7 | C4B3D7\n6 - F04C5E | F6A1B2",
+        "review_numbers": "4.8 out of 5 (1000+ reviews)",
+        "extra_product_for_bambootek": "",
+        "extra_product_quantity": 4
       }
     },
     "174411240666086477": {
@@ -150,7 +154,9 @@
           }
         }
       },
-      "block_order": ["junip_junip_product_review_xLN8Xa"],
+      "block_order": [
+        "junip_junip_product_review_xLN8Xa"
+      ],
       "settings": {}
     },
     "c_hero_img_3b7kXN": {
@@ -168,6 +174,8 @@
         "button_icon_size": 16,
         "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
         "button_text_icon_size": 16,
+        "banner_height_desktop": "818",
+        "banner_height_mobile": "500",
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
@@ -258,5 +266,10 @@
       }
     }
   },
-  "order": ["main", "174411240666086477", "c_hero_img_3b7kXN", "review_scroller_custom_CMUd3m"]
+  "order": [
+    "main",
+    "174411240666086477",
+    "c_hero_img_3b7kXN",
+    "review_scroller_custom_CMUd3m"
+  ]
 }
