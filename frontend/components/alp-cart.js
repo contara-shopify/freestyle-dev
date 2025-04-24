@@ -58,7 +58,7 @@ document.addEventListener('alpine:init', () => {
         requestData.selling_plan = sellingPlanId;
       }
       console.log('requestData', requestData);
-      fetch('/cart/add.js', {
+      return fetch('/cart/add.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ document.addEventListener('alpine:init', () => {
         items: productsArr,
       };
 
-      fetch('/cart/add.js', {
+      return fetch('/cart/add.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ document.addEventListener('alpine:init', () => {
       })
         .then(() => {
           this.loadCart();
-          window.location.href = '/checkout';
+          // window.location.href = '/checkout';
         })
         .catch(() => {
           this.errorMessage = 'Failed to add the product. Please try again.';

@@ -9,7 +9,15 @@
 {% assign product_badge = product.metafields.custom.badge_product %}
 {% assign product_attributes = product.metafields.custom.product_attributes %}
 
-<div class="product" x-data="product" x-init="init">
+<div
+  class="product"
+  x-data="product"
+  x-init="init"
+  {% if template contains 'bambootek' and section.settings.extra_product_for_bambootek %}
+    data-extra-product="{{ all_products[section.settings.extra_product_for_bambootek].first_available_variant.id }}"
+    data-extra-product-qty="{{ section.settings.extra_product_quantity }}"
+  {% endif %}
+>
   <div class="container container-lg">
     <div class="product__inner">
       {% render 'product-gallery', product: product %}
@@ -76,13 +84,7 @@
                     {% endform %}
                     <span
                       class="btn"
-                      @click="
-                        Alpine.store('cart').addToCart({
-                        variantId: activeVariant.id,
-                        quantity: 1,
-                        sellingPlanId: sellingPlan?.id || null
-                        }, true, false)
-                      ">
+                      @click="addToCart(activeVariant.id)">
                       {{ block.settings.cta_label }}
                     </span>
                   </div>
@@ -227,17 +229,18 @@
   </div>
 </div>
 {% render 'entry' with '@/scripts/sections/main-product.js' %}
-
 <script>
     document.addEventListener('alpine:init', () => {
         Alpine.data('product', () => ({
             loading: true,
             activeVariant: null,
+            extraProductId: null,
+            extraProductQty: null,
             sellingPlan: '',
             mainSwiper: null,
             mainSwiperPagination: null,
             paginationSlides: null,
-           activeSlideNum: 0,
+            activeSlideNum: 0,
             productType: `{{ product.type }}`,
             sizesAccentColorsString: `{{ sst.sizes_accent_colors }}`,
             sizesAccentColors: [],
@@ -310,25 +313,55 @@
                 {% endfor %}
             ],
             updateActiveVariant(id) {
-                if (id) {
-                    this.activeVariant = this.variants.find(item => item.id == id);
-                    console.log('Updated active variant:', this.activeVariant);
-                    this.slideToSlideByDataAttribute(this.activeVariant.id);
-                } else {
-                    this.activeVariant = this.variants[0];
-                    console.log('Set default variant:', this.activeVariant);
-                    // this.slideToSlideByDataAttribute(this.activeVariant.id);
+              if (id) {
+                  this.activeVariant = this.variants.find(item => item.id == id);
+                  console.log('Updated active variant:', this.activeVariant);
+                  this.slideToSlideByDataAttribute(this.activeVariant.id);
+              } else {
+                  this.activeVariant = this.variants[0];
+                  console.log('Set default variant:', this.activeVariant);
+                  // this.slideToSlideByDataAttribute(this.activeVariant.id);
+              }
+
+              if (this.templateName === 'product-bambootek') {
+                const defaultPlan = this.activeVariant?.selling_plan_allocations?.[0];
+                if (defaultPlan) {
+                  this.sellingPlan = defaultPlan;
                 }
+              }
             },
             addToCart(variantID, redirect = false) {
               if (!variantID) return;
-
-              Alpine.store('cart').addToCart({
-                variantId: variantID,
-                quantity: 1,
-                sellingPlanId: this.sellingPlan?.id || null
-              }, false, redirect);
-            },
+              if (this.templateName == 'product-bambootek') {
+                console.log('product-bambootek IFIFIFIF', this.templateName);
+                const itemsToAdd = [
+                  {
+                    id: this.activeVariant.id,
+                    quantity: 1,
+                    ...(this.sellingPlan?.id && { selling_plan: this.sellingPlan.id })
+                  }
+                ];
+                if (this.extraProductId) {
+                    itemsToAdd.push({
+                      id: this.extraProductId,
+                      quantity: this.extraProductQty || 4
+                    });
+                  }
+                  Alpine.store('cart').addMultiplyToCart(itemsToAdd).then(() => {
+                    if (redirect) {
+                      // window.location.href = '/checkout';
+                    } else {
+                      Alpine.store('cart').toggleCart(true);
+                    }
+                  });
+              } else {
+                  Alpine.store('cart').addToCart({
+                  variantId: this.activeVariant.id,
+                  quantity: 1,
+                  sellingPlanId: this.sellingPlan?.id || null
+                }, true, redirect)
+              }
+          },
             price(price) {
                 return `$${(price / 100).toFixed(2)}`;
             },
@@ -442,13 +475,22 @@
             },
 
             init() {
+                this.extraProductId = Number(this.$root.dataset.extraProduct);
+                this.extraProductQty = Number(this.$root.dataset.extraProductQty || 1);
                 this.paginationSlides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide');
                 this.parseSizeColors(this.sizesAccentColorsString);
                 this.setupVariants();
                 this.loading = true;
                 this.updateActiveVariant();
+                if (this.templateName === 'product-bambootek') {
+                  const defaultPlan = this.activeVariant?.selling_plan_allocations?.[0];
+                  if (defaultPlan) {
+                    this.sellingPlan = defaultPlan;
+                  }
+                }
                 this.initSwiperMain();
                 this.initSwiperPagination();
+                console.log('product', this.product);
                 console.log('product.variants', this.product.variants);
                 console.log('this.variants', this.variants);
                 console.log('this.templateName', this.templateName);
@@ -473,6 +515,18 @@
       "id": "review_numbers",
       "label": "How many reviews?",
       "default": "4.8 out of 5 (1000+ reviews)"
+    },
+    {
+      "type": "product",
+      "id": "extra_product_for_bambootek",
+      "label": "Extra Product for Bambootek",
+      "info": "This product will be used for the Bambootek template only. It will not be displayed in the product page.",
+    },
+    {
+      "type": "number",
+      "id": "extra_product_quantity",
+      "label": "Extra Product Quantity",
+      "default": 4
     }
   ],
   "blocks": [

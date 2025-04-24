@@ -11,7 +11,7 @@
       </path></svg>
     </span>
     <div class="b-mini_cart-header py-5">
-      <h3 class="b-mini_cart-title text-xl font-grotesk">Your Cart</h3>
+      <h3 class="b-mini_cart-title text-xl font-fkroman">Your Cart</h3>
     </div>
 
     {% comment %} <template x-if="!$store.cart.shippingDiscount.isFreeShippingUnlocked">
@@ -29,7 +29,7 @@
     </div> {% endcomment %}
 
     <div class="drawer__header-row progress-bar-row hidden" x-show="$store.cart.items.length > 0">
-      {% render 'progress-bar' data: 'cart' %}
+      {% comment %} {% render 'progress-bar' data: 'cart' %} {% endcomment %}
     </div>
 
     <div class="b-mini_cart-empty flex grow justify-center items-center" x-show="$store.cart.items.length === 0">
@@ -64,10 +64,9 @@
                   x-text="'$' + (item.selling_plan_allocation.compare_at_price / 100).toFixed(2)"></span>
                 <span x-text="'$' + (item.price / 100).toFixed(2)"></span>
                 <div
-                  class="pt-4 text-sm text-color_1 font-grotesk font-normal"
+                  class="pt-4 text-xs text-color_1 font-fkroman font-normal"
                     x-show="item.selling_plan_allocation.selling_plan && item.selling_plan_allocation.selling_plan.name">
                   <span
-                    x-show="item.selling_plan_allocation.selling_plan.price_adjustments[0].value > 0"
                     x-text="item.selling_plan_allocation.selling_plan.name"></span>
                   <span
                     x-show="item.selling_plan_allocation.selling_plan.price_adjustments[0].value > 0"
