@@ -61,7 +61,7 @@
         "text_color": "#000000",
         "padding_desktop": 40,
         "padding_mobile": 20,
-        "banner_text_width": "500",
+        "banner_text_width": "880",
         "banner_height_desktop": "476",
         "banner_height_mobile": "300"
       }
