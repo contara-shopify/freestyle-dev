@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-404",
@@ -43,7 +43,7 @@
       "type": "c-hero-text",
       "settings": {
         "title": "",
-        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p>That is why we are committed to only using clean,  non-toxic, Total Chlorine Free materials and lab testing our products to make sure.<br/><br/></p>",
+        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p>That is why we are committed to only using <strong>clean</strong>,  <strong>non-toxic</strong>, <strong>Total Chlorine Free materials</strong> and lab testing our products to make sure.<br/><br/></p>",
         "baner_button": "",
         "baner_button_link": "",
         "bg_color": "#ffffff",
@@ -242,7 +242,7 @@
         "heading": "Shop Skin Shield™ <br>\nExclusively at Walmart",
         "heading_color": "#ffffff",
         "heading_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
-        "heading_weight": "normal",
+        "heading_weight": "medium",
         "heading_icon_size": 94,
         "description": "",
         "description_color": "#ffffff",
