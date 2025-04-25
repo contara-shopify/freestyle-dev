@@ -339,6 +339,42 @@
         "title": "For parents, by parents",
         "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
       }
+    },
+    "c_product_features_AjpaFw": {
+      "type": "c-product-features",
+      "blocks": {
+        "logo_block_CwzVij": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "",
+            "logo_text": "Skin safe"
+          }
+        },
+        "logo_block_wMzMJW": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "",
+            "logo_text": "Total chlorine free"
+          }
+        },
+        "logo_block_3KHCn9": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "",
+            "logo_text": "Independenlty lab tested"
+          }
+        }
+      },
+      "block_order": [
+        "logo_block_CwzVij",
+        "logo_block_wMzMJW",
+        "logo_block_3KHCn9"
+      ],
+      "name": "Logo Feature Blocks",
+      "settings": {
+        "main_text": "All our products are",
+        "additional_text": ""
+      }
     }
   },
   "order": [
@@ -349,6 +385,7 @@
     "c_table_protection_hjC69c",
     "c_expert_approval_KJgrEB",
     "c_hero_img_gKBFG4",
-    "review_scroller_custom_CMUd3m"
+    "review_scroller_custom_CMUd3m",
+    "c_product_features_AjpaFw"
   ]
 }
