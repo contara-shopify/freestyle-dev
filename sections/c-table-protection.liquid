@@ -1,0 +1,111 @@
+
+{% render 'entry' with '@/styles/sections/product_details_metaobject.scss' %}
+
+<div class="container m-responsive">
+  <div class="b-table-protection">
+    <h3 class="text-center py-20 text-4xl">{{ section.settings.section_title }}</h3>
+    <div class="b-details_mtobj--column grow">
+      <div class="b-details_mtobj--column-list2">
+        <div class="metafield-rich_text_field">
+          <ul>
+            {% for block in section.blocks %}
+              {% if block.type == 'content_block' %}
+                  <li>
+                    <div class="text-baseBig">{{ block.settings.text_left }}</div>
+                  </li>
+                  <li>
+                    <div>{{ block.settings.text_right }}</div>
+                  </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 py-8 md:py-20 px-12">
+      <div class="text-sm text-center md:text-left">{{ section.settings.section_bottom_text }}</div>
+      <div class="flex justify-center gap-8">
+        {% for block in section.blocks %}
+          {% if block.type == 'image_block' %}
+            <div>
+              <img src="{{ block.settings.logo_image | image_url: width: 119 }}" class="" alt="Logo">
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .b-table-protection {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .b-details_mtobj--column {
+
+  }
+
+  @media screen and (max-width: 767px) {
+    .b-table-protection {
+      padding: 0 16px;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Table Protection",
+    "tag": "section",
+    "class": "custom-content-blocks",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "Better choices for better diapers"
+      },
+      {
+        "type": "richtext",
+        "id": "section_bottom_text",
+        "label": "Section Bottom Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "content_block",
+        "name": "Content Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text_left",
+            "label": "Text Left"
+          },
+          {
+            "type": "text",
+            "id": "text_right",
+            "label": "Text Right"
+          }
+        ]
+      },
+      {
+        "type": "image_block",
+        "name": "Image Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Brand Logo"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Table Protection",
+        "category": "Content"
+      }
+    ]
+  }
+  {% endschema %}

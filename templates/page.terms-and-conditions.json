@@ -11,10 +11,24 @@
   "sections": {
     "main": {
       "type": "main-404",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "heading": "404 Page Not Found",
+        "text": "The page you are looking for does not exist.",
+        "button_label": "Go to Home"
+      }
+    },
+    "custom_content_page_DnE9F9": {
+      "type": "custom-content-page",
+      "name": "Custom Page Content",
+      "settings": {
+        "main_title": "Terms and Conditions",
+        "content_page": "<h4>Lorem ipsum</h4><p><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel consequat tellus. Suspendisse fringilla sit amet leo vel volutpat. Curabitur a consectetur tellus. In quis augue vestibulum, pretium nunc non, placerat nisi. Vestibulum at massa non velit lacinia pulvinar. Fusce ante leo, cursus nec lacinia at, mollis sed nulla. Donec vulputate dui egestas tincidunt dignissim.</p><p>Duis a metus hendrerit purus mattis tempus nec eget nulla. Cras purus neque, lacinia eu facilisis in, maximus sit amet orci. Sed ac pellentesque massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam facilisis est urna, tempor pulvinar ipsum convallis in. Donec vel justo est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc tempus elementum tellus id venenatis. Integer ut lorem a felis auctor commodo quis et dui.</p><p>Suspendisse potenti. Proin ac massa ut quam tincidunt vestibulum et vitae risus. Pellentesque venenatis fringilla volutpat. Duis commodo mauris et laoreet dictum. Pellentesque id urna quis urna volutpat rutrum. Vivamus vel est iaculis, accumsan ligula eget, ornare orci. Donec hendrerit pharetra dignissim. Maecenas vel ultricies ipsum. Vivamus id volutpat mauris. Morbi venenatis imperdiet lorem, quis faucibus nisi placerat quis. Vivamus et suscipit lacus. Donec auctor eros ante, non placerat arcu ornare rhoncus. Sed nec ligula eget turpis pulvinar semper et vel mi.</p>"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_content_page_DnE9F9"
   ]
 }

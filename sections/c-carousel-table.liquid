@@ -1,0 +1,275 @@
+
+  <section id="carousel-table-{{ section.id }}">
+    <div class="container carousel-container-{{ section.id }}">
+      {% if section.settings.section_title != blank %}
+        <h2 class="text-4xl text-center px-8 md:px-0 md:mb-0 mb-12">{{ section.settings.section_title }}</h2>
+      {% endif %}
+
+      <div class="
+      hidden
+      md:grid grid-cols-3 gap-20
+      py-14
+      border-b md:border-0 border-black-content">
+        <div></div>
+        {% if section.settings.logo_image %}
+          <div class="custom-content-blocks__logo hidden md:block">
+            <img src="{{ section.settings.logo_image | image_url: width: 119 }}" alt="Logo">
+          </div>
+        {% endif %}
+        {% if section.settings.other_title != blank %}
+          <h2 class="text-baseBig hidden md:block">{{ section.settings.other_title }}</h2>
+        {% endif %}
+      </div>
+      <div class="custom-content-blocks mb-20">
+        <div id="swiper-container-{{ section.id }}" class="swiper-container md:hidden" x-data="responsiveSwiper" x-init="addSwiperClass(); init()">
+          <div class="swiper-wrapper"  x-ref="wrapper">
+            {% for block in section.blocks %}
+              <div x-ref="slide" class="
+              swiper-slide
+              custom-content-blocks__block
+              flex flex-col md:grid grid-cols-3 md:items-center
+              md:gap-20
+              py-8
+              " {{ block.shopify_attributes }}>
+                {% if block.settings.block_title != blank %}
+                  <h3 class="custom-content-blocks__block-title text-baseBig">{{ block.settings.block_title }}</h3>
+                {% endif %}
+                <div class="custom-content-blocks__text custom-content-blocks__text--1 text-sm">
+                  {% if  section.settings.logo_image != blank %}
+                    <img src="{{ section.settings.logo_image | image_url: width: 119 }}" class="md:hidden mb-4 md:mb-8" alt="Logo">
+                  {% endif %}
+                  <div class="custom-content-blocks__text--inner">
+                    {% if section.settings.checkmark_img %}
+                      <img src="{{ section.settings.checkmark_img | image_url: width: 20 }}" class="custom-content-blocks__img" alt="Checkmark">
+                    {% endif %}
+                    {{ block.settings.richtext_1 }}
+                  </div>
+                </div>
+                <div class="custom-content-blocks__text custom-content-blocks__text--2 text-sm">
+                  {% if section.settings.other_title != blank %}
+                    <h2 class="text-baseBig mb-4 md:mb-8 md:hidden">{{ section.settings.other_title }}</h2>
+                  {% endif %}
+                  <div class="custom-content-blocks__text--inner">
+                    {% if section.settings.cancelmark_img %}
+                      <img src="{{ section.settings.cancelmark_img | image_url: width: 20 }}" class="custom-content-blocks__img" alt="Cancel mark">
+                    {% endif %}
+                    {{ block.settings.richtext_2 }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="hidden md:block">
+            {% for block in section.blocks %}
+              <div class="
+              custom-content-blocks__block
+              flex flex-col md:grid grid-cols-3 md:items-center
+              md:gap-20
+              py-8
+              " {{ block.shopify_attributes }}>
+                {% if block.settings.block_title != blank %}
+                  <h3 class="custom-content-blocks__block-title text-baseBig">{{ block.settings.block_title }}</h3>
+                {% endif %}
+                <div class="custom-content-blocks__text custom-content-blocks__text--1 text-sm">
+                  {% if  section.settings.logo_image != blank %}
+                    <img src="{{ section.settings.logo_image | image_url: width: 119 }}" class="md:hidden mb-4 md:mb-8" alt="Logo">
+                  {% endif %}
+                  <div class="custom-content-blocks__text--inner">
+                    {% if section.settings.checkmark_img %}
+                      <img src="{{ section.settings.checkmark_img | image_url: width: 20 }}" class="custom-content-blocks__img" alt="Checkmark">
+                    {% endif %}
+                    {{ block.settings.richtext_1 }}
+                  </div>
+                </div>
+                <div class="custom-content-blocks__text custom-content-blocks__text--2 text-sm">
+                  {% if section.settings.other_title != blank %}
+                    <h2 class="text-baseBig mb-4 md:mb-8 md:hidden">{{ section.settings.other_title }}</h2>
+                  {% endif %}
+                  <div class="custom-content-blocks__text--inner">
+                    {% if section.settings.cancelmark_img %}
+                      <img src="{{ section.settings.cancelmark_img | image_url: width: 20 }}" class="custom-content-blocks__img" alt="Cancel mark">
+                    {% endif %}
+                    {{ block.settings.richtext_2 }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<style>
+  .custom-content-blocks__text,
+  .custom-content-blocks__logo {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .custom-content-blocks__img {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .custom-content-blocks__block {
+    border: 1px solid #262626;
+  }
+
+  .custom-content-blocks__text--inner {
+
+  }
+
+
+
+  @media screen and (min-width: 768px) {
+    .custom-content-blocks__block {
+      border: none;
+      border-bottom: 1px solid #262626;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .carousel-container-{{ section.id }} {
+      padding: 00;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    #swiper-container-{{ section.id }} {
+      padding: 0 20px 30px;
+    }
+
+    #swiper-container-{{ section.id }} .swiper-pagination {
+      padding: 0;
+      bottom: 0;
+    }
+
+    #swiper-container-{{ section.id }} .swiper-pagination .swiper-pagination-bullet {
+      width: 30px;
+      height: 8px;
+      border-radius: 6px;
+    }
+
+    #swiper-container-{{ section.id }} .swiper-pagination .swiper-pagination-bullet-active {
+      background: #262626;
+    }
+
+    .custom-content-blocks__block {
+      padding-bottom: 0;
+    }
+
+    .custom-content-blocks__block-title {
+      border-bottom: 1px solid #262626;
+      padding: 0 20px 20px;
+      font-weight: bold;
+    }
+
+    .custom-content-blocks__text--1 {
+      border-bottom: 1px solid #c8c8c8;
+      padding: 20px;
+    }
+
+    .custom-content-blocks__text--2 {
+      padding: 20px;
+    }
+
+    .custom-content-blocks__text {
+      padding-left: 40px;
+    }
+
+    .custom-content-blocks__text--inner {
+      position: relative;
+    }
+
+    .custom-content-blocks__img {
+      left: -27px;
+      top: 0;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('#swiper-container-{{ section.id }}', {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Table Carousel",
+    "tag": "section",
+    "class": "custom-content-blocks",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "Better choices for better diapers"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_image",
+        "label": "Brand Logo",
+      },
+      {
+        "type": "text",
+        "id": "other_title",
+        "label": "Other Text",
+        "default": "Other brands"
+      },
+      {
+        "type": "image_picker",
+        "id": "checkmark_img",
+        "label": "Checkmark"
+      },
+      {
+        "type": "image_picker",
+        "id": "cancelmark_img",
+        "label": "cancel mark"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "content_block",
+        "name": "Content Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_title",
+            "label": "Title block"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext_1",
+            "label": "First Text"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext_2",
+            "label": "Second Text"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 10,
+    "presets": [
+      {
+        "name": "Table Carousel",
+        "category": "Content",
+      }
+    ]
+  }
+  {% endschema %}

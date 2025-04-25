@@ -1,0 +1,119 @@
+{% comment %}
+  Expert Approval Section with Swiper Carousel
+{% endcomment %}
+<div class="container m-responsive">
+  <div class="expert-approval section px-8 md:px-0 py-20">
+    {% if section.settings.section_title != blank %}
+      <h2 class="text-center mb-20 text-4xl">{{ section.settings.section_title }}</h2>
+    {% endif %}
+
+    <div id="swiper-container-{{ section.id }}" class="swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="">
+              {% if block.settings.title != blank %}
+                <h3 class="text-baseBig mb-2 tracking-tighter">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.content != blank %}
+                <div class="text-baseBig font-fkroman">{{ block.settings.content }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination mt-4"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  #swiper-container-{{ section.id }} .swiper-pagination {
+    bottom: 0;
+  }
+
+  #swiper-container-{{ section.id }} .swiper-pagination .swiper-pagination-bullet-active {
+    background: #262626;
+  }
+
+  #swiper-container-{{ section.id }} .swiper-pagination .swiper-pagination-bullet {
+    width: 30px;
+    height: 8px;
+    border-radius: 6px;
+  }
+
+  .expert-approval #swiper-container-{{ section.id }} {
+    padding-bottom: 30px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('#swiper-container-{{ section.id }}', {
+      slidesPerView: 2,
+      spaceBetween: 16,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 16
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Expert Approval",
+  "tag": "section",
+  "class": "expert-approval-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Expert Approval"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "expert_block",
+      "name": "Expert Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Block Content"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Expert Approval",
+      "category": "Content",
+      "blocks": [
+        {
+          "type": "expert_block",
+          "settings": {
+            "title": "Doctor Approved",
+            "content": "<p>This product is recommended by professionals in the field.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

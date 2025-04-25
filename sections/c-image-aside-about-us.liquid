@@ -1,10 +1,6 @@
-<section class="
-  custom-section
-">
+<section class="custom-section" style="background-color: {{ section.settings.bg_color }};">
   <div class="container container-lg mx-auto">
-    <div class="grid gap-12 lg:gap-36 grid-cols-1 md:grid-cols-2 items-center"
-      style="background-color: {{ section.settings.bg_color }};"
-    >
+    <div class="grid gap-12 lg:gap-36 grid-cols-1 md:grid-cols-2 items-center">
 
       <div
       class="
@@ -38,6 +34,10 @@
 
 <style>
   @media screen and (max-width: 767px) {
+    .custom-section .container {
+      padding: 0;
+    }
+
     .b-image_bg {
       width: 100%;
       box-sizing: content-box;

@@ -1,0 +1,67 @@
+{% schema %}
+  {
+    "name": "Custom Content Page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_title",
+        "label": "Main title",
+        "default": "Page Title"
+      },
+      {
+        "type": "richtext",
+        "id": "content_page",
+        "label": "Page Content"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Page Content"
+      }
+    ]
+  }
+  {% endschema %}
+
+  <section class="w-full px-12 pt-12 md:pt-36 py-12 md:px-0 content-page">
+    <div class="max-w-7xl md:max-w-none mx-auto md:px-16">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-24 lg:gap-40 relative">
+        <div class="relative">
+              <h3 class="text-3xl md:text-4xl sticky top-40 z-10 mb-10 md:mb-30 bg-white">
+                {{ section.settings.main_title }}
+              </h3>
+          </div>
+        <div class="py-4 text-sm">
+          {{ section.settings.content_page }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style>
+  .content-page p {
+    margin-bottom: 1.5rem;
+  }
+
+  .content-page h2 {
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-page h3 {
+    font-size: 4.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-page h4 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-page h2,
+  .content-page h3,
+  .content-page h4,
+  .content-page h5,
+  .content-page h6 {
+    margin-bottom: 1.5rem;
+  }
+</style>
