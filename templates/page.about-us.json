@@ -58,28 +58,6 @@
         "banner_height_mobile": "450"
       }
     },
-    "c_hero_img_RezTB7": {
-      "type": "c-hero-img",
-      "settings": {
-        "image": "shopify://shop_images/242A6894_6.jpg",
-        "heading": "Shop Skin      Shield™\nDiapers at Walmart",
-        "heading_color": "#ffffff",
-        "heading_weight": "normal",
-        "heading_icon_size": 94,
-        "description": "",
-        "description_color": "#ffffff",
-        "button_icon": "shopify://shop_images/wallmart-icon.svg",
-        "button_icon_size": 16,
-        "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
-        "button_text_icon_size": 16,
-        "banner_height_desktop": "818",
-        "banner_height_mobile": "500",
-        "description_icon": "shopify://shop_images/heart-icon-violet.svg",
-        "description_icon_size": 36,
-        "button_label": "",
-        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
-      }
-    },
     "c_3column_blocks_kprbKX": {
       "type": "c-3column-blocks",
       "blocks": {
@@ -142,7 +120,7 @@
       "type": "c-hero-banner",
       "settings": {
         "title": "Modern families rule the world",
-        "subtitle": "We started Freestyle™ for you – and, in a (sort of selfish) way, for us. As parents ourselves, we wanted to create kids products that every generation could all feel great about. So, we reimagined diapers from the inside out, prioritizing performance, safety, and comfort. Because you deserve one less thing to keep you up at night.",
+        "subtitle": "Freestyle™ blends an innovative, design-forward approach with a laid-back, creative spirit—delivering the best performing, safest, and most comfortable diapers on the market. We make diapering better, giving parents peace of mind, fewer changes, and more sleep.",
         "baner_button": "",
         "baner_button_link": "",
         "bg_color": "#fcfcfc",
@@ -275,7 +253,6 @@
   "order": [
     "c_hero_img_3b7kXN",
     "c_hero_banner_9rR8e6",
-    "c_hero_img_RezTB7",
     "c_3column_blocks_kprbKX",
     "c_image_aside_about_us_QpyCzL",
     "c_hero_banner_8zCmDY",
