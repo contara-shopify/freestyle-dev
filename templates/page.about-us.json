@@ -119,8 +119,8 @@
     "c_hero_banner_8zCmDY": {
       "type": "c-hero-banner",
       "settings": {
-        "title": "Modern families rule the world",
-        "subtitle": "Freestyle™ blends an innovative, design-forward approach with a laid-back, creative spirit—delivering the best performing, safest, and most comfortable diapers on the market. We make diapering better, giving parents peace of mind, fewer changes, and more sleep.",
+        "title": "Imagined by parents, designed by experts.",
+        "subtitle": "Freestyle™ upgrades children's products through innovation, clean materials, and considered design.",
         "baner_button": "",
         "baner_button_link": "",
         "bg_color": "#fcfcfc",
@@ -138,7 +138,7 @@
         "text_color": "#262626",
         "padding_desktop": 40,
         "padding_mobile": 20,
-        "banner_text_width": "760",
+        "banner_text_width": "550",
         "banner_height_desktop": "572",
         "banner_height_mobile": "450"
       }
