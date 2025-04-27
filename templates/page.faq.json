@@ -91,21 +91,43 @@
           "type": "faq",
           "settings": {
             "title": "Shipping",
-            "question": "Size and pack details",
-            "answer": "<p>Answer example</p>",
-            "question-1": "Lab-tested non-toxic ingredients",
-            "answer-1": "<p>Answer example</p>",
-            "question-2": "SkinShield’s Performance",
-            "answer-2": "<p>Answer example</p>",
-            "question-3": "Where to shop",
+            "question": "When will I receive my order?",
+            "answer": "<p>Orders take 1-2 business days to process and 3-4 business days to arrive. We’ll send along tracking information so you can be updated every step of the way.</p>",
+            "question-1": "How much does shipping cost?",
+            "answer-1": "<p>Shipping is free for subscription orders. Shipping fees are noted at checkout for one-time orders. </p>",
+            "question-2": "Where do you ship?",
+            "answer-2": "<p>We ship throughout the contiguous United States. We’re hoping to expand to Hawaii and Alaska, and internationally, soon. If we don’t ship to you, email us and let us know where we should ship to next.</p>",
+            "question-3": "REMOVE",
             "answer-3": "<p>Answer example</p>",
-            "question-4": "¿What is the size of the diaper?",
+            "question-4": "REMOVE",
             "answer-4": "<p>Answer example</p>",
-            "question-5": "¿What is the size of the diaper?",
+            "question-5": "REMOVE",
             "answer-5": "<p>Answer example</p>",
-            "question-6": "¿What is the size of the diaper?",
+            "question-6": "REMOVE",
             "answer-6": "<p>Answer example</p>",
-            "question-7": "¿What is the size of the diaper?",
+            "question-7": "REMOVE",
+            "answer-7": "<p>Answer example</p>"
+          }
+        },
+        "faq_b8B8WL": {
+          "type": "faq",
+          "settings": {
+            "title": "Returns and Exchanges",
+            "question": "What’s your return and exchange policy?",
+            "answer": "<p>If you have any concerns about the diapers, or you want to ask for a refund, email us at hello@freestyle.world and we'll do what we can to take care of it.<br/><br/>If you purchased Freestyle products at other retailers, their return/refund policies apply. </p>",
+            "question-1": "When will I receive my refund?",
+            "answer-1": "<p>If we issue a refund, you will see it reflected in your account immediately. It may take a few days to show up on your credit card statement depending on your financial institution and their policies.</p>",
+            "question-2": "REMOVE",
+            "answer-2": "<p>We ship throughout the contiguous United States. We’re hoping to expand to Hawaii and Alaska, and internationally, soon. If we don’t ship to you, email us and let us know where we should ship to next.</p>",
+            "question-3": "REMOVE",
+            "answer-3": "<p>Answer example</p>",
+            "question-4": "REMOVE",
+            "answer-4": "<p>Answer example</p>",
+            "question-5": "REMOVE",
+            "answer-5": "<p>Answer example</p>",
+            "question-6": "REMOVE",
+            "answer-6": "<p>Answer example</p>",
+            "question-7": "REMOVE",
             "answer-7": "<p>Answer example</p>"
           }
         }
@@ -114,7 +136,8 @@
         "faq_QrEh8D",
         "faq_hyY7pj",
         "faq_iGcwTm",
-        "faq_Kn76qA"
+        "faq_Kn76qA",
+        "faq_b8B8WL"
       ],
       "settings": {
         "show_title": true,
