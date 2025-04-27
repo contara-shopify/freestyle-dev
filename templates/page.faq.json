@@ -25,14 +25,22 @@
           "type": "faq",
           "settings": {
             "title": "Product",
-            "question": "Size and pack details",
-            "answer": "<p>Answer example</p>",
-            "question-1": "Lab-tested non-toxic ingredients",
-            "answer-1": "<p>Answer example</p>",
-            "question-2": "SkinShield’s Performance",
-            "answer-2": "<p>Answer example</p>",
-            "question-3": "Where to shop",
-            "answer-3": "<p>Answer example</p>"
+            "question": "What’s the difference between Skin❤️Shield™ and BambooTek™?",
+            "answer": "<p>Both offer stellar skin protection and clean, non toxic construction. Skin❤️Shield™ is focused on innovation and high-performance, while BambooTek™ is a tree-free, environmentally friendly option.<br/><br/>You can find Skin❤️Shield™ at <a href=\"https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597\" target=\"_blank\" title=\"https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597\">Walmart.com</a> and coming to select Walmart stores nationwide later this year. </p>",
+            "question-1": "Sizing chart",
+            "answer-1": "<p>Because of differences in construction and materials, Skin❤️Shield™ and BambooTek™ have different size charts.<br/><br/>Find out what size you need in Skin❤️Shield™ here and BambooTek here.</p>",
+            "question-2": "I saw someone online with Newborn diapers, where can I buy them?",
+            "answer-2": "<p>We will be releasing Newborn Skin❤️Shield™ diapers later this year. Stay tuned and sign up for our emails to be notified!</p>",
+            "question-3": "The Freestyle Formula: What ingredients does Freestyle use in its products?",
+            "answer-3": "<p>Skin❤️Shield™ diapers: the core of this diaper is made with our proprietary SAP Matrix (Super Absorbent Polymers and Cotton) and FSC Certified Total Chlorine Free Wood Pulp. The Topsheet, Backsheet, Leakguard, and Films are made with Performance-Driven Nonwoven Fabrics (Polyester, Polyethylene, and Polypropylene). Elastics (Spandex, Polypropylene, Polyethylene) and adhesives (Hydrocarbon Resin) are used to hold it all together - and we mean all.<br/><br/>BambooTek™ diapers: our diaper is made from our proprietary tree-free, Bamboo Tek™ core (100% bamboo pulp and superabsorbent polymer), performance driven non-woven fabrics (polypropylene and polyethylene), water-soluble, toxin-free inks, and some elastic (spandex, polypropylene and polyethylene) to hold it all together.<br/><br/>EWG Verified 99% Water Jumbo Wipes: Plant-based Viscose, Water, Sodium Benzoate, Caprylyl Glycol, Gluconolactone, Citric Acid, Ethylhexylglycerin, Decyl Glucoside, Chamomilla Recutita Flower Extract.</p>",
+            "question-4": "Are your products clean?",
+            "answer-4": "<p>Our products are non-toxic, Total Chlorine Free, hypoallergenic, and free of 43+ harmful chemicals, plus things like parabens, phthalates, and heavy metals.<br/><br/>We test our diapers at an independent, third-party lab against leading brands. Find out more <a href=\"https://freestyle.world/pages/safety-and-testing\" title=\"https://freestyle.world/pages/safety-and-testing\">here</a>. </p>",
+            "question-5": "How are Freestyle diapers different?",
+            "answer-5": "<p>We created the most innovative diaper because we needed it. And you do too. Freestyle’s Skin❤️Shield™ diaper features proprietary technology that makes it up to 14x more absorbent than the leading diapers on the market at the same price per diaper. It’s super-soft and will keep them dry all night long. So you can sleep all night long.<br/><br/>Find out more <a href=\"https://freestyle.world/products/skinshield-diapers\" title=\"https://freestyle.world/products/skinshield-diapers\">here</a>. </p>",
+            "question-6": "Do you offer samples?",
+            "answer-6": "<p>At the moment, you can find samples at select Walmart locations. Later this year, we’ll be offering samples on our website. Stay tuned and sign up for our emails to be notified!</p>",
+            "question-7": "Why do some of your products look different on the shelf?",
+            "answer-7": "<p>As our various retailers work through inventory, some of our products may have different packaging. Rest easy, though, the products are all the same, just with a design refresh!</p>"
           }
         },
         "faq_hyY7pj": {
@@ -46,7 +54,15 @@
             "question-2": "SkinShield’s Performance",
             "answer-2": "<p>Answer example</p>",
             "question-3": "Where to shop",
-            "answer-3": "<p>Answer example</p>"
+            "answer-3": "<p>Answer example</p>",
+            "question-4": "¿What is the size of the diaper?",
+            "answer-4": "<p>Answer example</p>",
+            "question-5": "¿What is the size of the diaper?",
+            "answer-5": "<p>Answer example</p>",
+            "question-6": "¿What is the size of the diaper?",
+            "answer-6": "<p>Answer example</p>",
+            "question-7": "¿What is the size of the diaper?",
+            "answer-7": "<p>Answer example</p>"
           }
         },
         "faq_iGcwTm": {
@@ -60,7 +76,15 @@
             "question-2": "SkinShield’s Performance",
             "answer-2": "<p>Answer example</p>",
             "question-3": "Where to shop",
-            "answer-3": "<p>Answer example</p>"
+            "answer-3": "<p>Answer example</p>",
+            "question-4": "¿What is the size of the diaper?",
+            "answer-4": "<p>Answer example</p>",
+            "question-5": "¿What is the size of the diaper?",
+            "answer-5": "<p>Answer example</p>",
+            "question-6": "¿What is the size of the diaper?",
+            "answer-6": "<p>Answer example</p>",
+            "question-7": "¿What is the size of the diaper?",
+            "answer-7": "<p>Answer example</p>"
           }
         },
         "faq_Kn76qA": {
@@ -74,7 +98,15 @@
             "question-2": "SkinShield’s Performance",
             "answer-2": "<p>Answer example</p>",
             "question-3": "Where to shop",
-            "answer-3": "<p>Answer example</p>"
+            "answer-3": "<p>Answer example</p>",
+            "question-4": "¿What is the size of the diaper?",
+            "answer-4": "<p>Answer example</p>",
+            "question-5": "¿What is the size of the diaper?",
+            "answer-5": "<p>Answer example</p>",
+            "question-6": "¿What is the size of the diaper?",
+            "answer-6": "<p>Answer example</p>",
+            "question-7": "¿What is the size of the diaper?",
+            "answer-7": "<p>Answer example</p>"
           }
         }
       },
@@ -87,7 +119,6 @@
       "settings": {
         "show_title": true,
         "main_title": "Frequently Asked Questions",
-        "subtitle_text": "Copy for questions + dropdown menues in copy document",
         "faq_section_title": ""
       }
     }
