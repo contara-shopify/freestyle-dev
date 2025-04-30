@@ -1,11 +1,11 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-C5T7_RYC.css",
+    "file": "main-Dr-folze.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
   "frontend/entrypoints/main.theme.js": {
-    "file": "main.theme-H5ir3xOr.js",
+    "file": "main.theme-Dw0qJAW-.js",
     "name": "main.theme",
     "src": "frontend/entrypoints/main.theme.js",
     "isEntry": true,
@@ -74,11 +74,6 @@
     "src": "frontend/styles/sections/footer-image-carousel.scss",
     "isEntry": true
   },
-  "frontend/styles/sections/header.scss": {
-    "file": "header-DrlYEtYG.css",
-    "src": "frontend/styles/sections/header.scss",
-    "isEntry": true
-  },
   "frontend/styles/sections/homepage-community.scss": {
     "file": "homepage-community-CNjGE-v8.css",
     "src": "frontend/styles/sections/homepage-community.scss",
@@ -96,7 +91,7 @@
     "isEntry": true
   },
   "frontend/styles/sections/product.scss": {
-    "file": "product-B2vEXVty.css",
+    "file": "product-DbYCO7pl.css",
     "src": "frontend/styles/sections/product.scss",
     "isEntry": true
   },
@@ -116,7 +111,7 @@
     "isEntry": true
   },
   "frontend/styles/sections/scrub-scrolling.scss": {
-    "file": "scrub-scrolling-D4SiMF9A.css",
+    "file": "scrub-scrolling-BBNCoM7U.css",
     "src": "frontend/styles/sections/scrub-scrolling.scss",
     "isEntry": true
   },

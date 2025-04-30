@@ -83,7 +83,7 @@
                       </button>
                     {% endform %}
                     <span
-                      class="btn"
+                      class="button"
                       @click="addToCart(activeVariant.id)">
                       {{ block.settings.cta_label }}
                     </span>
@@ -102,7 +102,7 @@
 
             {% when 'description' %}
               <div class="product__description">
-                {{ product.description }}
+                {{ product.description | replace: '[title_product]', product.title }}
               </div>
 
             {% when 'product_features' %}
@@ -333,20 +333,23 @@
             addToCart(variantID, redirect = false) {
               if (!variantID) return;
               if (this.templateName == 'product-bambootek') {
-                console.log('product-bambootek IFIFIFIF', this.templateName);
-                const itemsToAdd = [
-                  {
-                    id: this.activeVariant.id,
-                    quantity: 1,
-                    ...(this.sellingPlan?.id && { selling_plan: this.sellingPlan.id })
-                  }
-                ];
-                if (this.extraProductId) {
+                  console.log('product-bambootek IFIFIFIF', this.templateName);
+                  const itemsToAdd = [
+                    {
+                      id: this.activeVariant.id,
+                      quantity: 1,
+                      ...(this.sellingPlan?.id && { selling_plan: this.sellingPlan.id })
+                    }
+                  ];
+                  if (this.extraProductId) {
+                    console.log('this.extraProductId', this.extraProductId);
                     itemsToAdd.push({
                       id: this.extraProductId,
-                      quantity: this.extraProductQty || 4
+                      quantity: this.extraProductQty || 4,
+                      ...(this.sellingPlan?.id && { selling_plan: this.sellingPlan.id })
                     });
                   }
+                  console.log('this.BEFORE ADD TO CART');
                   Alpine.store('cart').addMultiplyToCart(itemsToAdd).then(() => {
                     if (redirect) {
                       // window.location.href = '/checkout';
@@ -354,14 +357,14 @@
                       Alpine.store('cart').toggleCart(true);
                     }
                   });
-              } else {
+                } else {
                   Alpine.store('cart').addToCart({
                   variantId: this.activeVariant.id,
                   quantity: 1,
                   sellingPlanId: this.sellingPlan?.id || null
                 }, true, redirect)
               }
-          },
+            },
             price(price) {
                 return `$${(price / 100).toFixed(2)}`;
             },

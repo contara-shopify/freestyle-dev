@@ -22,7 +22,7 @@
             height="{{ section.settings.logo_2.height }}">
         {% endif %}
         {% if section.settings.main_text != blank %}
-          <div class="text-4xl">
+          <div class="text-3xl md:text-4xl">
             {{ section.settings.main_text }}
           </div>
         {% endif %}
@@ -32,7 +32,7 @@
     <!-- Right Column (50%) -->
     <div class="md:w-[50%]">
       {% for block in section.blocks %}
-        <div class="scroll-block flex items-center mb-4 md:mb-[25px] transition-all duration-100">
+        <div class="scroll-block flex items-center justify-center md:justify-start mb-4 md:mb-[25px] transition-all duration-100">
           {% if block.settings.logo != blank and block.settings.logo_violet != blank %}
           <div class="logo-container mr-4 w-16 md:w-auto h-[4rem] md:h-[8rem]">
             {{ block.settings.logo_svg }}
@@ -49,7 +49,7 @@
           {% endif %}
         </div>
       {% endfor %}
-      <div class="opacity-30 text-black pl-[17%]">{{ section.settings.additional_text }}</div>
+      <div class="opacity-30 text-black pl-[17%] text-center md:text-left">{{ section.settings.additional_text }}</div>
     </div>
   </div>
 </div>

@@ -87,6 +87,11 @@ document.addEventListener('alpine:init', () => {
     },
 
     addMultiplyToCart(productsArr) {
+      console.log('productsArr', productsArr);
+      if (!Array.isArray(productsArr) || productsArr.length === 0) {
+        console.error('Invalid products array');
+        return;
+      }
       this.isLoading = true;
       this.errorMessage = '';
 
@@ -100,17 +105,14 @@ document.addEventListener('alpine:init', () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      })
-        .then(() => {
-          this.loadCart();
-          // window.location.href = '/checkout';
-        })
-        .catch(() => {
-          this.errorMessage = 'Failed to add the product. Please try again.';
-        })
-        .finally(() => {
-          this.isLoading = false;
-        });
+      }).then(() => {
+        this.loadCart();
+        // window.location.href = '/checkout';
+      }).catch(() => {
+        this.errorMessage = 'Failed to add the product. Please try again.';
+      }).finally(() => {
+        this.isLoading = false;
+      });
     },
 
     updateCart(itemKey, quantity) {

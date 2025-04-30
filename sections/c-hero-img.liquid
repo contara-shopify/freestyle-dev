@@ -60,7 +60,7 @@
         {% assign btn_words = section.settings.button_label | split: ' ' %}
         <a
           href="{{ section.settings.button_link | default: '#' }}"
-          class="font-grotesk font-medium mx-auto px-10 py-5 rounded-full bg-blue text-white hover:opacity-90 transition-colors flex items-center justify-center">
+          class="button">
           {% if section.settings.button_icon != blank %}
             <img
               src="{{ section.settings.button_icon | image_url: width: section.settings.button_icon_size }}"
@@ -68,9 +68,8 @@
               width="{{ section.settings.button_icon_size }}"
               height=""
               style="width: {{ section.settings.button_icon_size }}px; height: auto;"
-              class="mr-4 inline-block align-middle w-[1.6rem]">
+              class="mr-2 inline-block align-middle w-[1.6rem]">
           {% endif %}
-
           {% for word in btn_words %}
             {{ word }}
             {% if forloop.index == 2 and section.settings.button_text_icon != blank %}

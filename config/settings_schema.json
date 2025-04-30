@@ -81,6 +81,12 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "show_humburger_menu",
+        "label": "Show Hamburger Menu Icon",
+        "default": true
+      },
+      {
         "type": "url",
         "id": "show_promo_link",
         "label": "Promo banner link"

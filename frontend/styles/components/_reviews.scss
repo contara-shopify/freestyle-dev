@@ -113,8 +113,28 @@ body {
   }
 
   .junip-btn {
-    @apply font-grotesk font-medium mx-auto px-10 py-5 rounded-full bg-[#6638B7] text-white hover:opacity-90 transition-colors flex items-center justify-center capitalize;
+
+    background-color: #6638b7;
+    color: #fff;
+    display: inline-block;
+    padding: 0 2.4rem !important;
+    line-height: 4rem !important;
+    border-radius: 5rem;
+    text-decoration: none;
+    font-size: 1.6rem !important;
+    font-weight: 500;
+    min-width: 14rem;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid #6638b7;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #fff;
+        color: #6638b7;
+    }
   }
+
   .junip-no-reviews {
     font-weight: 400;
     line-height: 1.2;

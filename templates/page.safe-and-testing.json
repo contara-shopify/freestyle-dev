@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-404",
@@ -33,7 +33,7 @@
         "button_text_icon": "shopify://shop_images/Group_26613.svg",
         "button_text_icon_size": 24,
         "banner_height_desktop": "700",
-        "banner_height_mobile": "500",
+        "banner_height_mobile": "300",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
         "button_link": ""
@@ -43,7 +43,7 @@
       "type": "c-hero-text",
       "settings": {
         "title": "",
-        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p>That is why we are committed to only using <strong>clean</strong>,  <strong>non-toxic</strong>, <strong>Total Chlorine Free materials</strong> and lab testing our products to make sure.<br/><br/></p>",
+        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p>That is why we are committed to only using <strong>clean</strong>,  <strong>non-toxic</strong>, <strong>Total Chlorine Free materials</strong> and lab testing our products to make sure.</p>",
         "baner_button": "",
         "baner_button_link": "",
         "bg_color": "#ffffff",
@@ -63,7 +63,7 @@
         "padding_mobile": 20,
         "banner_text_width": "880",
         "banner_height_desktop": "476",
-        "banner_height_mobile": "300"
+        "banner_height_mobile": "270"
       }
     },
     "c_product_features_AjpaFw": {
