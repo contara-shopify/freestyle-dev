@@ -140,7 +140,7 @@
         "padding_mobile": 20,
         "banner_text_width": "550",
         "banner_height_desktop": "572",
-        "banner_height_mobile": "450"
+        "banner_height_mobile": "350"
       }
     },
     "c_hero_img_3b8kXN": {
@@ -159,7 +159,7 @@
         "button_text_icon": "shopify://shop_images/heart-icon-text.svg",
         "button_text_icon_size": 16,
         "banner_height_desktop": "818",
-        "banner_height_mobile": "500",
+        "banner_height_mobile": "350",
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
