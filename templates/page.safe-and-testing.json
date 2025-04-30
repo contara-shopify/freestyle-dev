@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-404",
@@ -295,7 +295,7 @@
         "button_text_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
         "button_text_icon_size": 16,
         "banner_height_desktop": "818",
-        "banner_height_mobile": "500",
+        "banner_height_mobile": "400",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
         "button_link": ""
