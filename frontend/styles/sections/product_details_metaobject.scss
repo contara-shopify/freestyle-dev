@@ -87,6 +87,10 @@
       position: relative;
       padding: 20px 30px;
       border-top: 1px solid #262626;
+
+      @include media(max-m) {
+        padding: 10px 20px;
+      }
     }
 
     li:nth-child(odd) {
