@@ -15,7 +15,6 @@
         "title_hijtjK": {
           "type": "title",
           "settings": {
-            "image": "shopify://shop_images/shield-title.png",
             "alternate_title": ""
           }
         },
@@ -33,6 +32,16 @@
         },
         "tags_8BMpFw": {
           "type": "tags",
+          "disabled": true,
+          "settings": {}
+        },
+        "separator_WX87Ph": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "description_RgQkN8": {
+          "type": "description",
           "settings": {}
         },
         "cta_MaBGF4": {
@@ -42,14 +51,6 @@
             "cta_label": "Shop at Walmart.com",
             "cta_url": "#"
           }
-        },
-        "separator_WX87Ph": {
-          "type": "separator",
-          "settings": {}
-        },
-        "description_RgQkN8": {
-          "type": "description",
-          "settings": {}
         },
         "product_features_jDgQVM": {
           "type": "product_features",
@@ -123,9 +124,9 @@
         "separator_NF3Aqz",
         "variants_EBNBwP",
         "tags_8BMpFw",
-        "cta_MaBGF4",
         "separator_WX87Ph",
         "description_RgQkN8",
+        "cta_MaBGF4",
         "product_features_jDgQVM",
         "accordion_gjrxaL",
         "product_feature_eA7tTG",
