@@ -20,7 +20,7 @@
 <style>
     #hero-banner-{{ section.id }}.b-hero-banner {
        {% if section.settings.image_bg %}
-        background-image: url({{ section.settings.image_bg | img_url: 'master' }});
+          background-image: url({{ section.settings.image_bg | img_url: 'master' }});
         {% endif %}
         background-size: {{ section.settings.bg_size }};
         background-color: {{ section.settings.bg_color }};
@@ -125,6 +125,9 @@
       #hero-banner-{{ section.id }}.b-hero-banner {
             height: {{ section.settings.banner_height_mobile }}px;
             padding: {{ section.settings.padding_mobile }}px;
+            content-visibility: auto;
+            contain-intrinsic-size: {{ section.settings.banner_height_mobile }}px;
+            contain: layout style;
         }
 
         #hero-banner-{{ section.id }} .b-hero-banner__title {
@@ -150,6 +153,9 @@
     @media (min-width: 768px) {
       #hero-banner-{{ section.id }}.b-hero-banner {
             height: {{ section.settings.banner_height_desktop }}px;
+            content-visibility: auto;
+            contain-intrinsic-size: {{ section.settings.banner_height_desktop }}px;
+            contain: layout style;
         }
     }
 </style>
