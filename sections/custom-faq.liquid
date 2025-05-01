@@ -17,8 +17,7 @@
       {
         "type": "text",
         "id": "faq_section_title",
-        "label": "FAQ section title",
-        "default": "Diaper & Wipe Specs"
+        "label": "FAQ section title"
       }
     ],
     "blocks": [
@@ -155,141 +154,158 @@
             {% endif %}
           </div>
         <div class="py-4">
-          <h4 class="text-2-5xl">
-            {{ section.settings.faq_section_title }}
-          </h4>
+          {% if section.settings.faq_section_title != blank  %}
+            <h4 class="text-2-5xl mb-16">
+              {{ section.settings.faq_section_title }}
+            </h4>
+          {% endif %}
 
-          <ul class="">
+          <ul class="-mt-24">
             {% for block in section.blocks %}
               {% if block.type == 'faq' %}
                 {% if block.settings.title != blank %}
-                  <div class="mb-8 md:mb-12 lg:mb-20">
+                  <div class="pt-24 mb-8 md:mb-12 lg:mb-16">
                     <h2 class="text-2-5xl">
                       {{ block.settings.title }}
                     </h2>
                   </div>
                 {% endif %}
-
-                <li class="border-b " {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer }}
+                {% if block.settings.question != blank %}
+                  <li class="border-b " {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer }}
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li class="border-b " {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question-1 }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer-1 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.question-1 != blank %}
+                  <li class="border-b " {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question-1 }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer-1 }}
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li class="border-b " {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question-2 }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer-2 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.question-2 != blank %}
+                  <li class="border-b " {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig  text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question-2 }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer-2 }}
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li class="border-b " {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question-3 }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer-3 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.question-3 != blank %}
+                  <li class="border-b " {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question-3 }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer-3 }}
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li class="border-b " {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question-4 }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer-4 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.question-4 != blank %}
+                  <li class="border-b " {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question-4 }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer-4 }}
+                      </div>
                     </div>
-                  </div>
-                </li>
-            <li class="border-b " {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question-5 }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer-5 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.question-5 != blank %}
+                  <li class="border-b " {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question-5 }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer-5 }}
+                      </div>
                     </div>
-                  </div>
-                </li>
-            <li class="border-b " {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question-6 }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer-6 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.question-6 != blank %}
+                  <li class="border-b " {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question-6 }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer-6 }}
+                      </div>
                     </div>
-                  </div>
-                </li>
-            <li class="border-b mb-20 md:mb-32" {{ block.shopify_attributes }}>
-                  <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
-                          onclick="toggleFaq(this)"
-                          aria-expanded="false">
-                    <span>{{ block.settings.question-7 }}</span>
-                    <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
-                    </svg>
-                  </button>
-                  <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                    <div class="pb-4 text-base">
-                      {{ block.settings.answer-7 }}
+                  </li>
+                {% endif %}
+                {% if block.settings.question-7 != blank %}
+                  <li class="border-b mb-20 md:mb-32" {{ block.shopify_attributes }}>
+                    <button class="w-full py-4 flex justify-between items-center text-baseBig text-left"
+                            onclick="toggleFaq(this)"
+                            aria-expanded="false">
+                      <span>{{ block.settings.question-7 }}</span>
+                      <svg fill="currentColor" class="w-7 h-7 transform transition-transform duration-200" version="1.1" id="Layer_1" viewBox="0 0 455 455" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 "></polygon> </g>
+                      </svg>
+                    </button>
+                    <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
+                      <div class="pb-4 text-base">
+                        {{ block.settings.answer-7 }}
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
+                {% endif %}
               {% endif %}
             {% endfor %}
           </ul>

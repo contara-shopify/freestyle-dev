@@ -63,9 +63,9 @@
           <a
             href="{{ section.settings.button_link | default: '#' }}"
             target="_blank"
-            class="button">
+            class="btn btn--secondary">
         {% else %}
-          <span class="button"
+          <span class="btn btn--secondary"
             @click="{{ section.settings.popup__trigger | html }}"
           >
         {% endif %}
