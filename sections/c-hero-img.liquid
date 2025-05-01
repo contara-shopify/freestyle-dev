@@ -58,32 +58,44 @@
 
       {% if section.settings.button_label != blank %}
         {% assign btn_words = section.settings.button_label | split: ' ' %}
-        <a
-          href="{{ section.settings.button_link | default: '#' }}"
-          class="button">
-          {% if section.settings.button_icon != blank %}
-            <img
-              src="{{ section.settings.button_icon | image_url: width: section.settings.button_icon_size }}"
-              alt="Button icon"
-              width="{{ section.settings.button_icon_size }}"
-              height=""
-              style="width: {{ section.settings.button_icon_size }}px; height: auto;"
-              class="mr-2 inline-block align-middle w-[1.6rem]">
-          {% endif %}
-          {% for word in btn_words %}
-            {{ word }}
-            {% if forloop.index == 2 and section.settings.button_text_icon != blank %}
+        {% assign show_popup = section.settings.show_popup | default: false %}
+        {% if show_popup == false %}
+          <a
+            href="{{ section.settings.button_link | default: '#' }}"
+            target="_blank"
+            class="button">
+        {% else %}
+          <span class="button"
+            @click="{{ section.settings.popup__trigger | html }}"
+          >
+        {% endif %}
+            {% if section.settings.button_icon != blank %}
               <img
-                src="{{ section.settings.button_text_icon | image_url: width: section.settings.button_text_icon_size }}"
-                alt="Button Text Icon"
-                width="{{ section.settings.button_text_icon_size }}"
+                src="{{ section.settings.button_icon | image_url: width: section.settings.button_icon_size }}"
+                alt="Button icon"
+                width="{{ section.settings.button_icon_size }}"
                 height=""
-                style="width: {{ section.settings.button_text_icon_size }}px; height: auto;"
-                class="inline-block align-middle mx-2">
+                style="width: {{ section.settings.button_icon_size }}px; height: auto;"
+                class="mr-2 inline-block align-middle w-[1.6rem]">
             {% endif %}
-            {% unless forloop.last %} {% echo ' ' %} {% endunless %}
-          {% endfor %}
-        </a>
+            {% for word in btn_words %}
+              {{ word }}
+              {% if forloop.index == 2 and section.settings.button_text_icon != blank %}
+                <img
+                  src="{{ section.settings.button_text_icon | image_url: width: section.settings.button_text_icon_size }}"
+                  alt="Button Text Icon"
+                  width="{{ section.settings.button_text_icon_size }}"
+                  height=""
+                  style="width: {{ section.settings.button_text_icon_size }}px; height: auto;"
+                  class="inline-block align-middle mx-2">
+              {% endif %}
+              {% unless forloop.last %} {% echo ' ' %} {% endunless %}
+            {% endfor %}
+        {% if show_popup == false %}
+          </a>
+        {% else %}
+          </span>
+        {% endif %}
       {% endif %}
     </div>
   </div>
@@ -234,6 +246,17 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popup",
+      "label": "Show Popup",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "popup__trigger",
+      "label": "Text Modal Trigger"
     }
   ],
   "presets": [

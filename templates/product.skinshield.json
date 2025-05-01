@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -91,7 +91,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Size and pack details",
-            "content": "<p>Take a look at our size chart <a href=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/5f329f7857e7e20b7268da7a362627ea1aaedf46-5625x5625.jpg?v=1745406523\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/5f329f7857e7e20b7268da7a362627ea1aaedf46-5625x5625.jpg?v=1745406523\">here</a>.<br/><br/>Each box includes enough diapers for 1-2 weeks of use. <br/><br/></p>"
+            "content": "<p>Take a look at our size chart <em>here</em>.<br/><br/>Each box includes enough diapers for 1-2 weeks of use. <br/><br/></p>"
           }
         },
         "accordion_item_cWHA4e": {
@@ -139,7 +139,8 @@
         "sizes_accent_colors": "1 - F3B232 | FBECA6\n2 - F9E07D| FBECA6\n3 - CBDB2A| E2E66A\n4 - 8BB6E1 | C3D6EE\n5 - AC95C7 | C4B3D7\n6 - F04C5E | F6A1B2",
         "review_numbers": "4.8 out of 5 (1000+ reviews)",
         "extra_product_for_bambootek": "",
-        "extra_product_quantity": 4
+        "extra_product_quantity": 4,
+        "size_chart_image": "shopify://shop_images/Freestyle_SkinShield_Sizing_Chart.jpg"
       }
     },
     "c_scrub_scrolling_dke3Md": {
@@ -165,7 +166,7 @@
             "title": "Up to 14x more absorbent than leading brands",
             "text": "<p>Thanks to its 7-layer design, Skin <em>1</em> Shield™ starts dry and stays dry.  </p><p>Better protection for them and fewer changes for you. </p>",
             "button_text": "Meet the future of diapers",
-            "button_url": "#"
+            "button_url": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597"
           }
         },
         "text_XAFeQB": {
@@ -178,7 +179,7 @@
             "title": "7-layer protection means fewer leaks and longer nights",
             "text": "<p>Best-in-class absorbent material draws away moisture quickly </p><p>and locks it in to protect against rash or discomfort.</p>",
             "button_text": "Level up bedtime",
-            "button_url": ""
+            "button_url": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597"
           }
         },
         "text_Mgmdew": {
@@ -191,7 +192,7 @@
             "title": "Safer, for longer,than anything else",
             "text": "<p>Our lab-tested diapers are made from clean, </p><p>non-toxic, total-chlorine-free materials.</p>",
             "button_text": "Our safety standards",
-            "button_url": "#"
+            "button_url": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597"
           }
         },
         "text_wTUQNR": {
@@ -205,7 +206,7 @@
             "text": "<p>We found the softest materials available to keep them comfortable </p><p>round the clock.</p>",
             "button_text": "Shop Skin [heart_white] Shield™",
             "button_icon": "shopify://shop_images/Group_26613.svg",
-            "button_url": ""
+            "button_url": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597"
           }
         }
       },
@@ -223,7 +224,7 @@
         "enable_smooth_scroll": true,
         "promo_text": "Your baby is perfect,now their diaper is too.",
         "button_text": "Shop Skin [heart_white] Shield™",
-        "button_url": "#"
+        "button_url": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597"
       }
     },
     "c_link_to_review_9qC9yd": {
@@ -273,7 +274,9 @@
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
-        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352",
+        "show_popup": true,
+        "popup__trigger": "window.Modal.open({                        title: 'Size and Pack Details',                        size: 'small',                        content: document.querySelector('#modal-product-info')?.innerHTML || 'Dont have content',                      })"
       }
     },
     "c_product_details_R4KkFT": {

@@ -4,11 +4,11 @@
 
 {% assign hide_elements = true %}
 
-<div class="relative b-header__wrapper py-8 px-10 bg-white">
+<div class="relative b-header__wrapper py-8 px-10 bg-white" style="background-color: {{ settingsHeaderBg }};">
   <div class="b-header__inner mx-auto flex justify-between items-center">
     <div class="flex gap-8">
       {%- if settings.show_humburger_menu != blank -%}
-        {% render 'menu-mobile', menuItems: settings.header_menu_1.links %}
+        {% render 'menu-mobile', menuItemsFirst: settings.header_menu_1.links, menuItemsSecond: settings.header_menu_2.links %}
       {%- endif -%}
       <div class="flex items-center">
         <a href="{{ routes.root_url }}" class="inline-flex items-center no-underline">
@@ -27,7 +27,7 @@
     </div>
 
     <nav class="hidden lg:block">
-      <ul class="flex space-x-8">
+      <ul class="flex space-x-8 b-header__inner-menu">
         {% assign bamboo_icon = settings['bamboo_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.2rem] inline-block translate-y-[-0.2rem] mx-1' %}
         {% assign heart_icon = settings['heart_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]' %}
         {% for link in settings.main_menu.links %}
@@ -105,7 +105,7 @@
     </div>
   </div>
 
-  <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-[#E6E6FA] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+  {% comment %} <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-[#E6E6FA] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
     <div class="p-8">
       <div class="flex justify-between items-center mb-8">
         <button class="text-core hover:text-gray-600" data-mobile-menu-toggle>
@@ -179,5 +179,5 @@
         </div>
       </nav>
     </div>
-  </div>
+  </div> {% endcomment %}
 </div>

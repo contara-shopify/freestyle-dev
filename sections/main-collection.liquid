@@ -5,7 +5,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
     <h2 class="text-4xl tracking-tighter mb-32">{{ collection.title }}</h2>
   </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-20">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
     {% for product in collection.products %}
       <script>
         console.log('product', {{ product | json }});

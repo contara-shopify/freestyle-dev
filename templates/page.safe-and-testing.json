@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-404",
@@ -36,14 +36,16 @@
         "banner_height_mobile": "300",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
-        "button_link": ""
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597",
+        "show_popup": false,
+        "popup__trigger": ""
       }
     },
     "c_hero_text_p6zYVE": {
       "type": "c-hero-text",
       "settings": {
         "title": "",
-        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p>That is why we are committed to only using <strong>clean</strong>,  <strong>non-toxic</strong>, <strong>Total Chlorine Free materials</strong> and lab testing our products to make sure.</p>",
+        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p></p><p></p><p>That is why we are committed to only using <strong>clean</strong>,  <strong>non-toxic</strong>, <strong>Total Chlorine Free materials</strong> and lab testing our products to make sure.</p>",
         "baner_button": "",
         "baner_button_link": "",
         "bg_color": "#ffffff",
@@ -59,10 +61,10 @@
         "subtitle_font_size": 34,
         "subtitle_font_size_mobile": 20,
         "text_color": "#000000",
-        "padding_desktop": 40,
+        "padding_desktop": 43,
         "padding_mobile": 20,
         "banner_text_width": "880",
-        "banner_height_desktop": "476",
+        "banner_height_desktop": "600",
         "banner_height_mobile": "270"
       }
     },
@@ -298,7 +300,9 @@
         "banner_height_mobile": "400",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
-        "button_link": ""
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597",
+        "show_popup": false,
+        "popup__trigger": ""
       }
     },
     "review_scroller_custom_CMUd3m": {

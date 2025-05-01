@@ -29,9 +29,20 @@
     @apply mx-auto flex justify-between items-center;
   }
 
-  &__nav-left {
-    ul {
-      @apply flex space-x-8 uppercase text-sm gap-16;
+  &__inner-menu {
+    li:first-child {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: -7px;
+        top: -5px;
+        height: 7px;
+        width: 7px;
+        border-radius: 50%;
+        background-color: #6638B7;
+      }
     }
   }
 

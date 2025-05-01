@@ -61,7 +61,6 @@
     </script>
 
     {% render 'typography' %}
-
     {% render 'entry' with 'main.theme.js' %}
     {% render 'entry' with 'main.scss', preload_stylesheet: true %}
 
@@ -101,6 +100,7 @@
       {% sections 'footer-group' %}
       <div class="l-overlay"></div>
       {% render 'mini-cart' %}
+      {% render 'c-modal-window' %}
     </div>
   </body>
 </html>

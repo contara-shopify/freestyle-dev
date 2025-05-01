@@ -1,11 +1,11 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-Dr-folze.css",
+    "file": "main-jUMoUEm8.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
   "frontend/entrypoints/main.theme.js": {
-    "file": "main.theme-Dw0qJAW-.js",
+    "file": "main.theme-CerwSQ4X.js",
     "name": "main.theme",
     "src": "frontend/entrypoints/main.theme.js",
     "isEntry": true,
@@ -91,7 +91,7 @@
     "isEntry": true
   },
   "frontend/styles/sections/product.scss": {
-    "file": "product-DbYCO7pl.css",
+    "file": "product-ChybHAnJ.css",
     "src": "frontend/styles/sections/product.scss",
     "isEntry": true
   },

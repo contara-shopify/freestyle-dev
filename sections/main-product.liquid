@@ -89,20 +89,33 @@
                     </span>
                   </div>
 
-                  <div x-show="!activeVariant.available">
+                  <div x-show="!activeVariant.available" x-cloak>
                     <button class="btn btn--secondary w-full">Out of Stock</button>
                   </div>
 
                 {% else %}
-                  <a href="{{ block.settings.cta_url }}" class="btn btn--walmart">
+                  <a href="{{ block.settings.cta_url }}" class="btn btn--walmart" target="_blank">
                     {{ block.settings.cta_label }}
                   </a>
+                  {% comment %} <span class="btn btn--walmart"
+                      @click="
+                      window.Modal.open({
+                        title: 'Size and Pack Details',
+                        size: 'small',
+                        content: document.querySelector('#modal-product-info')?.innerHTML || 'Dont have content',
+                      })
+                    ">
+                    {{ block.settings.cta_label }}
+                  </span> {% endcomment %}
                 {% endif %}
               </div>
 
             {% when 'description' %}
               <div class="product__description">
-                {{ product.description | replace: '[title_product]', product.title }}
+                <h4 class="mb-6"><strong>About {{ product.title }}</strong></h4>
+                <div class="tracking-tighter">
+                  {{ product.description | replace: '[title_product]', product.title }}
+                </div>
               </div>
 
             {% when 'product_features' %}
@@ -137,13 +150,15 @@
               <hr class="product__separator">
 
             {% when 'tags' %}
-              <div class="product__tags flex flex-wrap gap-4 mb-4">
-                {% for attribute in product_attributes.value %}
-                  <div class="product__tag flex items-center gap-2">
-                    {{ attribute }}
-                  </div>
-                {% endfor %}
-              </div>
+              {% if product_attributes.value %}
+                <div class="product__tags flex flex-wrap gap-4 mb-4">
+                  {% for attribute in product_attributes.value %}
+                    <div class="product__tag flex items-center gap-2">
+                      {{ attribute }}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
               {% comment %}
                 {% if product.tags.size > 0 %}
                   <div class="product__tags flex flex-wrap gap-4 mb-4">
@@ -228,6 +243,18 @@
     </div>
   </div>
 </div>
+<template id="modal-product-info">
+  <div>
+    <img
+      src="{{ sst.size_chart_image | image_url }}"
+      alt="Sizing Chart"
+      class="aspect-auto h-auto w-full object-cover rounded-regular"
+      loading="eager"
+      fetchpriority="high"
+      decoding="auto"
+    />
+  </div>
+</template>
 {% render 'entry' with '@/scripts/sections/main-product.js' %}
 <script>
     document.addEventListener('alpine:init', () => {
@@ -246,6 +273,8 @@
             sizesAccentColors: [],
             templateName: '{{ template |  handleize }}',
             product: {{ productCurrent | json }},
+            linkToShowSizeMOdal: false,
+
             updateSellingPlan(id) {
                 this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
             },
@@ -478,6 +507,7 @@
             },
 
             init() {
+                this.linkToShowSizeMOdal = document.querySelector('.product__accordion-content p em');
                 this.extraProductId = Number(this.$root.dataset.extraProduct);
                 this.extraProductQty = Number(this.$root.dataset.extraProductQty || 1);
                 this.paginationSlides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide');
@@ -493,10 +523,18 @@
                 }
                 this.initSwiperMain();
                 this.initSwiperPagination();
-                console.log('product', this.product);
-                console.log('product.variants', this.product.variants);
-                console.log('this.variants', this.variants);
-                console.log('this.templateName', this.templateName);
+                // console.log('product', this.product);
+                // console.log('product.variants', this.product.variants);
+                // console.log('this.variants', this.variants);
+                // console.log('this.templateName', this.templateName);
+                this.linkToShowSizeMOdal.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  window.Modal.open({
+                    title: 'Size and Pack Details',
+                    size: 'medium',
+                    content: document.querySelector('#modal-product-info')?.innerHTML || 'Dont have content',
+                  });
+                });
             }
         }))
     })
@@ -530,6 +568,11 @@
       "id": "extra_product_quantity",
       "label": "Extra Product Quantity",
       "default": 4
+    },
+    {
+      "type": "image_picker",
+      "id": "size_chart_image",
+      "label": "Size Chart Image"
     }
   ],
   "blocks": [

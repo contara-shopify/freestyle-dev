@@ -45,26 +45,6 @@
     "name": "Header",
     "settings": [
       {
-        "type": "select",
-        "id": "header_layout",
-        "label": "Header Layout",
-        "options": [
-          {
-            "value": "left",
-            "label": "Logo Left Aligned"
-          },
-          {
-            "value": "center",
-            "label": "Logo Center Aligned"
-          },
-          {
-            "value": "above",
-            "label": "Logo Above Aligned"
-          }
-        ],
-        "default": "center"
-      },
-      {
         "type": "image_picker",
         "id": "header_logo",
         "label": "Header Logo"
@@ -76,25 +56,9 @@
       },
       {
         "type": "checkbox",
-        "id": "show_promo",
-        "label": "Promo banner show/hide",
-        "default": true
-      },
-      {
-        "type": "checkbox",
         "id": "show_humburger_menu",
         "label": "Show Hamburger Menu Icon",
         "default": true
-      },
-      {
-        "type": "url",
-        "id": "show_promo_link",
-        "label": "Promo banner link"
-      },
-      {
-        "type": "richtext",
-        "id": "promo_text",
-        "label": "Promo Banner Text"
       },
       {
         "type": "link_list",
@@ -104,7 +68,7 @@
       {
         "type": "link_list",
         "id": "header_menu_2",
-        "label": "Header Menu 2"
+        "label": "Header Menu Mobile"
       }
     ]
   },

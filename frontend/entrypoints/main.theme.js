@@ -10,7 +10,7 @@ import { Navigation, Pagination, Autoplay, EffectFade, Mousewheel } from 'swiper
 
 import '../components/alp-main-store';
 import '../components/alp-cart';
-import '../components/alp-build-box'; // FE TODO Must be included only for the build box section
+import '../components/modalComponent';
 
 window.Alpine = Alpine;
 window.Swiper = Swiper;
@@ -18,6 +18,7 @@ Swiper.use([Navigation, Pagination, Autoplay, EffectFade, Mousewheel]);
 
 Alpine.plugin(persist);
 Alpine.start();
+
 
 import { variantSelect } from '../components/variant-select';
 import { headerSticky } from '../components/header';

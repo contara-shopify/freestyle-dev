@@ -1,0 +1,29 @@
+<div
+  x-data="modalComponent"
+  x-init="init()"
+  x-show="visible"
+  @keydown.escape.window="window.Modal.close()"
+  class="fixed inset-0 z-50 flex items-center justify-center b-modal"
+  :class="{ 'is-active': active }"
+  style="display: none;"
+>
+  <div
+    class="b-modal__overlay absolute inset-0 bg-black/50 transition-opacity duration-300"
+    :class="{ 'opacity-100': active, 'opacity-0': !active }"
+    @click="window.Modal.close()"
+  ></div>
+
+  <div
+    class="b-modal__box relative z-10 transition-all duration-300 ease-out"
+    :class="{ 'translate-y-0 opacity-100': active, 'translate-y-8 opacity-0': !active, 'm-medium' : size === 'medium', 'm-small' : size === 'small', 'm-large' : size === 'large' }"
+    @click.stop
+  >
+    <button class="b-modal__close" @click="window.Modal.close()">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+        <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="#1b4c62"></path>
+      </svg>
+    </button>
+    <h2 class="text-2xl text-center px-8 mb-8" x-show="title" x-text="title"></h2>
+    <div x-html="content"></div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.b-modal {
+
+  &__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  &__box {
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-3xl);
+    position: relative;
+    margin: 0 1rem;
+
+    &.m-small {
+      max-width: 400px;
+    }
+
+    &.m-medium {
+      max-width: 500px;
+    }
+
+    &.m-large {
+      max-width: 600px;
+    }
+
+    &.m-full {
+      max-width: 90%;
+    }
+  }
+}
