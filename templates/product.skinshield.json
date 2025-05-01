@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -275,7 +275,7 @@
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
         "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352",
-        "show_popup": true,
+        "show_popup": false,
         "popup__trigger": "window.Modal.open({                        title: 'Size and Pack Details',                        size: 'small',                        content: document.querySelector('#modal-product-info')?.innerHTML || 'Dont have content',                      })"
       }
     },
