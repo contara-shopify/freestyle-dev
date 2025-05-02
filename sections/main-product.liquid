@@ -156,7 +156,7 @@
               <hr class="product__separator">
 
             {% when 'tags' %}
-              {% if product_attributes.value %}
+              {% if product_attributes.value and template.suffix != blank %}
                 <div class="product__tags flex flex-wrap gap-4 mb-4">
                   {% for attribute in product_attributes.value %}
                     <div class="product__tag flex items-center gap-2">
@@ -164,6 +164,17 @@
                     </div>
                   {% endfor %}
                 </div>
+              {% else  %}
+                <div class="product__tags flex flex-wrap gap-4 mb-4">
+                    {% for attribute in product_attributes.value %}
+                      <div class="product__tag flex items-center gap-2">
+                        {{ attribute }}
+                      </div>
+                    {% endfor %}
+                    <div class="product__tag flex items-center gap-2">
+                      Free shipping when added to subscription
+                    </div>
+                  </div>
               {% endif %}
               {% comment %}
                 {% if product.tags.size > 0 %}
