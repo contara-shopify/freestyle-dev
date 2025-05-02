@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "c_hero_img_9HYJYd": {
       "type": "c-hero-img",
@@ -29,7 +29,9 @@
         "description_icon": "shopify://shop_images/Group_26613.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin  Shield™",
-        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352",
+        "show_popup": false,
+        "popup__trigger": ""
       }
     },
     "logo-section": {
@@ -195,7 +197,7 @@
             "title": "Safer, for longer,than anything else",
             "text": "<p>Our lab-tested diapers are made from clean, </p><p>non-toxic, total-chlorine-free materials.</p>",
             "button_text": "Our safety standards",
-            "button_url": "#"
+            "button_url": "https://freestyle.world/pages/safety-and-testing"
           }
         },
         "text_wTUQNR": {
@@ -250,7 +252,9 @@
         "description_icon": "shopify://shop_images/heart-icon-violet.svg",
         "description_icon_size": 36,
         "button_label": "Shop Skin Shield™",
-        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352"
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-5-44CT/13920570352",
+        "show_popup": false,
+        "popup__trigger": ""
       }
     },
     "review_scroller_custom_CMUd3m": {
