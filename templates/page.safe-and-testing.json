@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-404",
@@ -78,13 +78,6 @@
             "logo_text": "Skin safe"
           }
         },
-        "logo_block_AFwgMH": {
-          "type": "logo_block",
-          "settings": {
-            "logo_svg": "",
-            "logo_text": ""
-          }
-        },
         "logo_block_wMzMJW": {
           "type": "logo_block",
           "settings": {
@@ -102,7 +95,6 @@
       },
       "block_order": [
         "logo_block_CwzVij",
-        "logo_block_AFwgMH",
         "logo_block_wMzMJW",
         "logo_block_3KHCn9"
       ],
