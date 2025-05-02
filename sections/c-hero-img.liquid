@@ -11,10 +11,12 @@
         height=""
         class="absolute inset-0 w-full h-full object-cover"> {% endcomment %}
         {% render 'image' with section.settings.image,
-          class: "",
+          class: "absolute inset-0 w-full h-full object-cover rounded-none",
           fetchpriority: "low",
           decoding: "async",
-          alt: article.title
+          alt: article.title,
+          mobile_width: 750,
+          desktop_width: 2000
         %}
     {% endif %}
 
