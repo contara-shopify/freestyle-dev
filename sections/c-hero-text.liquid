@@ -9,7 +9,7 @@
             <h1 class="b-hero-banner__title">{{ section.settings.title }}</h1>
         {% endif %}
         {% if section.settings.subtitle != blank %}
-            <div class="b-hero-banner__text font-fkroman font-light">{{ section.settings.subtitle }}</div>
+            <div class="b-hero-banner__text font-fkroman font-light tracking-tighter">{{ section.settings.subtitle }}</div>
         {% endif %}
         {% if section.settings.baner_button != blank %}
             <a href="{{ section.settings.baner_button_link }}" target="_blank" class="btn btn--secondary font-Inter">{{ section.settings.baner_button }}</a>
@@ -102,13 +102,13 @@
     }
 
     #hero-banner-{{ section.id }} .b-hero-banner__text p {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       min-height: 1px;
     }
 
     #hero-banner-{{ section.id }} .b-hero-banner__text strong {
       font-family: 'GroteskNeue', 'Arial', sans-serif;
-      font-weight: bold;
+      font-weight: 500;
     }
 
     #hero-banner-{{ section.id }} .b-hero-banner_btn {

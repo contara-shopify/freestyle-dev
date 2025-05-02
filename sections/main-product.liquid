@@ -66,7 +66,13 @@
 
                 <div class="product__rating">
                   {% render 'rating-stars', text: section.settings.review_numbers %}
-                </div>
+                  {% comment %} <span class="junip-store-key" data-store-key="{{ shop.metafields.junip.store_key }}"></span>
+                  <span
+                    class="junip-product-summary"
+                    data-product-id="{{ product.id }}"
+                    data-product-rating-count="{{ product.metafields.junip.rating_count }}"
+                    data-product-rating-average="{{ product.metafields.junip.rating_average }}"> </span>
+                </div> {% endcomment %}
               </div>
 
             {% when 'cta' %}
@@ -90,7 +96,7 @@
                   </div>
 
                   <div x-show="!activeVariant.available" x-cloak>
-                    <button class="btn btn--secondary w-full">Out of Stock</button>
+                    <button class="button m-disabled" >Out of Stock</button>
                   </div>
 
                 {% else %}

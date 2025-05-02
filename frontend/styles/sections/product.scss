@@ -75,6 +75,7 @@
   &__separator {
     border: 0;
     border-top: 1px solid #e3e3e3;
+    margin: 15px 0;
   }
 
   &__gallery {
@@ -309,6 +310,7 @@
   &__description {
     line-height: 1.4;
     font-weight: 400;
+    margin-bottom: 15px;
 
     strong {
       font-weight: 500;

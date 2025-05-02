@@ -198,8 +198,11 @@
                       </svg>
                     </button>
                     <div class="faq-content overflow-hidden transition-all duration-300 max-h-0" style="opacity: 0">
-                      <div class="pb-4 text-base">
-                        {{ block.settings.answer-1 }}
+                      <div class="pb-4 text-base m-modal">
+                        {{ block.settings.answer-1
+                          | replace: '[', '<i class="modal-trigger">'
+                          | replace: ']', '</i>'
+                        }}
                       </div>
                     </div>
                   </li>
@@ -312,9 +315,68 @@
         </div>
       </div>
     </div>
+    <template id="modal-skinshield-info">
+      <div>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/Image12.jpg?v=1746188627"
+          alt="Sizing Chart"
+          class="aspect-auto h-auto w-full object-cover rounded-regular"
+          loading="eager"
+          fetchpriority="high"
+          decoding="auto"
+        />
+      </div>
+    </template>
+    <template id="modal-bambootek-info">
+      <div>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0616/2835/0723/files/CopyofImage6.jpg?v=1746188962"
+          alt="Sizing Chart"
+          class="aspect-auto h-auto w-full object-cover rounded-regular"
+          loading="eager"
+          fetchpriority="high"
+          decoding="auto"
+        />
+      </div>
+    </template>
   </section>
 
+  <style>
+    .faq-content .modal-trigger,
+    .faq-content a {
+      cursor: pointer;
+      color: #6638B7;
+      font-style: normal;
+      text-decoration: underline;
+    }
+  </style>
+
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modalTriggers = document.querySelectorAll('.modal-trigger');
+
+      modalTriggers.forEach((el, i) => {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          let modalTitle = '';
+          let modalContent = '';
+
+          if (i === 0) {
+            modalTitle = 'SkinShield Size and Pack Details';
+            modalContent = document.querySelector('#modal-skinshield-info')?.innerHTML || 'No content found';
+          } else if (i === 1) {
+            modalTitle = 'BambooTek Size and Pack Details';
+            modalContent = document.querySelector('#modal-bambootek-info')?.innerHTML || 'No content found';
+          }
+
+          window.Modal.open({
+            title: modalTitle,
+            size: 'medium',
+            content: modalContent
+          });
+        });
+      });
+    });
     function toggleFaq(button) {
       const content = button.nextElementSibling;
       const inner = content.firstElementChild;
