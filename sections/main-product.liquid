@@ -71,8 +71,8 @@
                     class="junip-product-summary"
                     data-product-id="{{ product.id }}"
                     data-product-rating-count="{{ product.metafields.junip.rating_count }}"
-                    data-product-rating-average="{{ product.metafields.junip.rating_average }}"> </span>
-                </div> {% endcomment %}
+                    data-product-rating-average="{{ product.metafields.junip.rating_average }}"> </span>{% endcomment %}
+                </div>
               </div>
 
             {% when 'cta' %}
@@ -103,16 +103,6 @@
                   <a href="{{ block.settings.cta_url }}" class="btn btn--walmart" target="_blank">
                     {{ block.settings.cta_label }}
                   </a>
-                  {% comment %} <span class="btn btn--walmart"
-                      @click="
-                      window.Modal.open({
-                        title: 'Size and Pack Details',
-                        size: 'small',
-                        content: document.querySelector('#modal-product-info')?.innerHTML || 'Dont have content',
-                      })
-                    ">
-                    {{ block.settings.cta_label }}
-                  </span> {% endcomment %}
                 {% endif %}
               </div>
 
