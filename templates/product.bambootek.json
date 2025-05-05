@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -52,7 +52,7 @@
         "product_features_jDgQVM": {
           "type": "product_features",
           "settings": {
-            "note": ""
+            "note": "<p>*absorbs 55% more compared to leading plant-based diaper</p>"
           }
         },
         "accordion_gjrxaL": {
