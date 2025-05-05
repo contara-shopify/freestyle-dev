@@ -127,7 +127,7 @@
           "type": "content_block",
           "settings": {
             "block_title": "Chlorine free",
-            "richtext_1": "<p>Total Chlorine Free– no use of chlorine or chlorine derivatives</p>",
+            "richtext_1": "<p>Total Chlorine Free: no use of chlorine or chlorine derivatives</p>",
             "richtext_2": "<p>Often made with chlorine or chlorine derivatives</p>"
           }
         },
