@@ -389,7 +389,8 @@
 
     // Sprite Sheet settings
     const image = new Image();
-    image.src = '{{ 'sprite_sheet_diaper-min.jpg' | asset_url }}';
+    {% comment %}image.src = '{{ 'sprite_sheet_diaper-min.jpg' | asset_url }}'; {% endcomment %}
+    image.src = 'https://res.cloudinary.com/dop64dvbg/image/upload/v1746556728/sprite_sheet_diaper_nykhez.jpg';
     
     const cols = 11;
     const rows = 11;
