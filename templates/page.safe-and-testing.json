@@ -44,8 +44,8 @@
     "c_hero_text_p6zYVE": {
       "type": "c-hero-text",
       "settings": {
-        "title": "",
-        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. </p><p></p><p></p><p>That is why we are committed to only using <strong>clean</strong>,  <strong>non-toxic</strong>, <strong>Total Chlorine Free materials</strong> and lab testing our products to make sure.</p>",
+        "title": "Safer, always",
+        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. So, we’re committed to only using clean, non toxic, total chlorine free materials and lab testing our products to make sure.</p>",
         "baner_button": "",
         "baner_button_link": "",
         "bg_color": "#ffffff",
@@ -55,17 +55,17 @@
         "text_position-x": "center",
         "text_position-y": "center",
         "text_alignment": "center",
-        "title_font_size": 60,
-        "title_font_size_mobile": 77,
+        "title_font_size": 48,
+        "title_font_size_mobile": 36,
         "title_color": "#000000",
-        "subtitle_font_size": 34,
-        "subtitle_font_size_mobile": 20,
+        "subtitle_font_size": 18,
+        "subtitle_font_size_mobile": 16,
         "text_color": "#000000",
-        "padding_desktop": 43,
+        "padding_desktop": 40,
         "padding_mobile": 20,
-        "banner_text_width": "880",
-        "banner_height_desktop": "600",
-        "banner_height_mobile": "270"
+        "banner_text_width": "760",
+        "banner_height_desktop": "572",
+        "banner_height_mobile": "450"
       }
     },
     "c_product_features_AjpaFw": {
