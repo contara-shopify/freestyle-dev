@@ -367,56 +367,101 @@
     const frameWidth = 1080;
     const frameHeight = 1080;
 
-    // Sprite Sheet Link
-    const image = new Image();
-    image.src = 'https://res.cloudinary.com/dop64dvbg/image/upload/v1745882630/sprite_sheet_1-min_niowtn.png';
+    // Set canvas size based on screen width
+    function setCanvasSize() {
+        if (window.innerWidth >= 768) {
+            canvas.style.width = '50%';
+            canvas.style.margin = '0 auto';
+            canvas.style.display = 'block';
+        } else {
+            canvas.style.width = '100%';
+            canvas.style.margin = '0';
+        }
+    }
 
-    // SPRITE SHEET INFO
-    const cols = 8;
-    const rows = 8;
-    const totalFrames = 64;
+    // Run on load and resize
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
 
+    // Set canvas dimensions
     canvas.width = frameWidth;
     canvas.height = frameHeight;
 
+    // Sprite Sheet settings
+    const image = new Image();
+    image.src = '{{ 'sprite_sheet_diaper-min.jpg' | asset_url }}';
+    
+    const cols = 11;
+    const rows = 11;
+    const totalFrames = 114;
+    
+    // Animation section properties
+    let sectionStart = 0;
+    let sectionHeight = 0;
+    
+    // Load the image and start animation
+    function initAnimation() {
+        // Get section measurements for better scroll control
+        const section = document.querySelector('.scrub-scrolling');
+        const rect = section.getBoundingClientRect();
+        sectionStart = window.pageYOffset + rect.top;
+        sectionHeight = rect.height;
+        
+        // Start animation loop
+        requestAnimationFrame(render);
+    }
+
     function getCurrentFrame() {
-    const scrollTop = window.scrollY;
-    const maxScrollTop = document.body.scrollHeight - window.innerHeight;
-    const scrollFraction = scrollTop / maxScrollTop;
-    const frameIndex = Math.min(
-        totalFrames - 1,
-        Math.floor(scrollFraction * totalFrames)
-    );
-    return frameIndex;
+        const scrollTop = window.scrollY;
+        
+        // Calculate position relative to section
+        const scrollPosition = scrollTop - sectionStart;
+        const scrollFraction = Math.min(Math.max(scrollPosition / sectionHeight, 0), 1);
+        
+        // Calculate frame index
+        const frameIndex = Math.min(
+            totalFrames - 1,
+            Math.floor(scrollFraction * totalFrames)
+        );
+        
+        return frameIndex;
     }
 
     function render() {
-    const frameIndex = getCurrentFrame();
-    
-    const col = frameIndex % cols;
-    const row = Math.floor(frameIndex / cols);
-    
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    
-    context.drawImage(
-        image,
-        col * frameWidth, // source x
-        row * frameHeight, // source y
-        frameWidth, // source width
-        frameHeight, // source height
-        0, // destination x
-        0, // destination y
-        canvas.width, // destination width
-        canvas.height // destination height
-    );
-
-    requestAnimationFrame(render);
+        const frameIndex = getCurrentFrame();
+        
+        // Calculate source coordinates
+        const col = frameIndex % cols;
+        const row = Math.floor(frameIndex / cols);
+        
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Only draw if image is loaded
+        if (image.complete) {
+            context.drawImage(
+                image,
+                col * frameWidth,
+                row * frameHeight,
+                frameWidth,
+                frameHeight,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+        }
+        
+        // Continue animation loop
+        requestAnimationFrame(render);
     }
-
-    image.onload = () => {
-    requestAnimationFrame(render);
-    };
-
+    
+    // Initialize animation after image is loaded
+    image.onload = initAnimation;
+    
+    // Fallback initialization if image is already loaded
+    if (image.complete) {
+        initAnimation();
+    }
 </script>
 
 {% schema %}
