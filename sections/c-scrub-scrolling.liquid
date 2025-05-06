@@ -13,7 +13,8 @@
     {% case block.type %}
       {% when 'video' %}
         <div class="scrub-scrolling__video">
-          <video
+            <canvas id="scrollCanvas"></canvas>
+          {% comment %} <video
             muted
             loop
             playsinline
@@ -32,7 +33,7 @@
                   alt="Video keyframe {{ i }}">
               {% endfor %}
             {% endif %}
-          </div>
+          </div> {% endcomment %}
         </div>
       {% when 'text' %}
         <style>
@@ -75,7 +76,7 @@
   {% endfor %}
 </div>
 
-<script>
+{% comment %} <script>
   document.addEventListener('DOMContentLoaded', function () {
     const section = document.querySelector('.scrub-scrolling');
     const videoContainer = section.querySelector('.scrub-scrolling__video');
@@ -299,8 +300,8 @@
       lastFrameTimes = [];
     };
   });
-</script>
-<script>
+</script> {% endcomment %}
+{% comment %} <script>
   document.addEventListener('DOMContentLoaded', function () {
     const mainBtn = document.querySelector('.button.m-main');
     const section = document.querySelector('.scrub-scrolling');
@@ -357,6 +358,65 @@
     // Начальная проверка, чтобы скрыть кнопку до того, как прокручен блок
     updateButtonPosition();
   });
+</script> {% endcomment %}
+
+<script>
+    const canvas = document.getElementById('scrollCanvas');
+    const context = canvas.getContext('2d');
+
+    const frameWidth = 1080;
+    const frameHeight = 1080;
+
+    // Sprite Sheet Link
+    const image = new Image();
+    image.src = 'https://res.cloudinary.com/dop64dvbg/image/upload/v1745882630/sprite_sheet_1-min_niowtn.png';
+
+    // SPRITE SHEET INFO
+    const cols = 8;
+    const rows = 8;
+    const totalFrames = 64;
+
+    canvas.width = frameWidth;
+    canvas.height = frameHeight;
+
+    function getCurrentFrame() {
+    const scrollTop = window.scrollY;
+    const maxScrollTop = document.body.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / maxScrollTop;
+    const frameIndex = Math.min(
+        totalFrames - 1,
+        Math.floor(scrollFraction * totalFrames)
+    );
+    return frameIndex;
+    }
+
+    function render() {
+    const frameIndex = getCurrentFrame();
+    
+    const col = frameIndex % cols;
+    const row = Math.floor(frameIndex / cols);
+    
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    context.drawImage(
+        image,
+        col * frameWidth, // source x
+        row * frameHeight, // source y
+        frameWidth, // source width
+        frameHeight, // source height
+        0, // destination x
+        0, // destination y
+        canvas.width, // destination width
+        canvas.height // destination height
+    );
+
+    requestAnimationFrame(render);
+    }
+
+    image.onload = () => {
+    requestAnimationFrame(render);
+    };
+
 </script>
 
 {% schema %}
@@ -403,6 +463,11 @@
           "type": "text",
           "label": "Video URL (mobile)",
           "id": "video_url_mobile"
+        },
+        {
+          "type": "image_picker",
+          "label": "Video Sprite Image",
+          "id": "video_sprite_image"
         },
         {
           "type": "image_picker",
