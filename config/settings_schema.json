@@ -342,6 +342,28 @@
         "type": "product_list",
         "id": "cart_products",
         "label": "Cart Products Carousel"
+      },
+      {
+        "type": "checkbox",
+        "id": "activate_upsell_functionality",
+        "label": "Activate Upsell Functionality",
+        "default": false
+      },
+      {
+        "type": "product_list",
+        "id": "onetime_upsell_product",
+        "label": "Onetime Upsell Product"
+      },
+      {
+        "type": "text",
+        "id": "subscription_upsell_title",
+        "label": "Subscription Upsell Title",
+        "default": "Complete your subscription"
+      },
+      {
+        "type": "product_list",
+        "id": "subscription_upsell_product",
+        "label": "Subscription Upsell Product"
       }
     ]
   },

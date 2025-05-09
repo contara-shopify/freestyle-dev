@@ -115,4 +115,11 @@
       opacity: 0.5;
       pointer-events: none;
     }
+
+    &-sm {
+      padding: 0 1.6rem;
+      line-height: 3.2rem;
+      font-size: 1.4rem;
+      min-width: 0;
+    }
 }

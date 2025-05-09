@@ -1,3 +1,7 @@
+{% assign upsell_functionality = settings.activate_upsell_functionality %}
+{% assign onetime_upsell_products = settings.onetime_upsell_product %}
+{% assign subscription_upsell_products = settings.subscription_upsell_product %}
+
 <section
   class="b-mini_cart"
   x-cloak
@@ -107,6 +111,7 @@
         </div>
       </template>
     </div>
+    
     {% if settings.show_cart_products_carousel %}
       <div class="b-mini_cart-carousel hidden">
         <h4 class="font-Gazpacho text-xl mt-6 mb-4">You may also like</h4>
@@ -169,6 +174,65 @@
           });
         });
       </script>
+    {% endif %}
+
+    {% if upsell_functionality %}
+    <div class="b-mini_cart-upsell flex flex-col gap-4" x-data>
+        {% for item in subscription_upsell_products %}
+            {% assign activeVariant = item.selected_or_first_available_variant %}
+            {% assign sellingPlan = activeVariant.selling_plan_allocations[0].selling_plan %}
+            
+            <figure class="b-mini_cart-upsell-product" x-show="!$store.cart.items.find(item => item.id === {{activeVariant.id}})">
+                {% if settings.subscription_upsell_title != blank %}
+                    <div class="b-mini_cart-upsell-product-header">
+                        {{ settings.subscription_upsell_title }}
+                    </div>
+                {% endif %}
+                <div class="b-mini_cart-upsell-product-inner flex items-center">
+                    <div class="b-mini_cart-upsell-product-img">
+                        <img src="{{ item.featured_image | image_url: width: 160 }}" alt="{{ item.title }}" width="160" height="160">
+                    </div>
+                    <div class="b-mini_cart-upsell-product-desc flex justify-between">
+                        <div class="b-mini_cart-upsell-product-name">
+                            <h4 class="b-mini_cart-upsell-product-title">{{ item.title }}</h4>
+                            <p class="b-mini_cart-upsell-product-subtitle">{{ sellingPlan.name }}</p>
+                        </div>
+                        <div class="b-mini_cart-upsell-product-price flex flex-col gap-4 text-right">
+                            {{ item.price | money }}
+
+                            <button class="button button-sm" @click="$store.cart.addToCart({variantId: {{activeVariant.id}}, sellingPlanId: {{sellingPlan.id}}})">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+        {% endfor %}
+
+        {% for item in onetime_upsell_products %}
+            {% assign activeVariant = item.selected_or_first_available_variant %}
+            <figure class="b-mini_cart-upsell-product" x-show="!$store.cart.items.find(item => item.id === {{activeVariant.id}})">
+                <div class="b-mini_cart-upsell-product-inner flex items-center">
+                    <div class="b-mini_cart-upsell-product-img">
+                        <img src="{{ item.featured_image | image_url: width: 160 }}" alt="{{ item.title }}" width="160" height="160">
+                    </div>
+                    <div class="b-mini_cart-upsell-product-desc flex justify-between">
+                        <div class="b-mini_cart-upsell-product-name">
+                            <h4 class="b-mini_cart-upsell-product-title">{{ item.title }}</h4>
+                            <p class="b-mini_cart-upsell-product-subtitle">One-time add-on</p>
+                        </div>
+                        <div class="b-mini_cart-upsell-product-price flex flex-col gap-4 items-end text-right">
+                            {{ item.price | money }}
+
+                            <button class="button button-sm" @click="$store.cart.addToCart({variantId: {{activeVariant.id}}})">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+        {% endfor %}
+    </div>
     {% endif %}
     <!-- Total block -->
     <div class="b-mini_cart-total flex flex-wrap justify-between">
