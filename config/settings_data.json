@@ -7,143 +7,143 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "current": {
-      "header_logo": "shopify://shop_images/Vector_2.svg",
-      "header_bg": "#FFFFFF",
-      "header_menu_1": "main-menu",
-      "header_menu_2": "",
-      "footer_menu_1": "footer-contant",
-      "footer_menu_2": "footer-about",
-      "social_title": "",
-      "social_facebook": "#",
-      "social_facebook_icon": "shopify://shop_images/Frame_4.svg",
-      "social_instagram": "#",
-      "social_instagram_icon": "shopify://shop_images/Frame_1.svg",
-      "social_twitter": "#",
-      "social_twitter_icon": "shopify://shop_images/Frame_2.svg",
-      "social_youtube": "#",
-      "social_youtube_icon": "shopify://shop_images/Frame_3.svg",
-      "footer_menu_3": "",
-      "copyright_text": "© 2024 All In Food",
-      "cart_products": [
-        "baby-maker-uni-crop-black",
-        "adult-sweatsuit-purple",
-        "baby-maker-uni-t-shirt-black"
-      ],
-      "activate_upsell_functionality": true,
-      "onetime_upsell_product": [
-        "baby-maker-uni-t-shirt-off-white"
-      ],
-      "subscription_upsell_product": [
-        "diaper"
-      ],
-      "main_menu": "main-menu",
-      "bamboo_icon": "shopify://shop_images/BambooTek.png",
-      "heart_icon": "shopify://shop_images/heart-violet.svg",
-      "heart_icon_white": "shopify://shop_images/Group_26613.svg",
-      "menu_image_1": "shopify://shop_images/Group_26612.jpg",
-      "menu_link_1": "/products/bambootek®-diapers-glow",
-      "menu_image_2": "shopify://shop_images/Group_26572.jpg",
-      "menu_link_2": "shopify://products/diaper",
-      "menu_image_3": "shopify://shop_images/Jumbo_Wipes.jpg",
-      "menu_link_3": "shopify://products/freestyle-bamboo-wipes-72ct",
-      "upsell_functionality": "ON",
-      "show_promo": true,
-      "show_promo_link": "shopify://products/trial-kit",
-      "promo_text": "<p>Try all our snacks for just $0.99 + FREE Shipping!</p>",
+{
+  "current": {
+    "header_logo": "shopify://shop_images/Vector_2.svg",
+    "header_bg": "#FFFFFF",
+    "header_menu_1": "main-menu",
+    "header_menu_2": "",
+    "footer_menu_1": "footer-contant",
+    "footer_menu_2": "footer-about",
+    "social_title": "",
+    "social_facebook": "#",
+    "social_facebook_icon": "shopify://shop_images/Frame_4.svg",
+    "social_instagram": "#",
+    "social_instagram_icon": "shopify://shop_images/Frame_1.svg",
+    "social_twitter": "#",
+    "social_twitter_icon": "shopify://shop_images/Frame_2.svg",
+    "social_youtube": "#",
+    "social_youtube_icon": "shopify://shop_images/Frame_3.svg",
+    "footer_menu_3": "",
+    "copyright_text": "© 2024 All In Food",
+    "show_cart_products_carousel": false,
+    "cart_products": [
+      "baby-maker-uni-crop-black",
+      "adult-sweatsuit-purple",
+      "baby-maker-uni-t-shirt-black"
+    ],
+    "activate_upsell_functionality": true,
+    "onetime_upsell_product": [
+      "baby-maker-uni-t-shirt-off-white"
+    ],
+    "subscription_upsell_product": [
+      "diaper"
+    ],
+    "main_menu": "main-menu",
+    "bamboo_icon": "shopify://shop_images/BambooTek.png",
+    "heart_icon": "shopify://shop_images/heart-violet.svg",
+    "heart_icon_white": "shopify://shop_images/Group_26613.svg",
+    "menu_image_1": "shopify://shop_images/Group_26612.jpg",
+    "menu_link_1": "/products/bambootek®-diapers-glow",
+    "menu_image_2": "shopify://shop_images/Group_26572.jpg",
+    "menu_link_2": "shopify://products/diaper",
+    "menu_image_3": "shopify://shop_images/Jumbo_Wipes.jpg",
+    "menu_link_3": "shopify://products/freestyle-bamboo-wipes-72ct",
+    "upsell_functionality": "ON",
+    "show_promo": true,
+    "show_promo_link": "shopify://products/trial-kit",
+    "promo_text": "<p>Try all our snacks for just $0.99 + FREE Shipping!</p>",
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#c1e0eb",
+          "background_gradient": "",
+          "text": "#121212",
+          "color_primary": "#1b4c62",
+          "color_secondary": "#61a2c7",
+          "color_tertiary": "#c1e0eb"
+        }
+      },
+      "scheme-5c0f826f-d435-4d54-9cbc-7f5914495a94": {
+        "settings": {
+          "background": "#e8c7e8",
+          "background_gradient": "",
+          "text": "#121212",
+          "color_primary": "#5f1f5b",
+          "color_secondary": "#a85c9d",
+          "color_tertiary": "#e8c7e8"
+        }
+      },
+      "scheme-954a80b3-dde2-40d9-8313-176e778b545a": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "color_primary": "#d45e59",
+          "color_secondary": "#020617",
+          "color_tertiary": "#ffffff"
+        }
+      },
+      "scheme-951c1d93-12b5-4f78-b84c-2e55165ed91d": {
+        "settings": {
+          "background": "#f4bc96",
+          "background_gradient": "",
+          "text": "#121212",
+          "color_primary": "#cc4e32",
+          "color_secondary": "#f4bc96",
+          "color_tertiary": "#ffffff"
+        }
+      },
+      "scheme-de6b5f91-c5c6-4bb4-bbf1-ffc9db298772": {
+        "settings": {
+          "background": "#5d3091",
+          "background_gradient": "",
+          "text": "#121212",
+          "color_primary": "#5d3091",
+          "color_secondary": "#c6b9d9",
+          "color_tertiary": "#ffffff"
+        }
+      },
+      "scheme-b7bdd6cd-5b51-4c91-a556-8dd635a6c446": {
+        "settings": {
+          "background": "#2b657c",
+          "background_gradient": "",
+          "text": "#121212",
+          "color_primary": "#2b657c",
+          "color_secondary": "#a8d9e6",
+          "color_tertiary": "#ffffff"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "16017602894386113438": {
+        "type": "shopify://apps/junip/blocks/junip-store-key/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+        "disabled": false,
+        "settings": {
+          "enablePreviewMode": true
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
       "color_schemes": {
         "scheme-1": {
           "settings": {
-            "background": "#c1e0eb",
+            "background": "#FFFFFF",
             "background_gradient": "",
             "text": "#121212",
-            "color_primary": "#1b4c62",
-            "color_secondary": "#61a2c7",
-            "color_tertiary": "#c1e0eb"
-          }
-        },
-        "scheme-5c0f826f-d435-4d54-9cbc-7f5914495a94": {
-          "settings": {
-            "background": "#e8c7e8",
-            "background_gradient": "",
-            "text": "#121212",
-            "color_primary": "#5f1f5b",
-            "color_secondary": "#a85c9d",
-            "color_tertiary": "#e8c7e8"
-          }
-        },
-        "scheme-954a80b3-dde2-40d9-8313-176e778b545a": {
-          "settings": {
-            "background": "#ffffff",
-            "background_gradient": "",
-            "text": "#121212",
-            "color_primary": "#d45e59",
-            "color_secondary": "#020617",
-            "color_tertiary": "#ffffff"
-          }
-        },
-        "scheme-951c1d93-12b5-4f78-b84c-2e55165ed91d": {
-          "settings": {
-            "background": "#f4bc96",
-            "background_gradient": "",
-            "text": "#121212",
-            "color_primary": "#cc4e32",
-            "color_secondary": "#f4bc96",
-            "color_tertiary": "#ffffff"
-          }
-        },
-        "scheme-de6b5f91-c5c6-4bb4-bbf1-ffc9db298772": {
-          "settings": {
-            "background": "#5d3091",
-            "background_gradient": "",
-            "text": "#121212",
-            "color_primary": "#5d3091",
-            "color_secondary": "#c6b9d9",
-            "color_tertiary": "#ffffff"
-          }
-        },
-        "scheme-b7bdd6cd-5b51-4c91-a556-8dd635a6c446": {
-          "settings": {
-            "background": "#2b657c",
-            "background_gradient": "",
-            "text": "#121212",
-            "color_primary": "#2b657c",
-            "color_secondary": "#a8d9e6",
-            "color_tertiary": "#ffffff"
-          }
-        }
-      },
-      "content_for_index": [],
-      "blocks": {
-        "16017602894386113438": {
-          "type": "shopify://apps/junip/blocks/junip-store-key/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
-          "disabled": false,
-          "settings": {
-            "enablePreviewMode": true
+            "button": "#1D49CA",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
           }
         }
       }
-    },
-    "presets": {
-      "Default": {
-        "color_schemes": {
-          "scheme-1": {
-            "settings": {
-              "background": "#FFFFFF",
-              "background_gradient": "",
-              "text": "#121212",
-              "button": "#1D49CA",
-              "button_label": "#FFFFFF",
-              "secondary_button_label": "#121212",
-              "shadow": "#121212"
-            }
-          }
-        }
-      }
-    },
-    "platform_customizations": {
-      "custom_css": []
     }
+  },
+  "platform_customizations": {
+    "custom_css": []
   }
-  
+}
