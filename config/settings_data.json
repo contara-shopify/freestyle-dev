@@ -32,7 +32,7 @@
       "adult-sweatsuit-purple",
       "baby-maker-uni-t-shirt-black"
     ],
-    "activate_upsell_functionality": true,
+    "activate_upsell_functionality": false,
     "onetime_upsell_product": [
       "baby-maker-uni-t-shirt-off-white"
     ],
