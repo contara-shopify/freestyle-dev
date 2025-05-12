@@ -32,12 +32,12 @@
       "adult-sweatsuit-purple",
       "baby-maker-uni-t-shirt-black"
     ],
-    "activate_upsell_functionality": false,
+    "activate_upsell_functionality": true,
     "onetime_upsell_product": [
       "baby-maker-uni-t-shirt-off-white"
     ],
     "subscription_upsell_product": [
-      "diaper"
+      "freestyle-bamboo-wipes-72ct"
     ],
     "main_menu": "main-menu",
     "bamboo_icon": "shopify://shop_images/BambooTek.png",
