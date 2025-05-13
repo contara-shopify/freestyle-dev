@@ -200,7 +200,7 @@
                         <div class="b-mini_cart-upsell-product-price flex flex-col gap-4 text-right">
                             {{ item.price | money }}
 
-                            <button class="button button-sm" @click="$store.cart.addToCart({variantId: {{activeVariant.id}}, sellingPlanId: {{sellingPlan.id}}})">
+                            <button class="button button-sm" @click="$store.cart.addToCart({variantId: {{activeVariant.id}}, sellingPlanId: {{sellingPlan.id | default: false }}})">
                                 Add
                             </button>
                         </div>

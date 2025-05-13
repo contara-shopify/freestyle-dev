@@ -67,7 +67,7 @@ document.addEventListener('alpine:init', () => {
       })
       .then(() => {
         this.loadCart();
-        if (showCart) {
+        if (showCart && !this.isCartOpen) {
           this.toggleCart();
         }
         if (redirectToCheckout) {
