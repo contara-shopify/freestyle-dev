@@ -222,6 +222,7 @@
         "text_Mgmdew",
         "text_wTUQNR"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-weight: 400;}"
       ],
