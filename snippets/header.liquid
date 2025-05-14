@@ -6,7 +6,7 @@
 
 <div class="relative b-header__wrapper py-8 px-10 bg-white" style="background-color: {{ settingsHeaderBg }};">
   <div class="b-header__inner mx-auto flex justify-between items-center">
-    <div class="flex gap-8">
+    <div class="flex gap-8  md:w-1/4">
       {%- if settings.show_humburger_menu != blank -%}
         {% render 'menu-mobile', menuItemsFirst: settings.header_menu_1.links, menuItemsSecond: settings.header_menu_2.links %}
       {%- endif -%}
@@ -46,7 +46,7 @@
       </a>
     </div> {% endcomment %}
 
-    <div class="flex items-center space-x-8">
+    <div class="flex items-center justify-end space-x-8 md:w-1/4">
       <a href="/apps/retextion/login" class="text-black hover:text-gray-600 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" role="presentation" style="width: 2.4rem; height: 2.4rem;"><path fill="#6638b7" fill-rule="evenodd" d="M10 8.75a2.917 2.917 0 1 0 0-5.833 2.917 2.917 0 0 0 0 5.833ZM10 10a4.167 4.167 0 1 0 0-8.333A4.167 4.167 0 0 0 10 10ZM7.5 13.125a3.542 3.542 0 0 0-3.542 3.542v.833a.625.625 0 1 1-1.25 0v-.833A4.792 4.792 0 0 1 7.5 11.875h5a4.792 4.792 0 0 1 4.792 4.792v.833a.625.625 0 1 1-1.25 0v-.833a3.542 3.542 0 0 0-3.542-3.542h-5Z" clip-rule="evenodd"></path></svg>
       </a>

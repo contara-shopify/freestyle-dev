@@ -96,6 +96,11 @@
       background-color: rgb(243, 178, 50);
       padding: 5px 10px;
       border-radius: 10px;
+      opacity: 0;
+    }
+
+    .m-active .m-badge {
+      opacity: 1;
     }
 
     &-main {
