@@ -1,0 +1,38 @@
+{% render 'entry' with '@/styles/sections/storepoint.scss' %}
+
+<div class="storepoint py-16 md:py-64">
+    <div class="container container-lg mx-auto">
+        <!-- Storepoint Widget Embed Start -->
+        <div id="storepoint-widget"></div>
+    </div>
+</div>
+<script>
+window.loadStorepoint=function(){
+    var storepoint = new StorepointWidget(
+        '168147ffdccf38',
+        '#storepoint-widget',
+        {}
+    );
+};!function(){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://widget.storepoint.co/embed.js";t.onload=function(){"function"==typeof window.loadStorepoint&&window.loadStorepoint()};document.head.appendChild(t);}();
+</script>
+<!-- Storepoint Widget Embed End -->
+
+
+
+{% schema %}
+{
+  "name": "Storepoint",
+  "settings": [
+    {
+      "type": "richtext",
+      "label": "Richtext 3",
+      "id": "richtext_3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Storepoint"
+    }
+  ]
+}
+{% endschema %}

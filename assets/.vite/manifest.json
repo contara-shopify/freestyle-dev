@@ -1,6 +1,6 @@
 {
   "frontend/entrypoints/main.scss": {
-    "file": "main-DU6twRBk.css",
+    "file": "main-s4JHQ-o_.css",
     "src": "frontend/entrypoints/main.scss",
     "isEntry": true
   },
@@ -113,6 +113,11 @@
   "frontend/styles/sections/scrub-scrolling.scss": {
     "file": "scrub-scrolling-CbxycmjJ.css",
     "src": "frontend/styles/sections/scrub-scrolling.scss",
+    "isEntry": true
+  },
+  "frontend/styles/sections/storepoint.scss": {
+    "file": "storepoint-Bh425sLD.css",
+    "src": "frontend/styles/sections/storepoint.scss",
     "isEntry": true
   },
   "frontend/styles/sections/trial-faq.scss": {
