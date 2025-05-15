@@ -13,7 +13,8 @@
         "type": "c-store-locator",
         "name": "Storepoint",
         "settings": {
-          "richtext_3": ""
+          "title": "Store Locator",
+          "description": "<p>Looking for skin_shield_tm? Search for theLooking for bamboo_tek_tm? Search for the <br/><br/>All locations stock 99% Water Jumbo Wipes!</p>"
         }
       },
       "c_hero_img_3b8kXN": {
