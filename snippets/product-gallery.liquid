@@ -13,17 +13,19 @@
             <div class="swiper-wrapper">
               {% assign slideIndex = 0 %}
               {% for image in product.images %}
-                <div class="swiper-slide"
+                  {% unless image.attached_to_variant? %}
+                    <div class="swiper-slide"
                       :class="activeSlideNum === {{ slideIndex }} ? 'm-active' : ''"
                       data-index="{{ slideIndex }}"
                       @click="slideToSlide(event, {{ slideIndex }})">
-                    <img src="{{ image | image_url: width: 120 }}"
-                         alt="{{ image.alt }}"
-                         width="120"
-                         height="120"
-                         class="w-full h-full object-cover rounded">
-                </div>
-                {% assign slideIndex = slideIndex | plus: 1 %}
+                        <img src="{{ image | image_url: width: 120 }}"
+                             alt="{{ image.alt }}"
+                             width="120"
+                             height="120"
+                             class="w-full h-full object-cover rounded">
+                    </div>
+                    {% assign slideIndex = slideIndex | plus: 1 %}
+                {% endunless %}
               {% endfor %}
               {% for variant in product.variants %}
                 {% if variant.featured_image %}
@@ -54,11 +56,14 @@
               <div class="swiper-wrapper">
                 {% assign slideIndex = 0 %}
                 {% for image in product.images %}
-                  <div class="swiper-slide" data-index="{{ slideIndex }}">
-                      {{ image | image_url: width: 800 | image_tag: width: 619, height: 619, class: "w-full h-full object-contain" }}
-                  </div>
-                  {% assign slideIndex = slideIndex | plus: 1 %}
+                  {% unless image.attached_to_variant? %}
+                    <div class="swiper-slide" data-index="{{ slideIndex }}">
+                        {{ image | image_url: width: 800 | image_tag: width: 619, height: 619, class: "w-full h-full object-contain" }}
+                    </div>
+                    {% assign slideIndex = slideIndex | plus: 1 %}
+                  {% endunless %}
                 {% endfor %}
+                
                 {% for variant in product.variants %}
                   {% if variant.featured_image %}
                     <div class="swiper-slide  m-variant"
