@@ -145,6 +145,7 @@
     },
     "video_scroll_d4i3BU": {
       "type": "video-scroll",
+      "disabled": true,
       "settings": {}
     },
     "c_scrub_scrolling_dke3Md": {
@@ -221,7 +222,6 @@
         "text_Mgmdew",
         "text_wTUQNR"
       ],
-      "disabled": true,
       "custom_css": [
         "h3 {font-weight: 400;}"
       ],
