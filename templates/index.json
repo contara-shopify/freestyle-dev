@@ -11,6 +11,7 @@
   "sections": {
     "c_hero_img_9HYJYd": {
       "type": "c-hero-img",
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/image-hero-freestyle.webp",
@@ -222,7 +223,6 @@
         "text_Mgmdew",
         "text_wTUQNR"
       ],
-      "disabled": true,
       "custom_css": [
         "h3 {font-weight: 400;}"
       ],
