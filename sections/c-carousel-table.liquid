@@ -124,6 +124,10 @@
 
   }
 
+  .custom-content-blocks a  {
+    text-decoration: underline;
+  }
+
 
 
   @media screen and (min-width: 768px) {
@@ -195,6 +199,26 @@
 </style>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function(e) {
+        e.preventDefault();
+        const modalTriggers = document.querySelectorAll('a[href*=".png"]');
+    
+        modalTriggers.forEach((el) => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imageUrl = el.href;
+                const modalTitle = 'SkinShield™ Diapers Ingredient List';
+                const modalContent = `<img src="${imageUrl}" alt="View Image" style="max-width:100%; height:auto;" />`;
+    
+                window.Modal.open({
+                    title: modalTitle,
+                    size: 'medium',
+                    content: modalContent
+                });
+            });
+        });
+    });
+
   document.addEventListener('DOMContentLoaded', function () {
     new Swiper('#swiper-container-{{ section.id }}', {
       slidesPerView: 1.5,
