@@ -1,23 +1,16 @@
 {% render 'entry' with '@/scripts/sections/c-hero-video.js' %}
 
 <div id="hero-mage-{{ section.id }}" class="custom-hero-video relative w-full overflow-hidden" data-hero-video>
-  <div class="absolute inset-0 w-full h-full bg-black opacity-0 z-10"></div>
   <div class="custom-hero-video__container relative w-full h-full">
     {% if section.settings.image != blank %}
-      {% comment %} <img
-        src="{{ section.settings.image | image_url }}"
-        alt="{{ section.settings.heading }}"
-        width=""
-        height=""
-        class="absolute inset-0 w-full h-full object-cover"> {% endcomment %}
-        {% render 'image' with section.settings.image,
-          class: "absolute inset-0 w-full h-full object-cover rounded-none",
-          fetchpriority: "low",
-          decoding: "async",
-          alt: article.title,
-          mobile_width: 750,
-          desktop_width: 2000
-        %}
+      {% render 'image' with section.settings.image,
+        class: "absolute inset-0 w-full h-full object-cover rounded-none",
+        fetchpriority: "high",
+        decoding: "async",
+        alt: section.settings.heading,
+        mobile_width: 750,
+        desktop_width: 2000
+      %}
     {% endif %}
 
     <div class="custom-hero-video__content absolute inset-0 flex flex-col justify-center items-center px-4 z-10">
@@ -74,8 +67,7 @@
             class="btn btn--secondary">
         {% else %}
           <span class="btn btn--secondary"
-            @click="{{ section.settings.popup__trigger | html }}"
-          >
+            >
         {% endif %}
             {% if section.settings.button_icon != blank %}
               <img
@@ -111,16 +103,16 @@
 
 <style>
   #hero-mage-{{ section.id }} {
-    height: {{ section.settings.banner_height_desktop }}px;
+    height: {{ section.settings.banner_height_desktop | default: 700 }}px;
     content-visibility: auto;
-    contain-intrinsic-size: {{ section.settings.banner_height_desktop }}px;
+    contain-intrinsic-size: {{ section.settings.banner_height_desktop | default: 700 }}px;
     contain: layout style;
   }
   @media (max-width: 767px) {
     #hero-mage-{{ section.id }} {
-      height: {{ section.settings.banner_height_mobile }}px;
+      height: {{ section.settings.banner_height_mobile | default: 400 }}px;
       content-visibility: auto;
-      contain-intrinsic-size: {{ section.settings.banner_height_mobile }}px;
+      contain-intrinsic-size: {{ section.settings.banner_height_mobile | default: 400 }}px;
       contain: layout style;
     }
   }
