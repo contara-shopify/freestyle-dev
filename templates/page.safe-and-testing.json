@@ -7,399 +7,398 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "main": {
-        "type": "main-404",
-        "disabled": true,
-        "settings": {
-          "heading": "404 Page Not Found",
-          "text": "The page you are looking for does not exist.",
-          "button_label": "Go to Home"
-        }
-      },
-      "c_hero_img_TGLpf8": {
-        "type": "c-hero-img",
-        "settings": {
-          "image": "shopify://shop_images/242A6894_1_1.jpg",
-          "heading": "Safer. Softer. Better Protection.",
-          "heading_color": "#ffffff",
-          "heading_weight": "normal",
-          "heading_icon_size": 36,
-          "description": "",
-          "description_color": "#ffffff",
-          "button_icon": "shopify://shop_images/Vector_3.png",
-          "button_icon_size": 24,
-          "button_text_icon": "shopify://shop_images/Group_26613.svg",
-          "button_text_icon_size": 24,
-          "banner_height_desktop": "700",
-          "banner_height_mobile": "300",
-          "description_icon_size": 36,
-          "button_label": "Shop Skin Shield™",
-          "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597",
-          "show_popup": false,
-          "popup__trigger": ""
-        }
-      },
-      "c_hero_text_p6zYVE": {
-        "type": "c-hero-text",
-        "settings": {
-          "title": "Safer, always",
-          "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. So, we’re committed to only using clean, non toxic, total chlorine free materials and lab testing our products to make sure.</p>",
-          "baner_button": "",
-          "baner_button_link": "",
-          "bg_color": "#6638b6",
-          "bg_size": "cover",
-          "image_alignment_x": "center",
-          "image_alignment_y": "middle",
-          "text_position-x": "center",
-          "text_position-y": "center",
-          "text_alignment": "center",
-          "title_font_size": 48,
-          "title_font_size_mobile": 36,
-          "title_color": "#ffffff",
-          "subtitle_font_size": 18,
-          "subtitle_font_size_mobile": 16,
-          "text_color": "#ffffff",
-          "padding_desktop": 40,
-          "padding_mobile": 20,
-          "banner_text_width": "760",
-          "banner_height_desktop": "572",
-          "banner_height_mobile": "450"
-        }
-      },
-      "c_product_features_AjpaFw": {
-        "type": "c-product-features",
-        "blocks": {
-          "logo_block_CwzVij": {
-            "type": "logo_block",
-            "settings": {
-              "logo_svg": "",
-              "logo_text": "Skin safe"
-            }
-          },
-          "logo_block_wMzMJW": {
-            "type": "logo_block",
-            "settings": {
-              "logo_svg": "",
-              "logo_text": "Total Chlorine Free"
-            }
-          },
-          "logo_block_3KHCn9": {
-            "type": "logo_block",
-            "settings": {
-              "logo_svg": "",
-              "logo_text": "Independently lab tested"
-            }
-          }
-        },
-        "block_order": [
-          "logo_block_CwzVij",
-          "logo_block_wMzMJW",
-          "logo_block_3KHCn9"
-        ],
-        "name": "Logo Feature Blocks",
-        "settings": {
-          "main_text": "All our products are",
-          "additional_text": ""
-        }
-      },
-      "c_carousel_table_ej7qhC": {
-        "type": "c-carousel-table",
-        "blocks": {
-          "content_block_DcCcd7": {
-            "type": "content_block",
-            "settings": {
-              "block_title": "Skin safe ingredients",
-              "richtext_1": "<p>Hypoallergenic, fragrance- and lotion-free materials designed for safe comfort</p>",
-              "richtext_2": "<p>Vague or incomplete ingredient lists</p>"
-            }
-          },
-          "content_block_VTMxX7": {
-            "type": "content_block",
-            "settings": {
-              "block_title": "Non-toxic",
-              "richtext_1": "<p>Free of PFAS, BPAs,  and Phthalates</p>",
-              "richtext_2": "<p>Unclear ingredient standards for potentially harmful or toxic materials</p>"
-            }
-          },
-          "content_block_wHeYmQ": {
-            "type": "content_block",
-            "settings": {
-              "block_title": "Chlorine free",
-              "richtext_1": "<p>Total Chlorine Free: no use of chlorine or chlorine derivatives</p>",
-              "richtext_2": "<p>Often made with chlorine or chlorine derivatives</p>"
-            }
-          },
-          "content_block_VnDb7Q": {
-            "type": "content_block",
-            "settings": {
-              "block_title": "Verified lab testing",
-              "richtext_1": "<p>Independently tested by third-party labs SGS and Vartest with published results</p>",
-              "richtext_2": "<p>Often not independently tested by third-party labs</p>"
-            }
-          },
-          "content_block_rJiJWB": {
-            "type": "content_block",
-            "settings": {
-              "block_title": "Chemical compound testing",
-              "richtext_1": "<p>Tested for chemicals that may be considered harmful or toxic</p>",
-              "richtext_2": "<p>No standardized testing for ingredient safety and evolving regulations </p>"
-            }
-          },
-          "content_block_y7jRe6": {
-            "type": "content_block",
-            "settings": {
-              "block_title": "EWG-Verified",
-              "richtext_1": "<p>Fully published ingredient listing available <a href=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ingredient-image.png?v=1747750424\" title=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ingredient-image.png?v=1747750424\">here</a></p>",
-              "richtext_2": "<p>Often not verified</p>"
-            }
-          }
-        },
-        "block_order": [
-          "content_block_DcCcd7",
-          "content_block_VTMxX7",
-          "content_block_wHeYmQ",
-          "content_block_VnDb7Q",
-          "content_block_rJiJWB",
-          "content_block_y7jRe6"
-        ],
-        "name": "Table Carousel",
-        "settings": {
-          "section_title": "Better choices for better diapers",
-          "logo_image": "shopify://shop_images/Vector_2.svg",
-          "other_title": "Other brands",
-          "checkmark_img": "shopify://shop_images/Vector-9.svg",
-          "cancelmark_img": "shopify://shop_images/Group-2v.svg"
-        }
-      },
-      "c_table_protection_hjC69c": {
-        "type": "c-table-protection",
-        "blocks": {
-          "content_block_n3JaMy": {
-            "type": "content_block",
-            "settings": {
-              "text_left": "Votatile Organic Components and Compounds Content",
-              "text_right": "STATUS"
-            }
-          },
-          "content_block_CpK6nE": {
-            "type": "content_block",
-            "settings": {
-              "text_left": "Organic Fluorine (PFAS)",
-              "text_right": "Not Detected"
-            }
-          },
-          "content_block_B4hQyP": {
-            "type": "content_block",
-            "settings": {
-              "text_left": "Bisphenol-A (BPA)",
-              "text_right": "Not Detected"
-            }
-          },
-          "content_block_LbfQB6": {
-            "type": "content_block",
-            "settings": {
-              "text_left": "Phthalates",
-              "text_right": "Not Detected"
-            }
-          },
-          "image_block_dEjE8i": {
-            "type": "image_block",
-            "settings": {
-              "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_1.png"
-            }
-          },
-          "image_block_GCAUbP": {
-            "type": "image_block",
-            "settings": {
-              "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_2.png"
-            }
-          },
-          "image_block_yGQYwb": {
-            "type": "image_block",
-            "settings": {
-              "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_3.png"
-            }
-          }
-        },
-        "block_order": [
-          "content_block_n3JaMy",
-          "content_block_CpK6nE",
-          "content_block_B4hQyP",
-          "content_block_LbfQB6",
-          "image_block_dEjE8i",
-          "image_block_GCAUbP",
-          "image_block_yGQYwb"
-        ],
-        "name": "Table Protection",
-        "settings": {
-          "section_title": "The results are in",
-          "section_bottom_text": "<p>Results of testing conducted by Vartest and SGS Laboratories,  independent, third-party labs, performed on Freestyle’s SkinShield™ and BambooTek™ diapers and diapers from other brands using industry standard methodology, based on size 5. Pediatrician safety reviews independently performed.</p>"
-        }
-      },
-      "c_expert_approval_KJgrEB": {
-        "type": "c-expert-approval",
-        "blocks": {
-          "expert_block_9KFXAK": {
-            "type": "expert_block",
-            "settings": {
-              "title": "Jeffrey J. Bushner",
-              "content": "<p>Lab Manager</p>"
-            }
-          },
-          "expert_block_UJeGdi": {
-            "type": "expert_block",
-            "settings": {
-              "title": "Jessica Vander Pas",
-              "content": "<p>Senior Lab Technician</p>"
-            }
-          },
-          "expert_block_dKtyth": {
-            "type": "expert_block",
-            "settings": {
-              "title": "Ragini Malika Adams, MD",
-              "content": "<p>Board-certified Pediatrician</p>"
-            }
-          },
-          "expert_block_NMRk8L": {
-            "type": "expert_block",
-            "settings": {
-              "title": "Steven J. Czinn, MD, FAAP, FACG, AGAF",
-              "content": "<p>Board-certified Pediatrician</p>"
-            }
-          }
-        },
-        "block_order": [
-          "expert_block_9KFXAK",
-          "expert_block_UJeGdi",
-          "expert_block_dKtyth",
-          "expert_block_NMRk8L"
-        ],
-        "name": "Expert Approval",
-        "settings": {
-          "section_title": "Expert Approval"
-        }
-      },
-      "c_hero_img_gKBFG4": {
-        "type": "c-hero-img",
-        "name": "Hero Image",
-        "settings": {
-          "image": "shopify://shop_images/242A6894_6.jpg",
-          "heading": "Shop Skin Shield™ <br>\nExclusively at Walmart",
-          "heading_color": "#ffffff",
-          "heading_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
-          "heading_weight": "normal",
-          "heading_icon_size": 94,
-          "description": "",
-          "description_color": "#ffffff",
-          "button_icon": "shopify://shop_images/wallmart-icon.svg",
-          "button_icon_size": 16,
-          "button_text_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
-          "button_text_icon_size": 16,
-          "banner_height_desktop": "818",
-          "banner_height_mobile": "400",
-          "description_icon_size": 36,
-          "button_label": "Shop Skin Shield™",
-          "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597",
-          "show_popup": false,
-          "popup__trigger": ""
-        }
-      },
-      "review_scroller_custom_CMUd3m": {
-        "type": "review-scroller-custom",
-        "blocks": {
-          "review_Aw7wkC": {
-            "type": "review",
-            "settings": {
-              "author_name": "@taylor.dyne",
-              "author_url": "https://www.tiktok.com/@taylor.dyne",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "\"I am literally so excited about these. They are so nice. If you are looking for a new TCF diaper and you want something more affordable...definitely check out Freestyle from Walmart.\"",
-              "review_video": "shopify://files/videos/Video.mov"
-            }
-          },
-          "review_3Briaz": {
-            "type": "review",
-            "settings": {
-              "author_name": "@cathrinmanningg",
-              "author_url": "https://www.tiktok.com/@cathrinmanningg",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "\"I still don't understand how the paper towel was completely dry!!! If you're looking for a super soft & very absorbent diaper, you need to try these Freestyle diapers!\"",
-              "review_video": "shopify://files/videos/freestyle absorbancy test final(1).mp4"
-            }
-          },
-          "review_UGacVf": {
-            "type": "review",
-            "settings": {
-              "author_name": "@megtimmons",
-              "author_url": "https://www.tiktok.com/@megtimmons",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "\"If you are not using Freestyle diapers, you need to\"",
-              "review_video": "shopify://files/videos/f638ab6e9897459186a252843e0004d2.mov"
-            }
-          },
-          "review_Pw4aDj": {
-            "type": "review",
-            "settings": {
-              "author_name": "@madipcurtis",
-              "author_url": "https://www.tiktok.com/@madipcurtis?lang=fr",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "\"This is so crazy. I see a clear winner here. Go grab a pack and try it for yourself.\"",
-              "review_video": "shopify://files/videos/IMG_0.MOV"
-            }
-          },
-          "review_hWVwfN": {
-            "type": "review",
-            "settings": {
-              "author_name": "@frowzyy",
-              "author_url": "https://www.instagram.com/frowzyy/",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "“It's the obvious choice– Freestyle diapers. No leaks, no mess, no stress. Just diapers.\"",
-              "review_video": "shopify://files/videos/KennedyAd2.mp4"
-            }
-          },
-          "review_GAyDCY": {
-            "type": "review",
-            "settings": {
-              "author_name": "@emmsab",
-              "author_url": "https://www.instagram.com/emmsab/",
-              "is_verified": false,
-              "author_handle": "",
-              "review_text": "\"That's amazing. Wow.\"",
-              "review_video": "shopify://files/videos/copy_9479F2B8-C285-4D6C-A2DA-48DEE54C16B8.MOV"
-            }
-          }
-        },
-        "block_order": [
-          "review_Aw7wkC",
-          "review_3Briaz",
-          "review_UGacVf",
-          "review_Pw4aDj",
-          "review_hWVwfN",
-          "review_GAyDCY"
-        ],
-        "settings": {
-          "title": "For parents, by parents",
-          "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
-        }
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "disabled": true,
+      "settings": {
+        "heading": "404 Page Not Found",
+        "text": "The page you are looking for does not exist.",
+        "button_label": "Go to Home"
       }
     },
-    "order": [
-      "main",
-      "c_hero_img_TGLpf8",
-      "c_hero_text_p6zYVE",
-      "c_product_features_AjpaFw",
-      "c_carousel_table_ej7qhC",
-      "c_table_protection_hjC69c",
-      "c_expert_approval_KJgrEB",
-      "c_hero_img_gKBFG4",
-      "review_scroller_custom_CMUd3m"
-    ]
-  }
-  
+    "c_hero_img_TGLpf8": {
+      "type": "c-hero-img",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_1_1.jpg",
+        "heading": "Safer. Softer. Better Protection.",
+        "heading_color": "#ffffff",
+        "heading_weight": "normal",
+        "heading_icon_size": 36,
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/Vector_3.png",
+        "button_icon_size": 24,
+        "button_text_icon": "shopify://shop_images/Group_26613.svg",
+        "button_text_icon_size": 24,
+        "banner_height_desktop": "700",
+        "banner_height_mobile": "300",
+        "description_icon_size": 36,
+        "button_label": "Shop Skin Shield™",
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597",
+        "show_popup": false,
+        "popup__trigger": ""
+      }
+    },
+    "c_hero_text_p6zYVE": {
+      "type": "c-hero-text",
+      "settings": {
+        "title": "Safer, always",
+        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. So, we’re committed to only using clean, non toxic, total chlorine free materials and lab testing our products to make sure.</p>",
+        "baner_button": "",
+        "baner_button_link": "",
+        "bg_color": "#6638b6",
+        "bg_size": "cover",
+        "image_alignment_x": "center",
+        "image_alignment_y": "middle",
+        "text_position-x": "center",
+        "text_position-y": "center",
+        "text_alignment": "center",
+        "title_font_size": 48,
+        "title_font_size_mobile": 36,
+        "title_color": "#ffffff",
+        "subtitle_font_size": 18,
+        "subtitle_font_size_mobile": 16,
+        "text_color": "#ffffff",
+        "padding_desktop": 40,
+        "padding_mobile": 20,
+        "banner_text_width": "760",
+        "banner_height_desktop": "572",
+        "banner_height_mobile": "450"
+      }
+    },
+    "c_product_features_AjpaFw": {
+      "type": "c-product-features",
+      "blocks": {
+        "logo_block_CwzVij": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "",
+            "logo_text": "Skin safe"
+          }
+        },
+        "logo_block_wMzMJW": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "",
+            "logo_text": "Total Chlorine Free"
+          }
+        },
+        "logo_block_3KHCn9": {
+          "type": "logo_block",
+          "settings": {
+            "logo_svg": "",
+            "logo_text": "Independently lab tested"
+          }
+        }
+      },
+      "block_order": [
+        "logo_block_CwzVij",
+        "logo_block_wMzMJW",
+        "logo_block_3KHCn9"
+      ],
+      "name": "Logo Feature Blocks",
+      "settings": {
+        "main_text": "All our products are",
+        "additional_text": ""
+      }
+    },
+    "c_carousel_table_ej7qhC": {
+      "type": "c-carousel-table",
+      "blocks": {
+        "content_block_DcCcd7": {
+          "type": "content_block",
+          "settings": {
+            "block_title": "Skin safe ingredients",
+            "richtext_1": "<p>Hypoallergenic, fragrance- and lotion-free materials designed for safe comfort</p>",
+            "richtext_2": "<p>Vague or incomplete ingredient lists</p>"
+          }
+        },
+        "content_block_VTMxX7": {
+          "type": "content_block",
+          "settings": {
+            "block_title": "Non-toxic",
+            "richtext_1": "<p>Free of PFAS, BPAs,  and Phthalates</p>",
+            "richtext_2": "<p>Unclear ingredient standards for potentially harmful or toxic materials</p>"
+          }
+        },
+        "content_block_wHeYmQ": {
+          "type": "content_block",
+          "settings": {
+            "block_title": "Chlorine free",
+            "richtext_1": "<p>Total Chlorine Free: no use of chlorine or chlorine derivatives</p>",
+            "richtext_2": "<p>Often made with chlorine or chlorine derivatives</p>"
+          }
+        },
+        "content_block_VnDb7Q": {
+          "type": "content_block",
+          "settings": {
+            "block_title": "Verified lab testing",
+            "richtext_1": "<p>Independently tested by third-party labs SGS and Vartest with published results</p>",
+            "richtext_2": "<p>Often not independently tested by third-party labs</p>"
+          }
+        },
+        "content_block_rJiJWB": {
+          "type": "content_block",
+          "settings": {
+            "block_title": "Chemical compound testing",
+            "richtext_1": "<p>Tested for chemicals that may be considered harmful or toxic</p>",
+            "richtext_2": "<p>No standardized testing for ingredient safety and evolving regulations </p>"
+          }
+        },
+        "content_block_y7jRe6": {
+          "type": "content_block",
+          "settings": {
+            "block_title": "EWG-Verified®",
+            "richtext_1": "<p>Fully published ingredient listing available <a href=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ingredient-image.png?v=1747750424\" title=\"https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ingredient-image.png?v=1747750424\">here</a></p>",
+            "richtext_2": "<p>Often not verified</p>"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_DcCcd7",
+        "content_block_VTMxX7",
+        "content_block_wHeYmQ",
+        "content_block_VnDb7Q",
+        "content_block_rJiJWB",
+        "content_block_y7jRe6"
+      ],
+      "name": "Table Carousel",
+      "settings": {
+        "section_title": "Better choices for better diapers",
+        "logo_image": "shopify://shop_images/Vector_2.svg",
+        "other_title": "Other brands",
+        "checkmark_img": "shopify://shop_images/Vector-9.svg",
+        "cancelmark_img": "shopify://shop_images/Group-2v.svg"
+      }
+    },
+    "c_table_protection_hjC69c": {
+      "type": "c-table-protection",
+      "blocks": {
+        "content_block_n3JaMy": {
+          "type": "content_block",
+          "settings": {
+            "text_left": "Votatile Organic Components and Compounds Content",
+            "text_right": "STATUS"
+          }
+        },
+        "content_block_CpK6nE": {
+          "type": "content_block",
+          "settings": {
+            "text_left": "Organic Fluorine (PFAS)",
+            "text_right": "Not Detected"
+          }
+        },
+        "content_block_B4hQyP": {
+          "type": "content_block",
+          "settings": {
+            "text_left": "Bisphenol-A (BPA)",
+            "text_right": "Not Detected"
+          }
+        },
+        "content_block_LbfQB6": {
+          "type": "content_block",
+          "settings": {
+            "text_left": "Phthalates",
+            "text_right": "Not Detected"
+          }
+        },
+        "image_block_dEjE8i": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_1.png"
+          }
+        },
+        "image_block_GCAUbP": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_2.png"
+          }
+        },
+        "image_block_yGQYwb": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_3.png"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_n3JaMy",
+        "content_block_CpK6nE",
+        "content_block_B4hQyP",
+        "content_block_LbfQB6",
+        "image_block_dEjE8i",
+        "image_block_GCAUbP",
+        "image_block_yGQYwb"
+      ],
+      "name": "Table Protection",
+      "settings": {
+        "section_title": "The results are in",
+        "section_bottom_text": "<p>Results of testing conducted by Vartest and SGS Laboratories,  independent, third-party labs, performed on Freestyle’s SkinShield™ and BambooTek™ diapers and diapers from other brands using industry standard methodology, based on size 5. Pediatrician safety reviews independently performed.</p>"
+      }
+    },
+    "c_expert_approval_KJgrEB": {
+      "type": "c-expert-approval",
+      "blocks": {
+        "expert_block_9KFXAK": {
+          "type": "expert_block",
+          "settings": {
+            "title": "Jeffrey J. Bushner",
+            "content": "<p>Lab Manager</p>"
+          }
+        },
+        "expert_block_UJeGdi": {
+          "type": "expert_block",
+          "settings": {
+            "title": "Jessica Vander Pas",
+            "content": "<p>Senior Lab Technician</p>"
+          }
+        },
+        "expert_block_dKtyth": {
+          "type": "expert_block",
+          "settings": {
+            "title": "Ragini Malika Adams, MD",
+            "content": "<p>Board-certified Pediatrician</p>"
+          }
+        },
+        "expert_block_NMRk8L": {
+          "type": "expert_block",
+          "settings": {
+            "title": "Steven J. Czinn, MD, FAAP, FACG, AGAF",
+            "content": "<p>Board-certified Pediatrician</p>"
+          }
+        }
+      },
+      "block_order": [
+        "expert_block_9KFXAK",
+        "expert_block_UJeGdi",
+        "expert_block_dKtyth",
+        "expert_block_NMRk8L"
+      ],
+      "name": "Expert Approval",
+      "settings": {
+        "section_title": "Expert Approval"
+      }
+    },
+    "c_hero_img_gKBFG4": {
+      "type": "c-hero-img",
+      "name": "Hero Image",
+      "settings": {
+        "image": "shopify://shop_images/242A6894_6.jpg",
+        "heading": "Shop Skin Shield™ <br>\nExclusively at Walmart",
+        "heading_color": "#ffffff",
+        "heading_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
+        "heading_weight": "normal",
+        "heading_icon_size": 94,
+        "description": "",
+        "description_color": "#ffffff",
+        "button_icon": "shopify://shop_images/wallmart-icon.svg",
+        "button_icon_size": 16,
+        "button_text_icon": "shopify://shop_images/Vector_3_ad6f0543-bcfe-467a-8de3-60f5813853ff.png",
+        "button_text_icon_size": 16,
+        "banner_height_desktop": "818",
+        "banner_height_mobile": "400",
+        "description_icon_size": 36,
+        "button_label": "Shop Skin Shield™",
+        "button_link": "https://www.walmart.com/ip/Freestyle-Diaper-Size-4-48CT/13932710597",
+        "show_popup": false,
+        "popup__trigger": ""
+      }
+    },
+    "review_scroller_custom_CMUd3m": {
+      "type": "review-scroller-custom",
+      "blocks": {
+        "review_Aw7wkC": {
+          "type": "review",
+          "settings": {
+            "author_name": "@taylor.dyne",
+            "author_url": "https://www.tiktok.com/@taylor.dyne",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"I am literally so excited about these. They are so nice. If you are looking for a new TCF diaper and you want something more affordable...definitely check out Freestyle from Walmart.\"",
+            "review_video": "shopify://files/videos/Video.mov"
+          }
+        },
+        "review_3Briaz": {
+          "type": "review",
+          "settings": {
+            "author_name": "@cathrinmanningg",
+            "author_url": "https://www.tiktok.com/@cathrinmanningg",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"I still don't understand how the paper towel was completely dry!!! If you're looking for a super soft & very absorbent diaper, you need to try these Freestyle diapers!\"",
+            "review_video": "shopify://files/videos/freestyle absorbancy test final(1).mp4"
+          }
+        },
+        "review_UGacVf": {
+          "type": "review",
+          "settings": {
+            "author_name": "@megtimmons",
+            "author_url": "https://www.tiktok.com/@megtimmons",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"If you are not using Freestyle diapers, you need to\"",
+            "review_video": "shopify://files/videos/f638ab6e9897459186a252843e0004d2.mov"
+          }
+        },
+        "review_Pw4aDj": {
+          "type": "review",
+          "settings": {
+            "author_name": "@madipcurtis",
+            "author_url": "https://www.tiktok.com/@madipcurtis?lang=fr",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"This is so crazy. I see a clear winner here. Go grab a pack and try it for yourself.\"",
+            "review_video": "shopify://files/videos/IMG_0.MOV"
+          }
+        },
+        "review_hWVwfN": {
+          "type": "review",
+          "settings": {
+            "author_name": "@frowzyy",
+            "author_url": "https://www.instagram.com/frowzyy/",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "“It's the obvious choice– Freestyle diapers. No leaks, no mess, no stress. Just diapers.\"",
+            "review_video": "shopify://files/videos/KennedyAd2.mp4"
+          }
+        },
+        "review_GAyDCY": {
+          "type": "review",
+          "settings": {
+            "author_name": "@emmsab",
+            "author_url": "https://www.instagram.com/emmsab/",
+            "is_verified": false,
+            "author_handle": "",
+            "review_text": "\"That's amazing. Wow.\"",
+            "review_video": "shopify://files/videos/copy_9479F2B8-C285-4D6C-A2DA-48DEE54C16B8.MOV"
+          }
+        }
+      },
+      "block_order": [
+        "review_Aw7wkC",
+        "review_3Briaz",
+        "review_UGacVf",
+        "review_Pw4aDj",
+        "review_hWVwfN",
+        "review_GAyDCY"
+      ],
+      "settings": {
+        "title": "For parents, by parents",
+        "subtitle": "Don’t just trust us. Hear from our community  why they love and trust Freestyle."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "c_hero_img_TGLpf8",
+    "c_hero_text_p6zYVE",
+    "c_product_features_AjpaFw",
+    "c_carousel_table_ej7qhC",
+    "c_table_protection_hjC69c",
+    "c_expert_approval_KJgrEB",
+    "c_hero_img_gKBFG4",
+    "review_scroller_custom_CMUd3m"
+  ]
+}
