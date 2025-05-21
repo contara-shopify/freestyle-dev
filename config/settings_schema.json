@@ -69,6 +69,11 @@
         "type": "link_list",
         "id": "header_menu_2",
         "label": "Header Menu Mobile"
+      },
+      {
+        "type": "link_list",
+        "id": "social_media_menu",
+        "label": "Social Media Menu"
       }
     ]
   },

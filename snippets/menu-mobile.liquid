@@ -1,3 +1,8 @@
+{% capture skinShieldTM %}
+    <span class="text-black hover:text-[#6638B7] font-grotesk font-normal">
+        Skin<img src="/cdn/shop/files/heart-violet.svg?v=1744996668&amp;width=100" alt="" srcset="/cdn/shop/files/heart-violet.svg?v=1744996668&amp;width=100 100w" width="100" height="84" class="w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]">Shield Diapers<sup class="text-[#6638B6]">NEW</sup>
+      </span>
+{% endcapture %}
 <div
   x-data="menuMobile"
   class=""
@@ -300,7 +305,11 @@
                   <a
                     href="{{ link.url }}"
                     class="text-black-content hover:text-color_1 text-base font-normal">
-                    {{ link.title | replace: '[bamboo]', bamboo_icon | replace: '[heart]', heart_icon }}
+                    {% if link.title contains 'skin_shield' %}
+                      {{ skinShieldTM }}
+                    {% else %}
+                      {{ link.title | replace: '[bamboo]', bamboo_icon | replace: '[heart]', heart_icon }}
+                    {% endif %}
                   </a>
                 {% endif %}
               </li>
@@ -308,6 +317,17 @@
           </ul>
         </div>
         <div class="px-12">
+          {% if settings.social_media_menu != blank %}
+            <ul class="nav-social grid grid-cols-2 gap-8">
+              {% for link in settings.social_media_menu.links %}
+                <li>
+                  <a href="{{ link.url }}" class="" target="_blank">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
           <a
             href="/apps/retextion#/login"
             class="text-color_1 flex hover:scale-110 hidden"
