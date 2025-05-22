@@ -1,6 +1,6 @@
 {% capture skinShieldTM %}
     <span class="text-black hover:text-[#6638B7] font-grotesk font-normal">
-        Skin<img src="/cdn/shop/files/heart-violet.svg?v=1744996668&amp;width=100" alt="" srcset="/cdn/shop/files/heart-violet.svg?v=1744996668&amp;width=100 100w" width="100" height="84" class="w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]">Shield Diapers<sup class="text-[#6638B6]">NEW</sup>
+        Skin<img src="/cdn/shop/files/heart-violet.svg?v=1744996668&amp;width=100" alt="" srcset="/cdn/shop/files/heart-violet.svg?v=1744996668&amp;width=100 100w" width="100" height="84" class="w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]">Shield Diapers<sup class="text-[#6638B6] text-[12px] ml-[0.1rem]">NEW</sup>
       </span>
 {% endcapture %}
 <div
@@ -189,7 +189,7 @@
           <ul
             class="flex flex-col">
             {% for link in menuItemsSecond %}
-              <li class="py-4 px-12 flex items-center">
+              <li class="py-6 md:py-9 px-12 flex items-center">
                 {% if link.links.size > 0 %}
                   <button
                     @click="openSubmenu('{{ link.handle }}')"
@@ -232,7 +232,7 @@
                     </div>
                     <ul class="flex flex-col">
                       {% for child_link in link.links %}
-                        <li class="py-4 px-8 flex items-center {% if child_link.links.size > 0 %}border-b{% endif %}">
+                        <li class="py-8 px-8 flex items-center {% if child_link.links.size > 0 %}border-b{% endif %}">
                           {% if child_link.links.size > 0 %}
                             <button
                               @click="openSubmenu('{{ child_link.handle }}')"
@@ -304,7 +304,7 @@
                 {% assign heart_icon = settings['heart_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]' %}
                   <a
                     href="{{ link.url }}"
-                    class="text-black-content hover:text-color_1 text-base font-normal">
+                    class="text-black-content hover:text-color_1 text-[20px] md:text-[34px] font-normal">
                     {% if link.title contains 'skin_shield' %}
                       {{ skinShieldTM }}
                     {% else %}

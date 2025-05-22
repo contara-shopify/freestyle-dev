@@ -1,5 +1,5 @@
 .b-modal {
-
+    z-index: 999;
   &__close {
     position: absolute;
     top: 1.5rem;
@@ -29,5 +29,10 @@
     &.m-full {
       max-width: 90%;
     }
+  }
+
+  &__content {
+    max-height: 60vh;
+    overflow-y: auto;
   }
 }
