@@ -190,7 +190,7 @@
         "text_Mgmdew": {
           "type": "text",
           "settings": {
-            "padding": 40,
+            "padding": 80,
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
@@ -203,7 +203,7 @@
         "text_wTUQNR": {
           "type": "text",
           "settings": {
-            "padding": 40,
+            "padding": 80,
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
