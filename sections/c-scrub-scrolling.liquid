@@ -38,6 +38,13 @@
               {% endif %}
           }
 
+          @media (min-width: 768px) {
+            #scrub-scrolling__text-{{ block.id }} {
+              padding-top: 44rem;
+              padding-bottom: 44rem;
+            }
+          }
+
           .scrub-scrolling .button span {
             background-image: url({{ section.settings.button_icon | img_url: 'master' }});
           }
@@ -49,6 +56,13 @@
           @media (max-width: 768px) {
             #scrub-scrolling__text-{{ block.id }} {
               padding: {{ block.settings.padding | divided_by: 2 }}px;
+            }
+               #scrub-scrolling__text-{{ block.id }} {
+              padding-top: 74rem;
+              padding-bottom: 74rem;
+            }
+            .scrub-scrolling__video {
+              top: 30%;
             }
           }
         </style>
