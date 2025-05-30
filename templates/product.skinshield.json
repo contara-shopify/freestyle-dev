@@ -98,7 +98,7 @@
           "type": "accordion_item",
           "settings": {
             "title": "Lab-tested non-toxic ingredients",
-            "content": "<p>The Freestyle Formula<br/><br/>All Freestyle diapers are Total Chlorine Free. <br/><br/>The core of this diaper is made with our proprietary SAP Matrix (Super Absorbent Polymers and Cotton) and FSC Certified Total Chlorine Free Wood Pulp. The Topsheet, Backsheet, Leakguard, and Films are made with Performance-Driven Nonwoven Fabrics (Polyester, Polyethylene, and Polypropylene). Elastics (Spandex, Polypropylene, Polyethylene) and adhesives (Hydrocarbon Resin) are used to hold it all together - and we mean all.<br/><br/>Read more about our safety and testing <a href=\"/pages/safety-and-testing\" target=\"_blank\" title=\"Safety and Testing\">here</a>.</p>"
+            "content": "<p>The Freestyle Formula<br/><br/>All Freestyle diapers are Total Chlorine Free. <br/><br/>The core of this diaper is made with our proprietary SAP Matrix (super absorbent polymers (sodium acrylate, silicon dioxide, polyacrylic acid, water)) and FSC Certified Total Chlorine Free wood pulp (cellulose, hemicellulose). The topsheet, backsheet, leakguard, and films are made with performance-driven nonwoven fabrics (polypropylene, polyethylene terephthalate, polythene, titanium dioxide, nylon and polyester, sodium dodecylbenzenesulfonate). Elastics (polypropylene, segmented polyurethaneurea, titanium dioxide) and adhesives (hydrocarbon resin, styrene-Isoprene-styrene copolymer, mineral oil, petroleum resin, rosin ester) are used to hold it all together - and we mean all.<br/><br/>Read more about our safety and testing <a href=\"/pages/safety-and-testing\" target=\"_blank\" title=\"Safety and Testing\">here</a>.</p>"
           }
         },
         "accordion_item_QDWeYg": {
@@ -189,7 +189,7 @@
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Safer, for longer, than anything else",
+            "title": "Safer, for longer, than leading brands",
             "text": "<p>Our lab-tested diapers are made from clean, </p><p>non-toxic, total-chlorine-free materials.</p>",
             "button_text": "Our safety standards",
             "button_url": "shopify://pages/safety-and-testing"
@@ -217,6 +217,7 @@
         "text_Mgmdew",
         "text_wTUQNR"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-weight: 400;}"
       ],
