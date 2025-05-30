@@ -143,11 +143,6 @@
         "additional_text": "*up to 14x better absorption than leading brands"
       }
     },
-    "video_scroll_d4i3BU": {
-      "type": "video-scroll",
-      "disabled": true,
-      "settings": {}
-    },
     "c_scrub_scrolling_dke3Md": {
       "type": "c-scrub-scrolling",
       "blocks": {
@@ -190,11 +185,11 @@
         "text_Mgmdew": {
           "type": "text",
           "settings": {
-            "padding": 40,
+            "padding": 80,
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
-            "title": "Safer, for longer, than anything else",
+            "title": "Safer, for longer, than leading brands",
             "text": "<p>Our lab-tested diapers are made from clean, </p><p>non-toxic, Total Chlorine Free materials.</p>",
             "button_text": "Our safety standards",
             "button_url": "https://freestyle.world/pages/safety-and-testing"
@@ -203,7 +198,7 @@
         "text_wTUQNR": {
           "type": "text",
           "settings": {
-            "padding": 40,
+            "padding": 80,
             "text_vertical": "start",
             "horizontal_position": "start",
             "text_color": "#020617",
@@ -222,6 +217,7 @@
         "text_Mgmdew",
         "text_wTUQNR"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-weight: 400;}"
       ],
@@ -345,7 +341,6 @@
     "c_hero_img_9HYJYd",
     "logo-section",
     "product_features",
-    "video_scroll_d4i3BU",
     "c_scrub_scrolling_dke3Md",
     "c_hero_img_3b7kXN",
     "review_scroller_custom_CMUd3m"
