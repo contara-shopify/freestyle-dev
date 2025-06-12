@@ -68,7 +68,7 @@
           "settings": {
             "image": "shopify://shop_images/242A6894_5.jpg",
             "title": "Performance Meets Design",
-            "text": "Everything in our diaper bags was due for an upgrade, so we chose innovation—rethinking how diapers should function instead of just accepting the status quo. This means the highest performing, best-in-class, considered products you can rely on every time.",
+            "text": "Everything in our diaper bags was due for an upgrade, so we chose innovation—rethinking how diapers should function instead of just accepting the status quo. This means the highest performing, best-in-class, thoughtful products you can rely on every time.",
             "enable_button": false,
             "button_text": "Learn More",
             "button_url": ""
@@ -79,7 +79,7 @@
           "settings": {
             "image": "shopify://shop_images/242A6894_6_2e79ba51-aa31-46ee-8a8b-3ea623ffb5c8.jpg",
             "title": "Safety First",
-            "text": "When it comes to our products, safety is always our number one priority. We would never sell you anything we wouldn’t feel 100% comfortable using on our kids, from clean, non toxic, and lab tested materials to superior construction and production.",
+            "text": "When it comes to our products, safety is always our number one priority. We would never sell you anything we wouldn’t feel 100% comfortable using on our kids, from clean, non-toxic, and lab tested materials to superior construction and production.",
             "enable_button": false,
             "button_text": "Learn More",
             "button_url": ""
@@ -109,7 +109,7 @@
     "c_image_aside_about_us_QpyCzL": {
       "type": "c-image-aside-about-us",
       "settings": {
-        "desktop_image": "shopify://shop_images/Founders.jpg",
+        "desktop_image": "shopify://shop_images/Freestyle_Mike_Russ.png",
         "bg_color": "#dfffda",
         "title": "Meet the team",
         "content": "Freestyle® was founded by two dads, Mike and Russ, who wanted better, cleaner, more practical kids products without the pandering, baby talk, and blowouts. Our journey started out with lots of research followed by innovation, testing, and insight-gathering. Along the way, we’ve built a community of creative parents who are also freestyling this whole parenting thing and trying to make the world a better place for the generations to come. We can’t wait for you to be part of it.",
