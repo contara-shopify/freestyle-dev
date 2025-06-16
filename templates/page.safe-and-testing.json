@@ -231,8 +231,64 @@
         "image_block_yGQYwb"
       ],
       "settings": {
-        "section_title": "The results are in",
+        "section_title": "Safe & soft protection",
         "section_bottom_text": "<p>Results of testing conducted by Vartest and SGS Laboratories,  independent, third-party labs, performed on Freestyle’s SkinShield™ and BambooTek™ diapers and diapers from other brands using industry standard methodology, based on size 5. Pediatrician safety reviews independently performed.</p>"
+      }
+    },
+    "c_table_protection_TRYJFz": {
+      "type": "c-table-protection",
+      "blocks": {
+        "content_block_fUza4y": {
+          "type": "content_block",
+          "settings": {
+            "text_left": "Diaper",
+            "text_right": "Rewet Score"
+          }
+        },
+        "content_block_9REBWz": {
+          "type": "content_block",
+          "settings": {
+            "text_left": "Freestyle SkinShield™",
+            "text_right": "0.033"
+          }
+        },
+        "content_block_bRdcHr": {
+          "type": "content_block",
+          "settings": {
+            "text_left": "Another leading brand",
+            "text_right": "0.462"
+          }
+        },
+        "image_block_tYWqiQ": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_1.png"
+          }
+        },
+        "image_block_afmmDk": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_2.png"
+          }
+        },
+        "image_block_DWYhtd": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_3.png"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_fUza4y",
+        "content_block_9REBWz",
+        "content_block_bRdcHr",
+        "image_block_tYWqiQ",
+        "image_block_afmmDk",
+        "image_block_DWYhtd"
+      ],
+      "settings": {
+        "section_title": "The results are in",
+        "section_bottom_text": "<p>SkinShield™ diapers absorb up to 14x better than a leading brand. Here’s how we measured that: We tested how well our SkinShield™ diaper holds onto moisture using an industry standard method called a rewet test. This test measures how much liquid comes back to the surface after the diaper has absorbed it and is put under pressure, in other words, how well the diaper keeps wetness away from your baby’s skin after absorbing it. A lower rewet score means drier skin. Testing was conducted in 2025 by SGS Laboratories, an independent, third-party lab.</p>"
       }
     },
     "c_expert_approval_KJgrEB": {
@@ -248,8 +304,8 @@
         "expert_block_UJeGdi": {
           "type": "expert_block",
           "settings": {
-            "title": "Jessica Vander Pas",
-            "content": "<p>Senior Lab Technician</p>"
+            "title": "Jessica Vander Pas & Donni Fuller",
+            "content": "<p>Senior Lab Technician & Lab Technician</p>"
           }
         },
         "expert_block_dKtyth": {
@@ -392,6 +448,7 @@
     "c_product_features_AjpaFw",
     "c_carousel_table_ej7qhC",
     "c_table_protection_hjC69c",
+    "c_table_protection_TRYJFz",
     "c_expert_approval_KJgrEB",
     "c_hero_img_gKBFG4",
     "review_scroller_custom_CMUd3m"
