@@ -205,19 +205,19 @@
         "image_block_dEjE8i": {
           "type": "image_block",
           "settings": {
-            "logo_image": "shopify://shop_images/FREESTYLE_Laboratories-SGS.svg"
+            "logo_image": "shopify://shop_images/FREESTYLE_Laboratories-SGS.png"
           }
         },
         "image_block_GCAUbP": {
           "type": "image_block",
           "settings": {
-            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_2.png"
+            "logo_image": "shopify://shop_images/FREESTYLE_Laboratories_ILAC-MRA.png"
           }
         },
         "image_block_yGQYwb": {
           "type": "image_block",
           "settings": {
-            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_3.png"
+            "logo_image": "shopify://shop_images/FREESTYLE_Laboratories-DAKKS.png"
           }
         }
       },
@@ -262,19 +262,7 @@
         "image_block_tYWqiQ": {
           "type": "image_block",
           "settings": {
-            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_1.png"
-          }
-        },
-        "image_block_afmmDk": {
-          "type": "image_block",
-          "settings": {
-            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_2.png"
-          }
-        },
-        "image_block_DWYhtd": {
-          "type": "image_block",
-          "settings": {
-            "logo_image": "shopify://shop_images/Screenshot_2025-03-19_at_10.50.19_3.png"
+            "logo_image": "shopify://shop_images/FREESTYLE_Laboratories-SGS.png"
           }
         }
       },
@@ -282,9 +270,7 @@
         "content_block_fUza4y",
         "content_block_9REBWz",
         "content_block_bRdcHr",
-        "image_block_tYWqiQ",
-        "image_block_afmmDk",
-        "image_block_DWYhtd"
+        "image_block_tYWqiQ"
       ],
       "settings": {
         "section_title": "The results are in",
