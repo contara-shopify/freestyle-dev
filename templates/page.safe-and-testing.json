@@ -44,8 +44,8 @@
     "c_hero_text_p6zYVE": {
       "type": "c-hero-text",
       "settings": {
-        "title": "Safer, always",
-        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. So, we’re committed to only using clean, non toxic, total chlorine free materials and lab testing our products to make sure.</p>",
+        "title": "Safer choices, always",
+        "subtitle": "<p>As parents, we know that nothing is more important than the safety of our kids. So, we’re committed to only using clean, non-toxic, Total Chlorine Free materials and lab testing our products for safety and performance to make sure.</p>",
         "baner_button": "",
         "baner_button_link": "",
         "bg_color": "#6638b6",
@@ -98,7 +98,6 @@
         "logo_block_wMzMJW",
         "logo_block_3KHCn9"
       ],
-      "name": "Logo Feature Blocks",
       "settings": {
         "main_text": "All our products are",
         "additional_text": ""
@@ -164,7 +163,6 @@
         "content_block_rJiJWB",
         "content_block_y7jRe6"
       ],
-      "name": "Table Carousel",
       "settings": {
         "section_title": "Better choices for better diapers",
         "logo_image": "shopify://shop_images/Vector_2.svg",
@@ -232,7 +230,6 @@
         "image_block_GCAUbP",
         "image_block_yGQYwb"
       ],
-      "name": "Table Protection",
       "settings": {
         "section_title": "The results are in",
         "section_bottom_text": "<p>Results of testing conducted by Vartest and SGS Laboratories,  independent, third-party labs, performed on Freestyle’s SkinShield™ and BambooTek™ diapers and diapers from other brands using industry standard methodology, based on size 5. Pediatrician safety reviews independently performed.</p>"
@@ -276,14 +273,12 @@
         "expert_block_dKtyth",
         "expert_block_NMRk8L"
       ],
-      "name": "Expert Approval",
       "settings": {
         "section_title": "Expert Approval"
       }
     },
     "c_hero_img_gKBFG4": {
       "type": "c-hero-img",
-      "name": "Hero Image",
       "settings": {
         "image": "shopify://shop_images/242A6894_6.jpg",
         "heading": "Shop Skin Shield™ <br>\nExclusively at Walmart",
