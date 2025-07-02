@@ -431,3 +431,9 @@
     border-radius: 2rem;
   }
 }
+
+@media (max-width: 970px) {
+  .product__gallery-main__inner {
+    padding-bottom: 0% !important;
+  }
+}
