@@ -283,6 +283,13 @@
         "expert_block_9KFXAK": {
           "type": "expert_block",
           "settings": {
+            "title": "EWG Verified®",
+            "content": "<p>EWG Science + Research Team</p>"
+          }
+        },
+        "expert_block_aKjGdU": {
+          "type": "expert_block",
+          "settings": {
             "title": "Jeffrey J. Bushner",
             "content": "<p>Lab Manager</p>"
           }
@@ -311,6 +318,7 @@
       },
       "block_order": [
         "expert_block_9KFXAK",
+        "expert_block_aKjGdU",
         "expert_block_UJeGdi",
         "expert_block_dKtyth",
         "expert_block_NMRk8L"
