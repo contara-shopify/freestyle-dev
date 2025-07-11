@@ -216,16 +216,18 @@
                     </label>
                   </template>
                 </div>
-                <div class="product__diapers mb-4">
-                  <span
-                    class="product__diapers-diapers"
-                    x-show="activeVariant.diapersQty"
-                    x-text="'Box Contains: ' + activeVariant.diapersQty + ' Diapers'"></span>
-                  <span
-                    class="product__diapers-wipes"
-                    x-show="activeVariant.wipesQty"
-                    x-text="'Pack Contains: ' + activeVariant.wipesQty + ' Wipes'"></span>
-                </div>
+                {% if section.settings.show_product_details %}
+                  <div class="product__diapers mb-4">
+                    <span
+                      class="product__diapers-diapers"
+                      x-show="activeVariant.diapersQty"
+                      x-text="'Box Contains: ' + activeVariant.diapersQty + ' Diapers'"></span>
+                    <span
+                      class="product__diapers-wipes"
+                      x-show="activeVariant.wipesQty"
+                      x-text="'Pack Contains: ' + activeVariant.wipesQty + ' Wipes'"></span>
+                  </div>
+                {% endif %}
               </div>
 
             {% when 'accordion' %}
@@ -568,7 +570,7 @@
       "type": "product",
       "id": "extra_product_for_bambootek",
       "label": "Extra Product for Bambootek",
-      "info": "This product will be used for the Bambootek template only. It will not be displayed in the product page.",
+      "info": "This product will be used for the Bambootek template only. It will not be displayed in the product page."
     },
     {
       "type": "number",
@@ -580,6 +582,13 @@
       "type": "image_picker",
       "id": "size_chart_image",
       "label": "Size Chart Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_details",
+      "label": "Show Product Details",
+      "info": "Show the 'Box Contains' and 'Pack Contains' information below variant options",
+      "default": true
     }
   ],
   "blocks": [
