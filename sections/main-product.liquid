@@ -543,14 +543,18 @@
                 // console.log('product.variants', this.product.variants);
                 // console.log('this.variants', this.variants);
                 // console.log('this.templateName', this.templateName);
-                this.linkToShowSizeMOdal.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  window.Modal.open({
-                    title: 'Size and Pack Details',
-                    size: 'medium',
-                    content: document.querySelector('#modal-product-info')?.innerHTML || 'Dont have content',
+                
+                // Only add event listener if the element exists
+                if (this.linkToShowSizeMOdal) {
+                  this.linkToShowSizeMOdal.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.Modal.open({
+                      title: 'Size and Pack Details',
+                      size: 'medium',
+                      content: document.querySelector('#modal-product-info')?.innerHTML || 'Dont have content',
+                    });
                   });
-                });
+                }
             }
         }))
     })
