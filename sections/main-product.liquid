@@ -205,7 +205,7 @@
                             x-text="item.size > 1 ? 'packs' : 'pack'"></div>
                           <div
                             class="product__size-weight"
-                            x-show="item.weight"
+                            x-show="item.weight && {{ block.settings.show_weight | default: true }}"
                             x-text="item.weight + ' lbs'"></div>
                         </div>
                         <div
@@ -724,6 +724,13 @@
           "id": "sizes_accent_colors",
           "label": "Sizes Accent Colors",
           "info": "size - accent_color_top|accent_color_bottom"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_weight",
+          "label": "Show Weight",
+          "info": "Display the weight information for each variant",
+          "default": true
         }
       ],
       "limit": 1
