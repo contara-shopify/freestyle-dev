@@ -4,8 +4,6 @@
 {% assign blocks = section.blocks %}
 {% assign features = blocks | where: 'type', 'product_feature' %}
 {% assign accordionItems = blocks | where: 'type', 'accordion_item' %}
-{% assign variants_block = blocks | where: 'type', 'variants' | first %}
-{% assign show_weight_setting = variants_block.settings.show_weight | default: true %}
 {% assign productCurrent = product %}
 {% assign activeVariant = product.selected_or_first_available_variant %}
 {% assign product_badge = product.metafields.custom.badge_product %}
@@ -180,8 +178,7 @@
                 {% endif %}
               {% endcomment %}
             {% when 'variants' %}
-              {% assign show_weight_setting = block.settings.show_weight | default: true %}
-              <div class="product__sizes" x-show="variants.length > 1" data-show-weight="{{ show_weight_setting }}">
+              <div class="product__sizes" x-show="variants.length > 1">
                 <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
 
                 <div class="product__sizes-list mb-10">
@@ -206,10 +203,12 @@
                             class="product__size-label"
                             x-show="item.type === 'wipes'"
                             x-text="item.size > 1 ? 'packs' : 'pack'"></div>
-                          <div
-                            class="product__size-weight"
-                            x-show="item.weight && showWeight"
-                            x-text="item.weight + ' lbs'"></div>
+                          {% if block.settings.show_weight %}
+                            <div
+                              class="product__size-weight"
+                              x-show="item.weight"
+                              x-text="item.weight + ' lbs'"></div>
+                          {% endif %}
                         </div>
                         <div
                           class="product__size-price"
@@ -286,7 +285,7 @@
             templateName: '{{ template |  handleize }}',
             product: {{ productCurrent | json }},
             linkToShowSizeMOdal: false,
-            showWeight: {{ show_weight_setting | json }},
+            showWeight: true,
 
             updateSellingPlan(id) {
                 this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
