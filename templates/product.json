@@ -47,7 +47,7 @@
           "type": "cta",
           "settings": {
             "cta_type": "add_to_cart",
-            "cta_label": "Shop at Walmart.com",
+            "cta_label": "Add to cart",
             "cta_url": "#"
           }
         },
