@@ -178,7 +178,7 @@
                 {% endif %}
               {% endcomment %}
             {% when 'variants' %}
-              <div class="product__sizes" x-show="variants.length > 1">
+              <div class="product__sizes" x-show="variants.length > 1" data-show-weight="{{ block.settings.show_weight | default: true }}">
                 <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
 
                 <div class="product__sizes-list mb-10">
@@ -205,7 +205,7 @@
                             x-text="item.size > 1 ? 'packs' : 'pack'"></div>
                           <div
                             class="product__size-weight"
-                            x-show="item.weight && {{ block.settings.show_weight | default: true }}"
+                            x-show="item.weight && showWeight"
                             x-text="item.weight + ' lbs'"></div>
                         </div>
                         <div
@@ -283,6 +283,7 @@
             templateName: '{{ template |  handleize }}',
             product: {{ productCurrent | json }},
             linkToShowSizeMOdal: false,
+            showWeight: true,
 
             updateSellingPlan(id) {
                 this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
@@ -520,6 +521,13 @@
                 this.extraProductId = Number(this.$root.dataset.extraProduct);
                 this.extraProductQty = Number(this.$root.dataset.extraProductQty || 1);
                 this.paginationSlides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide');
+                
+                // Get the show weight setting from the variants block
+                const variantsBlock = document.querySelector('.product__sizes');
+                if (variantsBlock) {
+                  this.showWeight = variantsBlock.dataset.showWeight === 'true';
+                }
+                
                 this.parseSizeColors(this.sizesAccentColorsString);
                 this.setupVariants();
                 this.loading = true;
