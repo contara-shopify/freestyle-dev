@@ -15,7 +15,6 @@
   class="product"
   x-data="product"
   x-init="init"
-  data-show-weight-global="{{ show_weight_setting | default: true }}"
   {% if template contains 'bambootek' and section.settings.extra_product_for_bambootek %}
     data-extra-product="{{ all_products[section.settings.extra_product_for_bambootek].first_available_variant.id }}"
     data-extra-product-qty="{{ section.settings.extra_product_quantity }}"
@@ -287,7 +286,7 @@
             templateName: '{{ template |  handleize }}',
             product: {{ productCurrent | json }},
             linkToShowSizeMOdal: false,
-            showWeight: true,
+            showWeight: {{ show_weight_setting | json }},
 
             updateSellingPlan(id) {
                 this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
@@ -526,8 +525,6 @@
                 this.extraProductQty = Number(this.$root.dataset.extraProductQty || 1);
                 this.paginationSlides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide');
                 
-                // Get the show weight setting from the root element
-                this.showWeight = this.$root.dataset.showWeightGlobal === 'true';
                 console.log('Show weight setting:', this.showWeight);
                 
                 this.parseSizeColors(this.sizesAccentColorsString);
