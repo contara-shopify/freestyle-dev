@@ -181,42 +181,59 @@
               <div class="product__sizes" x-show="variants.length > 1">
                 <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
 
-                <div class="product__sizes-list mb-10">
-                  <template x-for="item in variants" x-key="item.id">
-                    <label class="product__size">
-                      <input
-                        type="radio"
-                        :checked="item.id === activeVariant.id"
-                        name="size"
-                        :value="item.id"
-                        @change="updateActiveVariant(item.id)">
-                      <div
-                        class="product__size-content"
-                        :data-percent-off="item.compare_at_price > item.price ? percentOff(item.price, item.compare_at_price) : null">
-                        <div
-                          class="product__size-info"
-                          :style="{ backgroundColor: item.id === activeVariant.id ? item.accentTop : 'transparent' }">
-                          <div
-                            class="product__size-title"
-                            x-text="item.size"></div>
-                          <div
-                            class="product__size-label"
-                            x-show="item.type === 'wipes'"
-                            x-text="item.size > 1 ? 'packs' : 'pack'"></div>
-                          {% if block.settings.show_weight %}
-                            <div
-                              class="product__size-weight"
-                              x-show="item.weight"
-                              x-text="item.weight + ' lbs'"></div>
-                          {% endif %}
-                        </div>
-                        <div
-                          class="product__size-price"
-                          :style="{ backgroundColor: item.id === activeVariant.id ? item.accentBottom : 'transparent' }"
-                          x-text="price(item.price)"></div>
+            {% when 'variants' %}
+              <div class="product__sizes" x-show="variants.length > 1">
+                <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
+
+            {% when 'variants' %}
+              <div class="product__sizes" x-show="variants.length > 1">
+                <h4 class="product__sizes-title mb-4">{{ block.settings.title }}</h4>
+
+                <!-- Dynamic Option Selectors -->
+                <template x-for="(optionData, optionIndex) in productOptions" :key="optionIndex">
+                  <div class="product__option-group mb-6" x-show="optionData.values.length > 1">
+                    <h5 class="mb-3 font-medium" x-text="optionData.name"></h5>
+                    <div class="flex flex-wrap gap-3">
+                      <template x-for="optionValue in optionData.values" :key="optionValue">
+                        <label class="product__option">
+                          <input
+                            type="radio"
+                            :name="'option' + (optionIndex + 1)"
+                            :value="optionValue"
+                            :checked="selectedOptions[optionIndex] === optionValue"
+                            @change="updateSelectedOption(optionIndex, optionValue)"
+                            class="sr-only">
+                          <div 
+                            class="product__option-swatch px-4 py-2 border-2 rounded cursor-pointer transition-all"
+                            :class="selectedOptions[optionIndex] === optionValue ? 'border-black bg-gray-100' : 'border-gray-300 hover:border-gray-400'"
+                            x-text="optionValue">
+                          </div>
+                        </label>
+                      </template>
+                    </div>
+                  </div>
+                </template>
+
+                <!-- Variant Price Display (when final selection is made) -->
+                <div class="product__selected-variant mb-10" x-show="activeVariant">
+                  <div class="product__variant-info p-4 border rounded">
+                    <div class="flex justify-between items-center">
+                      <div>
+                        <div class="font-medium" x-text="activeVariant ? activeVariant.title : ''"></div>
+                        <div class="text-sm text-gray-600" x-show="activeVariant && activeVariant.available" x-text="'In Stock'"></div>
+                        <div class="text-sm text-red-600" x-show="activeVariant && !activeVariant.available" x-text="'Out of Stock'"></div>
+                        {% if block.settings.show_weight %}
+                          <div class="text-sm text-gray-500" x-show="activeVariant && activeVariant.weight" x-text="activeVariant.weight + ' lbs'"></div>
+                        {% endif %}
+                        <div class="text-sm text-gray-500" x-show="activeVariant && activeVariant.diapersQty" x-text="'Box Contains: ' + activeVariant.diapersQty + ' Diapers'"></div>
+                        <div class="text-sm text-gray-500" x-show="activeVariant && activeVariant.wipesQty" x-text="'Pack Contains: ' + activeVariant.wipesQty + ' Wipes'"></div>
                       </div>
-                    </label>
-                  </template>
+                      <div class="text-right">
+                        <div class="text-lg font-bold" x-text="activeVariant ? price(activeVariant.price) : ''"></div>
+                        <div class="text-sm text-gray-500 line-through" x-show="activeVariant && activeVariant.compare_at_price > activeVariant.price" x-text="activeVariant ? price(activeVariant.compare_at_price) : ''"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 {% if section.settings.show_product_details %}
                   <div class="product__diapers mb-4">
@@ -286,11 +303,90 @@
             product: {{ productCurrent | json }},
             linkToShowSizeMOdal: false,
             showWeight: true,
+            productOptions: [],
+            selectedOptions: [],
 
             updateSellingPlan(id) {
                 this.sellingPlan = this.activeVariant.selling_plan_allocations.find(item => item.id == id);
             },
-            parseDiaperInfo(str) {
+            setupProductOptions() {
+              // Extract option names and all possible values from the product
+              this.productOptions = this.product.options_with_values.map((option, index) => ({
+                name: option.name,
+                position: option.position,
+                values: option.values
+              }));
+              
+              // Initialize selected options array
+              this.selectedOptions = new Array(this.productOptions.length);
+              
+              // Set initial selections from the first available variant or first variant
+              const initialVariant = this.variants.find(v => v.available) || this.variants[0];
+              if (initialVariant) {
+                this.productOptions.forEach((option, index) => {
+                  // Get the option value from the variant
+                  const optionKey = `option${index + 1}`;
+                  this.selectedOptions[index] = initialVariant[optionKey];
+                });
+                this.activeVariant = initialVariant;
+              }
+              
+              console.log('Product options:', this.productOptions);
+              console.log('Initial selected options:', this.selectedOptions);
+            },
+
+            updateSelectedOption(optionIndex, value) {
+              // Update the selected option
+              this.selectedOptions[optionIndex] = value;
+              
+              // Find the variant that matches all selected options
+              const matchingVariant = this.variants.find(variant => {
+                return this.selectedOptions.every((selectedValue, index) => {
+                  if (selectedValue === undefined) return true; // Allow undefined options
+                  const optionKey = `option${index + 1}`;
+                  return variant[optionKey] === selectedValue;
+                });
+              });
+              
+              if (matchingVariant) {
+                this.updateActiveVariant(matchingVariant.id);
+              } else {
+                // If no exact match, find the closest match by updating subsequent options
+                this.findClosestVariant();
+              }
+            },
+
+            findClosestVariant() {
+              // Find a variant that matches the currently selected options as much as possible
+              const possibleVariants = this.variants.filter(variant => {
+                // Check if variant matches all the options we've selected so far
+                for (let i = 0; i < this.selectedOptions.length; i++) {
+                  if (this.selectedOptions[i] !== undefined) {
+                    const optionKey = `option${i + 1}`;
+                    if (variant[optionKey] !== this.selectedOptions[i]) {
+                      return false;
+                    }
+                  }
+                }
+                return true;
+              });
+              
+              // Prefer available variants
+              const availableVariant = possibleVariants.find(v => v.available);
+              const targetVariant = availableVariant || possibleVariants[0];
+              
+              if (targetVariant) {
+                // Update any undefined selected options with values from this variant
+                this.productOptions.forEach((option, index) => {
+                  if (this.selectedOptions[index] === undefined) {
+                    const optionKey = `option${index + 1}`;
+                    this.selectedOptions[index] = targetVariant[optionKey];
+                  }
+                });
+                
+                this.updateActiveVariant(targetVariant.id);
+              }
+            },
               const diaperMatch = str.match(/Size (\d+)\s*\(([\d\+\-]+)\s*lbs\)\s*-\s*(\d+)\s*diapers/i);
               const wipeMatch = str.match(/Size (\d+)\s*\((Packs?)\)\s*-\s*(\d+)\s*wipes/i);
               const simpleDiaperMatch = str.match(/Size (\d+)\s*\(([\d\+\-]+)\s*lbs\)/i);
@@ -357,11 +453,19 @@
               if (id) {
                   this.activeVariant = this.variants.find(item => item.id == id);
                   console.log('Updated active variant:', this.activeVariant);
+                  
+                  // Update selected options to match the active variant
+                  if (this.activeVariant && this.productOptions.length > 0) {
+                    this.productOptions.forEach((option, index) => {
+                      const optionKey = `option${index + 1}`;
+                      this.selectedOptions[index] = this.activeVariant[optionKey];
+                    });
+                  }
+                  
                   this.slideToSlideByDataAttribute(this.activeVariant.id);
               } else {
                   this.activeVariant = this.variants[0];
                   console.log('Set default variant:', this.activeVariant);
-                  // this.slideToSlideByDataAttribute(this.activeVariant.id);
               }
 
               if (this.templateName === 'product-bambootek') {
@@ -431,6 +535,10 @@
 
             setupVariants() {
               console.log('this.variants', this.variants);
+              
+              // Setup product options first
+              this.setupProductOptions();
+              
               if (this.templateName === 'product') {
                 this.variants.forEach(variant => {
                   variant.size = variant.title;
@@ -443,11 +551,12 @@
                 });
               } else {
                 this.variants.forEach(variant => {
-                  variant.size = Number(this.parseDiaperInfo(variant.title)?.size);
-                  variant.weight = this.parseDiaperInfo(variant.title)?.weight;
-                  variant.diapersQty = this.parseDiaperInfo(variant.title)?.diapersQty;
-                  variant.wipesQty = this.parseDiaperInfo(variant.title)?.wipesQty;
-                  variant.type = this.parseDiaperInfo(variant.title)?.type;
+                  const diaperInfo = this.parseDiaperInfo(variant.title);
+                  variant.size = Number(diaperInfo?.size);
+                  variant.weight = diaperInfo?.weight;
+                  variant.diapersQty = diaperInfo?.diapersQty;
+                  variant.wipesQty = diaperInfo?.wipesQty;
+                  variant.type = diaperInfo?.type;
                   variant.accentTop = this.sizesAccentColors.find(item => item.size == variant.size)?.accentTop;
                   variant.accentBottom = this.sizesAccentColors.find(item => item.size == variant.size)?.accentBottom;
                 });
