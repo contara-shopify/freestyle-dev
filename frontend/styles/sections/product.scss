@@ -412,6 +412,38 @@
       }
     }
   }
+
+  &__options-selector {
+    .form__label {
+      min-width: 100%;
+    }
+
+    .product-form__radios {
+
+    }
+
+    .product-form__button-option {
+      &.m-selected {
+        background-color: #6638b7;
+        color: #fff;
+      }
+    }
+  }
+
+  &__options-title {
+
+  }
+
+  &__options-list {
+
+  }
+
+  &-form__input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
 }
 
 .product__gallery-main.skeleton {

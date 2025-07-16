@@ -45,4 +45,9 @@ export default defineConfig({
     // },
     // sourcemap: false, // Enable sourcemaps
   },
+  server: {
+    cors: {
+      origin: [/^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/, 'https://freestyle-dev.myshopify.com'],
+    },
+  },
 });
