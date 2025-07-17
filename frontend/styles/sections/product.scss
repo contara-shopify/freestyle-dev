@@ -239,6 +239,18 @@
       transition: border-color 0.3s ease;
       display: flex;
       flex-direction: column;
+
+      &.m-no-size {
+        &.m-active {
+          border-color: #6638b7;
+          background-color: #DADAFF;
+          // color: #fff;
+
+          .product__size-title {
+            // color: #fff;
+          }
+        }
+      }
     }
 
     input:checked + &-content,
@@ -270,6 +282,10 @@
       font-size: 2.4rem;
       font-weight: 700;
       color: #000;
+
+      &.m-small {
+        font-size: 1.6rem;
+      }
     }
 
     &-weight {
@@ -434,11 +450,12 @@
       font-size: 2.4rem;
       font-weight: 700;
       color: #000;
-      padding: 1rem;
+      padding: 1.2rem 1rem 1rem;
 
       &.m-selected {
-        background-color: #6638b7;
-        color: #fff;
+        background-color: #DADAFF;
+        border-color: #6638b7;
+        background-color: #DADAFF;
       }
     }
   }
