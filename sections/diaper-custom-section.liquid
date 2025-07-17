@@ -1,6 +1,303 @@
+{% render 'entry' with '@/styles/sections/scrub-scrolling.scss' %}
+
+<div class="scrub-scrolling">
+  {% assign bamboo_icon = settings['bamboo_icon'] | image_url: width: 100 | image_tag: class: 'w-[1.2rem] inline-block translate-y-[-0.2rem] mx-1' %}
+  {% assign heart_icon = settings['heart_icon_white'] | image_url: width: 100 | image_tag: class: 'w-[1.6rem] inline-block translate-y-[-0.2rem] mx-[0.1rem]' %}
+  {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_url }}" target="_blank" class="button m-main">{{ section.settings.button_text | replace: '[bamboo]', bamboo_icon | replace: '[heart_white]', heart_icon }}</a>
+  {% endif %}
+  {% if section.settings.promo_text != blank %}
+    <h3 class="scrub-scrolling__promo font-grotesk text-2xl md:text-5xl">{{ section.settings.promo_text }}</h3>
+  {% endif %}
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'video' %}
+        <div class="scrub-scrolling__video">
+          <canvas id="scrollCanvas"></canvas>
+          {% if block.settings.use_keyframes %}
+            <div class="scrub-scrolling__keyframes" style="display: none;">
+              {% for i in (1..block.settings.keyframe_count) %}
+                <img
+                  src="{{ block.settings.keyframe_prefix }}{{ i }}.jpg"
+                  data-index="{{ i }}"
+                  data-total="{{ block.settings.keyframe_count }}"
+                  loading="lazy"
+                  alt="Video keyframe {{ i }}">
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% when 'text' %}
+        <style>
+          #scrub-scrolling__text-{{ block.id }} {
+              padding: {{ block.settings.padding }}px;
+              color: {{ block.settings.text_color }};
+
+              {% if block.settings.horizontal_position == 'center' %}
+                  text-align: center;
+              {% endif %}
+          }
+
+          @media (min-width: 768px) {
+            #scrub-scrolling__text-{{ block.id }} {
+              padding-top: 16rem;
+              padding-bottom: 16rem;
+            }
+          }
+
+          .scrub-scrolling .button span {
+            background-image: url({{ section.settings.button_icon | img_url: 'master' }});
+          }
+
+          .scrub-scrolling__content .button span {
+            background-image: url({{ block.settings.button_icon | img_url: 'master' }});
+          }
+
+          @media (max-width: 768px) {
+            #scrub-scrolling__text-{{ block.id }} {
+              padding: {{ block.settings.padding | divided_by: 2 }}px;
+            }
+               #scrub-scrolling__text-{{ block.id }} {
+              padding-top: 16rem;
+              padding-bottom: 16rem;
+            }
+            .scrub-scrolling__video {
+              top: 30%;
+            }
+          }
+        </style>
+
+        <div
+          class="scrub-scrolling__text font-grotesk flex items-{{ block.settings.text_vertical }} justify-{{ block.settings.horizontal_position }} font-{{ block.settings.font_weight }}"
+          id="scrub-scrolling__text-{{ block.id }}">
+          <div class="scrub-scrolling__content">
+            <h3 class="font-grotesk text-2xl md:text-5xl font-Inter md:font-normal mb-8">{{ block.settings.title }}</h3>
+            <div class="text-lg mb-8">{{ block.settings.text }}</div>
+            {% if block.settings.button_text != blank %}
+              <a href="{{ section.settings.button_url }}" target="_blank" class="button">{{ block.settings.button_text | replace: '[bamboo]', bamboo_icon | replace: '[heart_white]', heart_icon }}</a>
+            {% endif %}
+          </div>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+<script>
+    const canvas = document.getElementById('scrollCanvas');
+    const context = canvas.getContext('2d');
+    const isMobile = window.innerWidth < 768;
+    const fixedImageUrl = 'https://cdn.shopify.com/s/files/1/0616/2835/0723/files/ezgif-frame-001.webp?v=1747323261';
+
+    function setCanvasSize() {
+        if (window.innerWidth >= 768) {
+            canvas.style.width = '50%';
+            canvas.style.margin = '0 auto';
+            canvas.style.display = 'block';
+        } else {
+            canvas.style.width = '100%';
+            canvas.style.margin = '0';
+        }
+        canvas.width = window.innerWidth >= 768 ? 1080 : 360;
+        canvas.height = window.innerWidth >= 768 ? 1080 : 360;
+    }
+
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
+
+    let currentImage = new Image();
+    currentImage.src = fixedImageUrl;
+
+    function updateFrame() {
+        if (currentImage.complete) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(currentImage, 0, 0, canvas.width, canvas.height);
+        }
+        requestAnimationFrame(updateFrame);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateFrame();
+    });
+</script>
+
+<style>
+  .scrub-scrolling {
+    background-color: #DBDAFF !important;
+}
+</style>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Diaper Custom Section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_smooth_scroll",
+      "label": "Enable smooth scrolling",
+      "default": true,
+      "info": "Makes the entire page scroll more smoothly"
+    },
+    {
+      "type": "text",
+      "label": "Promo Text",
+      "id": "promo_text",
+      "default": "Your baby is perfect, now their diaper is too."
+    },
+    {
+      "type": "text",
+      "label": "Button text",
+      "id": "button_text",
+      "default": "Read More"
+    },
+    {
+      "type": "url",
+      "label": "Button URL",
+      "id": "button_url"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Video",
+      "type": "video",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "label": "Video URL (desktop)",
+          "id": "video_url"
+        },
+        {
+          "type": "text",
+          "label": "Video URL (mobile)",
+          "id": "video_url_mobile"
+        },
+        {
+          "type": "image_picker",
+          "label": "Video Sprite Image",
+          "id": "video_sprite_image"
+        },
+        {
+          "type": "image_picker",
+          "label": "Poster Image (loading placeholder)",
+          "id": "poster_image",
+          "info": "Shown while the video is loading"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_keyframes",
+          "label": "Use keyframe images instead of video",
+          "default": false,
+          "info": "Often provides smoother scrolling on mobile devices"
+        },
+        {
+          "type": "text",
+          "id": "keyframe_prefix",
+          "label": "Keyframe image URL prefix",
+          "info": "Example: '/assets/keyframe-' if your files are named keyframe-1.jpg, keyframe-2.jpg, etc.",
+          "default": "/assets/keyframe-"
+        },
+        {
+          "type": "range",
+          "id": "keyframe_count",
+          "label": "Number of keyframe images",
+          "min": 10,
+          "max": 60,
+          "step": 5,
+          "default": 30,
+          "info": "More frames = smoother animation but longer loading time"
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "type": "text",
+      "settings": [
+        {
+          "type": "range",
+          "label": "Padding",
+          "id": "padding",
+          "min": 40,
+          "max": 100,
+          "step": 1,
+          "default": 40
+        },
+        {
+          "type": "select",
+          "label": "Text vertical position",
+          "id": "text_vertical",
+          "options": [
+            {
+              "value": "start",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "end",
+              "label": "Bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "label": "Text horizontal position",
+          "id": "horizontal_position",
+          "options": [
+            {
+              "value": "start",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "end",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "label": "Text color",
+          "id": "text_color",
+          "default": "#020617"
+        },
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "title"
+        },
+        {
+          "type": "richtext",
+          "label": "Text",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "Button text",
+          "id": "button_text",
+          "default": "Read More"
+        },
+        {
+          "type": "image_picker",
+          "label": "Button Icon",
+          "id": "button_icon"
+        },
+        {
+          "type": "url",
+          "label": "Button URL",
+          "id": "button_url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Diaper Custom Section"
+    }
+  ]
+}
 {% endschema %}
