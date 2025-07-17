@@ -489,7 +489,7 @@
               this.mainSwiper.slideTo(index);
               this.mainSwiperPagination.slideTo(index);
               this.activeSlideNum = index;
-              const variantId = event.target.closest('.swiper-slide').getAttribute('data-variant-id');
+              const variantId = event.target.closest('.swiper-slide')?.getAttribute('data-variant-id');
               if (variantId !== null && variantId !== undefined && variantId !== '') {
                 console.log('slideToSlideVARIANT', variantId);
                 this.activeVariant = this.variants.find(item => item.id == variantId);
@@ -523,9 +523,9 @@
                 this.extraProductId = Number(this.$root.dataset.extraProduct);
                 this.extraProductQty = Number(this.$root.dataset.extraProductQty || 1);
                 this.paginationSlides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide');
-                
+
                 console.log('Show weight setting:', this.showWeight);
-                
+
                 this.parseSizeColors(this.sizesAccentColorsString);
                 this.setupVariants();
                 this.loading = true;
@@ -542,7 +542,7 @@
                 // console.log('product.variants', this.product.variants);
                 // console.log('this.variants', this.variants);
                 // console.log('this.templateName', this.templateName);
-                
+
                 // Only add event listener if the element exists
                 if (this.linkToShowSizeMOdal) {
                   this.linkToShowSizeMOdal.addEventListener('click', (e) => {

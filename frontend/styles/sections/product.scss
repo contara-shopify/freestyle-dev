@@ -416,6 +416,8 @@
   &__options-selector {
     .form__label {
       min-width: 100%;
+      font-weight: 500;
+
     }
 
     .product-form__radios {
@@ -423,6 +425,17 @@
     }
 
     .product-form__button-option {
+      border-radius: 1rem;
+      overflow: hidden;
+      text-align: center;
+      border: 1px solid #e3e3e3;
+      height: 100%;
+      transition: border-color 0.3s ease;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #000;
+      padding: 1rem;
+
       &.m-selected {
         background-color: #6638b7;
         color: #fff;

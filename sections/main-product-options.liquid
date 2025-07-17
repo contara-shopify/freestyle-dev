@@ -233,13 +233,15 @@
               </div>
             {% when 'options_selector' %}
               <div class="product__options-selector">
-                <h4 class="product__options-title mb-4">{{ block.settings.title }}</h4>
+                {% if block.settings.title != blank %}
+                  <h4 class="product__options-title mb-4">{{ block.settings.title }}</h4>
+                {% endif %}
                 <div class="product__options-list mb-10">
                   <variant-radios>
                     <!-- Rendering every options level -->
                     <template x-for="([key, values], index) in Object.entries(options)" :key="key">
                       <fieldset class="product-form__input">
-                        <h3 class="form__label" x-text="optionsName[index]"></h3>
+                        <h3 class="form__label" x-text="'Select ' + optionsName[index] + ':'"></h3>
                           <template x-for="value in values" :key="value">
                             <div class="product-form__radios">
                               <button
@@ -396,6 +398,12 @@
                   this.activeVariant = this.variants.find(item => item.id == id);
                   console.log('Updated active variant:', this.activeVariant);
                   this.slideToSlideByDataAttribute(this.activeVariant.id);
+
+                  if (this.activeVariant) {
+                    const activeVariant = this.variants.find(item => item.id == this.activeVariant.id);
+                    this.selectedOptions = { ...activeVariant.optionsMapped };
+                    console.log('[slideToSlide] Synced selectedOptions (via optionsMapped):', this.selectedOptions);
+                  }
               } else {
                   this.activeVariant = this.variants[0];
                   console.log('Set default variant:', this.activeVariant);
@@ -527,14 +535,37 @@
               this.mainSwiper.slideTo(index);
               this.mainSwiperPagination.slideTo(index);
               this.activeSlideNum = index;
-              const variantId = event.target.closest('.swiper-slide').getAttribute('data-variant-id');
-              if (variantId !== null && variantId !== undefined && variantId !== '') {
-                console.log('slideToSlideVARIANT', variantId);
-                this.activeVariant = this.variants.find(item => item.id == variantId);
-              } else {
-                console.log("Dont SlideToSlideVARIANT");
+              const variantId = event.target.closest('.swiper-slide')?.getAttribute('data-variant-id');
+
+
+              if (variantId) {
+                console.log('[slideToSlide] Synced selectedOptions BEFORE:', this.selectedOptions);
+
+                const foundVariant = this.variants.find(item => item.id == variantId);
+
+                if (foundVariant) {
+                  this.activeVariant = foundVariant;
+
+                  this.selectedOptions = { ...foundVariant.optionsMapped };
+
+                  console.log('[slideToSlide] Synced selectedOptions (via optionsMapped):', this.selectedOptions);
+                }
               }
-              // this.selectVariant();
+
+
+
+
+              //if (variantId !== null && variantId !== undefined && variantId !== '') {
+                //console.log('slideToSlideVARIANT', variantId);
+                //this.activeVariant = this.variants.find(item => item.id == variantId);
+                //console.log('this.activeVariant', this.activeVariant);
+              //} else {
+                //console.log("Dont SlideToSlideVARIANT");
+              //}
+
+              //this.selectVariant();
+              //console.log('this.selectedOptions', this.selectedOptions);
+
             },
             slideToSlideByDataAttribute(dataAttrValue) {
               const slides = this.$refs.mainSwiperPagination.querySelectorAll('.swiper-slide.m-variant');
@@ -644,19 +675,29 @@
               * Find and set the selected variant based on current selectedOptions
               */
               selectVariant() {
+
                 this.activeVariant = this.variants.find(v => {
                     return Object.entries(this.selectedOptions).every(([key, value]) => {
                     return v.optionsMapped[key] === value;
-                    });
+                  });
                 }) || null;
 
                 // Update the URL with the selected variant ID
                 if (this.activeVariant) {
-                    const url = new URL(window.location.href);
-                    url.searchParams.set('variant', this.activeVariant.id);
-                    window.history.replaceState({}, '', url);
-                    console.log('Selected variant:', this.activeVariant);
+
+
+                  console.log('Updating active variant:', this.activeVariant.id);
+                  this.updateActiveVariant(this.activeVariant.id);
+
+
+
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('variant', this.activeVariant.id);
+                  window.history.replaceState({}, '', url);
+                  console.log('Selected variant:', this.activeVariant);
                 }
+
+                console.log('Selecting variant based on options:', this.selectedOptions);
             },
 
             /**
