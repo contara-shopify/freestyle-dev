@@ -73,6 +73,12 @@
                     data-product-rating-count="{{ product.metafields.junip.rating_count }}"
                     data-product-rating-average="{{ product.metafields.junip.rating_average }}"> </span>{% endcomment %}
                 </div>
+                <div x-show="activeVariant" class="product__options-price">
+                  {% comment %} <p>Selected variant: <span x-text="activeVariant.title"></span></p>
+                  <p>Selected variantID: <span x-text="activeVariant.id"></span></p> {% endcomment %}
+
+                  <strong class="product__options-price_current" x-text="price(activeVariant.price)"></strong>
+                </div>
               </div>
 
             {% when 'cta' %}
@@ -267,12 +273,7 @@
                     </template>
                   </variant-radios>
                   <!-- Showed selected variant -->
-                  <div x-show="activeVariant" class="product__options-price">
-                    {% comment %} <p>Selected variant: <span x-text="activeVariant.title"></span></p>
-                    <p>Selected variantID: <span x-text="activeVariant.id"></span></p> {% endcomment %}
 
-                    Price: <strong class="product__options-price_current" x-text="price(activeVariant.price)"></strong>
-                  </div>
                 </div>
               </div>
 

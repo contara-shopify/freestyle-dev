@@ -18,10 +18,6 @@
             "alternate_title": ""
           }
         },
-        "price_TatULW": {
-          "type": "price",
-          "settings": {}
-        },
         "separator_NF3Aqz": {
           "type": "separator",
           "settings": {}
@@ -30,12 +26,12 @@
           "type": "variants",
           "disabled": true,
           "settings": {
-            "title": "Select variant:",
+            "title": "Select size:",
             "sizes_accent_colors": "1 - F3B232 | FBECA6\n2 - F9E07D | FBECA6\n3 - CBDB2A| E2E66A\n4 - 8BB6E1 | C3D6EE\n5 - AC95C7 | C4B3D7\n6 - F04C5E | F6A1B2",
             "show_weight": false
           }
         },
-        "options_selector_ck4Bxg": {
+        "options_selector_JV8GyL": {
           "type": "options_selector",
           "settings": {
             "title": ""
@@ -133,10 +129,9 @@
       },
       "block_order": [
         "title_hijtjK",
-        "price_TatULW",
         "separator_NF3Aqz",
         "variants_EBNBwP",
-        "options_selector_ck4Bxg",
+        "options_selector_JV8GyL",
         "separator_WX87Ph",
         "description_RgQkN8",
         "tags_8BMpFw",
