@@ -198,7 +198,12 @@
                           :style="{ backgroundColor: item.id === activeVariant.id ? item.accentTop : 'transparent' }">
                           <div
                             class="product__size-title"
+                            x-show="item.size"
                             x-text="item.size"></div>
+                            <div
+                              class="product__size-title m-small"
+                              x-show="!item.size && item.title"
+                              x-html="item.title.replace('/', '<br>')"></div>
                           <div
                             class="product__size-label"
                             x-show="item.type === 'wipes'"

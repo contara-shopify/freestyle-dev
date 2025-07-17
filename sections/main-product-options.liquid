@@ -267,9 +267,11 @@
                     </template>
                   </variant-radios>
                   <!-- Showed selected variant -->
-                  <div x-show="activeVariant">
-                    <p>Selected variant: <span x-text="activeVariant.title"></span></p>
-                    <p>Selected variantID: <span x-text="activeVariant.id"></span></p>
+                  <div x-show="activeVariant" class="product__options-price">
+                    {% comment %} <p>Selected variant: <span x-text="activeVariant.title"></span></p>
+                    <p>Selected variantID: <span x-text="activeVariant.id"></span></p> {% endcomment %}
+
+                    Price: <strong class="product__options-price_current" x-text="price(activeVariant.price)"></strong>
                   </div>
                 </div>
               </div>
