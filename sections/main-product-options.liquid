@@ -75,6 +75,14 @@
                 </div>
               </div>
 
+            {% when price %}
+            <div x-show="activeVariant" class="product__options-price">
+                    {% comment %} <p>Selected variant: <span x-text="activeVariant.title"></span></p>
+                    <p>Selected variantID: <span x-text="activeVariant.id"></span></p> {% endcomment %}
+
+                    Price: <strong class="product__options-price_current" x-text="price(activeVariant.price)"></strong>
+                  </div>
+
             {% when 'cta' %}
               <div class="product__cta">
                 {% if block.settings.cta_type == 'add_to_cart' %}
@@ -267,12 +275,7 @@
                     </template>
                   </variant-radios>
                   <!-- Showed selected variant -->
-                  <div x-show="activeVariant" class="product__options-price">
-                    {% comment %} <p>Selected variant: <span x-text="activeVariant.title"></span></p>
-                    <p>Selected variantID: <span x-text="activeVariant.id"></span></p> {% endcomment %}
-
-                    Price: <strong class="product__options-price_current" x-text="price(activeVariant.price)"></strong>
-                  </div>
+                  
                 </div>
               </div>
 
@@ -841,6 +844,11 @@
     {
       "type": "accordion",
       "name": "Accordion",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Price",
       "limit": 1
     },
     {
