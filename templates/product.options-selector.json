@@ -18,6 +18,10 @@
             "alternate_title": ""
           }
         },
+        "price_TatULW": {
+          "type": "price",
+          "settings": {}
+        },
         "separator_NF3Aqz": {
           "type": "separator",
           "settings": {}
@@ -129,6 +133,7 @@
       },
       "block_order": [
         "title_hijtjK",
+        "price_TatULW",
         "separator_NF3Aqz",
         "variants_EBNBwP",
         "options_selector_ck4Bxg",
