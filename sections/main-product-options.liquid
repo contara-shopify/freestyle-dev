@@ -75,14 +75,6 @@
                 </div>
               </div>
 
-            {% when price %}
-            <div x-show="activeVariant" class="product__options-price">
-                    {% comment %} <p>Selected variant: <span x-text="activeVariant.title"></span></p>
-                    <p>Selected variantID: <span x-text="activeVariant.id"></span></p> {% endcomment %}
-
-                    Price: <strong class="product__options-price_current" x-text="price(activeVariant.price)"></strong>
-                  </div>
-
             {% when 'cta' %}
               <div class="product__cta">
                 {% if block.settings.cta_type == 'add_to_cart' %}
@@ -250,6 +242,13 @@
               </div>
             {% when 'options_selector' %}
               <div class="product__options-selector">
+                <!-- Showed selected variant -->
+                  <div x-show="activeVariant" class="product__options-price">
+                    {% comment %} <p>Selected variant: <span x-text="activeVariant.title"></span></p>
+                    <p>Selected variantID: <span x-text="activeVariant.id"></span></p> {% endcomment %}
+
+                    Price: <strong class="product__options-price_current" x-text="price(activeVariant.price)"></strong>
+                  </div>
                 {% if block.settings.title != blank %}
                   <h4 class="product__options-title mb-4">{{ block.settings.title }}</h4>
                 {% endif %}
@@ -274,8 +273,6 @@
                       </fieldset>
                     </template>
                   </variant-radios>
-                  <!-- Showed selected variant -->
-                  
                 </div>
               </div>
 
@@ -844,11 +841,6 @@
     {
       "type": "accordion",
       "name": "Accordion",
-      "limit": 1
-    },
-    {
-      "type": "price",
-      "name": "Price",
       "limit": 1
     },
     {
